@@ -7,12 +7,13 @@
   },
   "scripts": {
     "clean-dist": "rm -rf ./dist",
-    "rollup": "npm run clean-dist && npm run build-styles && rollup -c",
-    "lint": "npx tsc --noEmit",
+    "rollup": "npm run clean-dist && npm run build-styles-prod && rollup -c",
+    "lint": "./node_modules/typescript/bin/tsc --noEmit",
     "test": "npm run lint && jest",
-    "build-styles": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css",
-    "storybook": "npm run build-styles && start-storybook -p 6006",
-    "build-storybook": "npm run build-styles && build-storybook"
+    "build-styles-dev": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css --watch",
+    "build-styles-prod": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css -m",
+    "storybook": "concurrently \"npm run build-styles-dev\" \"start-storybook -p 6006\"",
+    "build-storybook": "npm run build-styles-prod && build-storybook"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "autoprefixer": "^10.4.4",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
+    "concurrently": "^7.0.0",
     "jest": "^27.5.1",
     "postcss": "^8.4.12",
     "react": "^17.0.2",

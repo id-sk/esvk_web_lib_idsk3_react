@@ -2,6 +2,12 @@
 
 ## Available Scripts
 
+### Install dependencies
+
+```
+npm install
+```
+
 ### Build the library
 
 ```
