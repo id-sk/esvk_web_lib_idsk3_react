@@ -1,0 +1,5 @@
+.idea
+dist
+node_modules
+storybook-static
+src/styles/idsk3_theme.css
