@@ -1,0 +1,6 @@
+.idea
+.storybook
+.config
+node_modules/*
+src/styles
+src/stories

@@ -8,19 +8,19 @@
 npm install
 ```
 
-### Build the library
+### Format code with Prettier
 
 ```
-npm run rollup
+npm run prettier
 ```
 
-### Publish the library
+### Run linter
 
 ```
-npm publish
+npm run lint
 ```
 
-### Run tests
+### Run unit tests
 
 ```
 npm run test
@@ -36,4 +36,16 @@ npm run storybook
 
 ```
 npm run build-storybook
+```
+
+### Build the library
+
+```
+npm run rollup
+```
+
+### Publish the library
+
+```
+npm publish
 ```
