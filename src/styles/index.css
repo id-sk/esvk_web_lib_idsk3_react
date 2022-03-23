@@ -15,9 +15,30 @@
         @apply text-4xl font-black leading-tight;
     }
     h3 {
-        @apply text-2xl leading-normal;
+        @apply text-2xl font-bold leading-normal;
     }
     h4 {
-        @apply text-xl leading-relaxed;
+        @apply text-xl font-bold leading-[1.3] tracking-[.15px];
+    }
+    .subtitle, .link-l {
+        @apply text-2xl leading-normal tracking-[.15px];
+    }
+    .caption, .link-caption {
+        @apply text-xs tracking-[.4px];
+    }
+    .text-body, .link-m {
+        @apply text-[19px] leading-[28px];
+    }
+    .text-body-1, .link-s {
+        @apply text-base leading-[1.75];
+    }
+    .link-l, .link-m, .link-s, .link-caption {
+        @apply text-primary underline;
+    }
+    .text-button {
+        @apply text-base font-bold;
+    }
+    .link-l, .link-m, .link-s, .text-button {
+        @apply tracking-[.5px];
     }
 }

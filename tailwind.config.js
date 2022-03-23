@@ -94,6 +94,14 @@ module.exports = {
       },
       get 'primary-dark'() {
         return this.blue[600];
+      },
+      screens: {
+        mb: '375px',
+        tb1: '520px',
+        tb2: '730px',
+        dm1: '1120px',
+        dm2: '1440px',
+        dl: '1820px'
       }
     },
 
