@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    h1 {
+        @apply text-5xl font-black leading-[1.15];
+    }
+    h2 {
+        @apply text-4xl font-black leading-tight;
+    }
+    h3 {
+        @apply text-2xl leading-normal;
+    }
+    h4 {
+        @apply text-xl leading-relaxed;
+    }
+}
