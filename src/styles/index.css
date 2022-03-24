@@ -27,7 +27,7 @@
         @apply text-xs tracking-[.4px];
     }
     .text-body, .link-m {
-        @apply text-[19px] leading-[28px];
+        @apply text-[1.1875rem] leading-[1.75];
     }
     .text-body-1, .link-s {
         @apply text-base leading-[1.75];
