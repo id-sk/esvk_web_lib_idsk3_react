@@ -111,7 +111,8 @@ module.exports = {
         medium: '0px 12px 32px rgba(26, 26, 26, 0.24)',
         small: '0px 4px 8px rgba(26, 26, 26, 0.2)',
         dialog: '0px -8px 44px -10px rgba(0, 0, 0, 0.25)',
-        divader: '0px 10px 20px -10px rgba(26, 26, 26, 0.2)'
+        divider: '0px 10px 20px -10px rgba(26, 26, 26, 0.2)',
+        border: '0px 0px 0px 4px rgba(26, 26, 26, 0.2)'
       }
     }
   },
