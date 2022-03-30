@@ -23,31 +23,23 @@ PrimaryBasic.args = {
 export const PrimaryBasicWithIcon = Template.bind({});
 PrimaryBasicWithIcon.args = {
   label: 'Primary / Basic',
-  icon: <PlaceholderIcon />
-};
-
-export const PrimarySuccess = Template.bind({});
-PrimarySuccess.args = {
-  label: 'Primary / Success',
-  variant: 'success'
+  icon: <PlaceholderIcon />,
+  onClick: () => console.log('button clicked!')
 };
 
 export const PrimarySuccessWithIcon = Template.bind({});
 PrimarySuccessWithIcon.args = {
   label: 'Primary / Success',
   variant: 'success',
-  icon: <CheckCircle />
-};
-
-export const PrimaryWarning = Template.bind({});
-PrimaryWarning.args = {
-  label: 'Primary / Warning',
-  variant: 'warning'
+  icon: <CheckCircle />,
+  iconPosition: 'right',
+  onClick: () => console.log('button clicked!')
 };
 
 export const PrimaryWarningWithIcon = Template.bind({});
 PrimaryWarningWithIcon.args = {
   label: 'Primary / Warning',
   variant: 'warning',
-  icon: <ReportProblem />
+  icon: <ReportProblem />,
+  onClick: () => console.log('button clicked!')
 };
