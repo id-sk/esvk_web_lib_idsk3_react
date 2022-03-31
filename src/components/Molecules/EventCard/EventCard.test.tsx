@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import EventCard from './EventCard';
 
 describe('EventCard', () => {
-  test('renders the Input component', () => {
+  test('renders the EventCard component', () => {
     render(
       <EventCard color="#FFF" date={new Date()} title="test title">
         <div data-testid="wrapperChild" />

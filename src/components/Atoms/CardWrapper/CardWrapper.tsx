@@ -15,7 +15,7 @@ const CardWrapper = ({
   ...props
 }: CardWrapperProps) => {
   const cssClasses: string = classNames(
-    'relative shadow-small rounded-[0.625rem] bg-white overflow-hidden px-[0.3125rem]'
+    'relative shadow-small rounded-[0.625rem] bg-white overflow-hidden px-[0.3125rem] text-body-1'
   );
 
   return (

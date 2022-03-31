@@ -44,11 +44,13 @@ const EventCard = ({
       {...props}
     >
       <div className="text-center relative -top-1.5">
-        <p className="subtitle font-bold">{dateObject.getDate()}</p>
+        <time dateTime={dateObject.toISOString()} className="subtitle font-bold">
+          {dateObject.getDate()}
+        </time>
         <p className="caption text-neutral-800">{monthsShortcuts[dateObject.getMonth()]}</p>
       </div>
       <div>
-        <div className="text-body-1 font-bold">{title}</div>
+        <div className="font-bold">{title}</div>
         {children}
       </div>
     </CardWrapper>
