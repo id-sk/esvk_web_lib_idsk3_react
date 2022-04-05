@@ -1,10 +1,7 @@
 {
-  "name": "esvk_web_idsk_react_library",
+  "name": "@eslovensko/idsk-react",
   "version": "1.0.0",
   "description": "React native components for IDSK 3.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/YOUR_GITHUB_USERNAME"
-  },
   "scripts": {
     "clean-dist": "rm -rf ./dist",
     "rollup": "npm run clean-dist && npm run build-styles-prod && rollup -c",
