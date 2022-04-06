@@ -11,7 +11,8 @@
     "build-styles-dev": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css --watch",
     "build-styles-prod": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css -m",
     "storybook": "concurrently \"npm run build-styles-dev\" \"start-storybook -p 6006\"",
-    "build-storybook": "npm run build-styles-prod && build-storybook"
+    "build-storybook": "npm run build-styles-prod && build-storybook",
+    "deploy": "npm run rollup && npm publish"
   },
   "repository": {
     "type": "git",

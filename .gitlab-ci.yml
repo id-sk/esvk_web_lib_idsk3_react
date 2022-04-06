@@ -39,4 +39,4 @@ deploy:
   only:
     - develop
   script:
-    - npm publish
+    - npm run deploy
