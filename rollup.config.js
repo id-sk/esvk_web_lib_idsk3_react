@@ -2,27 +2,31 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import copy from "rollup-plugin-copy";
-import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { getFiles } from './scripts/buildUtils';
 
 const packageJson = require("./package.json");
 
+const extensions = ['.ts', '.tsx'];
+const excludedExtensions = ['.test.ts', '.test.tsx'];
+
 export default [
   {
-    input: "src/index.ts",
-    output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
+    input: [
+      './src/index.ts',
+      ...getFiles('./src/components/Atoms', extensions, excludedExtensions),
+      ...getFiles('./src/components/Molecules', extensions, excludedExtensions),
+      ...getFiles('./src/components/Organisms', extensions, excludedExtensions),
+      ...getFiles('./src/components/Templates', extensions, excludedExtensions),
     ],
+    output: {
+      dir: 'dist',
+      format: 'esm',
+      preserveModules: true,
+      preserveModulesRoot: 'src',
+      sourcemap: false,
+    },
     plugins: [
       peerDepsExternal(),
       resolve(),
@@ -34,7 +38,9 @@ export default [
           // Exclude story files
           /\.stories.((js|jsx|ts|tsx|mdx))$/,
         ],
-        tsconfig: "./tsconfig.json"
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: 'dist',
       }),
       terser(),
       copy({
@@ -43,10 +49,5 @@ export default [
         ]
       })
     ],
-  },
-  {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
   },
 ];
