@@ -21,4 +21,11 @@ describe('Input', () => {
     fireEvent.change(input, { target: { value: 'Good Day' } });
     expect(testValue).toBe('Good Day');
   });
+
+  test('calls the onClick function when action button clicked', () => {
+    const mockActionClick = jest.fn();
+    render(<Input actionButton={{ label: 'Test Action', onClick: mockActionClick }} />);
+    fireEvent.click(screen.getByText('Test Action'));
+    expect(mockActionClick).toHaveBeenCalled();
+  });
 });

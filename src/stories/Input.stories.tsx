@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Input from '../components/Atoms/Input';
+import { PlaceholderIcon } from '../components/Icons';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -15,6 +16,24 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder'
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  placeholder: 'Placeholder',
+  icon: <PlaceholderIcon />
+};
+
+export const WithIconAndAction = Template.bind({});
+WithIconAndAction.args = {
+  placeholder: 'Placeholder',
+  icon: <PlaceholderIcon />,
+  actionButton: {
+    label: 'Action',
+    onClick: () => {
+      console.log('Action button clicked!');
+    }
+  }
 };
 
 export const WithLabel = Template.bind({});
