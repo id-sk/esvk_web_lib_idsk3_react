@@ -16,6 +16,7 @@ export default [
     input: [
       './src/index.ts',
       ...getFiles('./src/components/Atoms', extensions, excludedExtensions),
+      ...getFiles('./src/components/Icons', extensions, excludedExtensions),
       ...getFiles('./src/components/Molecules', extensions, excludedExtensions),
       ...getFiles('./src/components/Organisms', extensions, excludedExtensions),
       ...getFiles('./src/components/Templates', extensions, excludedExtensions),

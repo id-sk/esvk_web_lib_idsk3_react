@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PrimaryButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
 import { PlaceholderIcon } from '../components/Icons';
-import { CheckCircle, ReportProblem } from '../components/Icons/Actions';
+import { CheckCircleIcon, ReportProblemIcon } from '../components/Icons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -31,7 +31,7 @@ export const PrimarySuccessWithIcon = Template.bind({});
 PrimarySuccessWithIcon.args = {
   label: 'Primary / Success',
   variant: 'success',
-  icon: <CheckCircle />,
+  icon: <CheckCircleIcon />,
   iconPosition: 'right',
   onClick: () => console.log('button clicked!')
 };
@@ -40,6 +40,6 @@ export const PrimaryWarningWithIcon = Template.bind({});
 PrimaryWarningWithIcon.args = {
   label: 'Primary / Warning',
   variant: 'warning',
-  icon: <ReportProblem />,
+  icon: <ReportProblemIcon />,
   onClick: () => console.log('button clicked!')
 };

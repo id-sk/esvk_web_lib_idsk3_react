@@ -8,5 +8,5 @@ These React icons can then be easily used in other React components.
 Place the svg icons into `src/assets/svgIcons` folder and then run this script to generate React icons:
 
 ```
-npx @svgr/cli --out-dir src/components/Icons --replace-attr-values #000=currentColor  -- src/assets/svgIcons
+npx @svgr/cli --out-dir src/components/Icons --index-template svgr-index-template.js --replace-attr-values #000=currentColor  -- src/assets/svgIcons
 ```

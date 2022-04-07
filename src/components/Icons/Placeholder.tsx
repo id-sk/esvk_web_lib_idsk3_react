@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 
-const SvgPlaceholdericon = (props: SVGProps<SVGSVGElement>) => (
+const SvgPlaceholder = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="1em"
     height="1em"
@@ -17,4 +17,4 @@ const SvgPlaceholdericon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default SvgPlaceholdericon;
+export default SvgPlaceholder;

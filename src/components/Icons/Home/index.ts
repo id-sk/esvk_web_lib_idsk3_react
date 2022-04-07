@@ -1,3 +1,3 @@
-export { default as Table } from './Table';
-export { default as SensorDoor } from './SensorDoor';
-export { default as SensorWindow } from './SensorWindow';
+export { default as TableIcon } from './Table';
+export { default as SensorDoorIcon } from './SensorDoor';
+export { default as SensorWindowIcon } from './SensorWindow';

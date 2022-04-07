@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
 import { PlaceholderIcon } from '../components/Icons';
-import { CheckCircle, ReportProblem } from '../components/Icons/Actions';
+import { CheckCircleIcon, ReportProblemIcon } from '../components/Icons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -39,7 +39,7 @@ export const SecondarySuccessWithIcon = Template.bind({});
 SecondarySuccessWithIcon.args = {
   label: 'Secondary / Success',
   variant: 'success',
-  icon: <CheckCircle />,
+  icon: <CheckCircleIcon />,
   iconPosition: 'right',
   onClick: () => console.log('button clicked!')
 };
@@ -48,6 +48,6 @@ export const SecondaryWarningWithIcon = Template.bind({});
 SecondaryWarningWithIcon.args = {
   label: 'Secondary / Warning',
   variant: 'warning',
-  icon: <ReportProblem />,
+  icon: <ReportProblemIcon />,
   onClick: () => console.log('button clicked!')
 };
