@@ -67,7 +67,8 @@ const Input = ({
 
   const inputWrapperClasses: string = classNames('inline-block relative my-2', {
     'text-neutral-600': disabled,
-    'text-black': !disabled
+    'text-alert-warning': error && !disabled,
+    'text-black': !error && !disabled
   });
   const actionButtonClasses: string = classNames(
     'absolute right-0 px-4 h-full font-bold disabled:text-neutral-700',
