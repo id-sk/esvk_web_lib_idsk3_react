@@ -23,8 +23,8 @@ const BaseButton = (props: BaseButtonProps) => {
         height: '1.5rem',
         className: classNames(
           'shrink-0',
-          { 'mr-2.5': props.iconPosition == 'left' },
-          { 'ml-2.5': props.iconPosition == 'right' }
+          { 'mr-3': props.iconPosition == 'left' },
+          { 'ml-3': props.iconPosition == 'right' }
         )
       })
     : undefined;

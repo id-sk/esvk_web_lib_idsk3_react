@@ -24,8 +24,8 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
           'py-2': props.size == 'medium',
           'py-3': props.size == 'large',
           'px-4': props.size == 'medium' && !props.icon,
-          'pl-3 pr-4': props.size == 'medium' && props.icon && props.iconPosition == 'left',
-          'pl-4 pr-3': props.size == 'medium' && props.icon && props.iconPosition == 'right',
+          'pl-3.5 pr-4': props.size == 'medium' && props.icon && props.iconPosition == 'left',
+          'pl-4 pr-3.5': props.size == 'medium' && props.icon && props.iconPosition == 'right',
           'px-5': props.size == 'large' && !props.icon,
           'pl-4 pr-5': props.size == 'large' && props.icon && props.iconPosition == 'left',
           'pl-5 pr-4': props.size == 'large' && props.icon && props.iconPosition == 'right'
