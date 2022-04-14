@@ -7,7 +7,7 @@ import { CheckCircleIcon, ReportProblemIcon } from '../components/Icons/Actions'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'ReactComponentLibrary/PrimaryButton',
+  title: 'Atoms/PrimaryButton',
   component: PrimaryButton
 } as ComponentMeta<typeof PrimaryButton>;
 

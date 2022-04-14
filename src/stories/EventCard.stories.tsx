@@ -5,7 +5,7 @@ import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'ReactComponentLibrary/EventCard',
+  title: 'Molecules/EventCard',
   component: EventCard
 } as ComponentMeta<typeof EventCard>;
 

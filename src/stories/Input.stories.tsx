@@ -6,7 +6,7 @@ import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'ReactComponentLibrary/Input',
+  title: 'Atoms/Input',
   component: Input
 } as ComponentMeta<typeof Input>;
 
