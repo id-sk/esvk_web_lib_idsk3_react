@@ -1,0 +1,30 @@
+version: "3.9"
+
+networks:
+  traefik_net:
+    name: "traefik_net"
+    external: true
+
+
+services:
+  esvk_web_idsk_react_library:
+    container_name: "esvk_web_idsk_react_library"
+    image: "${IMAGE_NAME}:${IMAGE_TAG}"
+    restart: "unless-stopped"
+    networks:
+      - "traefik_net"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "2"
+    environment:
+      TZ: "Europe/Bratislava"
+    labels:
+      traefik.enable: "true"
+      traefik.http.services.web.loadbalancer.server.port: "80"
+      traefik.http.services.web.loadbalancer.server.scheme: "http"
+
+      traefik.http.routers.web.service: "web"
+      traefik.http.routers.web.rule: "Host(`library.${CI_ENVIRONMENT_NAME_LOWER}.idsk.skit.zone`)"
+      traefik.http.routers.web.entrypoints: "web"
