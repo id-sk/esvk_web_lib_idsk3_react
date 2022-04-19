@@ -8,7 +8,7 @@ export interface EventCardProps extends Omit<CardWrapperProps, 'innerClassNames'
   months?: [string, ...string[]] & { length: 12 };
 }
 
-const defaultMonths = [
+const defaultMonths: [string, ...string[]] & { length: 12 } = [
   'Jan',
   'Feb',
   'Mar',
@@ -29,11 +29,9 @@ const EventCard = ({
   color,
   highlighted,
   children,
-  months,
+  months = defaultMonths,
   ...props
 }: EventCardProps) => {
-  const monthsShortcuts = !!months ? months : defaultMonths;
-
   const dateObject = new Date(date);
 
   return (
@@ -47,7 +45,7 @@ const EventCard = ({
         <time dateTime={dateObject.toISOString()} className="subtitle font-bold">
           {dateObject.getDate()}
         </time>
-        <p className="caption text-neutral-800">{monthsShortcuts[dateObject.getMonth()]}</p>
+        <p className="caption text-neutral-800">{months[dateObject.getMonth()]}</p>
       </div>
       <div>
         <div className="font-bold">{title}</div>

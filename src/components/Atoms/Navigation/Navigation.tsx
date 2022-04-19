@@ -11,9 +11,9 @@ export interface NavigationProps extends React.AllHTMLAttributes<HTMLElement> {
   innerClassNames?: string;
 }
 
-const Navigation = ({ links = [], currentHref, ...props }: NavigationProps) => {
+const Navigation = ({ links = [], currentHref, className, ...props }: NavigationProps) => {
   return (
-    <nav className="px-10 h-full flex gap-6" {...props}>
+    <nav className={`px-10 h-full gap-6 flex ${className}`} {...props}>
       {!!links.length &&
         links.map((item, index) => {
           const clicked = (!!item.href && item.href) === currentHref;
