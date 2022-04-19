@@ -19,13 +19,10 @@ export interface BaseButtonProps {
 const BaseButton = (props: BaseButtonProps) => {
   const icon = props.icon
     ? React.cloneElement(props.icon, {
-        width: '1.5rem',
-        height: '1.5rem',
-        className: classNames(
-          'shrink-0',
-          { 'mr-3': props.iconPosition == 'left' },
-          { 'ml-3': props.iconPosition == 'right' }
-        )
+        className: classNames('button__icon', {
+          'button__icon--left': props.iconPosition == 'left',
+          'button__icon--right': props.iconPosition == 'right'
+        })
       })
     : undefined;
 
