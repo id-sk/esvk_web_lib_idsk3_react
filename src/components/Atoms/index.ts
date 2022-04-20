@@ -8,3 +8,4 @@ export { default as Loader } from './Loader';
 export { default as DropDown } from './DropDown';
 export { default as MenuButton } from './MenuButton';
 export { default as HeaderContainer } from './HeaderContainer';
+export { default as Bell } from './Bell';

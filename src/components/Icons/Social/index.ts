@@ -35,6 +35,7 @@ export { default as MoodBadIcon } from './MoodBad';
 export { default as NightsStayIcon } from './NightsStay';
 export { default as NoLuggageIcon } from './NoLuggage';
 export { default as NotificationsIcon } from './Notifications';
+export { default as NotificationsAlertIcon } from './NotificationsAlert';
 export { default as NotificationsActiveIcon } from './NotificationsActive';
 export { default as NotificationsNoneIcon } from './NotificationsNone';
 export { default as NotificationsOffIcon } from './NotificationsOff';
