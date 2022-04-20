@@ -27,10 +27,10 @@
         @apply text-xs tracking-[.4px];
     }
     .text-body, .link-m {
-        @apply text-[1.1875rem] leading-[1.75];
+        @apply text-[1.1875rem] leading-[1.75] tracking-[.5px];
     }
     .text-body-1, .link-s {
-        @apply text-base leading-[1.75];
+        @apply text-base leading-[1.75] tracking-[.5px];
     }
     .link-l, .link-m, .link-s, .link-caption {
         @apply text-primary underline;
