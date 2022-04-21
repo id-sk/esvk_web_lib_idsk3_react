@@ -72,3 +72,25 @@ npm run rollup
 
 We don't publish the library locally. Both Storybook and npm package are published automatically during Gitlab CI pipeline when merged into develop branch.
 Just **make sure to increment the project version in package.json** whenever you make any changes.
+
+### Importing Assets
+
+The assets like svg icons and images are saved in the `@eslovensko/idsk-core` package. If there are new assets, they need to be updated in the `idsk-core` repository:
+https://gitlab.com/eslovensko/esvk_web_idsk_core
+
+We don't use these svgs directly. We use SVGR to first transform svgs to React components (https://react-svgr.com)
+These React icons and images can then be easily used in other React components.
+
+### SVG icons and images import scripts
+
+Run this script to build React icons:
+
+```
+npm run build-svg-icons
+```
+
+Run this script to build React components for svg images:
+
+```
+npm run build-svg-images
+```

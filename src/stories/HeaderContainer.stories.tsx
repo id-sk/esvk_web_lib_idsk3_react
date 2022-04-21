@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryNavigation } from '../components/Molecules';
 import { Navigation, MenuButton, HeaderContainer } from '../components/Atoms';
-import { LogoPrivate } from '../components/Icons/Logos';
+import { LogoPrivate } from '../components/SvgImages/Logos';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
