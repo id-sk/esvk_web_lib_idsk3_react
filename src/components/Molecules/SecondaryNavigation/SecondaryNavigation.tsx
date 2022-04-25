@@ -38,7 +38,7 @@ const SecondaryNavigation = ({
           </strong>
         </div>
         <div className="flex-auto" />
-        <DropDown title={dropDownTitle}>
+        <DropDown title={dropDownTitle} className="text-body-1">
           {dropDownOptions.length &&
             dropDownOptions.map((item, index) => React.cloneElement(item, { key: index }))}
         </DropDown>

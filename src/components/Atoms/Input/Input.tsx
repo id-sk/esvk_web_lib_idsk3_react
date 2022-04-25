@@ -144,7 +144,7 @@ const Input = ({
       </label>
       {(!!errorMsg || !!caption) && (
         <p className="text-body-1 text-neutral-600  border-l border-transparent px-4">
-          {error && !!errorMsg ? (
+          {error && !!errorMsg && !disabled ? (
             <span className="text-alert-warning" id={idForAria} role="alert">
               {errorMsg}
             </span>

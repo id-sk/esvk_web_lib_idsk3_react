@@ -55,7 +55,7 @@ const DropDown = ({
   return (
     <div ref={containerRef} {...props} className={`relative ${className}`}>
       <button
-        className="flex items-center h-100 w-100 hover:underline gap-0.5"
+        className="flex items-center h-100 w-100 hover:underline gap-0.5 tracking-[inherit]"
         onClick={() => setOpened((p) => !p)}
       >
         <span>{title}</span>
