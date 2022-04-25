@@ -17,10 +17,13 @@ const Navigation = ({ links = [], currentHref, className, ...props }: Navigation
       {!!links.length &&
         links.map((item, index) => {
           const clicked = (!!item.href && item.href) === currentHref;
-          const linkClasses = classNames('h-full text-body-1 pt-1 border-b-4 flex items-center', {
-            'border-blue-500 font-bold text-blue-500': clicked,
-            'border-transparent': !clicked
-          });
+          const linkClasses = classNames(
+            'h-full text-body-1 text-black pt-1 border-b-4 flex items-center',
+            {
+              'border-blue-500 font-bold text-blue-500': clicked,
+              'border-transparent': !clicked
+            }
+          );
           return (
             <a
               className={linkClasses}

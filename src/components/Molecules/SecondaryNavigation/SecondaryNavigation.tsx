@@ -28,7 +28,7 @@ const SecondaryNavigation = ({
   return (
     <>
       <div
-        className="h-[1.875rem] px-5 bg-blue-600 text-white flex items-center tb1:h-10 tb1:px-[1.875rem] dl:px-4"
+        className="h-[1.875rem] tb1:h-10 px-5 bg-blue-600 text-white flex items-center tb1:h-10 tb1:px-[1.875rem] dl:px-4"
         {...props}
       >
         <div className="caption tb1:text-body-1">

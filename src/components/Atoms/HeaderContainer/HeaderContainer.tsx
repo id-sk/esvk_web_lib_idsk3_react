@@ -13,7 +13,7 @@ const HeaderContainer = ({
   secondaryNavigation,
   ...props
 }: HeaderProps) => {
-  const headerClasses = classNames('w-full shadow-divider bg-white', {
+  const headerClasses = classNames('w-full shadow-divider bg-white top-0 z-40 inset-x-0', {
     fixed
   });
   return (

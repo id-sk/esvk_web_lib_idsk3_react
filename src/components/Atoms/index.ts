@@ -9,3 +9,5 @@ export { default as DropDown } from './DropDown';
 export { default as MenuButton } from './MenuButton';
 export { default as HeaderContainer } from './HeaderContainer';
 export { default as Bell } from './Bell';
+export { default as AvatarCircle } from './AvatarCircle';
+export { default as ModalSideBar } from './ModalSideBar';

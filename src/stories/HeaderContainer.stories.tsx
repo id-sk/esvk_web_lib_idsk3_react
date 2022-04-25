@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryNavigation } from '../components/Molecules';
-import { Navigation, MenuButton, HeaderContainer } from '../components/Atoms';
+import {
+  Navigation,
+  MenuButton,
+  HeaderContainer,
+  Bell,
+  ModalSideBar,
+  AvatarCircle
+} from '../components/Atoms';
 import { LogoPrivate } from '../components/SvgImages/Logos';
+import { InfoIcon } from '../components/Icons/Actions';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -15,6 +23,7 @@ export default {
 export const Template: ComponentStory<typeof HeaderContainer> = (args) => {
   const [currentHref, setCurrentHref] = useState<string | null>('kalendar');
   const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(false);
+  const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setCurrentHref(e.currentTarget.getAttribute('href'));
@@ -25,28 +34,60 @@ export const Template: ComponentStory<typeof HeaderContainer> = (args) => {
   };
 
   return (
-    <HeaderContainer {...args}>
-      <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
-        <LogoPrivate style={{ height: '100%', width: 'auto' }} />
-      </a>
-      <Navigation
-        links={[
-          { label: 'Správy', href: 'spravy', onClick: handleClick },
-          { label: 'Kalendár', href: 'kalendar', onClick: handleClick },
-          { label: 'Notifikácie', href: 'notifikacie', onClick: handleClick }
-        ]}
-        currentHref={currentHref}
-        className="hidden dm1:flex"
-      />
-      <div className="flex-auto" />
-      <MenuButton
-        openedTitle="Zatvoriť"
-        closedTitle="Menu"
-        opened={mobileNavOpened}
-        toggleOpened={() => setMobileNavOpened((p) => !p)}
-        className="dm1:hidden"
-      />
-    </HeaderContainer>
+    <>
+      <HeaderContainer {...args}>
+        <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
+          <LogoPrivate style={{ height: '100%', width: 'auto' }} />
+        </a>
+        <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600 gap-5">
+          <Navigation
+            links={[
+              { label: 'Správy', href: 'spravy', onClick: handleClick },
+              { label: 'Kalendár', href: 'kalendar', onClick: handleClick },
+              { label: 'Notifikácie', href: 'notifikacie', onClick: handleClick }
+            ]}
+            currentHref={currentHref}
+          />
+          <div className="flex-auto" />
+          <Bell alert={true} width="1.25rem" height="1.25rem" />
+          <InfoIcon width="1.25rem" height="1.25rem" />
+          <AvatarCircle
+            firstName="Janko"
+            lastName="Hraško"
+            onClick={() => setSideBarOpened(true)}
+          />
+        </div>
+        <div className="flex-auto dm1:hidden" />
+        <MenuButton
+          openedTitle="Zatvoriť"
+          closedTitle="Menu"
+          opened={mobileNavOpened}
+          toggleOpened={() => setMobileNavOpened((p) => !p)}
+          className="dm1:hidden"
+        />
+      </HeaderContainer>
+      <ModalSideBar
+        opened={sideBarOpened}
+        heading="Profil"
+        toggleOpened={setSideBarOpened}
+        footerButtonLabel="Zobraziť všetko"
+      >
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+        <div className="bg-neutral-90 h-20" />
+        <div className="bg-neutral-100 h-20" />
+      </ModalSideBar>
+    </>
   );
 };
 
@@ -78,7 +119,7 @@ const SecChildren = () => (
 );
 
 Template.args = {
-  fixed: false,
+  fixed: true,
   secondaryNavigation: (
     <SecondaryNavigation
       title="Oficiálna stránka"
