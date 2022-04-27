@@ -32,18 +32,14 @@ const Navigation = ({ links = [], currentHref, className, ...props }: Navigation
           key={index}
         >
           {item.options?.map((option, optIndex) => (
-            <a
-              key={optIndex}
-              href={!!option.href ? option.href : undefined}
-              onClick={!!option.onClick ? option.onClick : undefined}
-            >
+            <a key={optIndex} href={option?.href} onClick={option?.onClick}>
               {option.label}
             </a>
           ))}
         </DropDown>
       );
     } else {
-      const clicked = (!!item.href && item.href) === currentHref;
+      const clicked = !!item.href && item.href === currentHref;
       const linkClasses = classNames(
         'h-full text-body-1 text-black pt-1 border-b-4 flex items-center gap-1.5 px-3 hover:bg-blue-100',
         {
@@ -52,12 +48,7 @@ const Navigation = ({ links = [], currentHref, className, ...props }: Navigation
         }
       );
       return (
-        <a
-          className={linkClasses}
-          key={index}
-          href={!!item.href ? item.href : undefined}
-          onClick={!!item.onClick ? item.onClick : undefined}
-        >
+        <a className={linkClasses} key={index} href={item?.href} onClick={item?.onClick}>
           {item.label}
           {!!item.alert && (
             <span className="w-5 h-5 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold">
