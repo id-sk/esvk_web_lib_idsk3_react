@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 export interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {
   fixed?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
   secondaryNavigation?: ReactNode;
 }
 

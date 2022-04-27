@@ -20,4 +20,13 @@ describe('Navigation', () => {
     fireEvent.click(screen.getByText('Test Link'));
     expect(mockLinkClick).toHaveBeenCalled();
   });
+
+  test('renders dropDown options href correctly', () => {
+    render(
+      <Navigation
+        links={[{ label: 'Test dropDown', options: [{ label: 'Test Option', href: 'testHref' }] }]}
+      />
+    );
+    expect(screen.getByText('Test Option').getAttribute('href')).toEqual('testHref');
+  });
 });

@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SecondaryNavigation } from '../components/Molecules';
-import {
-  Navigation,
-  MenuButton,
-  HeaderContainer,
-  Bell,
-  ModalSideBar,
-  AvatarCircle
-} from '../components/Atoms';
+import { SecondaryNavigation, Navigation } from '../components/Molecules';
+import { MenuButton, HeaderContainer, Bell, ModalSideBar, AvatarCircle } from '../components/Atoms';
 import { LogoPrivate } from '../components/SvgImages/Logos';
 import { InfoIcon } from '../components/Icons/Actions';
 import '/src/styles/idsk3_theme.css';
@@ -20,7 +13,7 @@ export default {
 } as ComponentMeta<typeof HeaderContainer>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Template: ComponentStory<typeof HeaderContainer> = (args) => {
+export const Template: ComponentStory<typeof HeaderContainer> = () => {
   const [currentHref, setCurrentHref] = useState<string | null>('kalendar');
   const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(false);
   const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
@@ -35,16 +28,32 @@ export const Template: ComponentStory<typeof HeaderContainer> = (args) => {
 
   return (
     <>
-      <HeaderContainer {...args}>
+      <HeaderContainer
+        secondaryNavigation={
+          <SecondaryNavigation
+            title="Oficiálna stránka"
+            titleButton="verejnej správy"
+            dropDownTitle="slovenčina"
+            dropDownOptions={[<a href="/">english</a>]}
+          >
+            <SecChildren />
+          </SecondaryNavigation>
+        }
+        fixed={true}
+      >
         <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
           <LogoPrivate style={{ height: '100%', width: 'auto' }} />
         </a>
         <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600 gap-5">
           <Navigation
             links={[
-              { label: 'Správy', href: 'spravy', onClick: handleClick },
+              { label: 'Správy', href: 'spravy', onClick: handleClick, alert: 3 },
               { label: 'Kalendár', href: 'kalendar', onClick: handleClick },
-              { label: 'Notifikácie', href: 'notifikacie', onClick: handleClick }
+              { label: 'Notifikácie', href: 'notifikacie', onClick: handleClick },
+              {
+                label: 'Ďalšie nástroje',
+                options: [{ label: 'Register rozhodnutí' }, { label: 'eFaktúry' }]
+              }
             ]}
             currentHref={currentHref}
           />
@@ -117,17 +126,3 @@ const SecChildren = () => (
     </div>
   </div>
 );
-
-Template.args = {
-  fixed: true,
-  secondaryNavigation: (
-    <SecondaryNavigation
-      title="Oficiálna stránka"
-      titleButton="verejnej správy"
-      dropDownTitle="slovenčina"
-      dropDownOptions={[<a href="/">english</a>]}
-    >
-      <SecChildren />
-    </SecondaryNavigation>
-  )
-};

@@ -7,7 +7,7 @@ import DropDown from './DropDown';
 describe('DropDown', () => {
   test('renders option', () => {
     render(
-      <DropDown title="test">
+      <DropDown dropDownTitle="test">
         <a href="testHref1">Test Option 1</a>
         <a href="testHref2">Test Option 2</a>
       </DropDown>
@@ -17,7 +17,7 @@ describe('DropDown', () => {
 
   test('renders option href', () => {
     render(
-      <DropDown title="test">
+      <DropDown dropDownTitle="test">
         <a href="testHref1">Test Option 1</a>
         <a href="testHref2">Test Option 2</a>
       </DropDown>
@@ -27,7 +27,7 @@ describe('DropDown', () => {
 
   test('opens options', () => {
     render(
-      <DropDown title="test title">
+      <DropDown dropDownTitle="test title">
         <a href="testHref1">Test Option 1</a>
         <a href="testHref2">Test Option 2</a>
       </DropDown>

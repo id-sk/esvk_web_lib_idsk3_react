@@ -1,18 +1,28 @@
-import React, { useState, useRef, Children, useEffect, ReactElement, SVGProps } from 'react';
+import React, {
+  useState,
+  useRef,
+  Children,
+  useEffect,
+  ReactElement,
+  SVGProps,
+  ReactNode
+} from 'react';
 import classNames from 'classnames';
 
 import { ArrowDropDownIcon } from '../../Icons/Navigation';
 
 export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
-  title?: string;
+  dropDownTitle?: ReactNode;
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
+  optionClassName?: string;
 }
 
 const DropDown = ({
-  title,
+  dropDownTitle,
   className,
   children,
   arrowIcon = <ArrowDropDownIcon width="1.5rem" height="1.5rem" />,
+  optionClassName,
   ...props
 }: DropDownProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -39,12 +49,13 @@ const DropDown = ({
     'absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5',
     {
       hidden: !opened
-    }
+    },
+    optionClassName
   );
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return <li className="my-5">{child}</li>;
+      return <li className="my-5 inline-block whitespace-nowrap first:mb-0 only:mb-5">{child}</li>;
     }
   });
 
@@ -55,10 +66,10 @@ const DropDown = ({
   return (
     <div ref={containerRef} {...props} className={`relative ${className}`}>
       <button
-        className="flex items-center h-100 w-100 hover:underline gap-0.5 tracking-[inherit]"
+        className="flex items-center h-full w-full hover:underline gap-0.5 tracking-[inherit]"
         onClick={() => setOpened((p) => !p)}
       >
-        <span>{title}</span>
+        <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>
       <ul className={optionClasses} data-testid="dropdown-options">

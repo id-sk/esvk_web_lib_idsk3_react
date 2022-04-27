@@ -15,13 +15,13 @@ const Template: ComponentStory<typeof DropDown> = (args) => <DropDown {...args} 
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'slovenčina',
+  dropDownTitle: 'slovenčina',
   children: [<a href="/">english</a>, <a href="/">український</a>]
 };
 
 export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
-  title: 'slovenčina',
+  dropDownTitle: 'slovenčina',
   children: [<a href="/">english</a>, <a href="/">український</a>],
   arrowIcon: <ExpandMoreIcon width="1.5rem" height="1.5rem" />
 };
