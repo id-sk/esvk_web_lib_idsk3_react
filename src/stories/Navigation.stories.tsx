@@ -5,7 +5,7 @@ import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Atoms/Navigation',
+  title: 'Molecules/Navigation',
   component: Navigation
 } as ComponentMeta<typeof Navigation>;
 

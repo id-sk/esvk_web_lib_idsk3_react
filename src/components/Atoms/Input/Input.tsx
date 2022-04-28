@@ -9,8 +9,8 @@ import React, {
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface InputProps {
-  size?: 'large' | 'medium' | 'small';
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: 'large' | 'medium' | 'small';
   error?: boolean;
   errorMsg?: string;
   label?: string;
@@ -22,11 +22,10 @@ export interface InputProps {
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
   actionButton?: { label: string; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
-  inputElementProps?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 const Input = ({
-  size = 'large',
+  inputSize = 'large',
   error,
   errorMsg,
   label,
@@ -38,7 +37,7 @@ const Input = ({
   icon,
   iconPosition = 'left',
   actionButton,
-  inputElementProps
+  ...props
 }: InputProps) => {
   if (!!actionButton && iconPosition === 'right') iconPosition = 'left';
 
@@ -50,15 +49,15 @@ const Input = ({
     'focus:shadow-border focus:shadow-neutral-600',
     'disabled:text-neutral-600 disabled:border-neutral-400 disabled:shadow-none disabled:outline-transparent',
     {
-      'pl-11': !!icon && iconPosition === 'left' && size === 'large',
-      'pl-10': !!icon && iconPosition === 'left' && size === 'medium',
-      'pl-9': !!icon && iconPosition === 'left' && size === 'small',
-      'pr-11': !!icon && iconPosition === 'right' && size === 'large',
-      'pr-10': !!icon && iconPosition === 'right' && size === 'medium',
-      'pr-9': !!icon && iconPosition === 'right' && size === 'small',
-      'text-body h-12': size === 'large',
-      'text-body-1 h-10': size === 'medium',
-      'caption h-8': size === 'small',
+      'pl-11': !!icon && iconPosition === 'left' && inputSize === 'large',
+      'pl-10': !!icon && iconPosition === 'left' && inputSize === 'medium',
+      'pl-9': !!icon && iconPosition === 'left' && inputSize === 'small',
+      'pr-11': !!icon && iconPosition === 'right' && inputSize === 'large',
+      'pr-10': !!icon && iconPosition === 'right' && inputSize === 'medium',
+      'pr-9': !!icon && iconPosition === 'right' && inputSize === 'small',
+      'text-body h-12': inputSize === 'large',
+      'text-body-1 h-10': inputSize === 'medium',
+      'caption h-8': inputSize === 'small',
       'outline-black border-black focus:outline-black focus:border-black': !error,
       'placeholder-shown:border-neutral-800 placeholder-shown:outline-transparent': !error,
       'border-alert-warning outline-alert-warning': error
@@ -73,9 +72,9 @@ const Input = ({
   const actionButtonClasses: string = classNames(
     'absolute right-0 px-4 h-full font-bold disabled:text-neutral-700',
     {
-      'text-body': size === 'large',
-      'text-body-1': size === 'medium',
-      caption: size === 'small',
+      'text-body': inputSize === 'large',
+      'text-body-1': inputSize === 'medium',
+      caption: inputSize === 'small',
       'text-alert-warning': error,
       'text-primary': !error
     }
@@ -84,9 +83,9 @@ const Input = ({
   const idForAria: string = uuidv4();
 
   const iconSize = classNames({
-    '1.25rem': size === 'large',
-    '1rem': size === 'medium',
-    '0.825rem': size === 'small'
+    '1.25rem': inputSize === 'large',
+    '1rem': inputSize === 'medium',
+    '0.825rem': inputSize === 'small'
   });
 
   const iconElement = !!icon
@@ -107,7 +106,13 @@ const Input = ({
     if (!!actionButton?.label && actionButtonRef.current) {
       setRightPadding(actionButtonRef.current.offsetWidth);
     }
-  }, [actionButton?.label, size]);
+  }, [actionButton?.label, inputSize]);
+
+  const [opts, setOpts] = useState({
+    mask: '***`-***`-***',
+    lazy: false,
+    placeholderChar: '*'
+  });
 
   return (
     <>
@@ -124,10 +129,9 @@ const Input = ({
             aria-invalid={error}
             aria-errormessage={idForAria}
             style={{
-              ...inputElementProps,
               paddingRight: !!rightPadding ? rightPadding + 'px' : undefined
             }}
-            {...inputElementProps}
+            {...props}
           />
           {!!icon && iconElement}
           {!!actionButton && (

@@ -55,7 +55,7 @@ const DropDown = ({
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return <li className="my-5 inline-block whitespace-nowrap first:mb-0 only:mb-5">{child}</li>;
+      return <li className="my-5 whitespace-nowrap first:mb-0 only:mb-5">{child}</li>;
     }
   });
 

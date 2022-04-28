@@ -1,6 +1,6 @@
 {
   "name": "@eslovensko/idsk-react",
-  "version": "3.0.15",
+  "version": "3.0.16",
   "description": "React native components for IDSK 3.0",
   "scripts": {
     "clean-dist": "rm -rf ./dist",
@@ -46,8 +46,8 @@
     "@storybook/testing-library": "^0.0.9",
     "@storybook/theming": "^6.4.22",
     "@svgr/cli": "^6.2.1",
-    "@testing-library/react": "^12.1.4",
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.40",
     "@types/uuid": "^8.3.4",
