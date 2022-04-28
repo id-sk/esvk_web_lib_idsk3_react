@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
-import { PlaceholderIcon } from '../components/Icons';
-import { CheckCircleIcon, ReportProblemIcon } from '../components/Icons/Actions';
+import { PlaceholderIcon } from '../svgIcons';
+import { CheckCircleIcon, ReportProblemIcon } from '../svgIcons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { CloseIcon, ArrowForwardIcon } from '../../Icons/Navigation';
+import { CloseIcon, ArrowForwardIcon } from '../../../svgIcons/Navigation';
 
 export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElement> {
   opened: boolean;

@@ -12,7 +12,7 @@ workflow:
 
 npm-install:
   stage: .pre
-  image: node:17-alpine
+  image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
@@ -26,7 +26,7 @@ npm-install:
 
 lint-job:
   stage: test
-  image: node:17-alpine
+  image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
@@ -39,7 +39,7 @@ lint-job:
 
 unit-test-job:
   stage: test
-  image: node:17-alpine
+  image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
@@ -52,7 +52,7 @@ unit-test-job:
 
 build-job:
   stage: test
-  image: node:17-alpine
+  image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
@@ -71,7 +71,7 @@ build-job:
 "Build Storybook":
   stage: compile
   environment: DEV
-  image: node:17-alpine
+  image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
@@ -92,7 +92,7 @@ build-job:
 
 "Publish package":
   stage: deploy
-  image: node:17-alpine
+  image: node:18-alpine
   needs:
     - build-job
   script:

@@ -4,26 +4,13 @@ import typescript from "@rollup/plugin-typescript";
 import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { getFiles } from './scripts/buildUtils';
-
-const packageJson = require("./package.json");
-
-const extensions = ['.ts', '.tsx'];
-const excludedExtensions = ['.test.ts', '.test.tsx'];
 
 export default [
   {
-    input: [
-      './src/index.ts',
-      ...getFiles('./src/components/Atoms', extensions, excludedExtensions),
-      ...getFiles('./src/components/Icons', extensions, excludedExtensions),
-      ...getFiles('./src/components/Molecules', extensions, excludedExtensions),
-      ...getFiles('./src/components/Organisms', extensions, excludedExtensions),
-      ...getFiles('./src/components/Templates', extensions, excludedExtensions),
-    ],
+    input: ['./src/index.ts'],
     output: {
       dir: 'dist',
-      format: 'esm',
+      format: 'cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
       sourcemap: false,
@@ -33,12 +20,7 @@ export default [
       resolve(),
       commonjs(),
       typescript({
-        exclude: [
-          // Exclude test files
-          /\.test.((js|jsx|ts|tsx))$/,
-          // Exclude story files
-          /\.stories.((js|jsx|ts|tsx|mdx))$/,
-        ],
+        exclude: [/\.test.((js|jsx|ts|tsx))$/],
         tsconfig: "./tsconfig.json",
         declaration: true,
         declarationDir: 'dist',
@@ -50,5 +32,5 @@ export default [
         ]
       })
     ],
-  },
+  }
 ];

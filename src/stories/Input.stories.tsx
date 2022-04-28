@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Input from '../components/Atoms/Input';
-import { PlaceholderIcon } from '../components/Icons';
+import { PlaceholderIcon } from '../svgIcons';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

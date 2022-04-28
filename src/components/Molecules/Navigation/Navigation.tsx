@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { DropDown } from '../../Atoms';
-import { ExpandMoreIcon } from '../../Icons/Navigation';
+import { ExpandMoreIcon } from '../../../svgIcons/Navigation';
 
 interface LinkProps {
   label: ReactNode;

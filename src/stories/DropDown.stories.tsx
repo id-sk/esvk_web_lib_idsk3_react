@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DropDown } from '../components/Atoms';
-import { ExpandMoreIcon } from '../components/Icons/Navigation';
+import { ExpandMoreIcon } from '../svgIcons/Navigation';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

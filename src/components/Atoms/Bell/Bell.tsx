@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react';
-import { NotificationsIcon, NotificationsAlertIcon } from '../../Icons/Social';
+import { NotificationsIcon, NotificationsAlertIcon } from '../../../svgIcons/Social';
 
 export interface BellProps extends SVGProps<SVGSVGElement> {
   alert?: boolean;

@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 
-import { ArrowDropDownIcon } from '../../Icons/Navigation';
+import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 
 export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   dropDownTitle?: ReactNode;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SpinnerIcon } from '../../Icons/Animated';
+import { SpinnerIcon } from '../../../svgIcons/Animated';
 
 export interface LoaderProps {
   label?: string;

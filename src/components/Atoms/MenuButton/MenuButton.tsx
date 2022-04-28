@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MenuIcon, CloseIcon } from '../../Icons/Navigation';
+import { MenuIcon, CloseIcon } from '../../../svgIcons/Navigation';
 
 export interface MenuButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   opened: boolean;
