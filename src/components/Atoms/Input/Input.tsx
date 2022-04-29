@@ -108,12 +108,6 @@ const Input = ({
     }
   }, [actionButton?.label, inputSize]);
 
-  const [opts, setOpts] = useState({
-    mask: '***`-***`-***',
-    lazy: false,
-    placeholderChar: '*'
-  });
-
   return (
     <>
       <label>
