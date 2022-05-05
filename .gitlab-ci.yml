@@ -96,8 +96,8 @@ build-job:
   needs:
     - build-job
   script:
-    - echo "@eslovensko:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
-    - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc
+    - echo "@eslovensko:registry=https://gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
+    - echo "//gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc
     - npm publish
   only:
     - develop
@@ -135,8 +135,6 @@ build-job:
 
 "Deploy":
   stage: deploy
-  tags:
-    - "deploy"
   environment: DEV
   image: "kroniak/ssh-client:3.11"
   variables:
