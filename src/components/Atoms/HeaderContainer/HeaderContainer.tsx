@@ -20,7 +20,7 @@ const HeaderContainer = ({
   return (
     <header className={headerClasses} {...props}>
       {!!secondaryNavigation && secondaryNavigation}
-      <div className="h-16 tb1:h-[6.25rem] flex items-center px-5 tb1:px-8 dm1:px-5 dm2:px-40 max-w-[114rem]">
+      <div className="h-16 tb1:h-[6.25rem] relative inset-x-0 mx-auto flex items-center px-5 tb1:px-8 dm2:px-40 max-w-[114rem]">
         {children}
       </div>
     </header>
