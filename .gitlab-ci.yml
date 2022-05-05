@@ -12,6 +12,8 @@ workflow:
 
 npm-install:
   stage: .pre
+  tags:
+    - "init"
   image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
@@ -26,6 +28,8 @@ npm-install:
 
 lint-job:
   stage: test
+  tags:
+    - "test"
   image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
@@ -39,6 +43,8 @@ lint-job:
 
 unit-test-job:
   stage: test
+  tags:
+    - "test"
   image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
@@ -52,6 +58,8 @@ unit-test-job:
 
 build-job:
   stage: test
+  tags:
+    - "test"
   image: node:18-alpine
   before_script:
     - npm ci --cache .npm --prefer-offline
@@ -92,6 +100,8 @@ build-job:
 
 "Publish package":
   stage: deploy
+  tags:
+    - "deploy"
   image: node:18-alpine
   needs:
     - build-job
@@ -104,6 +114,8 @@ build-job:
 
 "Increment Build number":
   stage: build
+  tags:
+    - "init"
   environment: DEV
   image: "bash:5.1.8"
   before_script:
@@ -135,6 +147,8 @@ build-job:
 
 "Deploy":
   stage: deploy
+  tags:
+    - "deploy"
   environment: DEV
   image: "kroniak/ssh-client:3.11"
   variables:
