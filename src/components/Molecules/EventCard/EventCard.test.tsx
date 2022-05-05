@@ -13,11 +13,6 @@ describe('EventCard', () => {
     expect(screen.getByTestId('wrapperChild')).toBeDefined();
   });
 
-  test('renders alert border', () => {
-    render(<EventCard color="#FFF" date={new Date()} title="test title" highlighted={true} />);
-    expect(screen.getByTestId('alertDiv')).toBeDefined();
-  });
-
   test('correctly parse date', () => {
     render(<EventCard color="#FFF" date={1648641077221} title="test title" />);
     expect(screen.getByText('30')).toBeDefined();

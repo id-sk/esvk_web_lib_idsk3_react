@@ -27,7 +27,6 @@ const EventCard = ({
   title,
   date,
   color,
-  highlighted,
   children,
   months = defaultMonths,
   ...props
@@ -37,7 +36,6 @@ const EventCard = ({
   return (
     <CardWrapper
       color={color}
-      highlighted={highlighted}
       innerClassNames="px-4 py-5 grid grid-cols-[auto_1fr] gap-x-4"
       {...props}
     >

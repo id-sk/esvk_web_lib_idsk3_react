@@ -2,6 +2,7 @@ import React, { useState, ReactElement } from 'react';
 import classNames from 'classnames';
 
 import { DropDown } from '../../Atoms';
+import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 
 export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -21,21 +22,28 @@ const SecondaryNavigation = ({
   const [opened, setOpened] = useState<boolean>(false);
 
   const extendedClasses = classNames(
-    'px-5 py-2.5 tb1:px-[1.875rem] dl:px-4 bg-blue-600 text-white text-body-1',
+    'py-2.5 bg-blue-600 text-white text-body-1 px-5 tb1:px-8 dm1:px-5 dm2:px-40 max-w-[114rem]',
     { hidden: !opened }
   );
+  const iconClasses = classNames({ 'rotate-180': opened });
 
   return (
     <>
       <div
-        className="h-[1.875rem] tb1:h-10 px-5 bg-blue-600 text-white flex items-center tb1:px-[1.875rem] dl:px-4"
+        className="h-[1.875rem] tb1:h-10 bg-blue-600 text-white flex items-center px-5 tb1:px-8 dm1:px-5 dm2:px-40 max-w-[114rem]"
         {...props}
       >
         <div className="caption tb1:text-body-1">
           {title}{' '}
-          <strong className="cursor-pointer hover:underline" onClick={() => setOpened((p) => !p)}>
-            {titleButton}
-          </strong>
+          {!!titleButton && (
+            <button
+              className="hover:underline font-bold inline-flex items-center"
+              onClick={() => setOpened((p) => !p)}
+            >
+              {titleButton}{' '}
+              <ArrowDropDownIcon width="1.5rem" height="1.5rem" className={iconClasses} />
+            </button>
+          )}
         </div>
         <div className="flex-auto" />
         <DropDown dropDownTitle={dropDownTitle} className="caption tb1:text-body-1">

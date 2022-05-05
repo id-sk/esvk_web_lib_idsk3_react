@@ -5,6 +5,7 @@ import { CardWrapper, CardWrapperProps } from '../../Atoms';
 export interface NotificationCardProps extends Omit<CardWrapperProps, 'innerClassNames'> {
   date: string | number | Date;
   title: string;
+  highlighted?: boolean;
   actions?: {
     label: string;
     href?: string;
@@ -15,7 +16,6 @@ export interface NotificationCardProps extends Omit<CardWrapperProps, 'innerClas
 const NotificationCard = ({
   title,
   date,
-  color,
   highlighted,
   children,
   actions = [],
@@ -24,9 +24,17 @@ const NotificationCard = ({
   const dateObject = new Date(date);
 
   return (
-    <CardWrapper color={color} highlighted={highlighted} innerClassNames="p-5" {...props}>
+    <CardWrapper innerClassNames="p-5 pl-10" {...props}>
       <div className="pb-1 flex items-start justify-between">
-        <span className="text-body-1 font-bold">{title}</span>
+        <span className="text-body-1 font-bold relative">
+          {highlighted && (
+            <span
+              data-testid="unread-alert"
+              className="bg-primary h-[0.625rem] w-[0.625rem] rounded-full inset-y-0 my-auto absolute -left-[1.375rem]"
+            />
+          )}
+          {title}
+        </span>
         <time dateTime={dateObject.toISOString()} className="caption text-neutral-800">
           {dateObject.toLocaleDateString()}
         </time>

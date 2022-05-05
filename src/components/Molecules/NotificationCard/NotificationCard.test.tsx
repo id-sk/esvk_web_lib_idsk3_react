@@ -17,7 +17,7 @@ describe('NotificationCard', () => {
     render(
       <NotificationCard color="#FFF" date={new Date()} title="test title" highlighted={true} />
     );
-    expect(screen.getByTestId('alertDiv')).toBeDefined();
+    expect(screen.getByTestId('unread-alert')).toBeDefined();
   });
 
   test('correctly parse actions', () => {

@@ -45,4 +45,7 @@ const Template: ComponentStory<typeof PrivatePage> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = { header: <PrivateHeader />, titleSection };
+Default.args = {
+  header: <PrivateHeader />,
+  titleSection
+};

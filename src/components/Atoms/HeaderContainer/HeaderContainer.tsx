@@ -14,12 +14,13 @@ const HeaderContainer = ({
   ...props
 }: HeaderProps) => {
   const headerClasses = classNames('w-full shadow-divider bg-white top-0 z-40 inset-x-0', {
-    fixed
+    sticky: fixed
   });
+
   return (
     <header className={headerClasses} {...props}>
       {!!secondaryNavigation && secondaryNavigation}
-      <div className="h-16 px-5 tb1:h-[6.25rem] tb1:px-[1.875rem] dl:px-4 flex items-center">
+      <div className="h-16 tb1:h-[6.25rem] flex items-center px-5 tb1:px-8 dm1:px-5 dm2:px-40 max-w-[114rem]">
         {children}
       </div>
     </header>

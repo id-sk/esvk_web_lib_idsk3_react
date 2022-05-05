@@ -1,1 +1,1 @@
-export { default } from './HeaderContainer';
+export { default, HeaderProps } from './HeaderContainer';

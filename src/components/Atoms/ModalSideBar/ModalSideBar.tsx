@@ -55,7 +55,7 @@ const ModalSideBar = ({
         </div>
         <div className="flex-auto" />
         <div className="flex-initial overflow-auto">
-          <div className="px-5 ">{children}</div>
+          <div>{children}</div>
         </div>
         {!!footerButtonLabel && (
           <a

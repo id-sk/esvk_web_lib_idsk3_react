@@ -14,7 +14,6 @@ const Template: ComponentStory<typeof NotificationCard> = (args) => <Notificatio
 
 export const Default = Template.bind({});
 Default.args = {
-  color: '#126DFF',
   title: 'Daň z prijmov fyzických a právnických osôb za rok 2021',
   date: new Date().getTime(),
   actions: [

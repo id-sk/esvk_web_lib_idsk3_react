@@ -12,9 +12,4 @@ describe('CardWrapper', () => {
     );
     expect(screen.getByTestId('wrapperChild')).toBeDefined();
   });
-
-  test('renders alert border', () => {
-    render(<CardWrapper color="#FFF" highlighted={true} />);
-    expect(screen.getByTestId('alertDiv')).toBeDefined();
-  });
 });

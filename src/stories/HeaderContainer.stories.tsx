@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryNavigation, Navigation } from '../components/Molecules';
-import { MenuButton, HeaderContainer, Bell, ModalSideBar, AvatarCircle } from '../components/Atoms';
+import {
+  MenuButton,
+  HeaderContainer,
+  Bell,
+  ModalSideBar,
+  AvatarCircle,
+  HeaderProps
+} from '../components/Atoms';
 import { LogoPrivate } from '../svgImages/Logos';
 import { InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
