@@ -1,6 +1,6 @@
 {
   "name": "@eslovensko/idsk-react",
-  "version": "3.0.23",
+  "version": "3.0.24",
   "description": "React native components for IDSK 3.0",
   "scripts": {
     "clean-dist": "rm -rf ./dist",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/eslovensko/esvk_web_idsk_react_library.git"
+    "url": "git+ssh://git@gitlab.slovenskoit.sk:components/shared-web-libs/esvk_web_lib_idsk_react.git"
   },
   "author": "Slovensko IT",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://gitlab.com/eslovensko/esvk_web_idsk_react_library/issues"
+    "url": "https://gitlab.slovenskoit.sk/components/shared-web-libs/esvk_web_lib_idsk_react/issues"
   },
-  "homepage": "https://gitlab.com/eslovensko/esvk_web_idsk_react_library#readme",
+  "homepage": "https://gitlab.slovenskoit.sk/components/shared-web-libs/esvk_web_lib_idsk_react#readme",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
