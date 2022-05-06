@@ -4,12 +4,12 @@
 
 The npm packages for this library are stored in Gitlab: 
 
-https://gitlab.com/eslovensko/esvk_web_idsk_react_library/-/packages
+https://gitlab.slovenskoit.sk/components/shared-web-libs/esvk_web_lib_idsk_react/-/packages
 
 To be able to install the `@eslovensko/idsk-react` package you need these credentials to be stored in `.npmrc` file:
 ```
-@eslovensko:registry=https://gitlab.com/api/v4/packages/npm/
-//gitlab.com/api/v4/packages/npm/:_authToken=nZ9p6y9zGTpVWo9-g5G5
+@eslovensko:registry=https://gitlab.slovenskoit.sk/api/v4/projects/153/packages/npm/
+//gitlab.slovenskoit.sk/api/v4/projects/153/packages/npm/:_authToken=glpat-cMW7oe44yv3sfLb8okfi
 ```
 
 Then you can add the library to your project dependencies
