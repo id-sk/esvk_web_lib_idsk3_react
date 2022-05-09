@@ -32,7 +32,7 @@ const SecondaryNavigation = ({
   return (
     <>
       <div className="bg-blue-600 text-white" {...props}>
-        <div className="h-[1.875rem] tb1:h-10 px-5 tb1:px-8 dm2:px-40 max-w-[114rem] relative inset-x-0 mx-auto flex items-center">
+        <div className="h-[1.875rem] tb1:h-10 px-5 tb1:px-8 dm2:px-40 max-w-[114rem] relative inset-x-0 mx-auto flex items-center z-10">
           <div className="caption tb1:text-body-1">
             {title}{' '}
             {!!titleButton && (
