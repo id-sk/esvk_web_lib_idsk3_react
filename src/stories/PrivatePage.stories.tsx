@@ -30,22 +30,24 @@ const eventCardProps = {
 };
 
 const Template: ComponentStory<typeof PrivatePage> = (args) => (
-  <PrivatePage {...args}>
-    <CardsContainer>
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-      <EventCard {...eventCardProps} />
-    </CardsContainer>
-  </PrivatePage>
+  <>
+    <PrivateHeader />
+    <PrivatePage {...args}>
+      <CardsContainer>
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+        <EventCard {...eventCardProps} />
+      </CardsContainer>
+    </PrivatePage>
+  </>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  header: <PrivateHeader />,
   titleSection
 };
