@@ -53,10 +53,10 @@ const ModalSideBar = ({
             <CloseIcon width="1.25rem" height="1.25rem" />
           </button>
         </div>
-        <div className="flex-auto" />
         <div className="flex-initial overflow-auto">
           <div>{children}</div>
         </div>
+        <div className="flex-auto" />
         {!!footerButtonLabel && (
           <a
             className="bg-primary text-body-1 font-bold text-white p-3 flex items-center justify-center gap-1"
