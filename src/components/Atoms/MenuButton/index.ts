@@ -1,1 +1,1 @@
-export { default } from './MenuButton';
+export { default, MenuButtonProps } from './MenuButton';

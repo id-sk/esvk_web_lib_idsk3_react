@@ -1,1 +1,1 @@
-export { default } from './ModalSideBar';
+export { default, ModalSideBarProps } from './ModalSideBar';

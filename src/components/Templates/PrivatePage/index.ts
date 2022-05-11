@@ -1,1 +1,1 @@
-export { default } from './PrivatePage';
+export { default, PrivatePageProps } from './PrivatePage';

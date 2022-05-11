@@ -1,1 +1,1 @@
-export { default } from './NotificationCard';
+export { default, NotificationCardProps } from './NotificationCard';

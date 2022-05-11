@@ -1,1 +1,1 @@
-export { default } from './DropDown';
+export { default, DropDownProps } from './DropDown';
