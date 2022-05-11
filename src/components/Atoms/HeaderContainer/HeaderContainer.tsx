@@ -11,11 +11,16 @@ const HeaderContainer = ({
   fixed = false,
   children,
   secondaryNavigation,
+  className,
   ...props
 }: HeaderProps) => {
-  const headerClasses = classNames('w-full shadow-divider bg-white top-0 z-40 inset-x-0', {
-    sticky: fixed
-  });
+  const headerClasses = classNames(
+    'w-full shadow-divider bg-white top-0 z-40 inset-x-0',
+    {
+      sticky: fixed
+    },
+    className
+  );
 
   return (
     <header className={headerClasses} {...props}>
