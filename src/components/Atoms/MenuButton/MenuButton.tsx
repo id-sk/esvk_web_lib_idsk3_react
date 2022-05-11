@@ -14,7 +14,7 @@ const MenuButton = ({
   toggleOpened,
   closedTitle,
   openedTitle,
-  className,
+  className = '',
   ...props
 }: MenuButtonProps) => {
   return (

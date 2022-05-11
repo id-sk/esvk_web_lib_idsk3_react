@@ -20,7 +20,7 @@ export interface NavigationProps extends React.AllHTMLAttributes<HTMLElement> {
   innerClassNames?: string;
 }
 
-const Navigation = ({ links = [], currentHref, className, ...props }: NavigationProps) => {
+const Navigation = ({ links = [], currentHref, className = '', ...props }: NavigationProps) => {
   const renderLinks = (item: NavLinkProps, index: number) => {
     if (!!item.options && !!item.options.length) {
       return (

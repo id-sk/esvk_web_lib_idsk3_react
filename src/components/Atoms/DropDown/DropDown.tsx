@@ -19,7 +19,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
 
 const DropDown = ({
   dropDownTitle,
-  className,
+  className = '',
   children,
   arrowIcon = <ArrowDropDownIcon width="1.5rem" height="1.5rem" />,
   optionClassName,

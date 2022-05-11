@@ -10,7 +10,7 @@ const AvatarCircle = ({
   firstName,
   lastName,
   onClick = () => {},
-  className,
+  className = '',
   ...props
 }: AvatarCircleProps) => {
   return (
