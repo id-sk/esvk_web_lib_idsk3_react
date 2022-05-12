@@ -15,7 +15,7 @@ const HeaderContainer = ({
   ...props
 }: HeaderProps) => {
   const headerClasses = classNames(
-    'w-full shadow-divider bg-white top-0 z-40 inset-x-0',
+    'header-container__wrapper',
     {
       sticky: fixed
     },
@@ -25,9 +25,7 @@ const HeaderContainer = ({
   return (
     <header className={headerClasses} {...props}>
       {!!secondaryNavigation && secondaryNavigation}
-      <div className="h-16 tb1:h-[6.25rem] relative inset-x-0 mx-auto flex items-center px-5 tb1:px-8 dm2:px-40 max-w-[114rem]">
-        {children}
-      </div>
+      <div className="header-container">{children}</div>
     </header>
   );
 };

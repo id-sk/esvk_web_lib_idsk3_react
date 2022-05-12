@@ -18,13 +18,13 @@ const MenuButton = ({
   ...props
 }: MenuButtonProps) => {
   return (
-    <button
-      className={`px-2.5 border rounded-md h-9 tb1:h-10 flex items-center gap-3 text-body text-blue-600 font-bold ${className}`}
-      onClick={toggleOpened}
-      {...props}
-    >
+    <button className={`menu-button ${className}`} onClick={toggleOpened} {...props}>
       <span>{opened ? openedTitle : closedTitle}</span>{' '}
-      {opened ? <CloseIcon width="26px" height="26px" /> : <MenuIcon width="26px" height="26px" />}
+      {opened ? (
+        <CloseIcon className="menu-button__icon" />
+      ) : (
+        <MenuIcon className="menu-button__icon" />
+      )}
     </button>
   );
 };

@@ -44,6 +44,10 @@
 }
 
 @layer components {
+    .avatar-circle {
+        @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1;
+    }
+
     .button__icon {
         @apply w-6 h-6 shrink-0;
     }
@@ -52,6 +56,116 @@
     }
     .button__icon--right {
         @apply ml-3;
+    }
+
+    .card-wrapper {
+        @apply relative rounded-[0.625rem] bg-white overflow-hidden text-body-1 border border-neutral-300;
+    }
+
+    .card-wrapper--with-color {
+        @apply px-[0.3125rem];
+    }
+
+    .card-wrapper__color-strip {
+        @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
+    }
+
+    .cards-container {
+        @apply grid grid-cols-1 gap-3;
+    }
+
+    .dropdown {
+        @apply flex items-center h-full w-full hover:underline gap-0.5 tracking-[inherit];
+    }
+
+    .dropdown__wrapper {
+        @apply relative;
+    }
+
+    .dropdown__options {
+        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5;
+    }
+
+    .dropdown__option {
+        @apply my-5 whitespace-nowrap first:mb-0 only:mb-5;
+    }
+
+    .dropdown__icon {
+        @apply w-6 h-6;
+    }
+
+    .dropdown__icon--opened {
+        @apply rotate-180;
+    }
+
+    .header-container {
+        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 mx-auto flex items-center px-5 tb1:px-8 dm2:px-40 max-w-[114rem];
+    }
+
+    .header-container__wrapper {
+        @apply w-full shadow-divider bg-white top-0 z-40 inset-x-0;
+    }
+
+    .icon-link {
+        @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-600 cursor-pointer;
+    }
+
+    .icon-link--active {
+        @apply bg-blue-100;
+    }
+
+    .link-button {
+        @apply flex justify-center items-center bg-none rounded-md text-button underline active:ring-0 hover:ring-1 hover:ring-offset-0 focus:outline-none focus:ring-1 focus:ring-offset-0;
+    }
+    .link-button--basic {
+        @apply text-primary hover:ring-primary focus:ring-primary active:text-primary-dark disabled:text-neutral-600 disabled:ring-0;
+    }
+    .link-button--success {
+        @apply text-alert-positive hover:ring-alert-positive focus:ring-alert-positive active:text-alert-positive-dark disabled:text-neutral-600 disabled:ring-0;
+    }
+    .link-button--warning {
+        @apply text-alert-warning hover:ring-alert-warning focus:ring-alert-warning active:text-alert-warning-dark disabled:text-neutral-600 disabled:ring-0;
+    }
+    .link-button--contrast {
+        @apply text-primary hover:ring-primary focus:ring-primary active:text-blue-300 disabled:text-neutral-600 disabled:ring-0;
+    }
+    .link-button--medium {
+        @apply py-2 px-4;
+    }
+    .link-button--medium.link-button--icon-left {
+        @apply pl-3.5;
+    }
+    .link-button--medium.link-button--icon-right {
+        @apply pr-3.5;
+    }
+    .link-button--large {
+        @apply py-3 px-5;
+    }
+    .link-button--large.link-button--icon-left {
+        @apply pl-4;
+    }
+    .link-button--large.link-button--icon-right {
+        @apply pr-4;
+    }
+
+    .loader {
+        @apply flex flex-col justify-center items-center;
+    }
+
+    .loader__icon {
+        @apply w-14 h-14;
+    }
+
+    .loader__label {
+        @apply text-body mt-2;
+    }
+
+    .menu-button {
+        @apply px-2.5 border rounded-md h-9 tb1:h-10 flex items-center gap-3 text-body text-blue-600 font-bold;
+    }
+
+    .menu-button__icon {
+        @apply w-[1.625rem] h-[1.625rem]
     }
 
     .primary-button {
@@ -116,40 +230,6 @@
         @apply pl-4;
     }
     .secondary-button--large.secondary-button--icon-right {
-        @apply pr-4;
-    }
-
-    .link-button {
-        @apply flex justify-center items-center bg-none rounded-md text-button underline active:ring-0 hover:ring-1 hover:ring-offset-0 focus:outline-none focus:ring-1 focus:ring-offset-0;
-    }
-    .link-button--basic {
-        @apply text-primary hover:ring-primary focus:ring-primary active:text-primary-dark disabled:text-neutral-600 disabled:ring-0;
-    }
-    .link-button--success {
-        @apply text-alert-positive hover:ring-alert-positive focus:ring-alert-positive active:text-alert-positive-dark disabled:text-neutral-600 disabled:ring-0;
-    }
-    .link-button--warning {
-        @apply text-alert-warning hover:ring-alert-warning focus:ring-alert-warning active:text-alert-warning-dark disabled:text-neutral-600 disabled:ring-0;
-    }
-    .link-button--contrast {
-        @apply text-primary hover:ring-primary focus:ring-primary active:text-blue-300 disabled:text-neutral-600 disabled:ring-0;
-    }
-    .link-button--medium {
-        @apply py-2 px-4;
-    }
-    .link-button--medium.link-button--icon-left {
-        @apply pl-3.5;
-    }
-    .link-button--medium.link-button--icon-right {
-        @apply pr-3.5;
-    }
-    .link-button--large {
-        @apply py-3 px-5;
-    }
-    .link-button--large.link-button--icon-left {
-        @apply pl-4;
-    }
-    .link-button--large.link-button--icon-right {
         @apply pr-4;
     }
 

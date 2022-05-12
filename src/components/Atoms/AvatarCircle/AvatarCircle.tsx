@@ -14,11 +14,7 @@ const AvatarCircle = ({
   ...props
 }: AvatarCircleProps) => {
   return (
-    <button
-      className={`flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1 ${className}`}
-      onClick={onClick}
-      {...props}
-    >
+    <button className={`avatar-circle ${className}`} onClick={onClick} {...props}>
       {firstName?.slice(0, 1) + lastName?.slice(0, 1)}
     </button>
   );

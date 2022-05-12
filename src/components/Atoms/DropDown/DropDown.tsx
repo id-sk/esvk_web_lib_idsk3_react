@@ -21,7 +21,7 @@ const DropDown = ({
   dropDownTitle,
   className = '',
   children,
-  arrowIcon = <ArrowDropDownIcon width="1.5rem" height="1.5rem" />,
+  arrowIcon = <ArrowDropDownIcon />,
   optionClassName,
   ...props
 }: DropDownProps) => {
@@ -46,7 +46,7 @@ const DropDown = ({
   }, [containerRef]);
 
   const optionClasses = classNames(
-    'absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5',
+    'dropdown__options',
     {
       hidden: !opened
     },
@@ -55,20 +55,17 @@ const DropDown = ({
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return <li className="my-5 whitespace-nowrap first:mb-0 only:mb-5">{child}</li>;
+      return <li className="dropdown__option">{child}</li>;
     }
   });
 
   const renderedIcon = React.cloneElement(arrowIcon, {
-    style: { transform: opened ? 'rotate(180deg)' : 'rotate(0)' }
+    className: classNames('dropdown__icon', { 'dropdown__icon--opened': opened })
   });
 
   return (
-    <div ref={containerRef} {...props} className={`relative ${className}`}>
-      <button
-        className="flex items-center h-full w-full hover:underline gap-0.5 tracking-[inherit]"
-        onClick={() => setOpened((p) => !p)}
-      >
+    <div ref={containerRef} {...props} className={`dropdown__wrapper ${className}`}>
+      <button className="dropdown" onClick={() => setOpened((p) => !p)}>
         <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>

@@ -7,9 +7,9 @@ export interface LoaderProps {
 
 const Loader = (props: LoaderProps) => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <SpinnerIcon className="w-14 h-14" />
-      {props.label && <span className="text-body mt-2">{props.label}</span>}
+    <div className="loader">
+      <SpinnerIcon className="loader__icon" />
+      {props.label && <span className="loader__label">{props.label}</span>}
     </div>
   );
 };

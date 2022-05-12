@@ -6,7 +6,7 @@ const CardsContainer = ({
   ...props
 }: React.AllHTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={`grid grid-cols-1 gap-3 ${className}`} {...props}>
+    <div className={`cards-container ${className}`} {...props}>
       {children}
     </div>
   );
