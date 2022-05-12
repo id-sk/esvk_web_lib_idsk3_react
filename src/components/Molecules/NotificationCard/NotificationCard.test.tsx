@@ -31,4 +31,11 @@ describe('NotificationCard', () => {
     );
     expect(screen.getByText('testLabel').getAttribute('href')).toEqual('testHref');
   });
+
+  test('correctly parse date', () => {
+    render(
+      <NotificationCard date={1648641077221} title="test title" dateFormatString="dd-MM-yyy" />
+    );
+    expect(screen.getByText('30-03-2022')).toBeDefined();
+  });
 });

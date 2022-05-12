@@ -25,5 +25,6 @@ Default.args = {
       Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incid ut labore et
       dolore magna aliqua.
     </p>
-  )
+  ),
+  dateFormatString: 'dd.MM.yyyy'
 };

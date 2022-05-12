@@ -1,6 +1,6 @@
 {
   "name": "@eslovensko/idsk-react",
-  "version": "3.0.31",
+  "version": "3.0.32",
   "description": "React native components for IDSK 3.0",
   "scripts": {
     "clean-dist": "rm -rf ./dist",
@@ -17,7 +17,7 @@
     "deploy": "npm run rollup && npm publish"
   },
   "repository": {
-    "type": "git",  
+    "type": "git",
     "url": "git+ssh://git@gitlab.slovenskoit.sk:components/shared-web-libs/esvk_web_lib_idsk_react.git"
   },
   "author": "Slovensko IT",
@@ -81,7 +81,8 @@
   "peerDependencies": {
     "classnames": "^2.3.1",
     "react": "^17.0.0 || ^18.0.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "date-fns": "^2.28.0"
   },
   "main": "dist/index.js",
   "files": [

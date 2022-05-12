@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 
 import { CardWrapper, CardWrapperProps } from '../../Atoms';
 
@@ -11,6 +12,7 @@ export interface NotificationCardProps extends Omit<CardWrapperProps, 'innerClas
     href?: string;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   }[];
+  dateFormatString?: string;
 }
 
 const NotificationCard = ({
@@ -19,6 +21,7 @@ const NotificationCard = ({
   highlighted,
   children,
   actions = [],
+  dateFormatString = 'dd.MM.yyyy',
   ...props
 }: NotificationCardProps) => {
   const dateObject = new Date(date);
@@ -35,8 +38,8 @@ const NotificationCard = ({
           )}
           {title}
         </span>
-        <time dateTime={dateObject.toISOString()} className="caption text-neutral-800">
-          {dateObject.toLocaleDateString()}
+        <time dateTime={format(dateObject, dateFormatString)} className="caption text-neutral-800">
+          {format(dateObject, dateFormatString)}
         </time>
       </div>
       {children}
