@@ -14,10 +14,13 @@ services:
     networks:
       - "traefik_net"
     logging:
-      driver: "json-file"
+      driver: "loki"
       options:
-        max-size: "1m"
+        max-size: "5m"
         max-file: "2"
+        loki-url: "https://dev-svm-mon.cloud.slovenskoit.sk/loki/api/v1/push"
+        loki-timeout: "3s"
+        loki-retries: "5"
     environment:
       TZ: "Europe/Bratislava"
     labels:
