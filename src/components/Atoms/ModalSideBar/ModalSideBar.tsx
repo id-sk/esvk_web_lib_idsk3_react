@@ -22,17 +22,12 @@ const ModalSideBar = ({
   children,
   ...props
 }: ModalSideBarProps) => {
-  const shadowClasses = classNames('fixed z-50 inset-0 bg-neutral-500/50 duration-500', {
-    'invisible opacity-0': !opened,
-    'visible opacity-100': opened
+  const shadowClasses = classNames('modal-sidebar__shadow', {
+    'modal-sidebar__shadow--hidden': !opened
   });
-  const sidebarClasses = classNames(
-    'fixed z-50 inset-y-0 w-96 max-w-full max-h-full flex flex-col bg-white right-0 duration-500 overflow-hidden',
-    {
-      '-right-96 shadow-none': !opened,
-      'right-0 shadow-dialog': opened
-    }
-  );
+  const sidebarClasses = classNames('modal-sidebar', {
+    'modal-sidebar--hidden': !opened
+  });
 
   return (
     <>
@@ -42,28 +37,24 @@ const ModalSideBar = ({
         data-testid="sidebar-shadow"
       />
       <div className={sidebarClasses} {...props}>
-        <div className="min-h-[1.875rem] tb1:min-h-[2.5rem] w-full bg-blue-600" />
-        <div className="px-5 py-8 border-b border-neutral-300 flex items-center">
+        <div className="modal-sidebar__top-bar" />
+        <div className="modal-sidebar__header">
           <h3>{heading}</h3>
-          <div className="flex-auto" />
-          <button
-            className="border h-8 w-8 rounded-md flex items-center justify-center"
-            onClick={() => toggleOpened(false)}
-          >
-            <CloseIcon width="1.25rem" height="1.25rem" />
+          <button className="modal-sidebar__close-button" onClick={() => toggleOpened(false)}>
+            <CloseIcon className="modal-sidebar__close-icon" />
           </button>
         </div>
-        <div className="flex-initial overflow-auto">
+        <div className="modal-sidebar__body">
           <div>{children}</div>
         </div>
         <div className="flex-auto" />
         {!!footerButtonLabel && (
           <a
-            className="bg-primary text-body-1 font-bold text-white p-3 flex items-center justify-center gap-1"
+            className="modal-sidebar__footer-button"
             href={!!footerButtonHref ? footerButtonHref : undefined}
             onClick={!!footerButtonOnClick ? footerButtonOnClick : undefined}
           >
-            {footerButtonLabel} <ArrowForwardIcon width="1.25rem" height="1.25rem" />
+            {footerButtonLabel} <ArrowForwardIcon className="modal-sidebar__forward-icon" />
           </a>
         )}
       </div>

@@ -41,62 +41,38 @@ const Input = ({
 }: InputProps) => {
   if (!!actionButton && iconPosition === 'right') iconPosition = 'left';
 
-  const inputClasses: string = classNames(
-    'bg-white px-4',
-    'text-black placeholder:text-neutral-600',
-    'border outline-1 outline-none outline-offset-0 rounded-lg',
-    'hover:shadow-border hover:shadow-neutral-600',
-    'focus:shadow-border focus:shadow-neutral-600',
-    'disabled:text-neutral-600 disabled:border-neutral-400 disabled:shadow-none disabled:outline-transparent',
-    {
-      'pl-11': !!icon && iconPosition === 'left' && inputSize === 'large',
-      'pl-10': !!icon && iconPosition === 'left' && inputSize === 'medium',
-      'pl-9': !!icon && iconPosition === 'left' && inputSize === 'small',
-      'pr-11': !!icon && iconPosition === 'right' && inputSize === 'large',
-      'pr-10': !!icon && iconPosition === 'right' && inputSize === 'medium',
-      'pr-9': !!icon && iconPosition === 'right' && inputSize === 'small',
-      'text-body h-12': inputSize === 'large',
-      'text-body-1 h-10': inputSize === 'medium',
-      'caption h-8': inputSize === 'small',
-      'outline-black border-black focus:outline-black focus:border-black': !error,
-      'placeholder-shown:border-neutral-800 placeholder-shown:outline-transparent': !error,
-      'border-alert-warning outline-alert-warning': error
-    }
-  );
-
-  const inputWrapperClasses: string = classNames('inline-block relative my-2', {
-    'text-neutral-600': disabled,
-    'text-alert-warning': error && !disabled,
-    'text-black': !error && !disabled
+  const inputClasses: string = classNames('input', {
+    'input--large': inputSize === 'large',
+    'input--medium': inputSize === 'medium',
+    'input--small': inputSize === 'small',
+    'input--icon-left': !!icon && iconPosition === 'left',
+    'input--icon-right': !!icon && iconPosition === 'right',
+    'input--error': error
   });
-  const actionButtonClasses: string = classNames(
-    'absolute right-0 px-4 h-full font-bold disabled:text-neutral-700',
-    {
-      'text-body': inputSize === 'large',
-      'text-body-1': inputSize === 'medium',
-      caption: inputSize === 'small',
-      'text-alert-warning': error,
-      'text-primary': !error
-    }
-  );
+
+  const inputWrapperClasses: string = classNames('input__wrapper', {
+    'input__wrapper--error': error,
+    'input__wrapper--disabled': disabled
+  });
+
+  const actionButtonClasses: string = classNames('input__action', {
+    'input__action--large': inputSize === 'large',
+    'input__action--medium': inputSize === 'medium',
+    'input__action--small': inputSize === 'small',
+    'input__action--error': error
+  });
 
   const idForAria: string = uuidv4();
 
-  const iconSize = classNames({
-    '1.25rem': inputSize === 'large',
-    '1rem': inputSize === 'medium',
-    '0.825rem': inputSize === 'small'
-  });
-
   const iconElement = !!icon
     ? React.cloneElement(icon, {
-        width: iconSize,
-        height: iconSize,
-        className: classNames(
-          'absolute inset-y-0 m-auto',
-          { 'left-4': iconPosition === 'left' },
-          { 'right-4': iconPosition === 'right' }
-        )
+        className: classNames('input__icon', {
+          'input__icon--large': inputSize === 'large',
+          'input__icon--medium': inputSize === 'medium',
+          'input__icon--small': inputSize === 'small',
+          'input__icon--left': iconPosition === 'left',
+          'input__icon--right': iconPosition === 'right'
+        })
       })
     : undefined;
 
@@ -111,8 +87,8 @@ const Input = ({
   return (
     <>
       <label>
-        <p className="text-body">{label}</p>
-        {!!subtitle && <p className="text-body-1 text-neutral-600">{subtitle}</p>}
+        <p className="input__label">{label}</p>
+        {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
         <div className={inputWrapperClasses}>
           <input
             className={inputClasses}
@@ -141,9 +117,11 @@ const Input = ({
         </div>
       </label>
       {(!!errorMsg || !!caption) && (
-        <p className="text-body-1 text-neutral-600  border-l border-transparent px-4">
+        <p
+          className={classNames('input__caption', { 'input__caption--error': error && !disabled })}
+        >
           {error && !!errorMsg && !disabled ? (
-            <span className="text-alert-warning" id={idForAria} role="alert">
+            <span id={idForAria} role="alert">
               {errorMsg}
             </span>
           ) : (
