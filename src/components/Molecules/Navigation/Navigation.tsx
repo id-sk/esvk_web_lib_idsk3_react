@@ -26,9 +26,9 @@ const Navigation = ({ links = [], currentHref, className = '', ...props }: Navig
       return (
         <DropDown
           dropDownTitle={item.label}
-          arrowIcon={<ExpandMoreIcon width="1.5rem" height="1.5rem" />}
-          className="h-full hover:bg-blue-100 flex items-center px-3 text-body-1 text-black"
-          optionClassName="-left-2 top-3/4"
+          arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
+          className="navigation__dropdown"
+          optionClassName="navigation__dropdown-options"
           key={index}
         >
           {item.options?.map((option, optIndex) => (
@@ -40,28 +40,20 @@ const Navigation = ({ links = [], currentHref, className = '', ...props }: Navig
       );
     } else {
       const clicked = !!item.href && item.href === currentHref;
-      const linkClasses = classNames(
-        'h-full text-body-1 text-black pt-1 border-b-4 flex items-center gap-1.5 px-3 hover:bg-blue-100',
-        {
-          'border-blue-500 font-bold text-blue-500': clicked,
-          'border-transparent': !clicked
-        }
-      );
+      const linkClasses = classNames('navigation__link', {
+        'navigation__link--clicked': clicked
+      });
       return (
         <a className={linkClasses} key={index} href={item?.href} onClick={item?.onClick}>
           {item.label}
-          {!!item.alert && (
-            <span className="w-5 h-5 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold">
-              {item.alert}
-            </span>
-          )}
+          {!!item.alert && <span className="navigation__link-alert">{item.alert}</span>}
         </a>
       );
     }
   };
 
   return (
-    <nav className={`px-10 h-full flex items-center ${className}`} {...props}>
+    <nav className={`navigation ${className}`} {...props}>
       {!!links.length && links.map(renderLinks)}
     </nav>
   );

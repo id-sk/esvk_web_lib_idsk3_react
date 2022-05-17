@@ -34,19 +34,15 @@ const EventCard = ({
   const dateObject = new Date(date);
 
   return (
-    <CardWrapper
-      color={color}
-      innerClassNames="px-4 py-5 grid grid-cols-[auto_1fr] gap-x-4"
-      {...props}
-    >
-      <div className="text-center relative -top-1.5">
-        <time dateTime={dateObject.toISOString()} className="subtitle font-bold">
+    <CardWrapper color={color} innerClassNames="event-card" {...props}>
+      <div className="event-card__date">
+        <time dateTime={dateObject.toISOString()} className="event-card__day">
           {dateObject.getDate()}
         </time>
-        <p className="caption text-neutral-800">{months[dateObject.getMonth()]}</p>
+        <p className="event-card__month">{months[dateObject.getMonth()]}</p>
       </div>
       <div>
-        <div className="font-bold">{title}</div>
+        <div className="event-card__title">{title}</div>
         {children}
       </div>
     </CardWrapper>

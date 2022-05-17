@@ -60,7 +60,7 @@ const DropDown = ({
   });
 
   const renderedIcon = React.cloneElement(arrowIcon, {
-    className: classNames('dropdown__icon', { 'dropdown__icon--opened': opened })
+    className: classNames('dropdown__icon', { 'rotate-180': opened })
   });
 
   return (
