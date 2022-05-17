@@ -27,24 +27,21 @@ const NotificationCard = ({
   const dateObject = new Date(date);
 
   return (
-    <CardWrapper innerClassNames="p-5 pl-10" {...props}>
-      <div className="pb-1 flex items-start justify-between">
-        <span className="text-body-1 font-bold relative">
+    <CardWrapper innerClassNames="notification-card" {...props}>
+      <div className="notification-card__header">
+        <span className="notification-card__title">
           {highlighted && (
-            <span
-              data-testid="unread-alert"
-              className="bg-primary h-[0.625rem] w-[0.625rem] rounded-full inset-y-0 my-auto absolute -left-[1.375rem]"
-            />
+            <span data-testid="unread-alert" className="notification-card__highlight" />
           )}
           {title}
         </span>
-        <time dateTime={format(dateObject, dateFormatString)} className="caption text-neutral-800">
+        <time dateTime={format(dateObject, dateFormatString)} className="notification-card__date">
           {format(dateObject, dateFormatString)}
         </time>
       </div>
       {children}
       {!!actions.length && (
-        <div className="pt-2.5 flex gap-4">
+        <div className="notification-card__footer">
           {actions.map((item, index) => (
             <a
               className="link-s"
