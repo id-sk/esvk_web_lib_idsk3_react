@@ -118,13 +118,38 @@
         @apply bg-blue-100;
     }
 
-    .input {
+    .searchbar__wrapper {
+        @apply relative inline-block
+    }
+    .searchbar__button {
+        @apply absolute inset-0 left-auto bg-primary rounded-r-lg text-white flex items-center
+    }
+    .searchbar__button--large {
+        @apply  text-2xl px-4  gap-2
+    }
+    .searchbar__button--medium {
+        @apply  text-xl px-3.5  gap-1.5
+    }
+    .searchbar__button--small {
+        @apply  text-base px-3  gap-1
+    }
+    .searchbar__icon--large {
+        @apply w-8 h-8
+    }
+    .searchbar__icon--medium {
+        @apply w-6 h-6
+    }
+    .searchbar__icon--small {
+        @apply w-4 h-4
+    }
+
+    .input, .searchbar {
         @apply bg-white px-4 text-black placeholder:text-neutral-600 border outline-1 outline-none outline-offset-0 rounded-lg hover:shadow-border hover:shadow-neutral-600 focus:shadow-border focus:shadow-neutral-600 disabled:text-neutral-600 disabled:border-neutral-400 disabled:shadow-none disabled:outline-transparent outline-black border-black focus:outline-black focus:border-black placeholder-shown:border-neutral-800 placeholder-shown:outline-transparent;
     }
     .input--error {
         @apply border-alert-warning outline-alert-warning focus:border-alert-warning focus:outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
     }
-    .input--large {
+    .input--large, .searchbar--large {
         @apply text-body h-12;
     }
     .input--large.input--icon-left {
@@ -133,7 +158,7 @@
     .input--large.input--icon-right {
         @apply pr-11;
     }
-    .input--medium {
+    .input--medium, .searchbar--medium {
         @apply text-body-1 h-10;
     }
     .input--medium.input--icon-left {
@@ -142,7 +167,7 @@
     .input--medium.input--icon-right {
         @apply pr-10;
     }
-    .input--small {
+    .input--small, .searchbar--small {
         @apply caption h-8;
     }
     .input--small.input--icon-left {

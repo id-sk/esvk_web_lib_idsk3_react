@@ -12,3 +12,4 @@ export { default as AvatarCircle, AvatarCircleProps } from './AvatarCircle';
 export { default as ModalSideBar, ModalSideBarProps } from './ModalSideBar';
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';
+export { default as SearchBar, SearchBarProps } from './SearchBar';
