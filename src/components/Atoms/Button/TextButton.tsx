@@ -14,22 +14,22 @@ const defaultButtonProps: TextButtonProps = {
 
 const TextButton = (props: TextButtonProps) => {
   props = { ...defaultButtonProps, ...props };
-
-  return (
-    <BaseButton
-      className={classNames('link-button', {
-        'link-button--basic': props.variant == 'basic',
-        'link-button--success': props.variant == 'success',
-        'link-button--warning': props.variant == 'warning',
-        'link-button--contrast': props.variant == 'contrast',
-        'link-button--medium': props.size == 'medium',
-        'link-button--large': props.size == 'large',
-        'link-button--icon-left': props.icon && props.iconPosition == 'left',
-        'link-button--icon-right': props.icon && props.iconPosition == 'right'
-      })}
-      {...props}
-    />
+  const className = classNames(
+    'link-button',
+    {
+      'link-button--basic': props.variant == 'basic',
+      'link-button--success': props.variant == 'success',
+      'link-button--warning': props.variant == 'warning',
+      'link-button--contrast': props.variant == 'contrast',
+      'link-button--medium': props.size == 'medium',
+      'link-button--large': props.size == 'large',
+      'link-button--icon-left': props.icon && props.iconPosition == 'left',
+      'link-button--icon-right': props.icon && props.iconPosition == 'right'
+    },
+    props.className
   );
+
+  return <BaseButton {...props} className={className} />;
 };
 
 export default TextButton;

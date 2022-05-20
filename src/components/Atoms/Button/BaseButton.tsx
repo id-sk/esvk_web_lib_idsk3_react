@@ -7,6 +7,7 @@ export interface BaseButtonProps {
   children?: ReactNode | undefined;
   disabled?: boolean;
   size?: 'medium' | 'large';
+  fullWidth?: boolean;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
@@ -28,7 +29,7 @@ const BaseButton = (props: BaseButtonProps) => {
 
   return (
     <button
-      className={props.className}
+      className={classNames(props.className, { 'w-full': props.fullWidth })}
       disabled={props.disabled}
       aria-disabled={props.disabled}
       onClick={props.onClick}

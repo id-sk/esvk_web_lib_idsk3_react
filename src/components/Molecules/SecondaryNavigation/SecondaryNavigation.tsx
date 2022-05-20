@@ -5,7 +5,6 @@ import { DropDown } from '../../Atoms';
 import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 
 export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElement> {
-  fixed?: boolean;
   title?: string;
   titleButton?: string;
   dropDownTitle?: string;
@@ -13,7 +12,6 @@ export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElemen
 }
 
 const SecondaryNavigation = ({
-  fixed = false,
   children,
   title,
   titleButton,
@@ -24,7 +22,7 @@ const SecondaryNavigation = ({
   const [opened, setOpened] = useState<boolean>(false);
 
   return (
-    <div className={classNames('secondary-navigation', { sticky: fixed })}>
+    <div className="secondary-navigation">
       <div className="secondary-navigation__header" {...props}>
         <div className="secondary-navigation__title">
           {title}{' '}

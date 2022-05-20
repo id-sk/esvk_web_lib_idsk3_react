@@ -25,7 +25,7 @@ const HeaderContainer = ({
   return (
     <header className={headerClasses} {...props}>
       {!!secondaryNavigation && secondaryNavigation}
-      <div className="header-container">{children}</div>
+      {!!children && <div className="header-container">{children}</div>}
     </header>
   );
 };

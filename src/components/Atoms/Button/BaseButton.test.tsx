@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 import BaseButton from './BaseButton';
 
@@ -12,6 +13,11 @@ describe('Button', () => {
   test('passes the disabled property to the button element', () => {
     render(<BaseButton disabled label="Hello world!" />);
     expect(screen.getByRole('button').hasAttribute('disabled')).toBeTruthy();
+  });
+
+  test('passes the fullWidth property to the button element', () => {
+    render(<BaseButton fullWidth label="Hello world!" />);
+    expect(screen.getByRole('button')).toHaveClass('w-full');
   });
 
   test('sets the aria-disabled attribute when disabled', () => {
