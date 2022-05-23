@@ -18,6 +18,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   subtitle?: string;
   placeholder?: string;
   disabled?: boolean;
+  fullWidth?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
@@ -32,6 +33,7 @@ const Input = ({
   subtitle,
   caption,
   disabled,
+  fullWidth,
   placeholder,
   onChange,
   icon,
@@ -47,12 +49,14 @@ const Input = ({
     'input--small': inputSize === 'small',
     'input--icon-left': !!icon && iconPosition === 'left',
     'input--icon-right': !!icon && iconPosition === 'right',
-    'input--error': error
+    'input--error': error,
+    'w-full': fullWidth
   });
 
   const inputWrapperClasses: string = classNames('input__wrapper', {
     'input__wrapper--error': error,
-    'input__wrapper--disabled': disabled
+    'input__wrapper--disabled': disabled,
+    'w-full': fullWidth
   });
 
   const actionButtonClasses: string = classNames('input__action', {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 import Input from './Input';
 
@@ -12,6 +13,11 @@ describe('Input', () => {
   test('passes the disabled property to the input element', () => {
     render(<Input disabled />);
     expect(screen.getByRole('textbox').hasAttribute('disabled')).toBeTruthy();
+  });
+
+  test('passes the fullWidth property to the input element', () => {
+    render(<Input fullWidth />);
+    expect(screen.getByRole('textbox')).toHaveClass('w-full');
   });
 
   test('onChange function on the input element', () => {
