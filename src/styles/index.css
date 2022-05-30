@@ -41,7 +41,7 @@
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
     }
-    
+
 }
 
 @layer utilities {
@@ -487,6 +487,34 @@
     }
     .secondary-navigation__dropdown {
         @apply caption tb1:text-body-1;
+    }
+
+    .vertical-event-card {
+        @apply flex flex-col my-2;
+    }
+    .vertical-event-card__color-strip {
+        @apply absolute inset-x-0 top-0 h-2 w-full;
+    }
+    .vertical-event-card__header {
+        @apply px-5 pt-4 pb-5 flex flex-row justify-between items-center border-b border-b-neutral-300;
+    }
+    .vertical-event-card__body {
+        @apply px-5 py-2.5;
+    }
+    .vertical-event-card__alert-icon {
+        @apply text-[1.5rem];
+    }
+    .vertical-event-card__title {
+        @apply font-bold mb-2.5;
+    }
+    .vertical-event-card__date {
+        @apply flex flex-row items-center;
+    }
+    .vertical-event-card__day {
+        @apply mr-1.5 subtitle font-bold;
+    }
+    .vertical-event-card__month {
+        @apply text-body;
     }
 
 }
