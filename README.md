@@ -21,7 +21,7 @@ npm install @eslovensko/idsk-react
 
 The storybook for this library containing the latest version of the components is deployed here: 
 
-http://library.dev.idsk.skit.zone
+http://reactlib.dev.idsk.skit.zone
 
 ## Library development
 

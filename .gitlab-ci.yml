@@ -152,7 +152,7 @@ build-job:
   environment: DEV
   image: "kroniak/ssh-client:3.11"
   variables:
-    SSH_CONNECT: "deploy@library.dev.idsk.skit.zone"
+    SSH_CONNECT: "deploy@web-01-idsk-dev.cloud.skit.zone"
   before_script:
     - apk add --update bash curl jq
   script:

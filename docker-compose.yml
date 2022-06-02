@@ -7,8 +7,8 @@ networks:
 
 
 services:
-  esvk_web_idsk_react_library:
-    container_name: "esvk_web_idsk_react_library"
+  esvk_web_lib_idsk_react:
+    container_name: "esvk_web_lib_idsk_react"
     image: "${IMAGE_NAME}:${IMAGE_TAG}"
     restart: "unless-stopped"
     networks:
@@ -18,7 +18,7 @@ services:
       options:
         max-size: "5m"
         max-file: "2"
-        loki-url: "https://dev-svm-mon.cloud.slovenskoit.sk/loki/api/v1/push"
+        loki-url: "http://loki.${CI_ENVIRONMENT_NAME_LOWER}.svm.skit.zone/loki/api/v1/push"
         loki-timeout: "3s"
         loki-retries: "5"
     environment:
@@ -29,5 +29,5 @@ services:
       traefik.http.services.web.loadbalancer.server.scheme: "http"
 
       traefik.http.routers.web.service: "web"
-      traefik.http.routers.web.rule: "Host(`library.${CI_ENVIRONMENT_NAME_LOWER}.idsk.skit.zone`)"
+      traefik.http.routers.web.rule: "Host(`reactlib.${CI_ENVIRONMENT_NAME_LOWER}.idsk.skit.zone`)"
       traefik.http.routers.web.entrypoints: "web"
