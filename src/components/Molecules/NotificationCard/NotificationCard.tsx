@@ -44,7 +44,7 @@ const NotificationCard = ({
         <div className="notification-card__footer">
           {actions.map((item, index) => (
             <a
-              className="link-s"
+              className="notification-card__link"
               key={index}
               href={!!item.href ? item.href : undefined}
               onClick={!!item.onClick ? item.onClick : undefined}
