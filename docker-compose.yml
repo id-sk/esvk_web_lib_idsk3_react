@@ -25,9 +25,9 @@ services:
       TZ: "Europe/Bratislava"
     labels:
       traefik.enable: "true"
-      traefik.http.services.web.loadbalancer.server.port: "80"
-      traefik.http.services.web.loadbalancer.server.scheme: "http"
+      traefik.http.services.reactlib.loadbalancer.server.port: "80"
+      traefik.http.services.reactlib.loadbalancer.server.scheme: "http"
 
-      traefik.http.routers.web.service: "web"
-      traefik.http.routers.web.rule: "Host(`reactlib.${CI_ENVIRONMENT_NAME_LOWER}.idsk.skit.zone`)"
-      traefik.http.routers.web.entrypoints: "web"
+      traefik.http.routers.reactlib.service: "reactlib"
+      traefik.http.routers.reactlib.rule: "Host(`reactlib.${CI_ENVIRONMENT_NAME_LOWER}.idsk.skit.zone`)"
+      traefik.http.routers.reactlib.entrypoints: "web"

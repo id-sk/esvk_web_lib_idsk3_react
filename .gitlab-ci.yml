@@ -98,26 +98,13 @@ build-job:
     - /^devops\/.*$/
 
 
-"Publish package":
-  stage: deploy
-  tags:
-    - "deploy"
-  image: node:18-alpine
-  needs:
-    - build-job
-  script:
-    - echo "@eslovensko:registry=https://gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
-    - echo "//gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc
-    - npm publish
-  only:
-    - develop
-
+###     BUILD       ###
 "Increment Build number":
   stage: build
   tags:
     - "init"
   environment: DEV
-  image: "bash:5.1.8"
+  image: "bash:5.1"
   before_script:
     - apk add curl jq
   script:
@@ -145,12 +132,27 @@ build-job:
     - /^devops\/.*$/
 
 
+###     DEPLOY      ###
+"Publish package":
+  stage: deploy
+  tags:
+    - "deploy"
+  image: node:18-alpine
+  needs:
+    - build-job
+  script:
+    - echo "@eslovensko:registry=https://gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
+    - echo "//gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc
+    - npm publish
+  only:
+    - develop
+
 "Deploy":
   stage: deploy
   tags:
     - "deploy"
   environment: DEV
-  image: "kroniak/ssh-client:3.11"
+  image: "kroniak/ssh-client:3.15"
   variables:
     SSH_CONNECT: "deploy@web-01-idsk-dev.cloud.skit.zone"
   before_script:
