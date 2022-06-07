@@ -29,6 +29,7 @@ export default [
       copy({
         targets: [
           { src: 'src/styles/idsk3_theme.css', dest: 'dist/styles' },
+          { src: 'node_modules/@eslovensko/idsk-core/dist/assets', dest: 'dist' },
           { src: 'node_modules/@eslovensko/idsk-core/dist/tailwindConfig.js', dest: 'dist' }
         ]
       })
