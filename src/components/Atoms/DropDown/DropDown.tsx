@@ -15,6 +15,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   dropDownTitle?: ReactNode;
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   optionClassName?: string;
+  buttonClassName?: string;
 }
 
 const DropDown = ({
@@ -23,6 +24,7 @@ const DropDown = ({
   children,
   arrowIcon = <ArrowDropDownIcon />,
   optionClassName,
+  buttonClassName,
   ...props
 }: DropDownProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -52,6 +54,8 @@ const DropDown = ({
     },
     optionClassName
   );
+  const wrapperClasses = classNames('dropdown__wrapper', className);
+  const buttonClasses = classNames('dropdown', buttonClassName);
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
@@ -64,8 +68,8 @@ const DropDown = ({
   });
 
   return (
-    <div ref={containerRef} {...props} className={`dropdown__wrapper ${className}`}>
-      <button className="dropdown" onClick={() => setOpened((p) => !p)}>
+    <div ref={containerRef} {...props} className={wrapperClasses}>
+      <button className={buttonClasses} onClick={() => setOpened((p) => !p)}>
         <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>
