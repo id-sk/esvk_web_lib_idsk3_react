@@ -1,31 +1,44 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-
-import Navigation from './Navigation';
+import { Navigation, NavigationLink, NavigationLinkOption } from './index';
 
 describe('Navigation', () => {
   test('renders link', () => {
-    render(<Navigation links={[{ label: 'Test Link', href: 'testHref' }]} />);
+    render(
+      <Navigation>
+        <NavigationLink label="Test Link" href="testHref" />
+      </Navigation>
+    );
     expect(screen.getByText('Test Link')).toBeDefined();
   });
 
   test('renders link href correctly', () => {
-    render(<Navigation links={[{ label: 'Test Link', href: 'testHref' }]} />);
+    render(
+      <Navigation>
+        <NavigationLink label="Test Link" href="testHref" />
+      </Navigation>
+    );
     expect(screen.getByText('Test Link').getAttribute('href')).toEqual('testHref');
   });
 
   test('calls the onClick function when clicked', () => {
     const mockLinkClick = jest.fn();
-    render(<Navigation links={[{ label: 'Test Link', onClick: mockLinkClick }]} />);
+    render(
+      <Navigation>
+        <NavigationLink label="Test Link" onClick={mockLinkClick} />
+      </Navigation>
+    );
     fireEvent.click(screen.getByText('Test Link'));
     expect(mockLinkClick).toHaveBeenCalled();
   });
 
   test('renders dropDown options href correctly', () => {
     render(
-      <Navigation
-        links={[{ label: 'Test dropDown', options: [{ label: 'Test Option', href: 'testHref' }] }]}
-      />
+      <Navigation>
+        <NavigationLink label="Test dropDown">
+          <NavigationLinkOption label="Test Option" href="testHref" />
+        </NavigationLink>
+      </Navigation>
     );
     expect(screen.getByText('Test Option').getAttribute('href')).toEqual('testHref');
   });
