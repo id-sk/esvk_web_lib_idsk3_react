@@ -1,6 +1,6 @@
 {
   "name": "@eslovensko/idsk-react",
-  "version": "3.0.53",
+  "version": "3.0.54",
   "description": "React native components for IDSK 3.0",
   "scripts": {
     "clean-dist": "rm -rf ./dist",

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '/src/styles/idsk3_theme.css';
-import {
-  Navigation,
-  NavigationLink,
-  NavigationLinkOption
-} from '../components/Molecules';
+import { Navigation, NavigationLink, NavigationLinkOption } from '../components/Molecules';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ModalSideBar, CardWrapper } from '../components/Atoms';
+import { ModalSideBar, ModalSideBarFooterButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -24,5 +24,5 @@ export const WithFooterButton = Template.bind({});
 WithFooterButton.args = {
   opened: true,
   heading: 'Profil',
-  footerButtonLabel: 'Zobraziť všetko'
+  footerButton: <ModalSideBarFooterButton>Zobraziť všetko</ModalSideBarFooterButton>
 };

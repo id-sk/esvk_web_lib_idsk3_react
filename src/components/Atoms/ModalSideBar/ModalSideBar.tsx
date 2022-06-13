@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { CloseIcon, ArrowForwardIcon } from '../../../svgIcons/Navigation';
+import { CloseIcon } from '../../../svgIcons/Navigation';
 
 export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElement> {
   opened: boolean;
   toggleOpened: React.Dispatch<React.SetStateAction<boolean>>;
   heading: string;
-  footerButtonLabel?: string;
-  footerButtonHref?: string;
-  footerButtonOnClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  footerButton?: ReactNode | undefined;
 }
 
 const ModalSideBar = ({
   opened,
   toggleOpened,
   heading,
-  footerButtonLabel,
-  footerButtonHref,
-  footerButtonOnClick,
+  footerButton,
   children,
   ...props
 }: ModalSideBarProps) => {
@@ -48,15 +44,7 @@ const ModalSideBar = ({
           <div>{children}</div>
         </div>
         <div className="flex-auto" />
-        {!!footerButtonLabel && (
-          <a
-            className="modal-sidebar__footer-button"
-            href={!!footerButtonHref ? footerButtonHref : undefined}
-            onClick={!!footerButtonOnClick ? footerButtonOnClick : undefined}
-          >
-            {footerButtonLabel} <ArrowForwardIcon className="modal-sidebar__forward-icon" />
-          </a>
-        )}
+        {!!footerButton && footerButton}
       </div>
     </>
   );
