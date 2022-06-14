@@ -9,12 +9,7 @@ export { default as MenuButton, MenuButtonProps } from './MenuButton';
 export { default as HeaderContainer, HeaderProps } from './HeaderContainer';
 export { default as Bell, BellProps } from './Bell';
 export { default as AvatarCircle, AvatarCircleProps } from './AvatarCircle';
-export {
-  ModalSideBar,
-  ModalSideBarProps,
-  ModalSideBarFooterButton,
-  ModalSideBarFooterButtonProps
-} from './ModalSideBar';
+export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './ModalSideBar';
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';
 export { default as SearchBar, SearchBarProps } from './SearchBar';

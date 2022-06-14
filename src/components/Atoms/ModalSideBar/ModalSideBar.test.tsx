@@ -22,9 +22,7 @@ describe('ModalSideBar', () => {
         opened={false}
         toggleOpened={() => {}}
         footerButton={
-          <ModalSideBarFooterButton htmlTag="button" onClick={mockButtonClick}>
-            Test Button
-          </ModalSideBarFooterButton>
+          <ModalSideBarFooterButton onClick={mockButtonClick}>Test Button</ModalSideBarFooterButton>
         }
       />
     );
@@ -38,9 +36,7 @@ describe('ModalSideBar', () => {
         opened={false}
         toggleOpened={() => {}}
         footerButton={
-          <ModalSideBarFooterButton htmlTag="a" href="testHref">
-            Test Href
-          </ModalSideBarFooterButton>
+          <ModalSideBarFooterButton href="testHref">Test Href</ModalSideBarFooterButton>
         }
       />
     );
