@@ -3,5 +3,5 @@
 .config
 node_modules/*
 src/styles
-src/stories
-src/components/Icons
+src/svgIcons
+src/svgImages

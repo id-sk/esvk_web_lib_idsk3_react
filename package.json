@@ -1,12 +1,12 @@
 {
   "name": "@eslovensko/idsk-react",
-  "version": "3.0.58",
+  "version": "3.0.59",
   "description": "React native components for IDSK 3.0",
   "scripts": {
     "clean-dist": "rm -rf ./dist",
     "rollup": "npm run clean-dist && npm run build-styles-prod && rollup -c",
     "prettier": "prettier --write src",
-    "lint": "npx tsc --noEmit && npx eslint src/components",
+    "lint": "npx tsc --noEmit && npx eslint src",
     "test": "jest",
     "build-styles-dev": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css --watch",
     "build-styles-prod": "tailwindcss -i ./src/styles/index.css -o ./src/styles/idsk3_theme.css -m",

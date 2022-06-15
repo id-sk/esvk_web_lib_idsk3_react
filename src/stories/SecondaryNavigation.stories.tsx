@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SecondaryNavigation } from '../components/Molecules';
 import '/src/styles/idsk3_theme.css';

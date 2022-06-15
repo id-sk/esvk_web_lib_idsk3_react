@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Accordeon, Input } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';

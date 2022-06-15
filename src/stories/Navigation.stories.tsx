@@ -14,7 +14,7 @@ export const Template: ComponentStory<typeof Navigation> = (args) => {
   const [selectedLink, setSelectedLink] = useState<string | null>('kalendar');
 
   const isSelected = (link: string) => link === selectedLink;
-  const handleClick = (e: any, link: string) => {
+  const handleClick = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
     setSelectedLink(link);
   };
