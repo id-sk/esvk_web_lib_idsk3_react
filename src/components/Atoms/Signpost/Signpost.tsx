@@ -1,4 +1,5 @@
 import React, { Children, ReactNode } from 'react';
+import classNames from 'classnames';
 
 export interface SignpostProps extends React.AllHTMLAttributes<HTMLDivElement> {
   socialIcon?: ReactNode;
@@ -10,28 +11,27 @@ export interface SignpostProps extends React.AllHTMLAttributes<HTMLDivElement> {
   onClick: () => void;
 }
 
-const noBorderClass =
-  'signpost flex justify-between p-5 border-b border-neutral-100 cursor-pointer last:border-none';
-const borderClass =
-  'signpost flex justify-between bg-white p-5  border border-neutral-100 rounded-lg cursor-pointer';
-
 const Signpost = (props: SignpostProps) => {
   return (
-    <div className={props.inGroup ? noBorderClass : borderClass} onClick={props.onClick}>
-      <div className="container flex w-full">
-        {!!props.socialIcon && (
-          <div className="text-blue-500 text-3xl mr-5 pt-1">{props.socialIcon}</div>
-        )}
-        <div className="title-children">
-          <div className="text-blue-400 text-3xl">{props.icon}</div>
-          <div className="flex items-center text-blue-400 underline font-bold text-lg">
-            {!!props.titleIcon && <div className="text-3xl mr-2">{props.titleIcon}</div>}
+    <div
+      className={classNames(
+        'signpost',
+        props.inGroup ? 'signpost--in-group' : 'signpost--rounded-border'
+      )}
+      onClick={props.onClick}
+    >
+      <div className="signpost__container">
+        {!!props.socialIcon && <div className="signpost__social-icon">{props.socialIcon}</div>}
+        <div>
+          {!!props.icon && <div className="signpost__icon">{props.icon}</div>}
+          <div className="signpost__title">
+            {!!props.titleIcon && <div className="signpost__title-icon">{props.titleIcon}</div>}
             {props.title}
           </div>
-          <div className="text-base">{props.children}</div>
+          <div className="signpost__description">{props.children}</div>
         </div>
       </div>
-      <div className="font-bold text-xl ml-4">{props.arrowIcon}</div>
+      <div className="signpost__arrow-icon">{props.arrowIcon}</div>
     </div>
   );
 };
@@ -44,9 +44,7 @@ export function SignpostsGroup({ children }: React.AllHTMLAttributes<HTMLDivElem
       });
     }
   });
-  return (
-    <div className="border border-neutral-100 rounded-lg overflow-hidden">{renderedChildren}</div>
-  );
+  return <div className="signpost-group">{renderedChildren}</div>;
 }
 
 export default Signpost;

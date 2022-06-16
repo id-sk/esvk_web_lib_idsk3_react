@@ -492,6 +492,40 @@
         @apply caption tb1:text-body-1;
     }
 
+    .signpost {
+        @apply flex justify-between p-5 cursor-pointer bg-white;
+    }
+    .signpost--in-group {
+        @apply border-b border-neutral-100 last:border-none;
+    }
+    .signpost--rounded-border {
+        @apply border border-neutral-100 rounded-lg;
+    }
+    .signpost__container {
+        @apply container flex w-full;
+    }
+    .signpost__social-icon {
+        @apply text-blue-500 text-[1.875rem] w-[1.875rem] h-[1.875rem] mr-5 pt-1;
+    }
+    .signpost__icon {
+        @apply text-blue-400 text-[1.875rem] w-[1.875rem] h-[1.875rem];
+    }
+    .signpost__title {
+        @apply flex items-center link-m font-bold;
+    }
+    .signpost__title-icon {
+        @apply text-[1.875rem] w-[1.875rem] h-[1.875rem] mr-2;
+    }
+    .signpost__description {
+        @apply text-body-1;
+    }
+    .signpost__arrow-icon {
+        @apply font-bold text-[1.25rem] w-[1.25rem] h-[1.25rem] ml-4;
+    }
+    .signpost-group {
+        @apply border border-neutral-100 rounded-lg overflow-hidden;
+    }
+
     .vertical-event-card {
         @apply flex flex-col my-2;
     }
