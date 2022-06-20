@@ -77,6 +77,13 @@
         @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1;
     }
 
+    .breadcrumbs {
+        @apply flex items-center gap-2;
+    }
+    .breadcrumbs > a, .breadcrumbs > button {
+        @apply link-s text-black last:no-underline;
+    }
+
     .button__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
     }
