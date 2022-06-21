@@ -9,7 +9,7 @@
         font-family: 'Source Sans Pro', sans-serif;
     }
     h1 {
-        @apply text-5xl font-black leading-[1.15rem];
+        @apply text-5xl font-black leading-[3.4375rem];
     }
     h2 {
         @apply text-2xl tb1:text-4xl font-black tb1:leading-tight;
@@ -18,7 +18,7 @@
         @apply text-2xl font-bold leading-normal;
     }
     h4 {
-        @apply text-xl font-bold leading-[1.3rem] tracking-[.15px];
+        @apply text-xl font-bold leading-[1.625rem] tracking-[.15px];
     }
     .subtitle, .link-l {
         @apply text-2xl leading-normal tracking-[.15px];
