@@ -139,7 +139,21 @@
     .event-card__title {
         @apply font-bold;
     }
-
+    .feedback {
+        @apply bg-blue-600 text-white items-center py-2.5 text-body-1 font-bold;
+    }
+    .feedback__container {
+        @apply flex items-center page-content justify-between;
+    }
+    .feedback__text-and-buttons {
+        @apply flex items-center;
+    }
+    .feedback__text {
+        @apply mr-10;
+    }
+    .feedback__close-button {
+        @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] ml-10 cursor-pointer;
+    }
     .header-container {
         @apply h-16 tb1:h-[6.25rem] relative inset-x-0 mx-auto flex items-center px-5 page-content;
     }
@@ -457,6 +471,9 @@
     }
     .secondary-button--contrast {
         @apply text-primary bg-black/10 border-blue-400 hover:ring-blue-400 focus:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
+    }
+    .secondary-button--transparent {
+        @apply text-white bg-black/10 border-white/70 h-10 hover:ring-blue-400 focus:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
     }
     .secondary-button--medium {
         @apply py-2 px-4;

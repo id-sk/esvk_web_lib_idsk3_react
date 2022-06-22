@@ -10,3 +10,4 @@ export {
   NavigationLinkProps,
   NavigationLinkOptionProps
 } from './Navigation';
+export { default as Feedback, FeedbackProps } from './Feedback';
