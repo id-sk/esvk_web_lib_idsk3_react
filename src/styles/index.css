@@ -533,6 +533,10 @@
         @apply border border-neutral-100 rounded-lg overflow-hidden;
     }
 
+    .tag {
+       @apply inline-block rounded px-4 py-1.5 caption bg-neutral-200;
+    }
+
     .vertical-event-card {
         @apply flex flex-col my-2;
     }
