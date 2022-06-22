@@ -527,7 +527,7 @@
         @apply text-body-1;
     }
     .signpost__arrow-icon {
-        @apply font-bold text-[1.25rem] w-[1.25rem] h-[1.25rem] ml-4;
+        @apply font-bold text-[1.5rem] w-[1.5rem] h-[1.5rem] ml-4;
     }
     .signpost-group {
         @apply border border-neutral-100 rounded-lg overflow-hidden;
