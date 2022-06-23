@@ -54,6 +54,7 @@
         "optionalDependencies": true,
         "peerDependencies": true
       }
-    ]
+    ],
+    "@typescript-eslint/no-var-requires": "off"
   }
 }

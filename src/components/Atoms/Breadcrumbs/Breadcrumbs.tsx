@@ -1,13 +1,20 @@
 import React, { ReactNode, Children } from 'react';
+import classNames from 'classnames';
 
 import { ArrowForwardIosIcon } from '../../../svgIcons/Navigation';
 import { HomeIcon } from '../../../svgIcons/Actions';
 
-export interface BreadcrumbsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface BreadcrumbsProps extends React.AllHTMLAttributes<HTMLDivElement> {
   homeLink?: ReactNode;
 }
 
-const Breadcrumbs = ({ children, homeLink = <a href="/">Domov</a> }: BreadcrumbsProps) => {
+const Breadcrumbs = ({
+  children,
+  homeLink = <a href="/">Domov</a>,
+  className,
+  ...props
+}: BreadcrumbsProps) => {
+  const breadcrumbsClasses = classNames('breadcrumbs', className);
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return (
@@ -19,7 +26,7 @@ const Breadcrumbs = ({ children, homeLink = <a href="/">Domov</a> }: Breadcrumbs
     }
   });
   return (
-    <div className="breadcrumbs">
+    <div className={breadcrumbsClasses} {...props}>
       <HomeIcon />
       {homeLink}
       {renderedChildren}

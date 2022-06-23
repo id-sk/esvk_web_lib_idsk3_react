@@ -73,6 +73,23 @@
         @apply block;
     }
 
+    .article-card {
+        @apply grid gap-6 grid-cols-[3fr_4fr] text-body;
+    }
+    .article-card__heading {
+        @apply text-primary font-bold subtitle underline py-2.5;
+    }
+    .article-card__date-tags {
+        @apply text-neutral-700 text-body-1;
+        word-spacing: 0.5rem;
+    }
+    .article-card__image-wrapper {
+        @apply pt-[56.25%] overflow-hidden relative;
+    }
+    .article-card__image-wrapper > * {
+        @apply absolute top-0 object-cover w-full h-full object-center;
+    }
+
     .avatar-circle {
         @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1;
     }
