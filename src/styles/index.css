@@ -46,7 +46,7 @@
 
 @layer utilities {
     .page-content {
-        @apply tb1:px-8 dm2:px-40 max-w-[114rem]
+        @apply tb1:px-8 dm2:px-40 max-w-[114rem] mx-auto
     }
 }
 
@@ -172,7 +172,7 @@
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] ml-10 cursor-pointer;
     }
     .header-container {
-        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 mx-auto flex items-center px-5 page-content;
+        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center px-5 page-content;
     }
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
@@ -468,10 +468,10 @@
         @apply pt-[1.875rem] pb-16 tb1:pt-[3.25rem] bg-neutral-100 flex-auto flex flex-col;
     }
     .private-page__title {
-        @apply inset-x-0 mx-auto pb-6 tb1:pb-7 px-5 page-content w-full;
+        @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
     }
     .private-page__body {
-        @apply relative inset-x-0 mx-auto px-0 page-content  min-h-full flex-auto w-full;
+        @apply relative inset-x-0 px-0 page-content min-h-full flex-auto w-full;
     }
 
     .secondary-button {
@@ -515,10 +515,10 @@
         @apply bg-blue-600;
     }
     .secondary-navigation__header {
-        @apply text-white h-[1.875rem] tb1:h-10 px-5 page-content relative inset-x-0 mx-auto flex justify-between items-center z-10;
+        @apply text-white h-[1.875rem] tb1:h-10 px-5 page-content relative inset-x-0 flex justify-between items-center z-10;
     }
     .secondary-navigation__body {
-        @apply py-2.5 text-white text-body-1 px-5 page-content relative inset-x-0 mx-auto;
+        @apply py-2.5 text-white text-body-1 px-5 page-content relative inset-x-0;
     }
     .secondary-navigation__title {
         @apply caption tb1:text-body-1;
