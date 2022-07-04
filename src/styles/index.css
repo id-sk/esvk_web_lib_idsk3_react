@@ -581,7 +581,7 @@
     }
 
     .tag {
-       @apply inline-block rounded px-4 py-1.5 caption bg-neutral-200;
+        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border items-center;
     }
 
     .vertical-event-card {
