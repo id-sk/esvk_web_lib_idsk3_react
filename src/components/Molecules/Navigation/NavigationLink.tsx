@@ -11,44 +11,38 @@ export interface NavigationLinkProps extends NavigationLinkOptionProps {
   children?: ReactElement<NavigationLinkOptionProps> | ReactElement<NavigationLinkOptionProps>[];
 }
 
-const NavigationLink = ({
-  label,
-  href,
-  onClick,
-  alert,
-  selected,
-  linkElement,
-  children
-}: NavigationLinkProps) => {
-  if (!!children) {
+const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
+  ({ label, href, onClick, alert, selected, linkElement, children }, ref) => {
+    if (!!children) {
+      return (
+        <DropDown
+          dropDownTitle={label}
+          arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
+          className="navigation__dropdown"
+          optionClassName="navigation__dropdown-options"
+        >
+          {children}
+        </DropDown>
+      );
+    }
+
+    const linkClasses = classNames('navigation__link', {
+      'navigation__link--clicked': selected
+    });
+
     return (
-      <DropDown
-        dropDownTitle={label}
-        arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
-        className="navigation__dropdown"
-        optionClassName="navigation__dropdown-options"
-      >
-        {children}
-      </DropDown>
+      <span className={linkClasses}>
+        {!!linkElement ? (
+          linkElement
+        ) : (
+          <a ref={ref} href={href} onClick={onClick}>
+            {label}
+          </a>
+        )}
+        {!!alert && <span className="navigation__link-alert">{alert}</span>}
+      </span>
     );
   }
-
-  const linkClasses = classNames('navigation__link', {
-    'navigation__link--clicked': selected
-  });
-
-  return (
-    <span className={linkClasses}>
-      {!!linkElement ? (
-        linkElement
-      ) : (
-        <a href={href} onClick={onClick}>
-          {label}
-        </a>
-      )}
-      {!!alert && <span className="navigation__link-alert">{alert}</span>}
-    </span>
-  );
-};
+);
 
 export default NavigationLink;

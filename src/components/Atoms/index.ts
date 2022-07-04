@@ -18,3 +18,4 @@ export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export { default as Signpost, SignpostsGroup, SignpostProps } from './Signpost';
 export { default as Tag, TagProps } from './Tag';
+export { TabBar, TabBarLink, TabBarProps, TabBarLinkProps } from './TabBar';
