@@ -596,9 +596,23 @@
         @apply border border-neutral-100 rounded-lg overflow-hidden;
     }
 
-    .tag {
-       @apply inline-block rounded px-4 py-1.5 caption bg-neutral-200;
+    .tab-bar {
+        @apply  flex items-start border-b border-neutral-300;
     }
+    .tab-bar__link {
+        @apply  text-body text-black  border-b-4 flex-row items-center hover:bg-blue-100 border-transparent;
+    }
+    .tab-bar__link > a {
+        @apply text-body py-2.5 px-4 block;
+    }
+    .tab-bar__link--clicked {
+        @apply border-blue-400 font-bold;
+    }
+
+    .tag {
+        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border items-center;
+    }
+
 
     .vertical-event-card {
         @apply flex flex-col my-2;
