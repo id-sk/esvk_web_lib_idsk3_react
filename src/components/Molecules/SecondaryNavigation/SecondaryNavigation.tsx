@@ -9,6 +9,7 @@ export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElemen
   titleButton?: string;
   dropDownTitle?: string;
   dropDownOptions?: ReactElement[];
+  bodyClassName?: string;
 }
 
 const SecondaryNavigation = ({
@@ -17,13 +18,15 @@ const SecondaryNavigation = ({
   titleButton,
   dropDownTitle,
   dropDownOptions = [],
+  className,
+  bodyClassName,
   ...props
 }: SecondaryNavProps) => {
   const [opened, setOpened] = useState<boolean>(false);
 
   return (
     <div className="secondary-navigation">
-      <div className="secondary-navigation__header" {...props}>
+      <div className={classNames('secondary-navigation__header', className)} {...props}>
         <div className="secondary-navigation__title">
           {title}{' '}
           {!!titleButton && (
@@ -46,7 +49,7 @@ const SecondaryNavigation = ({
         </DropDown>
       </div>
       <div
-        className={classNames('secondary-navigation__body', { hidden: !opened })}
+        className={classNames('secondary-navigation__body', bodyClassName, { hidden: !opened })}
         data-testid="secnav-children"
       >
         {children}
