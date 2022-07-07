@@ -159,6 +159,41 @@
     .event-card__title {
         @apply font-bold;
     }
+
+    .information-banner {
+        @apply px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
+    }
+    .information-banner__icon {
+        @apply text-center mr-4 text-xl;
+    }
+    .information-banner__title {
+        @apply font-bold text-base;
+    }
+    .information-banner__description {
+        @apply caption;
+    }
+    .information-banner__color-strip {
+        @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
+    }
+    .information-banner--information {
+        @apply information-banner text-primary bg-blue-100 border-primary;
+    }
+    .information-banner--information .information-banner__description {
+        @apply text-blue-500;
+    }
+    .information-banner--information {
+        @apply information-banner text-primary bg-blue-100 border-primary;
+    }
+    .information-banner--success {
+        @apply information-banner text-alert-positive bg-alert-positive-light border-alert-positive;
+    }
+    .information-banner--alert {
+        @apply information-banner text-alert-attention bg-alert-attention-light border-alert-attention;
+    }
+    .information-banner--warning {
+        @apply information-banner text-alert-warning bg-alert-warning-light border-alert-warning;
+    }
+
     .feedback {
         @apply bg-blue-600 text-white items-center py-2.5 text-body-1 font-bold;
     }
@@ -197,7 +232,7 @@
         @apply border-t border-neutral-500 pt-6
     }
     .footer__links-list {
-        @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5 
+        @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5
     }
 
     .header-container {
