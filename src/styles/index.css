@@ -164,7 +164,7 @@
         @apply pl-4 pr-2 tb1:px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
     }
     .information-banner__icon {
-        @apply text-center mr-4 text-xl flex-none;
+        @apply text-center mr-4 text-2xl flex-none;
     }
     .information-banner__title {
         @apply font-bold text-base;
