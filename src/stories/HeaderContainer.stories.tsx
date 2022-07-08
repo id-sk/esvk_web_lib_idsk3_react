@@ -6,7 +6,14 @@ import {
   NavigationLink,
   NavigationLinkOption
 } from '../components/Molecules';
-import { MenuButton, HeaderContainer, Bell, ModalSideBar, AvatarCircle } from '../components/Atoms';
+import {
+  MenuButton,
+  HeaderContainer,
+  NotificationIcon,
+  ModalSideBar,
+  AvatarCircle,
+  IconLink
+} from '../components/Atoms';
 import { LogoPrivate } from '../svgImages/Logos';
 import { InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
@@ -75,7 +82,7 @@ export const Template: ComponentStory<typeof HeaderContainer> = () => {
         <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
           <LogoPrivate style={{ height: '100%', width: 'auto' }} />
         </a>
-        <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600 gap-5">
+        <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600">
           <Navigation>
             <NavigationLink
               linkElement={
@@ -108,8 +115,8 @@ export const Template: ComponentStory<typeof HeaderContainer> = () => {
             </NavigationLink>
           </Navigation>
           <div className="flex-auto" />
-          <Bell alert={true} width="1.25rem" height="1.25rem" />
-          <InfoIcon width="1.25rem" height="1.25rem" />
+          <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
+          <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
           <AvatarCircle
             firstName="Janko"
             lastName="Hraško"

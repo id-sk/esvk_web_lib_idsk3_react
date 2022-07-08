@@ -7,7 +7,7 @@ export { default as Loader, LoaderProps } from './Loader';
 export { default as DropDown, DropDownProps } from './DropDown';
 export { default as MenuButton, MenuButtonProps } from './MenuButton';
 export { default as HeaderContainer, HeaderProps } from './HeaderContainer';
-export { default as Bell, BellProps } from './Bell';
+export { default as NotificationIcon, NotificationIconProps } from './NotificationIcon';
 export { default as AvatarCircle, AvatarCircleProps } from './AvatarCircle';
 export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './ModalSideBar';
 export { default as CardsContainer } from './CardsContainer';

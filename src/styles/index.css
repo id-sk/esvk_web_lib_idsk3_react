@@ -243,7 +243,7 @@
     }
 
     .icon-link {
-        @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-600 cursor-pointer;
+        @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-500 cursor-pointer;
     }
     .icon-link--active {
         @apply bg-blue-100;

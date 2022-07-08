@@ -5,19 +5,21 @@ export interface IconLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
   active?: boolean;
 }
 
-const IconLink = ({ children, active, className, ...props }: IconLinkProps) => {
-  const linkClasses = classNames(
-    'icon-link',
-    {
-      'icon-link--active': active
-    },
-    className
-  );
-  return (
-    <a className={linkClasses} {...props}>
-      {children}
-    </a>
-  );
-};
+const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
+  ({ children, active, className, ...props }, ref) => {
+    const linkClasses = classNames(
+      'icon-link',
+      {
+        'icon-link--active': active
+      },
+      className
+    );
+    return (
+      <a className={linkClasses} ref={ref} {...props}>
+        {children}
+      </a>
+    );
+  }
+);
 
 export default IconLink;
