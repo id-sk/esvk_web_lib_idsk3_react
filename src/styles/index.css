@@ -236,10 +236,19 @@
     }
 
     .header-container {
-        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center px-5 page-content;
+        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center px-5;
     }
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
+    }
+    .header--private {
+        @apply page-content;
+    }
+    .header--public {
+        @apply page-content-public;
+    }
+    .header-menu {
+        @apply h-16 border-t border-neutral-300;
     }
 
     .icon-link {
@@ -449,6 +458,9 @@
 
     .navigation {
         @apply px-10 h-full flex items-center;
+    }
+    .navigation--full {
+        @apply pl-0 pr-0 w-full;
     }
     .navigation__arrow-icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];

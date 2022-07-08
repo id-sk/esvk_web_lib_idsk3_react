@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PrivatePage } from '../components/Templates';
 import '/src/styles/idsk3_theme.css';
 
-import { Template as PrivateHeader } from './HeaderContainer.stories';
+import { Private as PrivateHeader } from './HeaderContainer.stories';
 import { EventCard } from '../components/Molecules';
 import { CardsContainer } from '../components/Atoms';
 

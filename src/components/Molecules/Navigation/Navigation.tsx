@@ -5,11 +5,20 @@ import { NavigationLinkProps } from './NavigationLink';
 
 export interface NavigationProps extends React.AllHTMLAttributes<HTMLElement> {
   children?: ReactElement<NavigationLinkProps> | ReactElement<NavigationLinkProps>[];
+  fullNav?: boolean;
 }
 
-const Navigation = ({ children, className, ...props }: NavigationProps) => {
+const Navigation = ({ children, className, fullNav = false, ...props }: NavigationProps) => {
+  const navigationClasses = classNames(
+    'navigation',
+    {
+      'navigation--full': fullNav
+    },
+    className
+  );
+
   return (
-    <nav className={classNames('navigation', className)} {...props}>
+    <nav className={navigationClasses} {...props}>
       {children}
     </nav>
   );
