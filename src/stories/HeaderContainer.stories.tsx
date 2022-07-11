@@ -198,7 +198,7 @@ Public.args = {
   layout: 'public',
   children: <ChildrenPublic />,
   largeMenu: (
-    <Navigation className="page-content-public" fullNav={true}>
+    <Navigation fullNav={true}>
       <NavigationContent />
     </Navigation>
   )
