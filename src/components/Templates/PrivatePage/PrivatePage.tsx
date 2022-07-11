@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 export interface PrivatePageProps extends React.AllHTMLAttributes<HTMLElement> {
   titleSection: ReactNode;
   header: ReactNode;
+  footer: ReactNode;
 }
 
 const PrivatePage = ({
@@ -10,6 +11,7 @@ const PrivatePage = ({
   titleSection,
   className = '',
   header,
+  footer,
   ...props
 }: PrivatePageProps) => {
   return (
@@ -19,6 +21,7 @@ const PrivatePage = ({
         <div className="private-page__title">{titleSection}</div>
         <div className="private-page__body">{children}</div>
       </main>
+      {footer}
     </div>
   );
 };
