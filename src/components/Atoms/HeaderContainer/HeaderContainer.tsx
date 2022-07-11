@@ -15,7 +15,7 @@ const HeaderContainer = ({
   secondaryNavigation,
   className,
   largeMenu,
-  layout,
+  layout = 'private',
   ...props
 }: HeaderProps) => {
   const headerClasses = classNames(
