@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-export interface PublicFooterProps extends React.AllHTMLAttributes<HTMLElement> {
+export interface FooterProps extends React.AllHTMLAttributes<HTMLElement> {
   linksList: ReactNode[];
   bottomSection?: ReactNode;
 }
 
-export const PublicFooterSectionHeading = ({
+export const FooterSectionHeading = ({
   children,
   className,
   ...props
@@ -16,7 +16,7 @@ export const PublicFooterSectionHeading = ({
   </p>
 );
 
-export const PublicFooterSection = ({
+export const FooterSection = ({
   children,
   className,
   ...props
@@ -26,13 +26,7 @@ export const PublicFooterSection = ({
   </div>
 );
 
-const PublicFooter = ({
-  className,
-  children,
-  linksList = [],
-  bottomSection,
-  ...props
-}: PublicFooterProps) => {
+const Footer = ({ className, children, linksList = [], bottomSection, ...props }: FooterProps) => {
   return (
     <footer className="footer" {...props}>
       <div className="footer__content">
@@ -46,4 +40,4 @@ const PublicFooter = ({
   );
 };
 
-export default PublicFooter;
+export default Footer;

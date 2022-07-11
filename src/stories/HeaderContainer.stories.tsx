@@ -71,8 +71,6 @@ const NavigationContent = () => {
 };
 
 const ChildrenPrivate = () => {
-  const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
-
   return (
     <>
       <Navigation>
@@ -81,7 +79,7 @@ const ChildrenPrivate = () => {
       <div className="flex-auto" />
       <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
       <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
-      <AvatarCircle firstName="Janko" lastName="Hraško" onClick={() => setSideBarOpened(true)} />
+      <AvatarCircle firstName="Janko" lastName="Hraško" />
     </>
   );
 };
@@ -189,13 +187,11 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
 
 export const Private = Template.bind({});
 Private.args = {
-  layout: 'private',
   children: <ChildrenPrivate />
 };
 
 export const Public = Template.bind({});
 Public.args = {
-  layout: 'public',
   children: <ChildrenPublic />,
   largeMenu: (
     <Navigation fullNav={true}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { PrivatePage } from '../components/Templates';
+import { PageLayout } from '../components/Templates';
 import '/src/styles/idsk3_theme.css';
 
 import { EventCard, Navigation, SecondaryNavigation } from '../components/Molecules';
@@ -12,21 +12,21 @@ import {
   MenuButton,
   ModalSideBar,
   NotificationIcon,
-  PublicFooterSection,
-  PublicFooterSectionHeading
+  FooterSection,
+  FooterSectionHeading
 } from '../components/Atoms';
-import { NavigationLink, NavigationLinkOption, PublicFooter } from '../components';
+import { NavigationLink, NavigationLinkOption, Footer } from '../components';
 import { LogoPrivate } from '../svgImages/Logos';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
 
 export default {
-  title: 'Templates/PrivatePage',
-  component: PrivatePage,
+  title: 'Templates/PageLayout',
+  component: PageLayout,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof PrivatePage>;
+} as ComponentMeta<typeof PageLayout>;
 
 const titleSection = <h2>Kalendár povinností</h2>;
 
@@ -87,8 +87,6 @@ const NavigationContent = () => {
 };
 
 const ChildrenPrivate = () => {
-  const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
-
   return (
     <>
       <Navigation>
@@ -97,7 +95,7 @@ const ChildrenPrivate = () => {
       <div className="flex-auto" />
       <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
       <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
-      <AvatarCircle firstName="Janko" lastName="Hraško" onClick={() => setSideBarOpened(true)} />
+      <AvatarCircle firstName="Janko" lastName="Hraško" />
     </>
   );
 };
@@ -190,42 +188,40 @@ const Header = () => {
 const logoFooter = require('./images/logo-footer.svg');
 
 const pageFooter = (
-  <PublicFooter
+  <Footer
     children={
       <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-[auto_auto_1fr] gap-12 dm1:gap-24">
         <div className="grid grid-cols-1 dm1:grid-cols-[auto_auto] dm1:gap-24">
-          <PublicFooterSection>
-            <PublicFooterSectionHeading>Informácie</PublicFooterSectionHeading>
+          <FooterSection>
+            <FooterSectionHeading>Informácie</FooterSectionHeading>
             <a>Informácie a návody</a>
             <a>Pre občanov</a>
             <a>Informácie a návody</a>
             <a>Pre občanov</a>
-          </PublicFooterSection>
-          <PublicFooterSection>
-            <PublicFooterSectionHeading className="hidden dm1:block">
-              &nbsp;
-            </PublicFooterSectionHeading>
+          </FooterSection>
+          <FooterSection>
+            <FooterSectionHeading className="hidden dm1:block">&nbsp;</FooterSectionHeading>
             <a>Pre občanov</a>
             <a>Metodické usmernenia</a>
             <a>Pre občanov</a>
             <a>Pre občanov</a>
-          </PublicFooterSection>
+          </FooterSection>
         </div>
 
-        <PublicFooterSection>
-          <PublicFooterSectionHeading>Rýchle odkazy</PublicFooterSectionHeading>
+        <FooterSection>
+          <FooterSectionHeading>Rýchle odkazy</FooterSectionHeading>
           <a>Pre občanov</a>
           <a>Elektronická úradná tabuľa (CUET)</a>
           <a>Pre občanov</a>
           <a>eKolok</a>
-        </PublicFooterSection>
-        <PublicFooterSection className="tb2:text-right">
-          <PublicFooterSectionHeading>Podpora</PublicFooterSectionHeading>
+        </FooterSection>
+        <FooterSection className="tb2:text-right">
+          <FooterSectionHeading>Podpora</FooterSectionHeading>
           <a>Často kladené otázky</a>
           <a>Pre občanov</a>
           <a>Pre občanov</a>
           <a>Facebook stránka</a>
-        </PublicFooterSection>
+        </FooterSection>
       </div>
     }
     linksList={[
@@ -253,8 +249,8 @@ const pageFooter = (
   />
 );
 
-const Template: ComponentStory<typeof PrivatePage> = (args) => (
-  <PrivatePage {...args}>
+const Template: ComponentStory<typeof PageLayout> = (args) => (
+  <PageLayout {...args}>
     <CardsContainer>
       <EventCard {...eventCardProps} />
       <EventCard {...eventCardProps} />
@@ -265,7 +261,7 @@ const Template: ComponentStory<typeof PrivatePage> = (args) => (
       <EventCard {...eventCardProps} />
       <EventCard {...eventCardProps} />
     </CardsContainer>
-  </PrivatePage>
+  </PageLayout>
 );
 
 export const Default = Template.bind({});

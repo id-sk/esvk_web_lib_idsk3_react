@@ -46,10 +46,7 @@
 
 @layer utilities {
     .page-content {
-        @apply tb1:px-8 dm2:px-40 max-w-[114rem] mx-auto
-    }
-    .page-content-public {
-        @apply px-8 max-w-7xl dm2:px-40 dm2:max-w-[92rem] mx-auto
+        @apply px-8 max-w-[74rem] dm2:px-40 dm2:max-w-[90rem] mx-auto
     }
 }
 
@@ -217,7 +214,7 @@
         @apply link-s text-black
     }
     .footer__content {
-        @apply page-content-public
+        @apply page-content
     }
     .footer__section-heading {
         @apply text-body font-bold pb-5
@@ -236,19 +233,13 @@
     }
 
     .header-container {
-        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center px-5;
+        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center page-content;
     }
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
     }
-    .header--private {
-        @apply page-content;
-    }
-    .header--public {
-        @apply page-content-public;
-    }
-    .header-menu {
-        @apply h-16 border-t border-neutral-300;
+    .header-container__menu {
+        @apply h-16 before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
     }
 
     .icon-link {
@@ -460,7 +451,7 @@
         @apply px-10 h-full flex items-center;
     }
     .navigation--full {
-        @apply pl-0 pr-0 w-full page-content-public;
+        @apply pl-0 pr-0 w-full;
     }
     .navigation__arrow-icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
@@ -537,16 +528,16 @@
         @apply pr-4;
     }
 
-    .private-page {
+    .page-layout {
         @apply flex flex-col min-h-screen;
     }
-    .private-page__main {
+    .page-layout__main {
         @apply pt-[1.875rem] pb-16 tb1:pt-[3.25rem] bg-neutral-100 flex-auto flex flex-col;
     }
-    .private-page__title {
+    .page-layout__title {
         @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
     }
-    .private-page__body {
+    .page-layout__body {
         @apply relative inset-x-0 px-0 page-content min-h-full flex-auto w-full;
     }
 
