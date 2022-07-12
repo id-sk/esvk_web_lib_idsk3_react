@@ -20,6 +20,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
           arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
           className="navigation__dropdown"
           optionClassName="navigation__dropdown-options"
+          buttonClassName="px-3"
         >
           {children}
         </DropDown>
@@ -27,7 +28,8 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
     }
 
     const linkClasses = classNames('navigation__link', {
-      'navigation__link--clicked': selected
+      'navigation__link--clicked': selected,
+      'navigation__link--alerted': alert
     });
 
     return (
