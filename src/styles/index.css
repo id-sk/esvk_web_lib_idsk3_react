@@ -207,28 +207,28 @@
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] ml-10 cursor-pointer;
     }
 
-    .footer {
+    .footer-container {
         @apply py-12 bg-neutral-100 border-t border-black/25 text-body-1
     }
-    .footer a {
+    .footer-container a {
         @apply link-s text-black
     }
-    .footer__content {
+    .footer-container__content {
         @apply page-content
     }
-    .footer__section-heading {
+    .footer-container__section-heading {
         @apply text-body font-bold pb-5
     }
-    .footer__section {
+    .footer-container__section {
         @apply flex flex-col gap-4 pb-7
     }
-    .footer__section a {
+    .footer-container__section a {
         @apply block
     }
-    .footer__aside {
+    .footer-container__aside {
         @apply border-t border-neutral-500 pt-6
     }
-    .footer__links-list {
+    .footer-container__links-list {
         @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5
     }
 

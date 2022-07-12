@@ -12,10 +12,10 @@ import {
   MenuButton,
   ModalSideBar,
   NotificationIcon,
-  FooterSection,
-  FooterSectionHeading
+  FooterContainerSection,
+  FooterContainerSectionHeading
 } from '../components/Atoms';
-import { NavigationLink, NavigationLinkOption, Footer } from '../components';
+import { NavigationLink, NavigationLinkOption, FooterContainer } from '../components';
 import { LogoPrivate } from '../svgImages/Logos';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
@@ -188,40 +188,42 @@ const Header = () => {
 const logoFooter = require('./images/logo-footer.svg');
 
 const pageFooter = (
-  <Footer
+  <FooterContainer
     children={
       <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-[auto_auto_1fr] gap-12 dm1:gap-24">
         <div className="grid grid-cols-1 dm1:grid-cols-[auto_auto] dm1:gap-24">
-          <FooterSection>
-            <FooterSectionHeading>Informácie</FooterSectionHeading>
+          <FooterContainerSection>
+            <FooterContainerSectionHeading>Informácie</FooterContainerSectionHeading>
             <a>Informácie a návody</a>
             <a>Pre občanov</a>
             <a>Informácie a návody</a>
             <a>Pre občanov</a>
-          </FooterSection>
-          <FooterSection>
-            <FooterSectionHeading className="hidden dm1:block">&nbsp;</FooterSectionHeading>
+          </FooterContainerSection>
+          <FooterContainerSection>
+            <FooterContainerSectionHeading className="hidden dm1:block">
+              &nbsp;
+            </FooterContainerSectionHeading>
             <a>Pre občanov</a>
             <a>Metodické usmernenia</a>
             <a>Pre občanov</a>
             <a>Pre občanov</a>
-          </FooterSection>
+          </FooterContainerSection>
         </div>
 
-        <FooterSection>
-          <FooterSectionHeading>Rýchle odkazy</FooterSectionHeading>
+        <FooterContainerSection>
+          <FooterContainerSectionHeading>Rýchle odkazy</FooterContainerSectionHeading>
           <a>Pre občanov</a>
           <a>Elektronická úradná tabuľa (CUET)</a>
           <a>Pre občanov</a>
           <a>eKolok</a>
-        </FooterSection>
-        <FooterSection className="tb2:text-right">
-          <FooterSectionHeading>Podpora</FooterSectionHeading>
+        </FooterContainerSection>
+        <FooterContainerSection className="tb2:text-right">
+          <FooterContainerSectionHeading>Podpora</FooterContainerSectionHeading>
           <a>Často kladené otázky</a>
           <a>Pre občanov</a>
           <a>Pre občanov</a>
           <a>Facebook stránka</a>
-        </FooterSection>
+        </FooterContainerSection>
       </div>
     }
     linksList={[

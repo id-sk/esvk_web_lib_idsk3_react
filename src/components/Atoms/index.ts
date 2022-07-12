@@ -19,4 +19,9 @@ export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export { default as Signpost, SignpostsGroup, SignpostProps } from './Signpost';
 export { default as Tag, TagProps } from './Tag';
 export { TabBar, TabBarLink, TabBarProps, TabBarLinkProps } from './TabBar';
-export { default as Footer, FooterProps, FooterSectionHeading, FooterSection } from './Footer';
+export {
+  default as FooterContainer,
+  FooterContainerProps,
+  FooterContainerSectionHeading,
+  FooterContainerSection
+} from './FooterContainer';

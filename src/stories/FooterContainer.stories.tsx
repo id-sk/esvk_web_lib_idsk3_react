@@ -1,55 +1,61 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Footer, FooterSectionHeading, FooterSection } from '../components/Atoms';
+import {
+  FooterContainer,
+  FooterContainerSectionHeading,
+  FooterContainerSection
+} from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
 
 const logoFooter = require('./images/logo-footer.svg');
 
 export default {
-  title: 'Atoms/Footer',
-  component: Footer,
+  title: 'Atoms/FooterContainer',
+  component: FooterContainer,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof Footer>;
+} as ComponentMeta<typeof FooterContainer>;
 
-const Template: ComponentStory<typeof Footer> = (args) => <Footer {...args} />;
+const Template: ComponentStory<typeof FooterContainer> = (args) => <FooterContainer {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   children: (
     <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-[auto_auto_1fr] gap-12 dm1:gap-24">
       <div className="grid grid-cols-1 dm1:grid-cols-[auto_auto] dm1:gap-24">
-        <FooterSection>
-          <FooterSectionHeading>Informácie</FooterSectionHeading>
+        <FooterContainerSection>
+          <FooterContainerSectionHeading>Informácie</FooterContainerSectionHeading>
           <a>Informácie a návody</a>
           <a>Pre občanov</a>
           <a>Informácie a návody</a>
           <a>Pre občanov</a>
-        </FooterSection>
-        <FooterSection>
-          <FooterSectionHeading className="hidden dm1:block">&nbsp;</FooterSectionHeading>
+        </FooterContainerSection>
+        <FooterContainerSection>
+          <FooterContainerSectionHeading className="hidden dm1:block">
+            &nbsp;
+          </FooterContainerSectionHeading>
           <a>Pre občanov</a>
           <a>Metodické usmernenia</a>
           <a>Pre občanov</a>
           <a>Pre občanov</a>
-        </FooterSection>
+        </FooterContainerSection>
       </div>
 
-      <FooterSection>
-        <FooterSectionHeading>Rýchle odkazy</FooterSectionHeading>
+      <FooterContainerSection>
+        <FooterContainerSectionHeading>Rýchle odkazy</FooterContainerSectionHeading>
         <a>Pre občanov</a>
         <a>Elektronická úradná tabuľa (CUET)</a>
         <a>Pre občanov</a>
         <a>eKolok</a>
-      </FooterSection>
-      <FooterSection className="tb2:text-right">
-        <FooterSectionHeading>Podpora</FooterSectionHeading>
+      </FooterContainerSection>
+      <FooterContainerSection className="tb2:text-right">
+        <FooterContainerSectionHeading>Podpora</FooterContainerSectionHeading>
         <a>Často kladené otázky</a>
         <a>Pre občanov</a>
         <a>Pre občanov</a>
         <a>Facebook stránka</a>
-      </FooterSection>
+      </FooterContainerSection>
     </div>
   ),
   linksList: [
@@ -70,7 +76,7 @@ Default.args = {
           Lorem ipsum dolor <a>Mauris finibus enim quis orci finibus imperdiet.</a>
         </p>
         <div className="flex-auto" />
-        <img src={logoFooter} />
+        <img src={logoFooter} alt="Footer Logo" />
       </div>
     </>
   )
