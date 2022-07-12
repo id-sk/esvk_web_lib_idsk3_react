@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { PrimaryButton, SecondaryButton } from '../../Atoms';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 
@@ -12,7 +12,9 @@ export interface FeedbackProps extends React.AllHTMLAttributes<HTMLDivElement> {
 }
 
 const Feedback = ({ children, closeButton = <CloseIcon />, ...props }: FeedbackProps) => {
-  return (
+  const [visible, setVisibility] = useState(true);
+
+  return visible ? (
     <div className="feedback">
       <div className="feedback__container">
         <div className="feedback__text-and-buttons">
@@ -25,16 +27,16 @@ const Feedback = ({ children, closeButton = <CloseIcon />, ...props }: FeedbackP
             {props.noButton}
           </SecondaryButton>
         </div>
-        <div
+        <button
           className="feedback__close-button"
-          onClick={props.closeButtonOnClick}
+          onClick={props.closeButtonOnClick || (() => setVisibility(false))}
           data-testid="closeButton"
         >
           {closeButton}
-        </div>
+        </button>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Feedback;

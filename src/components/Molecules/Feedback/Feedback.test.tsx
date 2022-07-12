@@ -34,4 +34,13 @@ describe('Feedback', () => {
     render(<Feedback yesButton="yes" noButton="no" closeButton={undefined} />);
     expect(screen.getByText('no')).toBeDefined();
   });
+  test('Feedback default close function', () => {
+    render(
+      <Feedback yesButton={undefined} noButton={undefined} closeButton={undefined}>
+        test
+      </Feedback>
+    );
+    fireEvent.click(screen.getByTestId('closeButton'));
+    expect(() => screen.getByText('test')).toThrow('Unable to find an element');
+  });
 });
