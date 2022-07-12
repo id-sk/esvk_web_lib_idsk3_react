@@ -2,34 +2,34 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Accordeon from './Accordeon';
+import Accordion from './Accordion';
 
-describe('Accordeon', () => {
+describe('Accordion', () => {
   test('opens content', () => {
     const { container } = render(
-      <Accordeon heading="test button">
+      <Accordion heading="test button">
         <a href="testHref1">Test Option 1</a>
-      </Accordeon>
+      </Accordion>
     );
     fireEvent.click(screen.getByText('test button'));
-    expect(container.querySelector('.accordeon__content')).toHaveClass('accordeon__content--open');
+    expect(container.querySelector('.accordion__content')).toHaveClass('accordion__content--open');
   });
 
   test('renders initially open', () => {
     const { container } = render(
-      <Accordeon heading="test button" initiallyClosed={false}>
+      <Accordion heading="test button" initiallyClosed={false}>
         <a href="testHref1">Test Option 1</a>
-      </Accordeon>
+      </Accordion>
     );
-    expect(container.querySelector('.accordeon__content')).toHaveClass('accordeon__content--open');
+    expect(container.querySelector('.accordion__content')).toHaveClass('accordion__content--open');
   });
 
   test('custom onClick function', () => {
     const mockButtonClick = jest.fn();
     render(
-      <Accordeon heading="test button" onClick={mockButtonClick}>
+      <Accordion heading="test button" onClick={mockButtonClick}>
         <a href="testHref1">Test Option 1</a>
-      </Accordeon>
+      </Accordion>
     );
     fireEvent.click(screen.getByRole('button'));
     expect(mockButtonClick).toHaveBeenCalled();

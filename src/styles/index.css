@@ -51,25 +51,25 @@
 }
 
 @layer components {
-    .accordeon {
+    .accordion {
         @apply bg-white border border-neutral-300 rounded-xl;
     }
-    .accordeon__title {
+    .accordion__title {
         @apply flex items-center justify-between pb-[0.625rem];
     }
-    .accordeon__subtitle {
+    .accordion__subtitle {
         @apply text-body-1;
     }
-    .accordeon__button {
+    .accordion__button {
         @apply w-full px-5 pb-5 pt-[1.875rem] text-left;
     }
-    .accordeon__icon {
+    .accordion__icon {
         @apply text-[1.875rem] w-[1.875rem] h-[1.875rem];
     }
-    .accordeon__content {
+    .accordion__content {
         @apply hidden px-5 border-t border-neutral-300 pt-5 pb-10;
     }
-    .accordeon__content--open {
+    .accordion__content--open {
         @apply block;
     }
 

@@ -13,7 +13,7 @@ export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './Mod
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';
 export { default as SearchBar, SearchBarProps } from './SearchBar';
-export { default as Accordeon, AccordeonProps } from './Accordeon';
+export { default as Accordion, AccordionProps } from './Accordion';
 export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export { default as Signpost, SignpostsGroup, SignpostProps } from './Signpost';
