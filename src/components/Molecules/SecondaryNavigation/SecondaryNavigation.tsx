@@ -1,12 +1,12 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { DropDown } from '../../Atoms';
 import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 
 export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElement> {
-  title?: string;
-  titleButton?: string;
+  heading?: ReactNode;
+  headingButton?: ReactNode;
   dropDownTitle?: string;
   dropDownOptions?: ReactElement[];
   bodyClassName?: string;
@@ -14,8 +14,8 @@ export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElemen
 
 const SecondaryNavigation = ({
   children,
-  title,
-  titleButton,
+  heading,
+  headingButton,
   dropDownTitle,
   dropDownOptions = [],
   className,
@@ -25,16 +25,16 @@ const SecondaryNavigation = ({
   const [opened, setOpened] = useState<boolean>(false);
 
   return (
-    <div className="secondary-navigation">
-      <div className={classNames('secondary-navigation__header', className)} {...props}>
+    <div className={classNames('secondary-navigation', className)} {...props}>
+      <div className="secondary-navigation__header">
         <div className="secondary-navigation__title">
-          {title}{' '}
-          {!!titleButton && (
+          {heading}{' '}
+          {!!headingButton && (
             <button
               className="secondary-navigation__title-button"
               onClick={() => setOpened((p) => !p)}
             >
-              {titleButton}{' '}
+              {headingButton}{' '}
               <ArrowDropDownIcon
                 className={classNames('secondary-navigation__title-button-icon', {
                   'rotate-180': opened

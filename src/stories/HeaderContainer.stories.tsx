@@ -132,8 +132,8 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
           <SecondaryNavigation
             className={!!args.largeMenu ? 'page-content-public' : ''}
             bodyClassName={!!args.largeMenu ? 'page-content-public' : ''}
-            title="Oficiálna stránka"
-            titleButton="verejnej správy"
+            heading="Oficiálna stránka"
+            headingButton="verejnej správy"
             dropDownTitle="slovenčina"
             dropDownOptions={[<a href="/">english</a>]}
           >

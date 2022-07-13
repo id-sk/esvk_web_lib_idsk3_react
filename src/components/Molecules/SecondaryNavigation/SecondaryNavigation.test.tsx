@@ -6,7 +6,7 @@ import SecondaryNavigation from './SecondaryNavigation';
 
 describe('SecondaryNavigation', () => {
   test('renders title', () => {
-    render(<SecondaryNavigation title="test title" />);
+    render(<SecondaryNavigation heading="test title" />);
     expect(screen.getByText('test title')).toBeDefined();
   });
   test('opens options dropdown', () => {
@@ -21,7 +21,7 @@ describe('SecondaryNavigation', () => {
   });
   test('opens children', () => {
     render(
-      <SecondaryNavigation titleButton="test title">
+      <SecondaryNavigation headingButton="test title">
         <div>Test Child</div>
       </SecondaryNavigation>
     );

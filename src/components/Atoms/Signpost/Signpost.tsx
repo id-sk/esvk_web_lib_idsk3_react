@@ -1,40 +1,42 @@
 import React, { Children, ReactNode } from 'react';
 import classNames from 'classnames';
 
-export interface SignpostProps extends React.AllHTMLAttributes<HTMLDivElement> {
-  socialIcon?: ReactNode;
+export interface SignpostProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactNode;
-  titleIcon?: ReactNode;
-  title: string;
+  heading: string;
   arrowIcon?: ReactNode;
   inGroup?: boolean;
-  onClick: () => void;
+  layout?: 'horizontal' | 'vertical';
 }
 
-const Signpost = (props: SignpostProps) => {
-  return (
-    <div
-      className={classNames(
-        'signpost',
-        props.inGroup ? 'signpost--in-group' : 'signpost--rounded-border'
-      )}
-      onClick={props.onClick}
-    >
-      <div className="signpost__container">
-        {!!props.socialIcon && <div className="signpost__social-icon">{props.socialIcon}</div>}
-        <div>
-          {!!props.icon && <div className="signpost__icon">{props.icon}</div>}
-          <div className="signpost__title">
-            {!!props.titleIcon && <div className="signpost__title-icon">{props.titleIcon}</div>}
-            {props.title}
+const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
+  (
+    { inGroup, icon, heading, children, arrowIcon, className, layout = 'horizontal', ...props },
+    ref
+  ) => {
+    return (
+      <a
+        className={classNames(
+          'signpost',
+          inGroup ? 'signpost--in-group' : 'signpost--rounded-border',
+          { 'signpost--vertical': layout === 'vertical' },
+          className
+        )}
+        {...props}
+        ref={ref}
+      >
+        {!!icon && <div className="signpost__icon">{icon}</div>}
+        <div className="signpost__container">
+          <div>
+            <div className="signpost__heading">{heading}</div>
+            <div className="signpost__description">{children}</div>
           </div>
-          <div className="signpost__description">{props.children}</div>
+          {layout === 'vertical' && <div className="signpost__arrow-icon">{arrowIcon}</div>}
         </div>
-      </div>
-      <div className="signpost__arrow-icon">{props.arrowIcon}</div>
-    </div>
-  );
-};
+      </a>
+    );
+  }
+);
 
 export function SignpostsGroup({ children }: React.AllHTMLAttributes<HTMLDivElement>) {
   const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {

@@ -4,7 +4,6 @@ import { Signpost } from '../components/Atoms';
 import { ArrowForwardIcon } from '../svgIcons/Navigation';
 import { ArrowForwardIosIcon } from '../svgIcons/Navigation';
 import { HomeIcon } from '../svgIcons/Actions';
-import { PublicIcon } from '../svgIcons/Social';
 import { SignpostsGroup } from '../components/Atoms/Signpost/Signpost';
 import '/src/styles/idsk3_theme.css';
 
@@ -23,44 +22,35 @@ const TemplateGroup: ComponentStory<typeof Signpost> = (args) => (
 
 const Template: ComponentStory<typeof Signpost> = (args) => <Signpost {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Horizontal = Template.bind({});
+Horizontal.args = {
   icon: <HomeIcon />,
-  title: 'Very long title',
+  heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />
+  arrowIcon: <ArrowForwardIcon />,
+  layout: 'horizontal'
 };
 
-export const WithoutText = Template.bind({});
-WithoutText.args = {
-  titleIcon: <HomeIcon />,
-  title: 'Very long title',
-  arrowIcon: <ArrowForwardIcon />
+export const Vertical = Template.bind({});
+Vertical.args = {
+  icon: <HomeIcon />,
+  heading: 'Very long title',
+  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
+  arrowIcon: <ArrowForwardIcon />,
+  layout: 'vertical'
 };
 
 export const WithoutIcon = Template.bind({});
 WithoutIcon.args = {
-  title: 'Very long title',
+  heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />
-};
-
-export const WithoutTextAndIcon = Template.bind({});
-WithoutTextAndIcon.args = {
-  title: 'Very long title',
-  arrowIcon: <ArrowForwardIcon />
-};
-
-export const WithSocialIcon = Template.bind({});
-WithSocialIcon.args = {
-  socialIcon: <PublicIcon />,
-  title: 'Very long title',
-  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />
+  arrowIcon: <ArrowForwardIcon />,
+  layout: 'vertical'
 };
 
 export const Group = TemplateGroup.bind({});
 Group.args = {
-  title: 'Very long title',
-  arrowIcon: <ArrowForwardIosIcon />
+  heading: 'Very long title',
+  arrowIcon: <ArrowForwardIosIcon />,
+  layout: 'vertical'
 };

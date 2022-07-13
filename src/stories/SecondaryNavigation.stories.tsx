@@ -15,8 +15,8 @@ export const Template: ComponentStory<typeof SecondaryNavigation> = (args) => {
 };
 
 Template.args = {
-  title: 'Oficiálna stránka',
-  titleButton: 'verejnej správy',
+  heading: 'Oficiálna stránka',
+  headingButton: 'verejnej správy',
   children: (
     <div className="grid grid-cols-1 gap-4 tb2:grid-cols-2 tb2:gap-8">
       <div>

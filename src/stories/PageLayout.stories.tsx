@@ -108,8 +108,8 @@ const Header = () => {
       <HeaderContainer
         secondaryNavigation={
           <SecondaryNavigation
-            title="Oficiálna stránka"
-            titleButton="verejnej správy"
+            heading="Oficiálna stránka"
+            headingButton="verejnej správy"
             dropDownTitle="slovenčina"
             dropDownOptions={[<a href="/">english</a>]}
           >
