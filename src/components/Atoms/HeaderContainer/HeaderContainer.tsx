@@ -6,6 +6,7 @@ export interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {
   children?: ReactNode;
   secondaryNavigation?: ReactNode;
   largeMenu?: ReactNode;
+  mobileMenu?: ReactNode;
 }
 
 const HeaderContainer = ({
@@ -14,6 +15,7 @@ const HeaderContainer = ({
   secondaryNavigation,
   className,
   largeMenu,
+  mobileMenu,
   ...props
 }: HeaderProps) => {
   const headerClasses = classNames(
@@ -29,6 +31,7 @@ const HeaderContainer = ({
       {!!secondaryNavigation && secondaryNavigation}
       {!!children && <div className="header-container">{children}</div>}
       {!!largeMenu && <div className="header-container__menu">{largeMenu}</div>}
+      {!!mobileMenu && <div className="header-container__menu--mobile">{mobileMenu}</div>}
     </header>
   );
 };

@@ -1,22 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { SearchIcon } from '../../../svgIcons/Actions';
+import IconLink from '../IconLink';
 
 export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
   buttonLabel?: string;
   buttonOnClick?: React.MouseEventHandler<HTMLButtonElement>;
   searchbarSize?: 'large' | 'medium' | 'small';
+  openable?: boolean;
+  containerClassName?: string;
 }
 
 const SearchBar = ({
   buttonLabel,
   placeholder,
   searchbarSize = 'large',
+  openable = false,
+  containerClassName,
   className,
   buttonOnClick,
   style,
   ...props
 }: SearchBarProps) => {
+  const [searchbarOpened, setSearchbarOpened] = useState<boolean>(false);
+
   const inputClasses: string = classNames(
     'searchbar',
     {
@@ -45,20 +52,29 @@ const SearchBar = ({
     }
   }, [buttonLabel, searchbarSize]);
   return (
-    <div className="searchbar__wrapper">
-      <input
-        className={inputClasses}
-        placeholder={placeholder}
-        style={{
-          paddingRight: !!rightPadding ? rightPadding + 8 + 'px' : undefined,
-          ...style
-        }}
-        {...props}
-      />
-      <button onClick={buttonOnClick} className={buttonClasses} ref={buttonRef}>
-        <SearchIcon className={iconClasses} />
-        {buttonLabel}
-      </button>
+    <div className={containerClassName}>
+      {openable && (
+        <IconLink
+          children={<SearchIcon />}
+          onClick={() => setSearchbarOpened((p) => !p)}
+          className={searchbarOpened ? 'hidden' : ''}
+        />
+      )}
+      <div className={'searchbar__wrapper' + (openable && !searchbarOpened ? ' hidden' : '')}>
+        <input
+          className={inputClasses}
+          placeholder={placeholder}
+          style={{
+            paddingRight: !!rightPadding ? rightPadding + 8 + 'px' : undefined,
+            ...style
+          }}
+          {...props}
+        />
+        <button onClick={buttonOnClick} className={buttonClasses} ref={buttonRef}>
+          <SearchIcon className={iconClasses} />
+          {buttonLabel}
+        </button>
+      </div>
     </div>
   );
 };

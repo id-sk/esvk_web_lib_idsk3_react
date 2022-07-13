@@ -9,6 +9,7 @@ export { default as MenuButton, MenuButtonProps } from './MenuButton';
 export { default as HeaderContainer, HeaderProps } from './HeaderContainer';
 export { default as NotificationIcon, NotificationIconProps } from './NotificationIcon';
 export { default as AvatarCircle, AvatarCircleProps } from './AvatarCircle';
+export { MenuMobile, MenuMobileProps } from './MenuMobile';
 export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './ModalSideBar';
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';

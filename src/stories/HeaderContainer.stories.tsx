@@ -8,12 +8,14 @@ import {
 } from '../components/Molecules';
 import {
   MenuButton,
+  MenuMobile,
   HeaderContainer,
   NotificationIcon,
   ModalSideBar,
   AvatarCircle,
   IconLink,
-  PrimaryButton as Button
+  PrimaryButton as Button,
+  SearchBar
 } from '../components/Atoms';
 import { LogoPrivate } from '../svgImages/Logos';
 import { InfoIcon } from '../svgIcons/Actions';
@@ -138,12 +140,36 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
             <SecChildren />
           </SecondaryNavigation>
         }
+        className={mobileNavOpened ? 'h-screen' : ''}
+        mobileMenu={
+          <MenuMobile
+            opened={mobileNavOpened}
+            children={
+              <>
+                <Navigation label="Menu">
+                  <NavigationContent />
+                </Navigation>
+                <Button children="Prihlásiť sa" className="w-full" />
+              </>
+            }
+          />
+        }
         fixed={true}
         {...args}
       >
-        <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
+        <a
+          href="/"
+          className={'inline-block h-[1.875rem] tb1:h-10 ' + (mobileNavOpened ? 'hidden' : '')}
+        >
           <LogoPrivate style={{ height: '100%', width: 'auto' }} />
         </a>
+        <SearchBar
+          openable={true}
+          containerClassName={!mobileNavOpened ? 'hidden' : ''}
+          className="w-full max-w-96 pr-10"
+          searchbarSize="medium"
+          placeholder="Zadajte hľadaný výraz"
+        />
         <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600">
           {args.children}
         </div>

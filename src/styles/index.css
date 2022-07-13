@@ -46,7 +46,7 @@
 
 @layer utilities {
     .page-content {
-        @apply px-8 max-w-[74rem] dm2:px-40 dm2:max-w-[90rem] mx-auto
+        @apply px-4 dm1:px-8 max-w-[74rem] dm2:px-40 dm2:max-w-[90rem] mx-auto
     }
 }
 
@@ -191,7 +191,7 @@
     }
 
     .dropdown {
-        @apply flex items-center h-full w-full hover:underline gap-0.5 tracking-[inherit];
+        @apply py-5 flex justify-between dm1:justify-start items-center h-full w-full hover:underline gap-0.5 tracking-[inherit];
     }
     .dropdown__wrapper {
         @apply relative;
@@ -200,7 +200,10 @@
         @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5;
     }
     .dropdown__option {
-        @apply my-5 whitespace-nowrap first:mb-0 only:mb-5;
+        @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5;
+    }
+    .dropdown__option a {
+        @apply w-full;
     }
     .dropdown__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
@@ -304,7 +307,10 @@
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
     }
     .header-container__menu {
-        @apply h-16 before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
+        @apply h-16 hidden dm1:flex before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
+    }
+    .header-container__menu--mobile {
+        @apply flex grow page-content;
     }
 
     .icon-link {
@@ -471,6 +477,12 @@
         @apply text-body mt-2;
     }
 
+    .menu--mobile {
+        @apply flex flex-col bg-white w-full;
+    }
+    .menu--mobile__heading {
+        @apply pb-[3.75rem] flex justify-between;
+    }
     .menu-button {
         @apply px-2.5 border rounded-md h-9 tb1:h-10 flex items-center gap-3 text-body text-blue-600 font-bold;
     }
@@ -513,31 +525,37 @@
     }
 
     .navigation {
-        @apply px-10 h-full flex items-center;
+        @apply dm1:px-10 h-full flex-col items-start flex dm1:flex-row dm1:items-center;
     }
     .navigation--full {
         @apply pl-0 pr-0 w-full;
+    }
+    .navigation__label {
+        @apply text-sm border-b-2 border-neutral-300 w-full flex items-center py-2 text-neutral-600 dm1:hidden;
     }
     .navigation__arrow-icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
     }
     .navigation__dropdown {
-        @apply h-full hover:bg-blue-100 flex items-center text-body-1 text-black;
+        @apply h-full w-full dm1:w-auto hover:bg-blue-100 flex-col flex items-center text-body-1 text-black;
     }
     .navigation__dropdown-options {
-        @apply -left-2 top-3/4;
+        @apply px-0 w-full dm1:w-auto rounded-none dm1:rounded-md shadow-none dm1:shadow-medium relative dm1:absolute dm1:-left-2 top-0 dm1:top-3/4;
+    }
+    .navigation__dropdown-options .dropdown__option {
+        @apply px-8 my-0 py-5 hover:bg-blue-100 hover:underline;
     }
     .navigation__link {
-        @apply flex h-full items-center border-y-4 border-transparent hover:bg-blue-100 relative;
+        @apply flex h-full w-full dm1:w-auto items-center border-y-4 border-transparent hover:bg-blue-100 relative;
     }
     .navigation__link > a {
-        @apply h-full text-body-1 text-black flex items-center gap-1.5 px-2.5;
+        @apply h-full text-body-1 text-black flex items-center gap-1.5 px-2.5 py-4 dm1:py-5 hover:underline w-full;
     }
     .navigation__link--clicked  {
         @apply border-b-blue-500;
     }
     .navigation__link--clicked > a {
-        @apply font-bold text-blue-500;
+        @apply font-bold text-blue-500 hover:no-underline;
     }
     .navigation__link--alerted > a  {
         @apply pr-9;
