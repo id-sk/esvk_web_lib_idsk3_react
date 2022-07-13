@@ -5,7 +5,7 @@ import { CloseIcon } from '../../../svgIcons/Navigation';
 export interface FeedbackProps extends React.AllHTMLAttributes<HTMLDivElement> {
   yesButton: ReactNode;
   noButton: ReactNode;
-  closeButton: ReactNode;
+  closeButton?: ReactNode;
   yesButtonOnClick?: () => void;
   noButtonOnClick?: () => void;
   closeButtonOnClick?: () => void;
