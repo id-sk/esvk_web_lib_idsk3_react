@@ -12,3 +12,4 @@ export {
   NavigationLinkOptionProps
 } from './Navigation';
 export { default as Feedback, FeedbackProps } from './Feedback';
+export { default as DataGrid, DataGridGroup, DataGridGroupProps, DataGridProps } from './DataGrid';

@@ -125,6 +125,71 @@
         @apply grid grid-cols-1 gap-3;
     }
 
+    .data-grid {
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white;
+    }
+    .data-grid-active {
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-blue-100;
+    }
+    .data-grid-checked {
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-neutral-200;
+    }
+    .data-grid__container-left {
+        @apply items-center gap-6;
+    }
+    .data-grid__container-right {
+        @apply flex items-center gap-4;
+    }
+    .data-grid__title-container {
+        @apply flex gap-6 items-center;
+    }
+    .data-grid__label {
+        @apply flex h-6 w-6 items-center justify-center rounded hover:bg-neutral-600;
+    }
+    .data-grid__label > input {
+        @apply appearance-none w-5 h-5;
+    }
+    .data-grid__label > input[type="checkbox"]:checked ~ .check {
+        @apply opacity-100;
+    }
+    .data-grid__checkbox-icon-blank {
+        @apply w-5 h-5 -ml-5;
+    }
+    .data-grid__checkbox-icon {
+        @apply check opacity-0 w-5 h-5 -ml-5;
+    }
+    .data-grid__date {
+        @apply w-[10.375rem] text-right;
+    }
+    .data-grid__li {
+        @apply list-none;
+    }
+    .data-grid__li-active {
+        @apply font-bold marker:text-blue-400 -ml-4 w-2.5 text-3xl;
+    }
+    .data-grid__title {
+        @apply -ml-6;
+    }
+    .data-grid__title-active {
+        @apply -ml-[1.15rem] font-bold;
+    }
+    .data-grid__ul {
+        @apply flex flex-wrap justify-end gap-2.5;
+    }
+
+    .data-grid-group{
+        @apply border border-neutral-300 rounded-lg overflow-hidden;
+    }
+    .data-grid-group__header {
+        @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90;
+    }
+    .data-grid-group__container-left {
+        @apply flex items-center gap-6 font-bold;
+    }
+    .data-grid-group__container-right {
+        @apply flex items-center gap-4 font-bold;
+    }
+
     .dropdown {
         @apply flex items-center h-full w-full hover:underline gap-0.5 tracking-[inherit];
     }
@@ -654,7 +719,7 @@
     }
 
     .tag {
-        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border items-center;
+        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border bg-neutral-90 items-center;
     }
 
 

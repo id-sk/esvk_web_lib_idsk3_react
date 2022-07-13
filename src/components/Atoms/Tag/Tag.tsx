@@ -1,7 +1,7 @@
-import React, { ReactElement, SVGProps } from 'react';
+import React, { ReactNode, ReactElement, SVGProps } from 'react';
 
 export interface TagProps {
-  label: string;
+  label: ReactNode;
   leftIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   rightIcon?: ReactElement<SVGProps<SVGSVGElement>>;
 }
