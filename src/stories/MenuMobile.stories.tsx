@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Navigation, NavigationLink, NavigationLinkOption } from '../components/Molecules';
-import { MenuButton, MenuMobile, PrimaryButton as Button, SearchBar } from '../components/Atoms';
+import {
+  MenuButton,
+  MenuMobile,
+  PrimaryButton,
+  PrimaryButton as Button,
+  SearchBar,
+  TextButton
+} from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
+import { IdentificationCard } from '../components';
+import { CompareArrowsIcon } from '../svgIcons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -96,4 +105,48 @@ WithCustomHeading.args = {
     </>
   ),
   children: <Content />
+};
+
+export const UserLoggedIn = Template.bind({});
+UserLoggedIn.args = {
+  opened: true,
+  heading: (
+    <>
+      <SearchBar
+        openable={true}
+        className="w-full max-w-96 pr-10"
+        searchbarSize="medium"
+        placeholder="Zadajte hľadaný výraz"
+      />
+      <MenuButton
+        openedTitle="Zatvoriť"
+        closedTitle="Menu"
+        className="h-10 ml-3"
+        opened={true}
+        toggleOpened={() => {}}
+      />
+    </>
+  ),
+  children: (
+    <>
+      <IdentificationCard
+        firstName="Martin"
+        lastName="Mucha"
+        fullName="Ing. Martin Mucha"
+        identification="RČ 928374/3294"
+        className="mb-[2.5em]"
+      >
+        <PrimaryButton
+          size="large"
+          label="Zmeniť zastupovanie"
+          className="w-full mb-3"
+          icon={<CompareArrowsIcon />}
+        />
+        <TextButton size="large" variant="warning" label="Odhlásiť sa" className="w-full text-lg" />
+      </IdentificationCard>
+      <Navigation label="Menu">
+        <NavigationContent />
+      </Navigation>
+    </>
+  )
 };

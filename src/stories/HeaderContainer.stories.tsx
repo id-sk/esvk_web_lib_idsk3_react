@@ -4,7 +4,8 @@ import {
   SecondaryNavigation,
   Navigation,
   NavigationLink,
-  NavigationLinkOption
+  NavigationLinkOption,
+  IdentificationCard
 } from '../components/Molecules';
 import {
   MenuButton,
@@ -15,10 +16,12 @@ import {
   AvatarCircle,
   IconLink,
   PrimaryButton as Button,
-  SearchBar
+  SearchBar,
+  PrimaryButton,
+  TextButton
 } from '../components/Atoms';
 import { LogoPrivate } from '../svgImages/Logos';
-import { InfoIcon } from '../svgIcons/Actions';
+import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 
@@ -72,19 +75,17 @@ const NavigationContent = () => {
   );
 };
 
-const ChildrenPrivate = () => {
-  return (
-    <>
-      <Navigation>
-        <NavigationContent />
-      </Navigation>
-      <div className="flex-auto" />
-      <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
-      <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
-      <AvatarCircle firstName="Janko" lastName="Hraško" />
-    </>
-  );
-};
+const ChildrenPrivate = () => (
+  <>
+    <Navigation>
+      <NavigationContent />
+    </Navigation>
+    <div className="flex-auto" />
+    <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
+    <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
+    <AvatarCircle firstName="Janko" lastName="Hraško" />
+  </>
+);
 
 const ChildrenPublic = () => (
   <>
@@ -93,15 +94,47 @@ const ChildrenPublic = () => (
   </>
 );
 
+const MenuMobileChildrenPublic = () => (
+  <>
+    <Navigation label="Menu">
+      <NavigationContent />
+    </Navigation>
+    <Button children="Prihlásiť sa" className="w-full" />
+  </>
+);
+
+const MenuMobileChildrenPrivate = () => (
+  <>
+    <IdentificationCard
+      firstName="Martin"
+      lastName="Mucha"
+      fullName="Ing. Martin Mucha"
+      identification="RČ 928374/3294"
+      className="mb-[2.5em]"
+    >
+      <PrimaryButton
+        size="large"
+        label="Zmeniť zastupovanie"
+        className="w-full mb-3"
+        icon={<CompareArrowsIcon />}
+      />
+      <TextButton size="large" variant="warning" label="Odhlásiť sa" className="w-full text-lg" />
+    </IdentificationCard>
+    <Navigation label="Menu">
+      <NavigationContent />
+    </Navigation>
+  </>
+);
+
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof HeaderContainer> = (args) => {
-  const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(false);
+  const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(true);
   const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
 
   const SecChildren = () => (
     <div className="grid grid-cols-1 gap-4 tb2:grid-cols-2 tb2:gap-8">
       <div>
-        <h3 className="text-body-1">Doména gov.sk je oficálna</h3>
+        <h3 className="text-body-1">Doména gov.sk je oficiálna</h3>
         <p className="py-2.5">
           Toto je oficiálna webová stránka orgánu verejnej moci Slovenskej republiky. Oficiálne
           stránky využívajú najmä doménu gov.sk.{' '}
@@ -130,8 +163,6 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
       <HeaderContainer
         secondaryNavigation={
           <SecondaryNavigation
-            className={!!args.largeMenu ? 'page-content-public' : ''}
-            bodyClassName={!!args.largeMenu ? 'page-content-public' : ''}
             heading="Oficiálna stránka"
             headingButton="verejnej správy"
             dropDownTitle="slovenčina"
@@ -145,12 +176,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
           <MenuMobile
             opened={mobileNavOpened}
             children={
-              <>
-                <Navigation label="Menu">
-                  <NavigationContent />
-                </Navigation>
-                <Button children="Prihlásiť sa" className="w-full" />
-              </>
+              !!args.largeMenu ? <MenuMobileChildrenPublic /> : <MenuMobileChildrenPrivate />
             }
           />
         }
