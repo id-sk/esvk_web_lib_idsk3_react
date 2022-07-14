@@ -4,6 +4,10 @@ export { default as NotificationCard, NotificationCardProps } from './Notificati
 export { default as SecondaryNavigation, SecondaryNavProps } from './SecondaryNavigation';
 export { default as InformationBanner, InformationBannerProps } from './InformationBanner';
 export {
+  default as IdentificationCard,
+  IdentificationCardProps
+} from '../Molecules/IdentificationCard';
+export {
   Navigation,
   NavigationLink,
   NavigationLinkOption,

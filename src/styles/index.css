@@ -320,6 +320,16 @@
         @apply bg-blue-100;
     }
 
+    .identification-card {
+        @apply flex flex-col items-center bg-white border border-neutral-300 rounded-[0.625rem] px-5 py-7;
+    }
+    .identification-card__full-name{
+        @apply text-body font-bold;
+    }
+    .identification-card__identification {
+        @apply text-body-1 text-neutral-600 mb-5;
+    }
+
     .searchbar__wrapper {
         @apply relative inline-block;
     }

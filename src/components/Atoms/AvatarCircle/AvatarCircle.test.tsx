@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import AvatarCircle from './AvatarCircle';
 
 describe('AvatarCircle', () => {
-  test('renders inicitials', () => {
+  test('renders initials', () => {
     render(<AvatarCircle firstName="Test" lastName="Testovaci" />);
     expect(screen.getByText('TT')).toBeDefined();
   });
