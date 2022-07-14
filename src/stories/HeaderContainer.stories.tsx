@@ -128,7 +128,7 @@ const MenuMobileChildrenPrivate = () => (
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof HeaderContainer> = (args) => {
-  const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(true);
+  const [mobileNavOpened, setMobileNavOpened] = useState<boolean>(false);
   const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
 
   const SecChildren = () => (
