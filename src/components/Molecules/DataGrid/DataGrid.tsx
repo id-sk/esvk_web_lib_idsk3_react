@@ -1,7 +1,9 @@
 import React, { Children, ReactNode } from 'react';
-import { CheckBoxOutlineBlankIcon } from '../../../svgIcons/Toggle';
-import { IndeterminateCheckBoxIcon } from '../../../svgIcons/Toggle';
-import { CheckBoxIcon } from '../../../svgIcons/Toggle';
+import {
+  CheckBoxOutlineBlankIcon,
+  IndeterminateCheckBoxIcon,
+  CheckBoxIcon
+} from '../../../svgIcons/Toggle';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 

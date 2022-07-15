@@ -16,6 +16,6 @@ export const Default = Template.bind({});
 Default.args = {
   opened: false,
   toggleOpened: () => {},
-  openedTitle: 'Zatvoriť',
+  openedTitle: 'Zavrieť',
   closedTitle: 'Menu'
 };

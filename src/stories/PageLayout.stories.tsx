@@ -149,7 +149,7 @@ const Header = () => {
         </div>
         <div className="flex-auto dm1:hidden" />
         <MenuButton
-          openedTitle="Zatvoriť"
+          openedTitle="Zavrieť"
           closedTitle="Menu"
           opened={mobileNavOpened}
           toggleOpened={() => setMobileNavOpened((p) => !p)}

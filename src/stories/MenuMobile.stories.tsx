@@ -96,7 +96,7 @@ WithCustomHeading.args = {
         placeholder="Zadajte hľadaný výraz"
       />
       <MenuButton
-        openedTitle="Zatvoriť"
+        openedTitle="Zavrieť"
         closedTitle="Menu"
         className="h-10 ml-3"
         opened={true}
@@ -119,7 +119,7 @@ UserLoggedIn.args = {
         placeholder="Zadajte hľadaný výraz"
       />
       <MenuButton
-        openedTitle="Zatvoriť"
+        openedTitle="Zavrieť"
         closedTitle="Menu"
         className="h-10 ml-3"
         opened={true}
