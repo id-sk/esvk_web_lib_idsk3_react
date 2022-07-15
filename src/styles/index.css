@@ -285,7 +285,7 @@
         @apply page-content;
     }
     .footer-container__section-heading {
-        @apply text-body font-bold pb-5;
+        @apply text-body font-bold pb-1;
     }
     .footer-container__section {
         @apply flex flex-col gap-4 pb-7 items-start;
