@@ -1,5 +1,6 @@
 import React, { Children, ReactNode } from 'react';
 import { CheckBoxOutlineBlankIcon } from '../../../svgIcons/Toggle';
+import { IndeterminateCheckBoxIcon } from '../../../svgIcons/Toggle';
 import { CheckBoxIcon } from '../../../svgIcons/Toggle';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
@@ -32,25 +33,32 @@ const DataGrid = ({
     { 'data-grid-checked': checked }
   );
   const liClasses = classNames('data-grid__li-active', { 'data-grid__li': inactive });
-  const titleClasses = classNames('data-grid__title-active', { 'data-grid__title': inactive });
+  const titleClasses = classNames(
+    { 'data-grid__title-active': !inactive },
+    { 'data-grid__title': inactive }
+  );
 
   return (
     <div className={dataGridClasses}>
-      <div className="data-grid__container-left">
-        <div className="data-grid__title-container">
-          <label className="data-grid__label">
+      <>
+        <div className="data-grid__container-left">
+          <label className="data-grid__label mt-1">
             <input type="checkbox" checked={checked} onChange={onChange} key={props.id} />
             <CheckBoxOutlineBlankIcon className="data-grid__checkbox-icon-blank" />
             <CheckBoxIcon className="data-grid__checkbox-icon" />
           </label>
-          <li className={liClasses}></li>
-          <div className={titleClasses} data-testid="title">
-            {props.title}
+          <div>
+            <div className="data-grid__title-container">
+              <li className={liClasses}></li>
+              <div className={titleClasses} data-testid="title">
+                {props.title}
+              </div>
+              {props.titleTag}
+            </div>
+            {children}
           </div>
-          {props.titleTag}
         </div>
-        <div className="ml-12">{children}</div>
-      </div>
+      </>
       <div className="data-grid__container-right">
         <ul className="data-grid__ul">{props.tagList}</ul>
         <div className="data-grid__date">{props.date}</div>
@@ -87,13 +95,13 @@ export function DataGridGroup({ children, checked, onChange, ...props }: DataGri
           <label className="data-grid__label">
             <input type="checkbox" checked={checked} onChange={handleSelectAllChange} />
             <CheckBoxOutlineBlankIcon className="data-grid__checkbox-icon-blank" />
-            <CheckBoxIcon className="data-grid__checkbox-icon" />
+            <IndeterminateCheckBoxIcon className="data-grid__checkbox-icon" />
           </label>
-          Odosielatel
+          Odosielateľ
         </div>
         <div className="data-grid-group__container-right">
-          Stitky
-          <div className="data-grid__date">Datum</div>
+          Štítky
+          <div className="data-grid__date">Dátum</div>
         </div>
       </div>
       {renderedChildren}

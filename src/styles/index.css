@@ -135,29 +135,29 @@
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-neutral-200;
     }
     .data-grid__container-left {
-        @apply items-center gap-6;
+        @apply flex gap-4;
     }
     .data-grid__container-right {
         @apply flex items-center gap-4;
     }
     .data-grid__title-container {
-        @apply flex gap-6 items-center;
+        @apply flex gap-2.5 items-center;
     }
     .data-grid__label {
-        @apply flex h-6 w-6 items-center justify-center rounded hover:bg-neutral-600;
+        @apply flex h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
     }
     .data-grid__label > input {
-        @apply appearance-none w-5 h-5;
+        @apply appearance-none w-7 h-7;
     }
     .data-grid__label > input[type="checkbox"]:checked ~ .check {
         @apply opacity-100;
-    }
+    } 
     .data-grid__checkbox-icon-blank {
-        @apply w-5 h-5 -ml-5;
+        @apply w-7 h-7 -ml-7;
     }
     .data-grid__checkbox-icon {
-        @apply check opacity-0 w-5 h-5 -ml-5;
-    }
+        @apply check opacity-0 w-7 h-7 -ml-7;
+    } 
     .data-grid__date {
         @apply w-[10.375rem] text-right;
     }
@@ -165,13 +165,13 @@
         @apply list-none;
     }
     .data-grid__li-active {
-        @apply font-bold marker:text-blue-400 -ml-4 w-2.5 text-3xl;
-    }
-    .data-grid__title {
-        @apply -ml-6;
+        @apply marker:text-blue-400  w-2.5 text-3xl;
     }
     .data-grid__title-active {
-        @apply -ml-[1.15rem] font-bold;
+        @apply font-bold;
+    }
+    .data-grid__title {
+        @apply -ml-5;
     }
     .data-grid__ul {
         @apply flex flex-wrap justify-end gap-2.5;
@@ -184,7 +184,7 @@
         @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90;
     }
     .data-grid-group__container-left {
-        @apply flex items-center gap-6 font-bold;
+        @apply flex items-center gap-4 font-bold;
     }
     .data-grid-group__container-right {
         @apply flex items-center gap-4 font-bold;

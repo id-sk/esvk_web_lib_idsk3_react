@@ -12,9 +12,9 @@ export default {
 
 const Template: ComponentStory<typeof DataGrid> = (args) => {
   const mock = [
-    { id: '1', title: 'Vysledok AG testu - negativny', inactive: false },
-    { id: '2', title: 'Vysledok AG testu - negativny', inactive: true },
-    { id: '3', title: 'Vysledok AG testu - negativny', inactive: true }
+    { id: '1', title: 'Výsledok AG testu - negatívny', inactive: false },
+    { id: '2', title: 'Výsledok AG testu - negatívny', inactive: true },
+    { id: '3', title: 'Výsledok AG testu - negatívny', inactive: true }
   ];
   const [selection, setSelection] = React.useState<{ [key: string]: boolean }>({});
   const isCheckAll = () => {
@@ -62,10 +62,10 @@ Default.args = {
     <Tag
       label={
         <a className={'link'} href="#">
-          3 spravy
+          3 správy
         </a>
       }
     ></Tag>
   ),
-  tagList: [<Tag label="Dolezite"></Tag>, <Tag label="Potrebne vyzdvihnut"></Tag>]
+  tagList: [<Tag label="Dôležité"></Tag>, <Tag label="Potrebné vyzdvihnúť"></Tag>]
 };
