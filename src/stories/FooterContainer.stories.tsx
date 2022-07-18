@@ -19,28 +19,26 @@ export default {
 
 const Template: ComponentStory<typeof FooterContainer> = (args) => <FooterContainer {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const ThreeSections = Template.bind({});
+ThreeSections.args = {
   children: (
-    <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-[auto_auto_1fr] gap-12 dm1:gap-24">
-      <div className="grid grid-cols-1 dm1:grid-cols-[auto_auto] dm1:gap-24">
-        <FooterContainerSection>
-          <FooterContainerSectionHeading>Informácie</FooterContainerSectionHeading>
-          <a>Informácie a návody</a>
-          <a>Pre občanov</a>
-          <a>Informácie a návody</a>
-          <a>Pre občanov</a>
-        </FooterContainerSection>
-        <FooterContainerSection>
-          <FooterContainerSectionHeading className="hidden dm1:block">
-            &nbsp;
-          </FooterContainerSectionHeading>
-          <a>Pre občanov</a>
-          <a>Metodické usmernenia</a>
-          <a>Pre občanov</a>
-          <a>Pre občanov</a>
-        </FooterContainerSection>
-      </div>
+    <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-4 gap-5">
+      <FooterContainerSection>
+        <FooterContainerSectionHeading>Informácie</FooterContainerSectionHeading>
+        <a>Informácie a návody</a>
+        <a>Pre občanov</a>
+        <a>Informácie a návody</a>
+        <a>Pre občanov</a>
+      </FooterContainerSection>
+      <FooterContainerSection>
+        <FooterContainerSectionHeading className="hidden dm1:block">
+          &nbsp;
+        </FooterContainerSectionHeading>
+        <a>Pre občanov</a>
+        <a>Metodické usmernenia</a>
+        <a>Pre občanov</a>
+        <a>Pre občanov</a>
+      </FooterContainerSection>
 
       <FooterContainerSection>
         <FooterContainerSectionHeading>Rýchle odkazy</FooterContainerSectionHeading>
@@ -76,10 +74,10 @@ Default.args = {
           Lorem ipsum dolor <a>Mauris finibus enim quis orci finibus imperdiet.</a>
         </p>
         <div className="flex-auto" />
-        <a href="https://slovenskoit.sk/" title="Slovensko IT page">
-          <img src={logoFooter} alt="Footer Logo" />
-        </a>
       </div>
+      <a href="https://slovenskoit.sk/" title="Slovensko IT page">
+        <img src={logoFooter} alt="Footer Logo" />
+      </a>
     </>
   )
 };
@@ -87,7 +85,7 @@ Default.args = {
 export const FourSections = Template.bind({});
 FourSections.args = {
   children: (
-    <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-[auto_auto_auto_1fr] gap-12 dm1:gap-32">
+    <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-4 gap-5">
       <FooterContainerSection>
         <FooterContainerSectionHeading>Pre úradníkov</FooterContainerSectionHeading>
         <a href="#">Pre občanov</a>
