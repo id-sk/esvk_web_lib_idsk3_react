@@ -34,11 +34,7 @@ const DataGrid = ({
     { 'data-grid-active': !inactive },
     { 'data-grid-checked': checked }
   );
-  const liClasses = classNames('data-grid__li-active', { 'data-grid__li': inactive });
-  const titleClasses = classNames(
-    { 'data-grid__title-active': !inactive },
-    { 'data-grid__title': inactive }
-  );
+  const titleClass = classNames({ 'font-bold': !inactive });
 
   return (
     <div className={dataGridClasses}>
@@ -51,8 +47,8 @@ const DataGrid = ({
           </label>
           <div>
             <div className="data-grid__title-container">
-              <li className={liClasses}></li>
-              <div className={titleClasses} data-testid="title">
+              {!inactive && <div className="data-grid__list-item" />}
+              <div className={titleClass} data-testid="title">
                 {props.title}
               </div>
               {props.titleTag}

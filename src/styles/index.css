@@ -161,17 +161,8 @@
     .data-grid__date {
         @apply w-[10.375rem] text-right;
     }
-    .data-grid__li {
-        @apply list-none;
-    }
-    .data-grid__li-active {
-        @apply marker:text-blue-400  w-2.5 text-3xl;
-    }
-    .data-grid__title-active {
-        @apply font-bold;
-    }
-    .data-grid__title {
-        @apply -ml-5;
+    .data-grid__list-item {
+        @apply bg-blue-400 w-2.5 h-2.5 rounded-full ;
     }
     .data-grid__ul {
         @apply flex flex-wrap justify-end gap-2.5;
