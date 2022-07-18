@@ -10,7 +10,7 @@ import '/src/styles/idsk3_theme.css';
 const logoFooter = require('./images/logo-footer.svg');
 
 export default {
-  title: 'Atoms/FooterContainer',
+  title: 'Molecules/FooterContainer',
   component: FooterContainer,
   parameters: {
     layout: 'fullscreen'
@@ -69,16 +69,15 @@ ThreeSections.args = {
         Prevádzkovateľom služby je Ministerstvo investícií,
         <br /> regionálneho rozvoja a informatizácie SR.
       </p>
-      <div className="flex items-center pt-5 gap-8 flex-wrap">
-        <p>
-          Lorem ipsum dolor <a>Mauris finibus enim quis orci finibus imperdiet.</a>
-        </p>
-        <div className="flex-auto" />
-      </div>
-      <a href="https://slovenskoit.sk/" title="Slovensko IT page">
-        <img src={logoFooter} alt="Footer Logo" />
-      </a>
+      <p>
+        Lorem ipsum dolor <a href="#">Mauris finibus enim quis orci finibus imperdiet.</a>
+      </p>
     </>
+  ),
+  logo: (
+    <a href="https://slovenskoit.sk/" title="Slovensko IT page">
+      <img src={logoFooter} alt="Footer Logo" />
+    </a>
   )
 };
 
@@ -127,16 +126,15 @@ FourSections.args = {
         Prevádzkovateľom služby je Ministerstvo investícií,
         <br /> regionálneho rozvoja a informatizácie SR.
       </p>
-      <div className="flex items-center pt-5 gap-8 flex-wrap">
-        <p>
-          Lorem ipsum dolor <a>Mauris finibus enim quis orci finibus imperdiet.</a>
-        </p>
-        <div className="flex-auto" />
-        <a href="https://slovenskoit.sk/" title="Slovensko IT page">
-          <img src={logoFooter} alt="Footer Logo" />
-        </a>
-      </div>
+      <p>
+        Lorem ipsum dolor <a href="#">Mauris finibus enim quis orci finibus imperdiet.</a>
+      </p>
     </>
+  ),
+  logo: (
+    <a href="https://slovenskoit.sk/" title="Slovensko IT page">
+      <img src={logoFooter} alt="Footer Logo" />
+    </a>
   )
 };
 
@@ -155,15 +153,14 @@ WithoutContent.args = {
         Prevádzkovateľom služby je Ministerstvo investícií,
         <br /> regionálneho rozvoja a informatizácie SR.
       </p>
-      <div className="flex items-center pt-5 gap-8 flex-wrap">
-        <p>
-          Lorem ipsum dolor <a>Mauris finibus enim quis orci finibus imperdiet.</a>
-        </p>
-        <div className="flex-auto" />
-        <a href="https://slovenskoit.sk/" title="Slovensko IT page">
-          <img src={logoFooter} alt="Footer Logo" />
-        </a>
-      </div>
+      <p>
+        Lorem ipsum dolor <a href="#">Mauris finibus enim quis orci finibus imperdiet.</a>
+      </p>
     </>
+  ),
+  logo: (
+    <a href="https://slovenskoit.sk/" title="Slovensko IT page">
+      <img src={logoFooter} alt="Footer Logo" />
+    </a>
   )
 };

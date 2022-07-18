@@ -290,6 +290,9 @@
     .footer-container__links-list {
         @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5;
     }
+    .footer-container__logo-wrapper {
+        @apply mt-8;
+    }
 
     .header-container {
         @apply h-[6.25rem] relative inset-x-0 flex items-center page-content;

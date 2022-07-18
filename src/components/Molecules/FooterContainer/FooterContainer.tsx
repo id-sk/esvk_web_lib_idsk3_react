@@ -4,6 +4,7 @@ import classNames from 'classnames';
 export interface FooterContainerProps extends React.AllHTMLAttributes<HTMLElement> {
   linksList: ReactNode[];
   bottomSection?: ReactNode;
+  logo?: ReactNode;
 }
 
 export const FooterContainerSectionHeading = ({
@@ -31,6 +32,7 @@ const FooterContainer = ({
   children,
   linksList = [],
   bottomSection,
+  logo,
   ...props
 }: FooterContainerProps) => {
   return (
@@ -40,6 +42,7 @@ const FooterContainer = ({
         <aside className="footer-container__aside">
           {!!linksList.length && <div className="footer-container__links-list">{linksList}</div>}
           {bottomSection}
+          {!!logo && <div className="footer-container__logo-wrapper">{logo}</div>}
         </aside>
       </div>
     </footer>

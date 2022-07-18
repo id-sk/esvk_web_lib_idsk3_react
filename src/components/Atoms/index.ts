@@ -25,4 +25,4 @@ export {
   FooterContainerProps,
   FooterContainerSectionHeading,
   FooterContainerSection
-} from './FooterContainer';
+} from '../Molecules/FooterContainer';
