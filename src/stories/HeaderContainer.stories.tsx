@@ -20,14 +20,14 @@ import {
   PrimaryButton,
   TextButton
 } from '../components/Atoms';
-import { LogoPrivate } from '../svgImages/Logos';
+import { Logo, MobileLogo } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Atoms/HeaderContainer',
+  title: 'Molecules/HeaderContainer',
   component: HeaderContainer
 } as ComponentMeta<typeof HeaderContainer>;
 
@@ -165,13 +165,25 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
           <SecondaryNavigation
             heading="Oficiálna stránka"
             headingButton="verejnej správy"
+            mobileHeading="SK"
+            mobileHeadingButton="e-Gov"
             dropDownTitle="slovenčina"
             dropDownOptions={[<a href="/">english</a>]}
           >
             <SecChildren />
           </SecondaryNavigation>
         }
-        className={mobileNavOpened ? 'h-screen' : ''}
+        logo={
+          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
+            <Logo style={{ height: '100%', width: 'auto' }} />
+          </a>
+        }
+        mobileLogo={
+          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
+            <MobileLogo style={{ height: '100%', width: 'auto' }} />
+          </a>
+        }
+        className={mobileNavOpened ? 'h-screen bg-neutral-90' : ''}
         mobileMenu={
           <MenuMobile
             opened={mobileNavOpened}
@@ -183,15 +195,9 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
         fixed={true}
         {...args}
       >
-        <a
-          href="/"
-          className={'inline-block h-[1.875rem] tb1:h-10 ' + (mobileNavOpened ? 'hidden' : '')}
-        >
-          <LogoPrivate style={{ height: '100%', width: 'auto' }} />
-        </a>
         <SearchBar
           openable={true}
-          containerClassName={!mobileNavOpened ? 'hidden' : ''}
+          containerClassName={!mobileNavOpened ? 'hidden' : 'dm1:hidden'}
           className="w-full max-w-96 pr-10"
           searchbarSize="medium"
           placeholder="Zadajte hľadaný výraz"

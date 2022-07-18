@@ -7,6 +7,8 @@ import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 export interface SecondaryNavProps extends React.AllHTMLAttributes<HTMLDivElement> {
   heading?: ReactNode;
   headingButton?: ReactNode;
+  mobileHeading?: ReactNode;
+  mobileHeadingButton?: ReactNode;
   dropDownTitle?: string;
   dropDownOptions?: ReactElement[];
   bodyClassName?: string;
@@ -16,6 +18,8 @@ const SecondaryNavigation = ({
   children,
   heading,
   headingButton,
+  mobileHeading,
+  mobileHeadingButton,
   dropDownTitle,
   dropDownOptions = [],
   className,
@@ -27,16 +31,30 @@ const SecondaryNavigation = ({
   return (
     <div className={classNames('secondary-navigation', className)} {...props}>
       <div className="secondary-navigation__header">
-        <div className="secondary-navigation__title">
-          {heading}{' '}
+        <div className="secondary-navigation__heading">
+          {mobileHeading ? (
+            <>
+              <span className="tb1:hidden">{mobileHeading}</span>
+              <span className="hidden tb1:inline">{heading}</span>
+            </>
+          ) : (
+            heading
+          )}{' '}
           {!!headingButton && (
             <button
-              className="secondary-navigation__title-button"
+              className="secondary-navigation__heading-button"
               onClick={() => setOpened((p) => !p)}
             >
-              {headingButton}{' '}
+              {mobileHeadingButton ? (
+                <>
+                  <span className="tb1:hidden">{mobileHeadingButton}</span>
+                  <span className="hidden tb1:inline">{headingButton}</span>
+                </>
+              ) : (
+                headingButton
+              )}{' '}
               <ArrowDropDownIcon
-                className={classNames('secondary-navigation__title-button-icon', {
+                className={classNames('secondary-navigation__heading-button-icon', {
                   'rotate-180': opened
                 })}
               />

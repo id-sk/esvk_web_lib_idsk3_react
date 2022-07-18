@@ -151,13 +151,13 @@
     }
     .data-grid__label > input[type="checkbox"]:checked ~ .check {
         @apply opacity-100;
-    } 
+    }
     .data-grid__checkbox-icon-blank {
         @apply w-7 h-7 -ml-7;
     }
     .data-grid__checkbox-icon {
         @apply check opacity-0 w-7 h-7 -ml-7;
-    } 
+    }
     .data-grid__date {
         @apply w-[10.375rem] text-right;
     }
@@ -292,16 +292,18 @@
     }
 
     .header-container {
-        @apply h-16 tb1:h-[6.25rem] relative inset-x-0 flex items-center page-content;
+        @apply h-[6.25rem] relative inset-x-0 flex items-center page-content;
     }
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
+        /* Important, because classes for open mobile nav needs to be overridden on desktop view */
+        @apply dm1:bg-white dm1:h-auto !important;
     }
     .header-container__menu {
         @apply h-16 hidden dm1:flex before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
     }
     .header-container__menu--mobile {
-        @apply flex grow page-content;
+        @apply flex grow page-content dm1:hidden;
     }
 
     .icon-link {
@@ -479,7 +481,7 @@
     }
 
     .menu--mobile {
-        @apply flex flex-col bg-white w-full;
+        @apply flex flex-col w-full;
     }
     .menu--mobile__heading {
         @apply pb-[3.75rem] flex justify-between;
@@ -672,22 +674,25 @@
         @apply bg-blue-600;
     }
     .secondary-navigation__header {
-        @apply text-white h-[1.875rem] tb1:h-10 px-5 page-content relative inset-x-0 flex justify-between items-center z-10;
+        @apply text-white h-10 px-5 page-content relative inset-x-0 flex justify-between items-center z-10;
     }
     .secondary-navigation__body {
         @apply py-2.5 text-white text-body-1 px-5 page-content relative inset-x-0;
     }
-    .secondary-navigation__title {
-        @apply caption tb1:text-body-1;
+    .secondary-navigation__heading {
+        @apply text-body-1;
     }
-    .secondary-navigation__title-button {
+    .secondary-navigation__heading-button {
         @apply hover:underline font-bold tracking-[.5px] inline-flex items-center;
     }
-    .secondary-navigation__title-button-icon {
+    .secondary-navigation__heading-button-icon {
         @apply text-2xl w-6 h-6;
     }
     .secondary-navigation__dropdown {
-        @apply caption tb1:text-body-1;
+        @apply text-body-1;
+    }
+    .secondary-navigation__dropdown .dropdown__options{
+        @apply right-2;
     }
 
     .signpost {

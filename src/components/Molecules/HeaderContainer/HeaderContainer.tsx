@@ -4,6 +4,8 @@ import classNames from 'classnames';
 export interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {
   fixed?: boolean;
   children?: ReactNode;
+  logo?: ReactNode;
+  mobileLogo?: ReactNode;
   secondaryNavigation?: ReactNode;
   largeMenu?: ReactNode;
   mobileMenu?: ReactNode;
@@ -14,6 +16,8 @@ const HeaderContainer = ({
   children,
   secondaryNavigation,
   className,
+  logo,
+  mobileLogo,
   largeMenu,
   mobileMenu,
   ...props
@@ -29,7 +33,23 @@ const HeaderContainer = ({
   return (
     <header className={headerClasses} {...props}>
       {!!secondaryNavigation && secondaryNavigation}
-      {!!children && <div className="header-container">{children}</div>}
+      {!!children && (
+        <div className="header-container">
+          {!!logo && (
+            <>
+              {mobileLogo ? (
+                <>
+                  <span className="flex tb1:hidden">{mobileLogo}</span>
+                  <span className="hidden tb1:flex">{logo}</span>
+                </>
+              ) : (
+                logo
+              )}
+            </>
+          )}
+          {children}
+        </div>
+      )}
       {!!largeMenu && <div className="header-container__menu">{largeMenu}</div>}
       {!!mobileMenu && <div className="header-container__menu--mobile">{mobileMenu}</div>}
     </header>

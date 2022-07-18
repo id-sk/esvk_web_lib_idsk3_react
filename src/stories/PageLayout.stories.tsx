@@ -16,7 +16,7 @@ import {
   FooterContainerSectionHeading
 } from '../components/Atoms';
 import { NavigationLink, NavigationLinkOption, FooterContainer } from '../components';
-import { LogoPrivate } from '../svgImages/Logos';
+import { Logo, MobileLogo } from '../svgImages/Logos';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
 
@@ -140,10 +140,17 @@ const Header = () => {
           </SecondaryNavigation>
         }
         fixed={true}
+        logo={
+          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
+            <Logo style={{ height: '100%', width: 'auto' }} />
+          </a>
+        }
+        mobileLogo={
+          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
+            <MobileLogo style={{ height: '100%', width: 'auto' }} />
+          </a>
+        }
       >
-        <a href="/" className="inline-block h-[1.875rem] tb1:h-10">
-          <LogoPrivate style={{ height: '100%', width: 'auto' }} />
-        </a>
         <div className="hidden dm1:flex flex-auto items-center h-full text-blue-600">
           <ChildrenPrivate />
         </div>
