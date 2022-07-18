@@ -183,7 +183,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
             <MobileLogo style={{ height: '100%', width: 'auto' }} />
           </a>
         }
-        className={mobileNavOpened ? 'h-screen bg-neutral-90' : ''}
+        className={mobileNavOpened ? 'header-container__wrapper--opened-mobile-menu' : ''}
         mobileMenu={
           <MenuMobile
             opened={mobileNavOpened}

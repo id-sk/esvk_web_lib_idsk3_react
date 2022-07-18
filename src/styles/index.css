@@ -299,8 +299,9 @@
     }
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
-        /* Important, because classes for open mobile nav needs to be overridden on desktop view */
-        @apply dm1:bg-white dm1:h-auto !important;
+    }
+    .header-container__wrapper--opened-mobile-menu {
+        @apply h-screen bg-neutral-90 dm1:bg-white dm1:h-auto;
     }
     .header-container__menu {
         @apply h-16 hidden dm1:flex before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
