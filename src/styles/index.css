@@ -691,6 +691,12 @@
     .secondary-navigation__heading-button-icon {
         @apply text-2xl w-6 h-6;
     }
+    .secondary-navigation__heading-mobile {
+        @apply tb1:hidden;
+    }
+    .secondary-navigation__heading-desktop {
+        @apply hidden tb1:inline;
+    }
     .secondary-navigation__dropdown {
         @apply text-body-1;
     }

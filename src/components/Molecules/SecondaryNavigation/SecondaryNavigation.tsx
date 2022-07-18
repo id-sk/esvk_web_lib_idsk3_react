@@ -34,8 +34,8 @@ const SecondaryNavigation = ({
         <div className="secondary-navigation__heading">
           {mobileHeading ? (
             <>
-              <span className="tb1:hidden">{mobileHeading}</span>
-              <span className="hidden tb1:inline">{heading}</span>
+              <span className="secondary-navigation__heading-mobile">{mobileHeading}</span>
+              <span className="secondary-navigation__heading-desktop">{heading}</span>
             </>
           ) : (
             heading
@@ -47,8 +47,10 @@ const SecondaryNavigation = ({
             >
               {mobileHeadingButton ? (
                 <>
-                  <span className="tb1:hidden">{mobileHeadingButton}</span>
-                  <span className="hidden tb1:inline">{headingButton}</span>
+                  <span className="secondary-navigation__heading-mobile">
+                    {mobileHeadingButton}
+                  </span>
+                  <span className="secondary-navigation__heading-desktop">{headingButton}</span>
                 </>
               ) : (
                 headingButton
