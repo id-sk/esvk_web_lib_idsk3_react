@@ -24,6 +24,7 @@ import { Logo, MobileLogo } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
+import Search from '../svgIcons/Actions/Search';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -75,7 +76,7 @@ const NavigationContent = () => {
   );
 };
 
-const ChildrenPrivate = () => (
+const ChildrenInnerNavigationLoggedIn = () => (
   <>
     <Navigation>
       <NavigationContent />
@@ -87,8 +88,21 @@ const ChildrenPrivate = () => (
   </>
 );
 
-const ChildrenPublic = () => (
+const ChildrenNotLoggedIn = () => (
   <>
+    <div className="flex-auto" />
+    <div className="flex gap-4">
+      <SearchBar placeholder="Vyhľadávať" searchbarSize="medium" />
+      <Button children="Prihlásiť sa" />
+    </div>
+  </>
+);
+
+const ChildrenInnerNavigation = () => (
+  <>
+    <Navigation>
+      <NavigationContent />
+    </Navigation>
     <div className="flex-auto" />
     <Button children="Prihlásiť sa" />
   </>
@@ -243,17 +257,22 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
   );
 };
 
-export const Private = Template.bind({});
-Private.args = {
-  children: <ChildrenPrivate />
+export const InnerNavigation = Template.bind({});
+InnerNavigation.args = {
+  children: <ChildrenInnerNavigation />
 };
 
-export const Public = Template.bind({});
-Public.args = {
-  children: <ChildrenPublic />,
+export const BottomNavigation = Template.bind({});
+BottomNavigation.args = {
+  children: <ChildrenNotLoggedIn />,
   largeMenu: (
     <Navigation fullNav={true}>
       <NavigationContent />
     </Navigation>
   )
+};
+
+export const LoggedInNavigation = Template.bind({});
+LoggedInNavigation.args = {
+  children: <ChildrenInnerNavigationLoggedIn />
 };
