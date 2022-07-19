@@ -188,7 +188,7 @@
         @apply relative;
     }
     .dropdown__options {
-        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5;
+        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5 overflow-hidden;
     }
     .dropdown__option {
         @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5;

@@ -7,18 +7,20 @@ export interface NavigationLinkOptionProps {
   linkElement?: ReactElement;
 }
 
-const NavigationLinkOption = ({ label, href, onClick, linkElement }: NavigationLinkOptionProps) => {
-  return (
-    <>
-      {!!linkElement ? (
-        linkElement
-      ) : (
-        <a href={href} onClick={onClick}>
-          {label}
-        </a>
-      )}
-    </>
-  );
-};
+const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkOptionProps>(
+  ({ label, href, onClick, linkElement }, ref) => {
+    return (
+      <>
+        {!!linkElement ? (
+          linkElement
+        ) : (
+          <a href={href} onClick={onClick} ref={ref}>
+            {label}
+          </a>
+        )}
+      </>
+    );
+  }
+);
 
 export default NavigationLinkOption;

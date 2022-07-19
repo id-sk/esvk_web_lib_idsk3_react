@@ -24,7 +24,6 @@ import { Logo, MobileLogo } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
-import Search from '../svgIcons/Actions/Search';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
