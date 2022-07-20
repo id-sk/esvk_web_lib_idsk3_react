@@ -497,7 +497,7 @@
         @apply pb-[3.75rem] flex justify-between;
     }
     .menu-button {
-        @apply px-2.5 border rounded-md h-9 tb1:h-10 flex items-center gap-3 text-body text-blue-600 font-bold;
+        @apply px-2.5 border rounded-md h-10 flex items-center gap-3 text-body text-blue-600 font-bold;
     }
     .menu-button__icon {
         @apply text-[1.625rem] w-[1.625rem] h-[1.625rem];
