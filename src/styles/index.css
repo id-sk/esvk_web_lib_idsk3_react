@@ -309,6 +309,12 @@
     .header-container__menu--mobile {
         @apply flex grow page-content dm1:hidden;
     }
+    .header-container__mobile-logo {
+        @apply flex tb1:hidden;
+    }
+    .header-container__desktop-logo {
+        @apply hidden tb1:flex;
+     }
 
     .icon-link {
         @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-500 cursor-pointer;

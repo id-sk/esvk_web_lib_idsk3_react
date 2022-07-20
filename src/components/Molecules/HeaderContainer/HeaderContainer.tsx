@@ -39,8 +39,8 @@ const HeaderContainer = ({
             <>
               {mobileLogo ? (
                 <>
-                  <span className="flex tb1:hidden">{mobileLogo}</span>
-                  <span className="hidden tb1:flex">{logo}</span>
+                  <span className="header-container__mobile-logo">{mobileLogo}</span>
+                  <span className="header-container__desktop-logo">{logo}</span>
                 </>
               ) : (
                 logo
