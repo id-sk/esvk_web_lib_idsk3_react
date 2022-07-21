@@ -20,7 +20,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
           arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
           className="navigation__dropdown"
           optionClassName="navigation__dropdown-options"
-          buttonClassName="px-3"
+          buttonClassName="dm1:px-3"
         >
           {children}
         </DropDown>

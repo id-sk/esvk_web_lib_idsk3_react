@@ -112,7 +112,7 @@ const MenuMobileChildrenPublic = () => (
     <Navigation label="Menu">
       <NavigationContent />
     </Navigation>
-    <Button children="Prihlásiť sa" className="w-full" />
+    <Button children="Prihlásiť sa" className="w-full mt-4" />
   </>
 );
 
@@ -206,6 +206,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
           />
         }
         fixed={true}
+        focusLock={mobileNavOpened}
         {...args}
       >
         <SearchBar

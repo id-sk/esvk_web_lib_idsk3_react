@@ -182,7 +182,7 @@
     }
 
     .dropdown {
-        @apply py-5 flex justify-between dm1:justify-start items-center h-full w-full hover:underline gap-0.5 tracking-[inherit];
+        @apply py-5 flex justify-between dm1:justify-start items-center dm1:h-full w-full hover:underline gap-0.5 tracking-[inherit];
     }
     .dropdown__wrapper {
         @apply relative;
@@ -301,13 +301,16 @@
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
     }
     .header-container__wrapper--opened-mobile-menu {
-        @apply h-screen bg-neutral-90 dm1:bg-white dm1:h-auto;
+        @apply h-screen bg-neutral-90 dm1:bg-white dm1:h-auto overflow-y-auto;
     }
     .header-container__menu {
         @apply h-16 hidden dm1:flex before:border-t before:border-neutral-300 before:absolute before:inset-x-0 page-content ;
     }
     .header-container__menu--mobile {
         @apply flex grow page-content dm1:hidden;
+    }
+    .header-container__wrapper--opened-mobile-menu .header-container__menu--mobile {
+        @apply pb-4;
     }
     .header-container__mobile-logo {
         @apply flex tb1:hidden;
@@ -556,19 +559,19 @@
         @apply px-0 w-full dm1:w-auto rounded-none dm1:rounded-md shadow-none dm1:shadow-medium relative dm1:absolute dm1:-left-2 top-0 dm1:top-3/4;
     }
     .navigation__dropdown-options .dropdown__option {
-        @apply px-8 my-0 py-5 hover:bg-blue-100 hover:underline;
+        @apply px-4 dm1:px-8 my-0 py-5 hover:bg-blue-100 hover:underline;
     }
     .navigation__link {
         @apply flex h-full w-full dm1:w-auto items-center border-y-4 border-transparent hover:bg-blue-100 relative;
     }
     .navigation__link > a {
-        @apply h-full text-body-1 text-black flex items-center gap-1.5 px-2.5 py-4 dm1:py-5 hover:underline w-full cursor-pointer;
+        @apply h-full text-body-1 text-black flex items-center gap-1.5 dm1:px-2.5 py-4 dm1:py-5 hover:underline w-full cursor-pointer;
     }
     .navigation__link--clicked  {
-        @apply border-b-blue-500;
+        @apply dm1:border-b-blue-500;
     }
     .navigation__link--clicked > a {
-        @apply font-bold text-blue-500 hover:no-underline;
+        @apply font-bold dm1:text-blue-500 hover:no-underline;
     }
     .navigation__link--alerted > a  {
         @apply pr-9;
