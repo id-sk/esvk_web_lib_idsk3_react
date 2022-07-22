@@ -15,9 +15,8 @@ export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';
 export { default as SearchBar, SearchBarProps } from './SearchBar';
 export { default as Accordion, AccordionProps } from './Accordion';
-export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
-export { default as Signpost, SignpostsGroup, SignpostProps } from './Signpost';
+export { default as AnchorCard, AnchorCardProps } from './AnchorCard';
 export { default as Tag, TagProps } from './Tag';
 export { TabBar, TabBarLink, TabBarProps, TabBarLinkProps } from './TabBar';
 export {

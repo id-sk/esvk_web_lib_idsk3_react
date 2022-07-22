@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleCard } from '../components/Atoms';
+import { ArticleCard } from '../components/Molecules';
 import '/src/styles/idsk3_theme.css';
 
 const placeholderImg = require('./images/article-placeholder.jpg');
 
 export default {
-  title: 'Atoms/ArticleCard',
+  title: 'Molecules/ArticleCard',
   component: ArticleCard
 } as ComponentMeta<typeof ArticleCard>;
 

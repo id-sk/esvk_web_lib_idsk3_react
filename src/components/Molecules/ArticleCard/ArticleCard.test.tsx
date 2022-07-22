@@ -28,4 +28,18 @@ describe('ArticleCard', () => {
     );
     expect(screen.getByText('— Lorem | ipsum | consectetur')).toBeDefined();
   });
+  test('layout', () => {
+    render(
+      <ArticleCard
+        date={1648641077221}
+        heading="test title"
+        dateFormatString="dd-MM-yyy"
+        featuredImg={<div />}
+        tags={['Lorem', 'ipsum', 'consectetur']}
+        layout="vertical"
+        title="test-title"
+      />
+    );
+    expect(screen.getByTitle('test-title')).toHaveClass('anchor-card--vertical');
+  });
 });

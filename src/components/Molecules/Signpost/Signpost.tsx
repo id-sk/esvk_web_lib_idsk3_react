@@ -1,12 +1,12 @@
 import React, { Children, ReactNode } from 'react';
 import classNames from 'classnames';
+import { AnchorCard, AnchorCardProps } from '../../Atoms';
 
-export interface SignpostProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface SignpostProps extends AnchorCardProps {
   icon?: ReactNode;
   heading: string;
   arrowIcon?: ReactNode;
   inGroup?: boolean;
-  layout?: 'horizontal' | 'vertical';
 }
 
 const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
@@ -15,25 +15,21 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
     ref
   ) => {
     return (
-      <a
-        className={classNames(
-          'signpost',
-          inGroup ? 'signpost--in-group' : 'signpost--rounded-border',
-          { 'signpost--vertical': layout === 'vertical' },
-          className
-        )}
+      <AnchorCard
+        className={classNames({ 'signpost--in-group': inGroup }, className)}
+        layout={layout}
         {...props}
         ref={ref}
       >
         {!!icon && <div className="signpost__icon">{icon}</div>}
         <div className="signpost__container">
           <div>
-            <div className="signpost__heading">{heading}</div>
+            <div className="anchor-card__heading">{heading}</div>
             <div className="signpost__description">{children}</div>
           </div>
           {layout === 'vertical' && <div className="signpost__arrow-icon">{arrowIcon}</div>}
         </div>
-      </a>
+      </AnchorCard>
     );
   }
 );

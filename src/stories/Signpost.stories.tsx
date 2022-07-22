@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Signpost } from '../components/Atoms';
+import { Signpost } from '../components/Molecules';
 import { ArrowForwardIcon } from '../svgIcons/Navigation';
 import { ArrowForwardIosIcon } from '../svgIcons/Navigation';
 import { HomeIcon } from '../svgIcons/Actions';
-import { SignpostsGroup } from '../components/Atoms/Signpost/Signpost';
+import { SignpostsGroup } from '../components/Molecules/Signpost/Signpost';
 import '/src/styles/idsk3_theme.css';
 
 export default {
-  title: 'Atoms/Signpost',
+  title: 'Molecules/Signpost',
   component: Signpost
 } as ComponentMeta<typeof Signpost>;
 

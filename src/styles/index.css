@@ -41,7 +41,6 @@
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
     }
-
 }
 
 @layer utilities {
@@ -73,18 +72,25 @@
         @apply block;
     }
 
-    .article-card {
-        @apply grid gap-6 grid-cols-[3fr_4fr] text-body;
+    .anchor-card {
+        @apply flex flex-col gap-x-5 p-5 cursor-pointer bg-white border-neutral-300 border rounded-lg hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
     }
-    .article-card__heading {
-        @apply text-primary font-bold subtitle underline py-2.5;
+    .anchor-card--grid {
+        @apply grid grid-cols-1 gap-x-8 gap-y-5;
     }
+    .anchor-card--vertical {
+        @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]
+    }
+    .anchor-card__heading {
+        @apply flex items-center link-m font-bold pb-2.5;
+    }
+
     .article-card__date-tags {
-        @apply text-neutral-700 text-body-1;
+        @apply text-neutral-700 text-body-1 pt-2.5;
         word-spacing: 0.5rem;
     }
     .article-card__image-wrapper {
-        @apply pt-[56.25%] overflow-hidden relative;
+        @apply pt-[56.25%] overflow-hidden relative flex-auto;
     }
     .article-card__image-wrapper > * {
         @apply absolute top-0 object-cover w-full h-full object-center;
@@ -714,26 +720,14 @@
         @apply right-2;
     }
 
-    .signpost {
-        @apply flex flex-col p-5 cursor-pointer bg-white border-blue-300 hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
-    }
-    .signpost--vertical {
-        @apply flex-row gap-5
-    }
     .signpost--in-group {
-        @apply border-b last:border-none hover:ring-0 hover:border-blue-300;
-    }
-    .signpost--rounded-border {
-        @apply border rounded-lg;
+        @apply border-0 border-b rounded-none last:border-none hover:ring-0 hover:border-neutral-300;
     }
     .signpost__container {
         @apply container flex flex-auto justify-between w-full;
     }
     .signpost__icon {
         @apply text-blue-400 text-2xl w-[1.875rem] h-[1.875rem];
-    }
-    .signpost__heading {
-        @apply flex items-center link-m font-bold;
     }
     .signpost__description {
         @apply text-body-1;
@@ -742,7 +736,7 @@
         @apply font-bold text-2xl w-6 h-6 ml-4;
     }
     .signpost-group {
-        @apply border border-blue-300 rounded-lg overflow-hidden;
+        @apply border border-neutral-300 rounded-lg overflow-hidden;
     }
 
     .tab-bar {
