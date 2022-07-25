@@ -132,7 +132,7 @@
     }
 
     .data-grid {
-        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white;
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg;
     }
     .data-grid-active {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-blue-100;
@@ -147,7 +147,7 @@
         @apply flex items-center gap-4;
     }
     .data-grid__title-container {
-        @apply flex gap-2.5 items-center;
+        @apply flex gap-2.5 items-center min-h-[2.375rem];
     }
     .data-grid__label {
         @apply flex h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
@@ -175,10 +175,10 @@
     }
 
     .data-grid-group{
-        @apply border border-neutral-300 rounded-lg overflow-hidden;
+        @apply border border-neutral-300 rounded-lg;
     }
     .data-grid-group__header {
-        @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90;
+        @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90 rounded-t-lg;
     }
     .data-grid-group__container-left {
         @apply flex items-center gap-4 font-bold;
