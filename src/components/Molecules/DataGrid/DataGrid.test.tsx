@@ -22,7 +22,6 @@ describe('DataGrid', () => {
         </DataGrid>
       </DataGridGroup>
     );
-    expect(screen.getByTestId('moreButton')).toBeDefined();
   });
   test('renders title', () => {
     render(
@@ -33,17 +32,5 @@ describe('DataGrid', () => {
       </DataGridGroup>
     );
     expect(screen.getByTestId('title')).toBeDefined();
-  });
-  test('moreOnClick', () => {
-    const mockLinkClick = jest.fn();
-    render(
-      <DataGridGroup>
-        <DataGrid title="NCZI" date="15.2.2022" moreOnClick={mockLinkClick}>
-          Test
-        </DataGrid>
-      </DataGridGroup>
-    );
-    fireEvent.click(screen.getByTestId('moreButton'));
-    expect(mockLinkClick).toHaveBeenCalled();
   });
 });

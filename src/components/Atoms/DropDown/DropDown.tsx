@@ -16,6 +16,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   optionClassName?: string;
   buttonClassName?: string;
+  optionsSide?: 'left' | 'right';
 }
 
 const DropDown = ({
@@ -25,6 +26,7 @@ const DropDown = ({
   arrowIcon = <ArrowDropDownIcon />,
   optionClassName,
   buttonClassName,
+  optionsSide = 'right',
   ...props
 }: DropDownProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -50,7 +52,8 @@ const DropDown = ({
   const optionClasses = classNames(
     'dropdown__options',
     {
-      hidden: !opened
+      hidden: !opened,
+      'dropdown__options--left': optionsSide === 'left'
     },
     optionClassName
   );

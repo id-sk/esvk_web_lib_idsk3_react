@@ -6,13 +6,15 @@ import {
 } from '../../../svgIcons/Toggle';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
+import { DropDown } from '../../Atoms';
 
 export interface DataGridProps {
   title: string;
   titleTag?: ReactNode;
   date: ReactNode;
   moreIcon?: ReactNode;
-  moreOnClick?: React.MouseEventHandler<HTMLElement>;
+  moreOptions?: ReactNode;
+  customMoreButton?: ReactNode;
   id?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   children?: ReactNode;
@@ -24,6 +26,8 @@ export interface DataGridProps {
 const DataGrid = ({
   children,
   moreIcon = <MoreVertIcon />,
+  moreOptions,
+  customMoreButton,
   checked,
   onChange,
   inactive,
@@ -60,9 +64,18 @@ const DataGrid = ({
       <div className="data-grid__container-right">
         <ul className="data-grid__ul">{props.tagList}</ul>
         <div className="data-grid__date">{props.date}</div>
-        <button onClick={props.moreOnClick} data-testid="moreButton">
-          {moreIcon}
-        </button>
+        {moreOptions ? (
+          <DropDown
+            dropDownTitle={moreIcon}
+            buttonClassName="justify-center"
+            optionsSide="left"
+            arrowIcon={<></>}
+          >
+            {moreOptions}
+          </DropDown>
+        ) : customMoreButton ? (
+          customMoreButton
+        ) : null}
       </div>
     </div>
   );

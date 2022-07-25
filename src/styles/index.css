@@ -191,10 +191,13 @@
         @apply py-5 flex justify-between dm1:justify-start items-center dm1:h-full w-full hover:underline gap-0.5 tracking-[inherit];
     }
     .dropdown__wrapper {
-        @apply relative;
+        @apply relative inline-block;
     }
     .dropdown__options {
-        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5 overflow-hidden;
+        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5 overflow-hidden z-10;
+    }
+    .dropdown__options--left {
+        @apply right-0;
     }
     .dropdown__option {
         @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5;

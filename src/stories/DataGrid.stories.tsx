@@ -58,6 +58,7 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'NCZI',
   date: '15.6.2022',
+  moreOptions: [<p>Exportovať</p>, <p>Archivovať</p>, <p>Sprievodca schránkou</p>],
   titleTag: (
     <Tag
       label={
@@ -65,7 +66,7 @@ Default.args = {
           3 správy
         </a>
       }
-    ></Tag>
+    />
   ),
-  tagList: [<Tag label="Dôležité"></Tag>, <Tag label="Potrebné vyzdvihnúť"></Tag>]
+  tagList: [<Tag label="Dôležité" />, <Tag label="Potrebné vyzdvihnúť" />]
 };

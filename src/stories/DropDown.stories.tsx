@@ -11,7 +11,11 @@ export default {
 } as ComponentMeta<typeof DropDown>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof DropDown> = (args) => <DropDown {...args} />;
+const Template: ComponentStory<typeof DropDown> = (args) => (
+  <div className="ml-8">
+    <DropDown {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -24,4 +28,11 @@ WithCustomIcon.args = {
   dropDownTitle: 'slovenčina',
   children: [<a href="/">english</a>, <a href="/">український</a>],
   arrowIcon: <ExpandMoreIcon width="1.5rem" height="1.5rem" />
+};
+
+export const LeftSideOptions = Template.bind({});
+LeftSideOptions.args = {
+  dropDownTitle: 'slovenčina',
+  optionsSide: 'left',
+  children: [<a href="/">english</a>, <a href="/">український</a>]
 };
