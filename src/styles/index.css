@@ -194,16 +194,19 @@
         @apply relative inline-block;
     }
     .dropdown__options {
-        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black px-5 overflow-hidden z-10;
+        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black overflow-hidden z-10;
     }
     .dropdown__options--left {
         @apply right-0;
     }
     .dropdown__option {
-        @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5;
+        @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5 px-5;
     }
     .dropdown__option a {
         @apply w-full;
+    }
+    .dropdown__options hr {
+        @apply border-neutral-300 w-[200%] absolute -left-5 ;
     }
     .dropdown__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];

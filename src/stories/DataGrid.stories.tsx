@@ -58,7 +58,12 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'NCZI',
   date: '15.6.2022',
-  moreOptions: [<p>Exportovať</p>, <p>Archivovať</p>, <p>Sprievodca schránkou</p>],
+  moreOptions: [
+    <p>Exportovať</p>,
+    <p>Archivovať</p>,
+    <p>Sprievodca schránkou</p>,
+    <p>Zobraziť detail</p>
+  ],
   titleTag: (
     <Tag
       label={

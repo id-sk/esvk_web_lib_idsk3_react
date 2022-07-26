@@ -36,3 +36,17 @@ LeftSideOptions.args = {
   optionsSide: 'left',
   children: [<a href="/">english</a>, <a href="/">український</a>]
 };
+
+export const WithDivider = Template.bind({});
+WithDivider.args = {
+  dropDownTitle: 'Menu',
+  children: [
+    <p>Exportovať</p>,
+    <p>Archivovať</p>,
+    <hr />,
+    <p>Sprievodca schránkou</p>,
+    <p>Zobraziť detail</p>,
+    <hr />,
+    <p>Pomoc</p>
+  ]
+};
