@@ -49,7 +49,7 @@ const ArticleCard = React.forwardRef<HTMLAnchorElement, ArticleCardProps>(
         <div className="flex-1">
           {datePosition === 'top' && <p className="article-card__date-tags--top">{dateTags}</p>}
           <p className="anchor-card__heading">{heading}</p>
-          <p className="article-card__text">{children}</p>
+          <div className="article-card__text">{children}</div>
           {datePosition === 'bottom' && <p className="article-card__date-tags">{dateTags}</p>}
         </div>
       </AnchorCard>
