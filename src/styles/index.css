@@ -89,6 +89,9 @@
         @apply text-neutral-700 text-body-1 pt-2.5;
         word-spacing: 0.5rem;
     }
+    .article-card__date-tags--top {
+        @apply text-neutral-700 text-body-1 pb-2.5;
+    }
     .article-card__image-wrapper {
         @apply pt-[56.25%] overflow-hidden relative flex-auto;
     }
