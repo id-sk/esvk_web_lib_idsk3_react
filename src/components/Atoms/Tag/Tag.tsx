@@ -1,17 +1,18 @@
 import React, { ReactNode, ReactElement, SVGProps } from 'react';
+import classNames from 'classnames';
 
-export interface TagProps {
+export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   label: ReactNode;
   leftIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   rightIcon?: ReactElement<SVGProps<SVGSVGElement>>;
 }
 
-const Tag = (props: TagProps) => {
+const Tag = ({ leftIcon, label, rightIcon, className, ...props }: TagProps) => {
   return (
-    <div className="tag">
-      {props.leftIcon}
-      {props.label}
-      {props.rightIcon}
+    <div className={classNames('tag', className)} {...props}>
+      {leftIcon}
+      {label}
+      {rightIcon}
     </div>
   );
 };
