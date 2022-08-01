@@ -1,27 +1,26 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-export interface AnchorCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface AnchorCardProps {
   layout?: 'horizontal' | 'vertical';
   grid?: boolean;
+  className?: string;
+  children?: ReactNode;
 }
 
-const AnchorCard = React.forwardRef<HTMLAnchorElement, AnchorCardProps>(
-  ({ children, className, layout = 'horizontal', grid, ...props }, ref) => {
-    return (
-      <a
-        className={classNames(
-          'anchor-card',
-          { 'anchor-card--vertical': layout === 'vertical', 'anchor-card--grid': grid },
-          className
-        )}
-        {...props}
-        ref={ref}
-      >
-        {children}
-      </a>
-    );
-  }
-);
+const AnchorCard = ({ children, className, layout = 'horizontal', grid }: AnchorCardProps) => {
+  return (
+    <div
+      className={classNames(
+        'anchor-card',
+        { 'anchor-card--vertical': layout === 'vertical', 'anchor-card--grid': grid },
+        className
+      )}
+      data-testid="anchor-card"
+    >
+      {children}
+    </div>
+  );
+};
 
 export default AnchorCard;

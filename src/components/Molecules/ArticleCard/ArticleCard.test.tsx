@@ -37,9 +37,8 @@ describe('ArticleCard', () => {
         featuredImg={<div />}
         tags={['Lorem', 'ipsum', 'consectetur']}
         layout="vertical"
-        title="test-title"
       />
     );
-    expect(screen.getByTitle('test-title')).toHaveClass('anchor-card--vertical');
+    expect(screen.getByTestId('anchor-card')).toHaveClass('anchor-card--vertical');
   });
 });

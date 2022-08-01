@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Signpost } from '../components/Molecules';
-import { ArrowForwardIcon } from '../svgIcons/Navigation';
 import { ArrowForwardIosIcon } from '../svgIcons/Navigation';
 import { HomeIcon } from '../svgIcons/Actions';
 import { SignpostsGroup } from '../components/Molecules/Signpost/Signpost';
@@ -27,8 +26,8 @@ Horizontal.args = {
   icon: <HomeIcon />,
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />,
-  layout: 'horizontal'
+  layout: 'horizontal',
+  href: '/'
 };
 
 export const Vertical = Template.bind({});
@@ -36,16 +35,26 @@ Vertical.args = {
   icon: <HomeIcon />,
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />,
-  layout: 'vertical'
+  layout: 'vertical',
+  href: '/'
 };
 
 export const WithoutIcon = Template.bind({});
 WithoutIcon.args = {
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
-  arrowIcon: <ArrowForwardIcon />,
-  layout: 'vertical'
+  layout: 'vertical',
+  href: '/'
+};
+
+export const WithActionButton = Template.bind({});
+WithActionButton.args = {
+  icon: <HomeIcon />,
+  heading: 'Very long title',
+  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
+  layout: 'horizontal',
+  href: '/',
+  actionButton: { label: 'Action' }
 };
 
 export const Group = TemplateGroup.bind({});

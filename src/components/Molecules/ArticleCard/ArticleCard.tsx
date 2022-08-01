@@ -3,7 +3,9 @@ import { format } from 'date-fns';
 import classNames from 'classnames';
 import { AnchorCard, AnchorCardProps } from '../../Atoms';
 
-export interface ArticleCardProps extends AnchorCardProps {
+export interface ArticleCardProps
+  extends AnchorCardProps,
+    React.AnchorHTMLAttributes<HTMLAnchorElement> {
   heading: ReactNode;
   featuredImg: ReactNode;
   date: string | number | Date;
@@ -42,13 +44,15 @@ const ArticleCard = React.forwardRef<HTMLAnchorElement, ArticleCardProps>(
       </>
     );
     return (
-      <AnchorCard className={className} layout={layout} grid={true} {...props} ref={ref}>
+      <AnchorCard className={className} layout={layout} grid={true}>
         <div className={classNames('article-card__image-wrapper', imageWrapperClasses)}>
           {featuredImg}
         </div>
         <div className="flex-1">
           {datePosition === 'top' && <p className="article-card__date-tags--top">{dateTags}</p>}
-          <p className="anchor-card__heading">{heading}</p>
+          <a className="anchor-card__heading" {...props} ref={ref}>
+            {heading}
+          </a>
           <div className="article-card__text">{children}</div>
           {datePosition === 'bottom' && <p className="article-card__date-tags">{dateTags}</p>}
         </div>
