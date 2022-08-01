@@ -6,6 +6,7 @@ import '/src/styles/idsk3_theme.css';
 import { EventCard, Navigation, SecondaryNavigation } from '../components/Molecules';
 import {
   AvatarCircle,
+  Breadcrumbs,
   CardsContainer,
   HeaderContainer,
   IconLink,
@@ -27,6 +28,12 @@ export default {
     layout: 'fullscreen'
   }
 } as ComponentMeta<typeof PageLayout>;
+
+const breadcrumbs = (
+  <Breadcrumbs>
+    <a>Kalendár povinností</a>
+  </Breadcrumbs>
+);
 
 const titleSection = <h2>Kalendár povinností</h2>;
 
@@ -277,5 +284,6 @@ export const Default = Template.bind({});
 Default.args = {
   titleSection,
   header: <Header />,
-  footer: pageFooter
+  footer: pageFooter,
+  breadcrumbs: breadcrumbs
 };

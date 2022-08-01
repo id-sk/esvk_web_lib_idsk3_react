@@ -654,6 +654,9 @@
     .page-layout__main {
         @apply pt-[1.875rem] pb-16 tb1:pt-[3.25rem] bg-neutral-100 flex-auto flex flex-col;
     }
+    .page-layout__breadcrumbs {
+        @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
+    }
     .page-layout__title {
         @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
     }
