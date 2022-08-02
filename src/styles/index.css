@@ -98,6 +98,9 @@
     .article-card__image-wrapper > * {
         @apply absolute top-0 object-cover w-full h-full object-center;
     }
+    .article-card__image-wrapper > a {
+        @apply relative;
+    }
 
     .avatar-circle {
         @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1;
