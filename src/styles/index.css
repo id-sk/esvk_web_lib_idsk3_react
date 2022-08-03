@@ -770,6 +770,31 @@
         @apply border-blue-400 font-bold;
     }
 
+    .table-wrapper {
+        @apply bg-white border border-neutral-300 rounded-lg;
+    }
+    .table-container {
+        @apply p-5 text-body;
+    }
+    .table-container__children {
+        @apply border border-neutral-300 rounded;
+    }
+    .table-container__text-button {
+        @apply no-underline mt-5;
+    }
+    .table-content {
+        @apply grid grid-flow-col auto-cols-[minmax(0,_2fr)] gap-2 px-5 py-2 bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300;
+    }
+    .table-content__date-time {
+        @apply flex gap-1;
+    }
+    .table-head {
+        @apply grid grid-flow-col auto-cols-[minmax(0,_2fr)]  gap-2 px-5 font-bold mt-6;
+    }
+    .table-content__action {
+        @apply flex gap-5 text-right justify-end items-center;
+    }
+
     .tag {
         @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border bg-neutral-90 items-center;
     }
