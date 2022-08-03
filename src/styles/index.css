@@ -742,7 +742,7 @@
         @apply flex flex-auto justify-between w-full;
     }
     .signpost__icon {
-        @apply text-blue-400 text-2xl w-[1.875rem] h-[1.875rem];
+        @apply text-blue-400 text-2xl h-[1.875rem] flex items-center;
     }
     .signpost__description {
         @apply text-body-1;

@@ -4,7 +4,7 @@ import { AnchorCard, AnchorCardProps, PrimaryButton, PrimaryButtonProps } from '
 import { ArrowForwardIcon } from '../../../svgIcons/Navigation';
 
 export interface SignpostProps
-  extends AnchorCardProps,
+  extends Omit<AnchorCardProps, 'grid'>,
     React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactNode;
   heading: string;
@@ -25,6 +25,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
       className,
       layout = 'horizontal',
       actionButton,
+      withArrowIcon = true,
       ...props
     },
     ref
@@ -51,7 +52,9 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
             </div>
             {renderAction && <PrimaryButton {...actionButton} />}
           </div>
-          {layout === 'vertical' && <div className="signpost__arrow-icon">{arrowIcon}</div>}
+          {layout === 'vertical' && withArrowIcon && (
+            <div className="signpost__arrow-icon">{arrowIcon}</div>
+          )}
         </div>
       </AnchorCard>
     );
