@@ -24,7 +24,7 @@ export const Template: ComponentStory<typeof Table> = (args) => {
           <TableRowItem alignRight={true}>Akcie</TableRowItem>
         ]}
         addButton={true}
-        addButtonLabel="Pridať prílohu"
+        addButtonLabel="Pridať podpis"
       >
         <TableRow>
           <TableRowItem>Martin Mucha</TableRowItem>

@@ -783,13 +783,13 @@
         @apply no-underline mt-5;
     }
     .table-content {
-        @apply grid grid-flow-col auto-cols-[minmax(0,_2fr)] gap-2 px-5 py-2 bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300;
+        @apply grid grid-flow-col auto-cols-fr gap-2 px-5 py-2 min-h-[3.125rem] items-center bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300;
     }
     .table-content__date-time {
         @apply flex gap-1;
     }
     .table-head {
-        @apply grid grid-flow-col auto-cols-[minmax(0,_2fr)]  gap-2 px-5 font-bold mt-6;
+        @apply grid grid-flow-col auto-cols-fr gap-2 px-5 font-bold mt-6 mb-[0.375rem] text-body-1;
     }
     .table-content__action {
         @apply flex gap-5 text-right justify-end items-center;

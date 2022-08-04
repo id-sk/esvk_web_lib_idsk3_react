@@ -1,1 +1,1 @@
-export { default as TableRow, TableProps, TableRowsContainer, Table, TableRowItem } from './Table';
+export { default as Table, TableProps, TableRowsContainer, TableRow, TableRowItem } from './Table';
