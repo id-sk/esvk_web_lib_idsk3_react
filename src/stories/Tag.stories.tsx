@@ -33,3 +33,31 @@ LeftAndRightIcons.args = {
   leftIcon: <PlaceholderIcon />,
   rightIcon: <PlaceholderIcon />
 };
+
+export const BasicVariant = Template.bind({});
+BasicVariant.args = {
+  label: 'Basic',
+  variant: 'basic',
+  leftIcon: <PlaceholderIcon />
+};
+
+export const WarningVariant = Template.bind({});
+WarningVariant.args = {
+  label: 'Warning',
+  variant: 'warning',
+  leftIcon: <PlaceholderIcon />
+};
+
+export const SuccessVariant = Template.bind({});
+SuccessVariant.args = {
+  label: 'Success',
+  variant: 'success',
+  leftIcon: <PlaceholderIcon />
+};
+
+export const AttentionVariant = Template.bind({});
+AttentionVariant.args = {
+  label: 'Attention',
+  variant: 'attention',
+  leftIcon: <PlaceholderIcon />
+};
