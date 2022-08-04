@@ -799,7 +799,7 @@
         @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border bg-neutral-90 items-center;
     }
     .tag--basic {
-        @apply tag text-primary bg-blue-100 border-primary;
+        @apply tag text-primary bg-blue-100 border-blue-200;
     }
     .tag--warning {
         @apply tag text-alert-warning bg-alert-warning-light border-alert-warning-medium;
