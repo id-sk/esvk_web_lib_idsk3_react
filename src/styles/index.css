@@ -796,19 +796,31 @@
     }
 
     .tag {
-        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body border-neutral-300 border bg-neutral-90 items-center;
+        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body  items-center border;
+    }
+    .tag--disabled {
+        @apply border-neutral-300 bg-white/70 text-neutral-600
+    }
+    .tag--default {
+        @apply border-neutral-300 bg-white/70
     }
     .tag--basic {
-        @apply tag text-primary bg-blue-100 border-blue-200;
+        @apply text-primary bg-blue-100 border-blue-200;
     }
     .tag--warning {
-        @apply tag text-alert-warning bg-alert-warning-light border-alert-warning-medium;
+        @apply text-alert-warning bg-alert-warning-light border-alert-warning-medium;
     }
     .tag--success {
-        @apply tag text-alert-positive bg-alert-positive-light border-alert-positive-medium;
+        @apply text-alert-positive bg-alert-positive-light border-alert-positive-medium;
     }
     .tag--attention {
-        @apply tag text-alert-attention bg-alert-attention-light border-alert-attention-medium;
+        @apply text-alert-attention bg-alert-attention-light border-alert-attention-medium;
+    }
+    .tag--with-interactions {
+        @apply cursor-pointer hover:text-primary hover:bg-blue-100 hover:border-primary select-none
+    }
+    .tag--selected {
+        @apply text-primary bg-blue-100 border-primary font-bold
     }
 
     .vertical-event-card {

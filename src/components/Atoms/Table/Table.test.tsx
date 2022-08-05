@@ -10,10 +10,12 @@ describe('Table', () => {
         <TableRowsContainer
           title="Podpisy"
           titles={[
-            <TableRowItem>Názov</TableRowItem>,
-            <TableRowItem>Podpísané</TableRowItem>,
-            <TableRowItem>Podpis</TableRowItem>,
-            <TableRowItem alignRight={true}>Akcie</TableRowItem>
+            <TableRowItem key={1}>Názov</TableRowItem>,
+            <TableRowItem key={2}>Podpísané</TableRowItem>,
+            <TableRowItem key={3}>Podpis</TableRowItem>,
+            <TableRowItem key={4} alignRight={true}>
+              Akcie
+            </TableRowItem>
           ]}
           addButton={true}
           addButtonLabel="Pridať prílohu"

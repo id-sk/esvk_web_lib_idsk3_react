@@ -9,4 +9,16 @@ describe('Tag', () => {
     render(<Tag label="Test" />);
     expect(screen.getByText('Test')).toBeDefined();
   });
+  test('render disabled correctly', () => {
+    render(<Tag label="Test" disabled={true} interaction={true} variant="success" />);
+    expect(screen.getByText('Test')).toHaveClass('tag--disabled');
+  });
+  test('render disabled variant correctly', () => {
+    render(<Tag label="Test" disabled={true} interaction={true} variant="success" />);
+    expect(screen.getByText('Test')).not.toHaveClass('tag--success');
+  });
+  test('render selected correctly', () => {
+    render(<Tag label="Test" interaction={true} selected={true} />);
+    expect(screen.getByText('Test')).toHaveClass('tag--selected');
+  });
 });
