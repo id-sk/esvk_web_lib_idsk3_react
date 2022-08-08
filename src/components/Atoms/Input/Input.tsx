@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
+import { NavigationLinkProps } from '../../Molecules';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'large' | 'medium' | 'small';
@@ -25,116 +26,129 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   actionButton?: { label: string; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
 }
 
-const Input = ({
-  inputSize = 'large',
-  error,
-  errorMsg,
-  label,
-  subtitle,
-  caption,
-  disabled,
-  fullWidth,
-  placeholder,
-  onChange,
-  icon,
-  iconPosition = 'left',
-  actionButton,
-  ...props
-}: InputProps) => {
-  if (!!actionButton && iconPosition === 'right') iconPosition = 'left';
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      inputSize = 'large',
+      error,
+      errorMsg,
+      label,
+      subtitle,
+      caption,
+      disabled,
+      fullWidth,
+      placeholder,
+      onChange,
+      className,
+      icon,
+      iconPosition = 'left',
+      actionButton,
+      ...props
+    }: InputProps,
+    ref
+  ) => {
+    if (!!actionButton && iconPosition === 'right') iconPosition = 'left';
 
-  const inputClasses: string = classNames('input', {
-    'input--large': inputSize === 'large',
-    'input--medium': inputSize === 'medium',
-    'input--small': inputSize === 'small',
-    'input--icon-left': !!icon && iconPosition === 'left',
-    'input--icon-right': !!icon && iconPosition === 'right',
-    'input--error': error,
-    'w-full': fullWidth
-  });
+    const inputClasses: string = classNames(
+      'input',
+      {
+        'input--large': inputSize === 'large',
+        'input--medium': inputSize === 'medium',
+        'input--small': inputSize === 'small',
+        'input--icon-left': !!icon && iconPosition === 'left',
+        'input--icon-right': !!icon && iconPosition === 'right',
+        'input--error': error,
+        'w-full': fullWidth
+      },
+      className
+    );
 
-  const inputWrapperClasses: string = classNames('input__wrapper', {
-    'input__wrapper--error': error,
-    'input__wrapper--disabled': disabled,
-    'w-full': fullWidth
-  });
+    const inputWrapperClasses: string = classNames('input__wrapper', {
+      'input__wrapper--error': error,
+      'input__wrapper--disabled': disabled,
+      'w-full': fullWidth
+    });
 
-  const actionButtonClasses: string = classNames('input__action', {
-    'input__action--large': inputSize === 'large',
-    'input__action--medium': inputSize === 'medium',
-    'input__action--small': inputSize === 'small',
-    'input__action--error': error
-  });
+    const actionButtonClasses: string = classNames('input__action', {
+      'input__action--large': inputSize === 'large',
+      'input__action--medium': inputSize === 'medium',
+      'input__action--small': inputSize === 'small',
+      'input__action--error': error
+    });
 
-  const idForAria: string = uuidv4();
+    const idForAria: string = uuidv4();
 
-  const iconElement = !!icon
-    ? React.cloneElement(icon, {
-        className: classNames('input__icon', {
-          'input__icon--large': inputSize === 'large',
-          'input__icon--medium': inputSize === 'medium',
-          'input__icon--small': inputSize === 'small',
-          'input__icon--left': iconPosition === 'left',
-          'input__icon--right': iconPosition === 'right'
+    const iconElement = !!icon
+      ? React.cloneElement(icon, {
+          className: classNames('input__icon', {
+            'input__icon--large': inputSize === 'large',
+            'input__icon--medium': inputSize === 'medium',
+            'input__icon--small': inputSize === 'small',
+            'input__icon--left': iconPosition === 'left',
+            'input__icon--right': iconPosition === 'right'
+          })
         })
-      })
-    : undefined;
+      : undefined;
 
-  const actionButtonRef = useRef<HTMLButtonElement>(null);
-  const [rightPadding, setRightPadding] = useState<number | undefined>();
-  useEffect(() => {
-    if (!!actionButton?.label && actionButtonRef.current) {
-      setRightPadding(actionButtonRef.current.offsetWidth);
-    }
-  }, [actionButton?.label, inputSize]);
+    const actionButtonRef = useRef<HTMLButtonElement>(null);
+    const [rightPadding, setRightPadding] = useState<number | undefined>();
+    useEffect(() => {
+      if (!!actionButton?.label && actionButtonRef.current) {
+        setRightPadding(actionButtonRef.current.offsetWidth);
+      }
+    }, [actionButton?.label, inputSize]);
 
-  return (
-    <>
-      <label>
-        <p className="input__label">{label}</p>
-        {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
-        <div className={inputWrapperClasses}>
-          <input
-            className={inputClasses}
-            disabled={disabled}
-            aria-disabled={disabled}
-            placeholder={placeholder}
-            onChange={onChange}
-            aria-invalid={error}
-            aria-errormessage={idForAria}
-            style={{
-              paddingRight: !!rightPadding ? rightPadding + 'px' : undefined
-            }}
-            {...props}
-          />
-          {!!icon && iconElement}
-          {!!actionButton && (
-            <button
+    return (
+      <>
+        <label>
+          <p className="input__label">{label}</p>
+          {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
+          <div className={inputWrapperClasses}>
+            <input
+              ref={ref}
+              className={inputClasses}
               disabled={disabled}
-              className={actionButtonClasses}
-              onClick={actionButton.onClick}
-              ref={actionButtonRef}
-            >
-              {actionButton.label}
-            </button>
-          )}
-        </div>
-      </label>
-      {(!!errorMsg || !!caption) && (
-        <p
-          className={classNames('input__caption', { 'input__caption--error': error && !disabled })}
-        >
-          {error && !!errorMsg && !disabled ? (
-            <span id={idForAria} role="alert">
-              {errorMsg}
-            </span>
-          ) : (
-            <span>{caption}</span>
-          )}
-        </p>
-      )}
-    </>
-  );
-};
+              aria-disabled={disabled}
+              placeholder={placeholder}
+              onChange={onChange}
+              aria-invalid={error}
+              aria-errormessage={idForAria}
+              style={{
+                paddingRight: !!rightPadding ? rightPadding + 'px' : undefined
+              }}
+              {...props}
+            />
+            {!!icon && iconElement}
+            {!!actionButton && (
+              <button
+                disabled={disabled}
+                className={actionButtonClasses}
+                onClick={actionButton.onClick}
+                ref={actionButtonRef}
+              >
+                {actionButton.label}
+              </button>
+            )}
+          </div>
+        </label>
+        {(!!errorMsg || !!caption) && (
+          <p
+            className={classNames('input__caption', {
+              'input__caption--error': error && !disabled
+            })}
+          >
+            {error && !!errorMsg && !disabled ? (
+              <span id={idForAria} role="alert">
+                {errorMsg}
+              </span>
+            ) : (
+              <span>{caption}</span>
+            )}
+          </p>
+        )}
+      </>
+    );
+  }
+);
 
 export default Input;

@@ -2,6 +2,7 @@ export { PrimaryButton, PrimaryButtonProps } from './Button';
 export { SecondaryButton, SecondaryButtonProps } from './Button';
 export { TextButton, TextButtonProps } from './Button';
 export { default as Input, InputProps } from './Input';
+export { default as DateInput, DateInputProps } from './DateInput';
 export { default as CardWrapper, CardWrapperProps } from './CardWrapper';
 export { default as Loader, LoaderProps } from './Loader';
 export { default as DropDown, DropDownProps } from './DropDown';

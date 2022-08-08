@@ -39,8 +39,7 @@ WithIconAndAction.args = {
 export const WithLabel = Template.bind({});
 WithLabel.args = {
   label: 'This is label',
-  placeholder: 'Placeholder',
-  errorMsg: 'This is error message'
+  placeholder: 'Placeholder'
 };
 
 export const WithCaption = Template.bind({});
@@ -57,5 +56,13 @@ WithSubtitle.args = {
   caption: 'This is caption',
   subtitle: 'This is very long subtitle',
   placeholder: 'Placeholder',
+  errorMsg: 'This is error message'
+};
+
+export const ErrorMessage = Template.bind({});
+ErrorMessage.args = {
+  label: 'This is label',
+  placeholder: 'Placeholder',
+  error: true,
   errorMsg: 'This is error message'
 };

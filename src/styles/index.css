@@ -193,6 +193,25 @@
         @apply flex items-center gap-4 font-bold;
     }
 
+    .date-input__wrapper {
+        @apply flex gap-2;
+    }
+    .date-input .input {
+        @apply text-center appearance-none;
+    }
+    .date-input__day-n-month {
+        @apply w-14;
+    }
+    .date-input__year {
+        @apply w-20;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    .date-input .input::-webkit-outer-spin-button,
+    .date-input .input::-webkit-inner-spin-button {
+        @apply appearance-none;
+    }
+
     .dropdown {
         @apply py-5 flex justify-between dm1:justify-start items-center dm1:h-full w-full hover:underline gap-0.5 tracking-[inherit];
     }
