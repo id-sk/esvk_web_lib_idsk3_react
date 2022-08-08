@@ -147,7 +147,7 @@
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-neutral-200;
     }
     .data-grid__container-left {
-        @apply flex gap-4;
+        @apply flex gap-4  mr-2 tb1:mr-4;
     }
     .data-grid__container-right {
         @apply flex items-center gap-4;
@@ -171,13 +171,13 @@
         @apply check opacity-0 w-7 h-7 -ml-7;
     }
     .data-grid__date {
-        @apply w-[10.375rem] text-right;
+        @apply tb2:min-w-[10.375rem] w-fit text-right;
     }
     .data-grid__list-item {
         @apply bg-blue-400 w-2.5 h-2.5 rounded-full ;
     }
     .data-grid__ul {
-        @apply flex flex-wrap justify-end gap-2.5;
+        @apply tb2:flex hidden flex-wrap justify-end gap-2.5;
     }
 
     .data-grid-group{

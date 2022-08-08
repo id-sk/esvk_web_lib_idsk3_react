@@ -111,7 +111,7 @@ export function DataGridGroup({ children, checked, onChange, ...props }: DataGri
           Odosielateľ
         </div>
         <div className="data-grid-group__container-right">
-          Štítky
+          <div className="tb2:flex hidden">Štítky</div>
           <div className="data-grid__date">Dátum</div>
         </div>
       </div>
