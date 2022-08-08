@@ -89,7 +89,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
         return;
       }
       const inputValue = Number(event.currentTarget.value);
-      setError(inputValue > maxValue || inputValue <= 0);
+      setError(isNaN(inputValue) || inputValue > maxValue || inputValue <= 0);
     };
 
     return (
@@ -101,7 +101,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
             <Input
               ref={dayRef}
               label={dayLabel}
-              type="number"
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
               onChange={(e) => handleInputChange(e, 31)}
@@ -111,7 +110,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
             <Input
               ref={monthRef}
               label={monthLabel}
-              type="number"
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
               onChange={(e) => handleInputChange(e, 12)}
@@ -121,7 +119,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
             <Input
               ref={yearRef}
               label={yearLabel}
-              type="number"
               className={classNames(allInputClasses, 'date-input__year')}
               disabled={disabled}
               onChange={(e) => handleInputChange(e, 9999)}
