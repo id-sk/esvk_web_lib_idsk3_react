@@ -581,7 +581,7 @@
         @apply dm1:px-10 h-full flex-col items-start flex dm1:flex-row dm1:items-center;
     }
     .navigation--full {
-        @apply pl-0 pr-0 w-full;
+        @apply pl-0 pr-0 w-full gap-7;
     }
     .navigation__label {
         @apply text-sm border-b-2 border-neutral-300 w-full flex items-center py-2 text-neutral-600 dm1:hidden;
@@ -836,10 +836,10 @@
         @apply text-alert-attention bg-alert-attention-light border-alert-attention-medium;
     }
     .tag--with-interactions {
-        @apply cursor-pointer hover:text-primary hover:bg-blue-100 hover:border-primary select-none
+        @apply cursor-pointer hover:bg-blue-100 hover:border-primary select-none
     }
     .tag--selected {
-        @apply text-primary bg-blue-100 border-primary font-bold
+        @apply text-blue-500 bg-blue-100 border-primary font-bold
     }
 
     .vertical-event-card {
