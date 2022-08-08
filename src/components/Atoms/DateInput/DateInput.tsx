@@ -102,7 +102,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
               ref={dayRef}
               label={dayLabel}
               type="number"
-              placeholder="Day"
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
               onChange={(e) => handleInputChange(e, 31)}
