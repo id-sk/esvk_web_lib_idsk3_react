@@ -192,6 +192,9 @@
     .data-grid-group__container-right {
         @apply flex items-center gap-4 font-bold;
     }
+    .data-grid-group__title {
+        @apply tb2:flex hidden;
+    }
 
     .date-input__wrapper {
         @apply flex gap-2;

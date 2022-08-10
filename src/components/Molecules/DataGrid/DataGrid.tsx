@@ -86,6 +86,9 @@ export interface DataGridGroupProps extends React.AllHTMLAttributes<HTMLDivEleme
   checkBoxIconOutline?: ReactNode;
   moreIcon?: ReactNode;
   onSelectAllCheck?: (checked: boolean) => void;
+  senderTitle?: ReactNode;
+  tagsTitle?: ReactNode;
+  dateTitle?: ReactNode;
 }
 
 export function DataGridGroup({ children, checked, onChange, ...props }: DataGridGroupProps) {
@@ -108,11 +111,11 @@ export function DataGridGroup({ children, checked, onChange, ...props }: DataGri
             <CheckBoxOutlineBlankIcon className="data-grid__checkbox-icon-blank" />
             <IndeterminateCheckBoxIcon className="data-grid__checkbox-icon" />
           </label>
-          Odosielateľ
+          {props.senderTitle}
         </div>
         <div className="data-grid-group__container-right">
-          <div className="tb2:flex hidden">Štítky</div>
-          <div className="data-grid__date">Dátum</div>
+          <div className="data-grid-group__title">{props.tagsTitle}</div>
+          <div className="data-grid__date">{props.dateTitle}</div>
         </div>
       </div>
       {renderedChildren}

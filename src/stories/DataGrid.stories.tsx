@@ -38,7 +38,14 @@ const Template: ComponentStory<typeof DataGrid> = (args) => {
     setSelection(newSelection);
   };
   return (
-    <DataGridGroup {...args} checked={isCheckAll()} onSelectAllCheck={handleSelectAll}>
+    <DataGridGroup
+      {...args}
+      checked={isCheckAll()}
+      onSelectAllCheck={handleSelectAll}
+      senderTitle={<button>Odosielateľ</button>}
+      tagsTitle={<button>Štítky</button>}
+      dateTitle={<button>Dátum</button>}
+    >
       {mock.map((gridItem) => (
         <DataGrid
           {...args}
