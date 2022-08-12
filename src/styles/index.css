@@ -84,6 +84,9 @@
     .anchor-card__heading {
         @apply flex items-center link-m font-bold pb-2.5;
     }
+    .anchor-card--vertical .article-card__text {
+        @apply tb2:text-ellipsis tb2:overflow-hidden;
+    }
 
     .article-card__date-tags {
         @apply text-neutral-700 text-body-1 pt-2.5;
@@ -873,4 +876,12 @@
         @apply text-body;
     }
 
+}
+
+@screen tb2 {
+    .anchor-card--vertical .article-card__text {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
 }
