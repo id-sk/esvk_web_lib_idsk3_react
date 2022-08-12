@@ -1,15 +1,15 @@
 import React from 'react';
 import { SpinnerIcon } from '../../../svgIcons/Animated';
 
-export interface LoaderProps {
+export interface LoaderProps extends React.AllHTMLAttributes<HTMLDivElement> {
   label?: string;
 }
 
-const Loader = (props: LoaderProps) => {
+const Loader = ({ label, ...props }: LoaderProps) => {
   return (
-    <div className="loader">
+    <div className="loader" {...props}>
       <SpinnerIcon className="loader__icon" />
-      {props.label && <span className="loader__label">{props.label}</span>}
+      {label && <span className="loader__label">{label}</span>}
     </div>
   );
 };

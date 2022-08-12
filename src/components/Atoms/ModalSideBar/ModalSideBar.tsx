@@ -8,6 +8,7 @@ export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElemen
   toggleOpened: React.Dispatch<React.SetStateAction<boolean>>;
   heading: string;
   footerButton?: ReactNode | undefined;
+  id?: string;
 }
 
 const ModalSideBar = ({
@@ -16,6 +17,7 @@ const ModalSideBar = ({
   heading,
   footerButton,
   children,
+  id,
   ...props
 }: ModalSideBarProps) => {
   const shadowClasses = classNames('modal-sidebar__shadow', {
@@ -36,7 +38,11 @@ const ModalSideBar = ({
         <div className="modal-sidebar__top-bar" />
         <div className="modal-sidebar__header">
           <h3>{heading}</h3>
-          <button className="modal-sidebar__close-button" onClick={() => toggleOpened(false)}>
+          <button
+            className="modal-sidebar__close-button"
+            onClick={() => toggleOpened(false)}
+            id={id ? id + '-close-button' : undefined}
+          >
             <CloseIcon className="modal-sidebar__close-icon" />
           </button>
         </div>

@@ -8,7 +8,7 @@ export default {
   component: TabBar
 } as ComponentMeta<typeof TabBar>;
 
-export const Template: ComponentStory<typeof TabBar> = (args) => {
+export const Default: ComponentStory<typeof TabBar> = (args) => {
   const [selectedLink, setSelectedLink] = useState<string | null>('ministerstva');
 
   const isSelected = (link: string) => link === selectedLink;

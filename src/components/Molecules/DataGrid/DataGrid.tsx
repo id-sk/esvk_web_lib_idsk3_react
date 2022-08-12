@@ -31,6 +31,7 @@ const DataGrid = ({
   checked,
   onChange,
   inactive,
+  id,
   ...props
 }: DataGridProps) => {
   const dataGridClasses = classNames(
@@ -41,26 +42,24 @@ const DataGrid = ({
   const titleClass = classNames({ 'font-bold': !inactive });
 
   return (
-    <div className={dataGridClasses}>
-      <>
-        <div className="data-grid__container-left">
-          <label className="data-grid__label mt-1">
-            <input type="checkbox" checked={checked} onChange={onChange} key={props.id} />
-            <CheckBoxOutlineBlankIcon className="data-grid__checkbox-icon-blank" />
-            <CheckBoxIcon className="data-grid__checkbox-icon" />
-          </label>
-          <div>
-            <div className="data-grid__title-container">
-              {!inactive && <div className="data-grid__list-item" />}
-              <div className={titleClass} data-testid="title">
-                {props.title}
-              </div>
-              {props.titleTag}
+    <div className={dataGridClasses} id={id}>
+      <div className="data-grid__container-left">
+        <label className="data-grid__label mt-1">
+          <input type="checkbox" checked={checked} onChange={onChange} />
+          <CheckBoxOutlineBlankIcon className="data-grid__checkbox-icon-blank" />
+          <CheckBoxIcon className="data-grid__checkbox-icon" />
+        </label>
+        <div>
+          <div className="data-grid__title-container">
+            {!inactive && <div className="data-grid__list-item" />}
+            <div className={titleClass} data-testid="title">
+              {props.title}
             </div>
-            {children}
+            {props.titleTag}
           </div>
+          {children}
         </div>
-      </>
+      </div>
       <div className="data-grid__container-right">
         <ul className="data-grid__ul">{props.tagList}</ul>
         <div className="data-grid__date">{props.date}</div>

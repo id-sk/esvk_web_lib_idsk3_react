@@ -4,11 +4,13 @@ import IconLink from '../IconLink';
 
 export interface NotificationIconProps extends SVGProps<SVGSVGElement> {
   alert?: boolean;
+  id?: string;
 }
 
-const NotificationIcon = ({ alert, ...props }: NotificationIconProps) => {
+const NotificationIcon = ({ alert, id, ...props }: NotificationIconProps) => {
   return (
     <IconLink
+      id={id}
       children={alert ? <NotificationsAlertIcon {...props} /> : <NotificationsIcon {...props} />}
     />
   );

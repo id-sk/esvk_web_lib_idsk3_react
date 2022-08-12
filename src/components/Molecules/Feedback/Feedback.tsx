@@ -6,12 +6,12 @@ export interface FeedbackProps extends React.AllHTMLAttributes<HTMLDivElement> {
   yesButton: ReactNode;
   noButton: ReactNode;
   closeButton?: ReactNode;
+  closeButtonOnClick?: () => void;
   yesButtonOnClick?: () => void;
   noButtonOnClick?: () => void;
-  closeButtonOnClick?: () => void;
 }
 
-const Feedback = ({ children, closeButton = <CloseIcon />, ...props }: FeedbackProps) => {
+const Feedback = ({ children, closeButton = <CloseIcon />, id, ...props }: FeedbackProps) => {
   const [visible, setVisibility] = useState(true);
 
   return visible ? (
@@ -20,16 +20,25 @@ const Feedback = ({ children, closeButton = <CloseIcon />, ...props }: FeedbackP
         <div className="feedback__text-and-buttons">
           <div className="feedback__text">{children}</div>
 
-          <PrimaryButton onClick={props.yesButtonOnClick} className="mr-[0.938rem]">
+          <PrimaryButton
+            onClick={props.yesButtonOnClick}
+            className="mr-[0.938rem]"
+            id={id ? id + '-yes-button' : undefined}
+          >
             {props.yesButton}
           </PrimaryButton>
-          <SecondaryButton onClick={props.yesButtonOnClick} variant="transparent">
+          <SecondaryButton
+            onClick={props.yesButtonOnClick}
+            variant="transparent"
+            id={id ? id + '-yes-button' : undefined}
+          >
             {props.noButton}
           </SecondaryButton>
         </div>
         <button
           className="feedback__close-button"
           onClick={props.closeButtonOnClick || (() => setVisibility(false))}
+          id={id ? id + '-close-button' : undefined}
           data-testid="closeButton"
         >
           {closeButton}

@@ -24,6 +24,7 @@ const SecondaryNavigation = ({
   dropDownOptions = [],
   className,
   bodyClassName,
+  id,
   ...props
 }: SecondaryNavProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -44,6 +45,7 @@ const SecondaryNavigation = ({
             <button
               className="secondary-navigation__heading-button"
               onClick={() => setOpened((p) => !p)}
+              id={id ? id + '-heading-button' : undefined}
             >
               {mobileHeadingButton ? (
                 <>
@@ -63,7 +65,11 @@ const SecondaryNavigation = ({
             </button>
           )}
         </div>
-        <DropDown dropDownTitle={dropDownTitle} className="secondary-navigation__dropdown">
+        <DropDown
+          id={id ? id + '-dropdown' : undefined}
+          dropDownTitle={dropDownTitle}
+          className="secondary-navigation__dropdown"
+        >
           {dropDownOptions.length &&
             dropDownOptions.map((item, index) => React.cloneElement(item, { key: index }))}
         </DropDown>

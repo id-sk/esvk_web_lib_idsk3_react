@@ -17,6 +17,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   optionClassName?: string;
   buttonClassName?: string;
   optionsSide?: 'left' | 'right';
+  buttonId?: string;
 }
 
 const DropDown = ({
@@ -27,6 +28,7 @@ const DropDown = ({
   optionClassName,
   buttonClassName,
   optionsSide = 'right',
+  buttonId,
   ...props
 }: DropDownProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -72,7 +74,7 @@ const DropDown = ({
 
   return (
     <div ref={containerRef} {...props} className={wrapperClasses}>
-      <button className={buttonClasses} onClick={() => setOpened((p) => !p)}>
+      <button className={buttonClasses} onClick={() => setOpened((p) => !p)} id={buttonId}>
         <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>

@@ -3,6 +3,7 @@ export { default as VerticalEventCard, VerticalEventCardProps } from './Vertical
 export { default as NotificationCard, NotificationCardProps } from './NotificationCard';
 export { default as SecondaryNavigation, SecondaryNavProps } from './SecondaryNavigation';
 export { default as InformationBanner, InformationBannerProps } from './InformationBanner';
+export { MenuMobile, MenuMobileProps } from './MenuMobile';
 export {
   default as IdentificationCard,
   IdentificationCardProps

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Navigation, NavigationLink, NavigationLinkOption } from '../components/Molecules';
+import {
+  Navigation,
+  NavigationLink,
+  NavigationLinkOption,
+  MenuMobile
+} from '../components/Molecules';
 import {
   MenuButton,
-  MenuMobile,
   PrimaryButton,
   PrimaryButton as Button,
   SearchBar,
@@ -15,7 +19,7 @@ import { CompareArrowsIcon } from '../svgIcons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Atoms/MenuMobile',
+  title: 'Molecules/MenuMobile',
   component: MenuMobile
 } as ComponentMeta<typeof MenuMobile>;
 

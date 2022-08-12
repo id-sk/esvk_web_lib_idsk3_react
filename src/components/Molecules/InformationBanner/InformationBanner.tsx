@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import BaseButton from '../../Atoms/Button/BaseButton';
 
-export interface InformationBannerProps {
+export interface InformationBannerProps extends React.AllHTMLAttributes<HTMLDivElement> {
   title?: string;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   variant?: 'information' | 'alert' | 'warning' | 'success';
@@ -14,6 +14,7 @@ export interface InformationBannerProps {
 }
 
 const InformationBanner = ({
+  id,
   icon,
   title,
   variant = 'information',

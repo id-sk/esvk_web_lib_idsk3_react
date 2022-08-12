@@ -2,6 +2,7 @@ import React, { MouseEventHandler, ReactElement, ReactNode, SVGProps } from 'rea
 import classNames from 'classnames';
 
 export interface BaseButtonProps {
+  id?: string;
   className?: string;
   label?: string;
   children?: ReactNode | undefined;
@@ -31,6 +32,7 @@ const BaseButton = (props: BaseButtonProps) => {
     <button
       className={classNames(props.className, { 'w-full': props.fullWidth })}
       disabled={props.disabled}
+      id={props.id}
       aria-disabled={props.disabled}
       onClick={props.onClick}
       {...props.buttonElementProps}

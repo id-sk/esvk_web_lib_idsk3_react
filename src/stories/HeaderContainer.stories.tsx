@@ -9,7 +9,6 @@ import {
 } from '../components/Molecules';
 import {
   MenuButton,
-  MenuMobile,
   HeaderContainer,
   NotificationIcon,
   ModalSideBar,
@@ -24,6 +23,7 @@ import { Logo, MobileLogo } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
+import { MenuMobile } from '../components';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

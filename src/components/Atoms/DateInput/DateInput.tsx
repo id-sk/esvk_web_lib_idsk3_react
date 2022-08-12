@@ -24,6 +24,7 @@ export interface DateInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   monthLabel?: string;
   yearLabel?: string;
   inputClasses?: string;
+  id?: string;
 }
 
 interface DateInputRef {
@@ -52,6 +53,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
       dayLabel,
       monthLabel,
       yearLabel,
+      id,
       ...props
     }: DateInputProps,
     ref
@@ -93,13 +95,14 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
     };
 
     return (
-      <div className="date-input">
+      <div className="date-input" id={id} {...props}>
         <p className="input__label">{label}</p>
         {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
-        <div className={dateInputWrapperClasses} {...props}>
+        <div className={dateInputWrapperClasses}>
           {!hideDay && (
             <Input
               ref={dayRef}
+              id={id ? id + '-day' : undefined}
               label={dayLabel}
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
@@ -109,6 +112,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
           {!hideMonth && (
             <Input
               ref={monthRef}
+              id={id ? id + '-month' : undefined}
               label={monthLabel}
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
@@ -118,6 +122,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
           {!hideYear && (
             <Input
               ref={yearRef}
+              id={id ? id + '-year' : undefined}
               label={yearLabel}
               className={classNames(allInputClasses, 'date-input__year')}
               disabled={disabled}
