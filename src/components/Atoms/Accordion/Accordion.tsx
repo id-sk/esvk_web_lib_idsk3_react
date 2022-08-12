@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { Children, useState, ReactNode } from 'react';
 import classNames from 'classnames';
 import { AddIcon, RemoveIcon } from '../../../svgIcons/Content';
 
@@ -6,6 +6,8 @@ export interface AccordionProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   heading: ReactNode;
   subTitle?: string;
   initiallyClosed?: boolean;
+  inGroup?: boolean;
+  index?: number | 0;
 }
 
 const Accordion = ({
@@ -14,6 +16,8 @@ const Accordion = ({
   onClick = () => {},
   children,
   initiallyClosed = true,
+  inGroup = false,
+  index = 0,
   ...props
 }: AccordionProps) => {
   const [closed, setClosed] = useState<boolean>(initiallyClosed);
@@ -25,7 +29,12 @@ const Accordion = ({
 
   const contentClasses = classNames('accordion__content', { 'accordion__content--open': !closed });
   return (
-    <div className="accordion">
+    <div className={classNames('accordion', { 'accordion--in-list-group': inGroup })}>
+      {!!inGroup && (
+        <div className={classNames('accordion--list', { 'accordion--list-bullet': !index })}>
+          <span className="accordion__list-number">{!!index && index}</span>
+        </div>
+      )}
       <button className="accordion__button" onClick={handleOnClick} {...props}>
         <span className="accordion__title">
           {heading}
@@ -41,5 +50,20 @@ const Accordion = ({
     </div>
   );
 };
+
+export function AccordionListGroup({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        inGroup: true
+      });
+    }
+  });
+  return (
+    <div className="accordion--list-group" {...props}>
+      {renderedChildren}
+    </div>
+  );
+}
 
 export default Accordion;

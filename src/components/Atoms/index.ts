@@ -15,7 +15,7 @@ export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './Mod
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';
 export { default as SearchBar, SearchBarProps } from './SearchBar';
-export { default as Accordion, AccordionProps } from './Accordion';
+export { default as Accordion, AccordionListGroup, AccordionProps } from './Accordion';
 export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export { default as AnchorCard, AnchorCardProps } from './AnchorCard';
 export { default as Tag, TagProps } from './Tag';

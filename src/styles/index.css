@@ -71,6 +71,21 @@
     .accordion__content--open {
         @apply block;
     }
+    .accordion--list-group {
+        @apply relative;
+    }
+    .accordion--in-list-group {
+        @apply mb-5 ml-16 relative before:absolute before:-left-9 before:top-12 before:h-[calc(100%+1rem)] before:w-px before:bg-black last:before:h-0;
+    }
+    .accordion--list {
+        @apply w-10 h-10 absolute -left-14 top-6 p-2 border rounded-full flex justify-center align-middle bg-white;
+    }
+    .accordion--list-bullet {
+        @apply w-1 h-1 p-1.5 -left-[2.655rem] top-10 bg-black;
+    }
+    .accordion__list-number {
+        @apply leading-none font-bold text-xl;
+    }
 
     .anchor-card {
         @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
