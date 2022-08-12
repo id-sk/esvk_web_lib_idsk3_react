@@ -111,7 +111,7 @@
         @apply text-neutral-700 text-body-1 pb-2.5;
     }
     .article-card__image-wrapper {
-        @apply pt-[56.25%] overflow-hidden relative flex-auto;
+        @apply overflow-hidden relative flex-auto aspect-[3/2];
     }
     .article-card__image-wrapper > * {
         @apply absolute top-0 object-cover w-full h-full object-center;
