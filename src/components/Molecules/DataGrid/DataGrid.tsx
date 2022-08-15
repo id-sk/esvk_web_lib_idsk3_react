@@ -42,7 +42,7 @@ const DataGrid = ({
   const titleClass = classNames({ 'font-bold': !inactive });
 
   return (
-    <div className={dataGridClasses} id={id}>
+    <div className={dataGridClasses} id={id} {...props}>
       <div className="data-grid__container-left">
         <label className="data-grid__label mt-1">
           <input type="checkbox" checked={checked} onChange={onChange} />

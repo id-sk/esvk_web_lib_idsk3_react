@@ -53,6 +53,24 @@ const Template: ComponentStory<typeof DataGrid> = (args) => {
           key={gridItem.id}
           checked={selection[gridItem.id]}
           onChange={(e) => handleClick(e, gridItem.id)}
+          title={'NCZI'}
+          date={'15.6.2022'}
+          moreOptions={[
+            <p>Exportovať</p>,
+            <p>Archivovať</p>,
+            <p>Sprievodca schránkou</p>,
+            <p>Zobraziť detail</p>
+          ]}
+          titleTag={
+            <Tag
+              label={
+                <a className={'link'} href="#">
+                  3 správy
+                </a>
+              }
+            />
+          }
+          tagList={[<Tag label="Dôležité" />, <Tag label="Potrebné vyzdvihnúť" />]}
         >
           {gridItem.title}
         </DataGrid>
@@ -62,23 +80,4 @@ const Template: ComponentStory<typeof DataGrid> = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  title: 'NCZI',
-  date: '15.6.2022',
-  moreOptions: [
-    <p>Exportovať</p>,
-    <p>Archivovať</p>,
-    <p>Sprievodca schránkou</p>,
-    <p>Zobraziť detail</p>
-  ],
-  titleTag: (
-    <Tag
-      label={
-        <a className={'link'} href="#">
-          3 správy
-        </a>
-      }
-    />
-  ),
-  tagList: [<Tag label="Dôležité" />, <Tag label="Potrebné vyzdvihnúť" />]
-};
+Default.args = {};
