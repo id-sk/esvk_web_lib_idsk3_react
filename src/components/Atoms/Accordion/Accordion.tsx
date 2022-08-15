@@ -8,6 +8,7 @@ export interface AccordionProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   initiallyClosed?: boolean;
   inGroup?: boolean;
   index?: number | 0;
+  bgGray?: boolean;
 }
 
 const Accordion = ({
@@ -18,6 +19,8 @@ const Accordion = ({
   initiallyClosed = true,
   inGroup = false,
   index = 0,
+  className,
+  bgGray = false,
   ...props
 }: AccordionProps) => {
   const [closed, setClosed] = useState<boolean>(initiallyClosed);
@@ -27,9 +30,18 @@ const Accordion = ({
     setClosed((p) => !p);
   };
 
-  const contentClasses = classNames('accordion__content', { 'accordion__content--open': !closed });
+  const contentClasses = classNames(
+    'accordion__content',
+    { 'accordion__content--open': !closed },
+    className
+  );
   return (
-    <div className={classNames('accordion', { 'accordion--in-list-group': inGroup })}>
+    <div
+      className={classNames('accordion', {
+        'accordion--in-list-group': inGroup,
+        'accordion--gray': bgGray
+      })}
+    >
       {!!inGroup && (
         <div className={classNames('accordion--list', { 'accordion--list-bullet': !index })}>
           <span className="accordion__list-number">{!!index && index}</span>

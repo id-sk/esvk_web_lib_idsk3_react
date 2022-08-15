@@ -1,14 +1,7 @@
-import React, {
-  MouseEventHandler,
-  ReactElement,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState
-} from 'react';
+import React, { useImperativeHandle, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
-import { Input, InputProps } from '../index';
+import { Input } from '../index';
 
 export interface DateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;

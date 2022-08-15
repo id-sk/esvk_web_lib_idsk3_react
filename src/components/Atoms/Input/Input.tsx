@@ -8,7 +8,6 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
-import { NavigationLinkProps } from '../../Molecules';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'large' | 'medium' | 'small';

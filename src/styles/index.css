@@ -86,6 +86,9 @@
     .accordion__list-number {
         @apply leading-none font-bold text-xl;
     }
+    .accordion--gray {
+        @apply bg-neutral-90;
+    }
 
     .anchor-card {
         @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
