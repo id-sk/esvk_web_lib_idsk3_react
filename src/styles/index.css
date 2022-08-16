@@ -75,7 +75,7 @@
         @apply relative;
     }
     .accordion--in-list-group {
-        @apply mb-5 ml-16 relative before:absolute before:-left-9 before:top-12 before:h-[calc(100%+1rem)] before:w-px before:bg-black last:before:h-0;
+        @apply mb-5 ml-16 last:mb-0 relative before:absolute before:-left-9 before:top-12 before:h-[calc(100%+1rem)] before:w-px before:bg-black last:before:h-0;
     }
     .accordion--list {
         @apply w-10 h-10 absolute -left-14 top-6 p-2 border rounded-full flex justify-center align-middle bg-white;
