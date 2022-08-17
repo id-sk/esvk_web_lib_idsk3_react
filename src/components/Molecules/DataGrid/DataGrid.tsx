@@ -61,34 +61,35 @@ export function DataGridItem({
 }: DataGridItemProps) {
   const dataGridClasses = classNames(
     'data-grid-item',
-    { 'data-grid-item-active': active },
-    { 'data-grid-item-checked': checked }
+    { 'data-grid-item--active': active },
+    { 'data-grid-item--checked': checked }
   );
   return (
     <div className={dataGridClasses} id={id} {...props}>
       {checkbox && (
-        <label className="data-grid-item__checkbox mt-1">
+        <label className="data-grid-item__checkbox">
           <input type="checkbox" checked={checked} onChange={onChange} />
           <CheckBoxOutlineBlankIcon className="data-grid-item__checkbox-icon-blank" />
           <CheckBoxIcon className="data-grid-item__checkbox-icon" />
         </label>
       )}
-      <div className="data-grid-item__active-state">
-        <div className={!active ? 'data-grid-item--inactive' : 'data-grid-item--active'} />
+      <div className="data-grid-item__dot-wrapper">
+        <div
+          className={classNames('data-grid-item__dot', {
+            'data-grid-item__dot--active': active
+          })}
+        />
       </div>
       {children}
       {moreOptions ? (
-        <DropDown
-          dropDownTitle={moreIcon}
-          optionsSide="left"
-          arrowIcon={<></>}
-          buttonClassName="p-0"
-        >
+        <DropDown dropDownTitle={moreIcon} optionsSide="left" arrowIcon={<></>}>
           {moreOptions}
         </DropDown>
       ) : customMoreButton ? (
         customMoreButton
-      ) : null}
+      ) : (
+        <div className="data-grid-item__dropdown-space" />
+      )}
     </div>
   );
 }

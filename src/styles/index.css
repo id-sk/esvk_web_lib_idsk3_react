@@ -164,23 +164,14 @@
     .data-grid-item {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;
     }
-    .data-grid-item-active {
+    .data-grid-item--active {
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-blue-100;
     }
-    .data-grid-item-checked {
+    .data-grid-item--checked {
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
     }
-    .data-grid-item__container-left {
-        @apply flex gap-4 mr-2 tb1:mr-4;
-    }
-    .data-grid-item__container-right {
-        @apply flex items-center gap-4;
-    }
-    .data-grid-item__title-container {
-        @apply flex gap-2.5 items-center min-h-[2.375rem];
-    }
     .data-grid-item__checkbox {
-        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
+        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600 mt-1;
     }
     .data-grid-item__checkbox > input {
         @apply appearance-none w-7 h-7;
@@ -194,23 +185,23 @@
     .data-grid-item__checkbox-icon {
         @apply check opacity-0 w-7 h-7 -ml-7;
     }
-    /*.data-grid-item__date {*/
-    /*    @apply tb2:min-w-[10.375rem] w-fit text-right;*/
-    /*}*/
-    .data-grid-item__active-state {
+    .data-grid-item__dot-wrapper {
         @apply flex mt-3.5;
     }
-    .data-grid-item--active {
-        @apply bg-blue-400 w-2.5 h-2.5 rounded-full ;
+    .data-grid-item__dot {
+        @apply w-2.5 h-2.5 rounded-full;
     }
-    .data-grid-item--inactive {
-        @apply w-2.5;
+    .data-grid-item__dot--active {
+        @apply bg-blue-400;
     }
-    .data-grid-item__ul {
-        @apply tb2:flex hidden flex-wrap justify-end gap-2.5;
-    }
-    .data-grid .dropdown__wrapper{
+    .data-grid .dropdown__wrapper {
         @apply flex;
+    }
+    .data-grid .dropdown__wrapper .dropdown {
+        @apply p-0;
+    }
+    .data-grid-item__dropdown-space {
+        @apply w-[1em];
     }
 
     .data-grid {

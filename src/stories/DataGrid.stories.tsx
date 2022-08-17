@@ -5,7 +5,6 @@ import {
   DataGrid,
   DataGridItem,
   DateInput,
-  DropDown,
   IconLink,
   Input,
   PrimaryButton,
@@ -13,7 +12,6 @@ import {
 } from '../components';
 import { DataGridItemValue } from '../components/Molecules/DataGrid/DataGrid';
 import { DeleteIcon } from '../svgIcons/Actions';
-import { MoreVertIcon } from '../svgIcons/Navigation';
 
 export default {
   title: 'Molecules/DataGrid',
@@ -91,10 +89,10 @@ DecisionList.args = {
       active={!gridItem.inactive}
       key={gridItem.id}
       moreOptions={[
-        <p>Exportovať</p>,
-        <p>Archivovať</p>,
-        <p>Sprievodca schránkou</p>,
-        <p>Zobraziť detail</p>
+        <p key={1}>Exportovať</p>,
+        <p key={2}>Archivovať</p>,
+        <p key={3}>Sprievodca schránkou</p>,
+        <p key={4}>Zobraziť detail</p>
       ]}
     >
       <DataGridItemValue>
@@ -144,7 +142,14 @@ DecisionSharingList.args = {
           <PrimaryButton>Pridať</PrimaryButton>
         </DataGridItemValue>
       </DataGridItem>
-      <DataGridItem>
+      <DataGridItem
+        moreOptions={[
+          <p key={1}>Exportovať</p>,
+          <p key={2}>Archivovať</p>,
+          <p key={3}>Sprievodca schránkou</p>,
+          <p key={4}>Zobraziť detail</p>
+        ]}
+      >
         <DataGridItemValue>
           <Input fullWidth={true} />
         </DataGridItemValue>
@@ -156,17 +161,6 @@ DecisionSharingList.args = {
           <IconLink>
             <DeleteIcon width="1.8rem" height="1.8rem" color="red" className="text-alert-warning" />
           </IconLink>
-          <DropDown
-            dropDownTitle={<MoreVertIcon />}
-            optionsSide="left"
-            arrowIcon={<></>}
-            buttonClassName="p-0"
-          >
-            <p>Exportovať</p>
-            <p>Archivovať</p>
-            <p>Sprievodca schránkou</p>
-            <p>Zobraziť detail</p>
-          </DropDown>
         </DataGridItemValue>
       </DataGridItem>
     </>
