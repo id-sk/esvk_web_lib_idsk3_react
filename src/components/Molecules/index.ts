@@ -17,7 +17,7 @@ export {
   NavigationLinkOptionProps
 } from './Navigation';
 export { default as Feedback, FeedbackProps } from './Feedback';
-export { default as DataGrid, DataGridGroup, DataGridGroupProps, DataGridProps } from './DataGrid';
+export { DataGrid, DataGridItem, DataGridProps, DataGridItemProps } from './DataGrid';
 export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Signpost, SignpostsGroup, SignpostProps } from '../Molecules/Signpost';
 export { default as Dialog, DialogProps } from '../Molecules/Dialog';

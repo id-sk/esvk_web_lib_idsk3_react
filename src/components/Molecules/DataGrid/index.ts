@@ -1,1 +1,1 @@
-export { default, DataGridGroup, DataGridGroupProps, DataGridProps } from './DataGrid';
+export { default as DataGrid, DataGridItem, DataGridProps, DataGridItemProps } from './DataGrid';

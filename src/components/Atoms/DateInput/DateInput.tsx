@@ -20,7 +20,7 @@ export interface DateInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   id?: string;
 }
 
-interface DateInputRef {
+export interface DateInputRef {
   value: {
     day?: string;
     month?: string;

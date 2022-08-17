@@ -161,67 +161,76 @@
         @apply grid grid-cols-1 gap-3;
     }
 
-    .data-grid {
-        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg;
+    .data-grid-item {
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;
     }
-    .data-grid-active {
-        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-blue-100;
+    .data-grid-item-active {
+        @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-blue-100;
     }
-    .data-grid-checked {
-        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-neutral-200;
+    .data-grid-item-checked {
+        @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
     }
-    .data-grid__container-left {
-        @apply flex gap-4  mr-2 tb1:mr-4;
+    .data-grid-item__container-left {
+        @apply flex gap-4 mr-2 tb1:mr-4;
     }
-    .data-grid__container-right {
+    .data-grid-item__container-right {
         @apply flex items-center gap-4;
     }
-    .data-grid__title-container {
+    .data-grid-item__title-container {
         @apply flex gap-2.5 items-center min-h-[2.375rem];
     }
-    .data-grid__label {
-        @apply flex h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
+    .data-grid-item__checkbox {
+        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
     }
-    .data-grid__label > input {
+    .data-grid-item__checkbox > input {
         @apply appearance-none w-7 h-7;
     }
-    .data-grid__label > input[type="checkbox"]:checked ~ .check {
+    .data-grid-item__checkbox > input[type="checkbox"]:checked ~ .check {
         @apply opacity-100;
     }
-    .data-grid__checkbox-icon-blank {
+    .data-grid-item__checkbox-icon-blank {
         @apply w-7 h-7 -ml-7;
     }
-    .data-grid__checkbox-icon {
+    .data-grid-item__checkbox-icon {
         @apply check opacity-0 w-7 h-7 -ml-7;
     }
-    .data-grid__date {
-        @apply tb2:min-w-[10.375rem] w-fit text-right;
+    /*.data-grid-item__date {*/
+    /*    @apply tb2:min-w-[10.375rem] w-fit text-right;*/
+    /*}*/
+    .data-grid-item__active-state {
+        @apply flex mt-3.5;
     }
-    .data-grid__list-item {
+    .data-grid-item--active {
         @apply bg-blue-400 w-2.5 h-2.5 rounded-full ;
     }
-    .data-grid__ul {
+    .data-grid-item--inactive {
+        @apply w-2.5;
+    }
+    .data-grid-item__ul {
         @apply tb2:flex hidden flex-wrap justify-end gap-2.5;
     }
+    .data-grid .dropdown__wrapper{
+        @apply flex;
+    }
 
-    .data-grid-group{
+    .data-grid {
         @apply border border-neutral-300 rounded-lg;
     }
-    .data-grid-group__header {
-        @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90 rounded-t-lg;
+    .data-grid__head {
+        @apply flex justify-between text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90 rounded-t-lg gap-4 font-bold;
     }
-    .data-grid-group__container-left {
-        @apply flex items-center gap-4 font-bold;
+    .data-grid__value {
+        @apply flex flex-1 items-center gap-3;
     }
-    .data-grid-group__container-right {
-        @apply flex items-center gap-4 font-bold;
+    .data-grid__value--right-align {
+        @apply justify-end;
     }
-    .data-grid-group__title {
-        @apply tb2:flex hidden;
+    .data-grid__value:first-of-type {
+        @apply ml-6;
     }
 
     .date-input__wrapper {
-        @apply flex gap-2;
+        @apply flex gap-3;
     }
     .date-input .input {
         @apply text-center appearance-none;
@@ -232,8 +241,6 @@
     .date-input__year {
         @apply w-20;
     }
-
-    /* Chrome, Safari, Edge, Opera */
     .date-input .input::-webkit-outer-spin-button,
     .date-input .input::-webkit-inner-spin-button {
         @apply appearance-none;

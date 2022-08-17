@@ -1,27 +1,22 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import DataGrid, { DataGridGroup } from './index';
-import { MoreVertIcon } from '../../../svgIcons/Navigation';
+import DataGrid, { DataGridItem, DataGridItemValue } from './DataGrid';
 
 describe('DataGrid', () => {
   test('renders children', () => {
     render(
-      <DataGridGroup>
-        <DataGrid title="NCZI" date="15.2.2022">
-          Test
-        </DataGrid>
-      </DataGridGroup>
+      <DataGrid>
+        <DataGridItemValue>test</DataGridItemValue>
+      </DataGrid>
     );
-    expect(screen.getByText('Test')).toBeDefined();
+    expect(screen.getByText('test')).toBeDefined();
   });
-  test('renders title', () => {
+  test('renders head', () => {
     render(
-      <DataGridGroup>
-        <DataGrid title="NCZI" date="15.2.2022" moreIcon={<MoreVertIcon />}>
-          Test
-        </DataGrid>
-      </DataGridGroup>
+      <DataGrid headItems={<DataGridItemValue>Test head</DataGridItemValue>}>
+        <DataGridItem>Test item</DataGridItem>
+      </DataGrid>
     );
-    expect(screen.getByTestId('title')).toBeDefined();
+    expect(screen.getByText('Test head')).toBeDefined();
   });
 });

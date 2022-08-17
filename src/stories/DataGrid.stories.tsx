@@ -1,83 +1,174 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { DataGrid } from '../components/Molecules';
-import { DataGridGroup } from '../components/Molecules/DataGrid/DataGrid';
 import '/src/styles/idsk3_theme.css';
-import { Tag } from '../components';
+import {
+  DataGrid,
+  DataGridItem,
+  DateInput,
+  DropDown,
+  IconLink,
+  Input,
+  PrimaryButton,
+  Tag
+} from '../components';
+import { DataGridItemValue } from '../components/Molecules/DataGrid/DataGrid';
+import { DeleteIcon } from '../svgIcons/Actions';
+import { MoreVertIcon } from '../svgIcons/Navigation';
 
 export default {
   title: 'Molecules/DataGrid',
   component: DataGrid
 } as ComponentMeta<typeof DataGrid>;
 
-const Template: ComponentStory<typeof DataGrid> = (args) => {
-  const mock = [
-    { id: '1', title: 'Výsledok AG testu - negatívny', inactive: false },
-    { id: '2', title: 'Výsledok AG testu - negatívny', inactive: true },
-    { id: '3', title: 'Výsledok AG testu - negatívny', inactive: true }
-  ];
-  const [selection, setSelection] = React.useState<{ [key: string]: boolean }>({});
-  const isCheckAll = () => {
-    return Object.values(mock).length === Object.values(selection).filter((e) => !!e).length;
-  };
+const Template: ComponentStory<typeof DataGrid> = (args) => <DataGrid {...args} />;
+const DecisionListMock = [
+  {
+    id: '1',
+    titleTag: (
+      <Tag
+        label={
+          <a className={'link'} href="#">
+            1 správa
+          </a>
+        }
+      />
+    ),
+    title: 'NCZI',
+    text: 'Výsledok AG testu - negatívny',
+    date: '15.4.2022',
+    inactive: false,
+    tags: <Tag label="Dôležité" />
+  },
+  {
+    id: '2',
+    titleTag: (
+      <Tag
+        label={
+          <a className={'link'} href="#">
+            3 správy
+          </a>
+        }
+      />
+    ),
+    title: 'NCZI',
+    text: 'Výsledok AG testu - pozitívny',
+    date: '12.6.2022',
+    inactive: true,
+    tags: (
+      <>
+        <Tag label="Dôležité" />
+        <Tag label="Potrebné vyzdvihnúť" />
+      </>
+    )
+  },
+  {
+    id: '3',
+    title: 'Sociálna poisťovňa',
+    text: 'Potvrdenie o doručení správy',
+    date: '15.6.2022',
+    inactive: true,
+    tags: <Tag label="Potrebné vyzdvihnúť" />
+  }
+];
 
-  const handleSelectAll = (selected: boolean) => {
-    if (selected) {
-      const newSelection: { [key: string]: boolean } = {};
-      for (const element of mock) {
-        newSelection[element.id] = true;
-      }
-      setSelection(newSelection);
-    } else {
-      setSelection({});
-    }
-  };
-
-  const handleClick = (e: React.FormEvent<HTMLInputElement>, dataGridId: string) => {
-    const newSelection = { ...selection, [dataGridId]: e.currentTarget.checked };
-    setSelection(newSelection);
-  };
-  return (
-    <DataGridGroup
-      {...args}
-      checked={isCheckAll()}
-      onSelectAllCheck={handleSelectAll}
-      senderTitle={<button>Odosielateľ</button>}
-      tagsTitle={<button>Štítky</button>}
-      dateTitle={<button>Dátum</button>}
+export const DecisionList = Template.bind({});
+DecisionList.args = {
+  checkboxEverything: true,
+  headItems: (
+    <>
+      <DataGridItemValue>Odosielateľ</DataGridItemValue>
+      <DataGridItemValue className="tb2:flex hidden" align="right">
+        Štítky
+      </DataGridItemValue>
+      <DataGridItemValue className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]" align="right">
+        Dátum
+      </DataGridItemValue>
+    </>
+  ),
+  children: DecisionListMock.map((gridItem) => (
+    <DataGridItem
+      checkbox={true}
+      active={!gridItem.inactive}
+      key={gridItem.id}
+      moreOptions={[
+        <p>Exportovať</p>,
+        <p>Archivovať</p>,
+        <p>Sprievodca schránkou</p>,
+        <p>Zobraziť detail</p>
+      ]}
     >
-      {mock.map((gridItem) => (
-        <DataGrid
-          {...args}
-          inactive={gridItem.inactive}
-          key={gridItem.id}
-          checked={selection[gridItem.id]}
-          onChange={(e) => handleClick(e, gridItem.id)}
-          title={'NCZI'}
-          date={'15.6.2022'}
-          moreOptions={[
-            <p>Exportovať</p>,
-            <p>Archivovať</p>,
-            <p>Sprievodca schránkou</p>,
-            <p>Zobraziť detail</p>
-          ]}
-          titleTag={
-            <Tag
-              label={
-                <a className={'link'} href="#">
-                  3 správy
-                </a>
-              }
-            />
-          }
-          tagList={[<Tag label="Dôležité" />, <Tag label="Potrebné vyzdvihnúť" />]}
-        >
-          {gridItem.title}
-        </DataGrid>
-      ))}
-    </DataGridGroup>
-  );
+      <DataGridItemValue>
+        <div>
+          <div className="flex gap-2.5 items-center min-h-[2.375rem]">
+            <div className={!gridItem.inactive ? 'font-bold' : ''}>{gridItem.title}</div>
+            {gridItem.titleTag}
+          </div>
+          {gridItem.text}
+        </div>
+      </DataGridItemValue>
+      <DataGridItemValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
+        {gridItem.tags}
+      </DataGridItemValue>
+      <DataGridItemValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
+        {gridItem.date}
+      </DataGridItemValue>
+    </DataGridItem>
+  ))
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const DecisionSharingList = Template.bind({});
+DecisionSharingList.args = {
+  headItems: (
+    <>
+      <DataGridItemValue information="Random information">
+        Číslo schránky/IČO/e-mail
+      </DataGridItemValue>
+      <DataGridItemValue information="Another random information">
+        Obmedzenie prístupu
+      </DataGridItemValue>
+      <DataGridItemValue align="right" className="flex-none">
+        Akcie
+      </DataGridItemValue>
+    </>
+  ),
+  children: (
+    <>
+      <DataGridItem>
+        <DataGridItemValue>
+          <Input fullWidth={true} />
+        </DataGridItemValue>
+        <DataGridItemValue>
+          <Input placeholder="select not ready" />
+        </DataGridItemValue>
+        <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
+          <PrimaryButton>Pridať</PrimaryButton>
+        </DataGridItemValue>
+      </DataGridItem>
+      <DataGridItem>
+        <DataGridItemValue>
+          <Input fullWidth={true} />
+        </DataGridItemValue>
+        <DataGridItemValue>
+          <Input placeholder="select not ready" />
+          <DateInput />
+        </DataGridItemValue>
+        <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
+          <IconLink>
+            <DeleteIcon width="1.8rem" height="1.8rem" color="red" className="text-alert-warning" />
+          </IconLink>
+          <DropDown
+            dropDownTitle={<MoreVertIcon />}
+            optionsSide="left"
+            arrowIcon={<></>}
+            buttonClassName="p-0"
+          >
+            <p>Exportovať</p>
+            <p>Archivovať</p>
+            <p>Sprievodca schránkou</p>
+            <p>Zobraziť detail</p>
+          </DropDown>
+        </DataGridItemValue>
+      </DataGridItem>
+    </>
+  )
+};
