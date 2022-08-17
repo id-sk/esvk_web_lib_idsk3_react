@@ -929,6 +929,25 @@
         @apply text-body;
     }
 
+    .search-container {
+        @apply bg-white border border-neutral-300 rounded-xl p-5 pt-4
+    }
+    .search-container__header {
+        @apply flex flex-row justify-between items-center pb-2;
+    }
+    .search-container__title {
+        @apply font-bold text-xl;
+    }
+    .search-container__input {
+        @apply pb-5 pt-1;
+    }
+    .search-container__buttons {
+        @apply flex;
+    }
+    .search-container__buttons > .link-button {
+        @apply ml-2;
+    }
+
 }
 
 @screen tb2 {
