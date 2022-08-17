@@ -57,7 +57,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         'input--icon-left': !!icon && iconPosition === 'left',
         'input--icon-right': !!icon && iconPosition === 'right',
         'input--error': error,
-        'w-full': fullWidth
+        'input--w-full': fullWidth
       },
       className
     );

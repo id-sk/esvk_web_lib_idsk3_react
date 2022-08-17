@@ -8,6 +8,7 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   buttonOnClick?: React.MouseEventHandler<HTMLButtonElement>;
   searchbarSize?: 'large' | 'medium' | 'small';
   openable?: boolean;
+  fullWidth?: boolean;
   containerClassName?: string;
   buttonId?: string;
 }
@@ -17,6 +18,7 @@ const SearchBar = ({
   placeholder,
   searchbarSize = 'large',
   openable = false,
+  fullWidth = false,
   containerClassName,
   className,
   buttonOnClick,
@@ -31,7 +33,8 @@ const SearchBar = ({
     {
       'searchbar--large': searchbarSize === 'large',
       'searchbar--medium': searchbarSize === 'medium',
-      'searchbar--small': searchbarSize === 'small'
+      'searchbar--small': searchbarSize === 'small',
+      'searchbar--w-full': fullWidth
     },
     className
   );
@@ -44,6 +47,11 @@ const SearchBar = ({
     'searchbar__icon--large': searchbarSize === 'large',
     'searchbar__icon--medium': searchbarSize === 'medium',
     'searchbar__icon--small': searchbarSize === 'small'
+  });
+  const contentClasses = classNames({
+    relative: fullWidth,
+    searchbar__wrapper: !fullWidth,
+    hidden: openable && !searchbarOpened
   });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -62,7 +70,7 @@ const SearchBar = ({
           className={searchbarOpened ? 'hidden' : ''}
         />
       )}
-      <div className={'searchbar__wrapper' + (openable && !searchbarOpened ? ' hidden' : '')}>
+      <div className={contentClasses}>
         <input
           className={inputClasses}
           placeholder={placeholder}

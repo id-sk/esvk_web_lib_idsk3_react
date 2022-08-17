@@ -17,7 +17,7 @@ describe('Button', () => {
 
   test('passes the fullWidth property to the button element', () => {
     render(<BaseButton fullWidth label="Hello world!" />);
-    expect(screen.getByRole('button')).toHaveClass('w-full');
+    expect(screen.getByRole('button')).toHaveClass('button--w-full');
   });
 
   test('sets the aria-disabled attribute when disabled', () => {

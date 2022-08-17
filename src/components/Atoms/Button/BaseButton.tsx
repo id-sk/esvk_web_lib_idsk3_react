@@ -28,9 +28,13 @@ const BaseButton = (props: BaseButtonProps) => {
       })
     : undefined;
 
+  const buttonClasses: string = classNames(props.className, {
+    'button--w-full': props.fullWidth
+  });
+
   return (
     <button
-      className={classNames(props.className, { 'w-full': props.fullWidth })}
+      className={buttonClasses}
       disabled={props.disabled}
       id={props.id}
       aria-disabled={props.disabled}

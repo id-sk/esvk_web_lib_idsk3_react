@@ -143,6 +143,9 @@
     .button__icon--right {
         @apply ml-3;
     }
+    .button--w-full {
+        @apply w-full;
+    }
 
     .card-wrapper {
         @apply relative rounded-[0.625rem] bg-white overflow-hidden text-body-1 border border-neutral-300;
@@ -530,6 +533,9 @@
     }
     .input__caption--error {
         @apply text-alert-warning;
+    }
+    .input--w-full, .searchbar--w-full {
+        @apply w-full;
     }
 
     .link-button {
