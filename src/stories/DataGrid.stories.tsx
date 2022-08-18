@@ -124,7 +124,7 @@ DecisionSharingList.args = {
       <DataGridItemValue information="Another random information">
         Obmedzenie prístupu
       </DataGridItemValue>
-      <DataGridItemValue align="right" className="flex-none">
+      <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
         Akcie
       </DataGridItemValue>
     </>
