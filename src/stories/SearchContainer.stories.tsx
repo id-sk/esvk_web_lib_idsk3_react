@@ -21,3 +21,17 @@ Default.args = {
     label: 'Advanced search'
   }
 };
+
+export const ErrorMessage = Template.bind({});
+ErrorMessage.args = {
+  error: true,
+  errorMsg: 'This is error message',
+  title: 'Search',
+  placeholder: 'Placeholder',
+  searchButton: {
+    label: 'Search'
+  },
+  advancedSearchButton: {
+    label: 'Advanced search'
+  }
+};

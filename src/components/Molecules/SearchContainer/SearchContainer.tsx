@@ -2,12 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 import { PrimaryButton, PrimaryButtonProps, TextButton, TextButtonProps } from '../../Atoms';
 import { SearchIcon } from '../../../svgIcons/Actions';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   title?: string;
   containerClassName?: string;
   error?: boolean;
   errorMsg?: string;
+  caption?: string;
   searchButton?: PrimaryButtonProps;
   advancedSearchButton?: TextButtonProps;
 }
@@ -17,6 +19,7 @@ const SearchContainer = ({
   containerClassName,
   error,
   errorMsg,
+  caption,
   searchButton,
   advancedSearchButton,
   ...props
@@ -33,6 +36,8 @@ const SearchContainer = ({
     props.className
   );
 
+  const idForAria: string = uuidv4();
+
   return (
     <div className={containerClasses}>
       {!!title && (
@@ -41,11 +46,31 @@ const SearchContainer = ({
         </div>
       )}
       <div className="search-container__input">
-        <input className={inputClasses} {...props} />
+        <input
+          aria-invalid={error}
+          aria-errormessage={idForAria}
+          className={inputClasses}
+          {...props}
+        />
+        {(!!errorMsg || !!caption) && (
+          <p
+            className={classNames('input__caption', {
+              'input__caption--error': error
+            })}
+          >
+            {error && !!errorMsg ? (
+              <span id={idForAria} role="alert">
+                {errorMsg}
+              </span>
+            ) : (
+              <span>{caption}</span>
+            )}
+          </p>
+        )}
       </div>
       <div className="search-container__buttons">
         <PrimaryButton {...searchButton} iconPosition="left" icon={<SearchIcon />} />
-        <TextButton {...advancedSearchButton}></TextButton>
+        <TextButton {...advancedSearchButton} />
       </div>
     </div>
   );
