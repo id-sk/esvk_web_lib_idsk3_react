@@ -86,7 +86,15 @@ const InformationBanner = ({
             {title}
           </div>
         )}
-        {!!children && <div className="information-banner__description"> {children} </div>}
+        {!!children && (
+          <div
+            className={classNames('information-banner__description', {
+              'information-banner__description--without-title': !title
+            })}
+          >
+            {children}
+          </div>
+        )}
       </div>
 
       {/* Action button or close button if button is not hidden */}

@@ -137,3 +137,10 @@ SuccessActionButton.args = {
   ),
   actionButton: <TextButton label="Action" variant="success" />
 };
+
+export const WithoutTitle = Template.bind({});
+WithoutTitle.args = {
+  icon: <InfoIcon />,
+  variant: 'alert',
+  children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+};

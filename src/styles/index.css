@@ -315,6 +315,9 @@
     .information-banner__description {
         @apply caption;
     }
+    .information-banner__description--without-title {
+        @apply text-body;
+    }
     .information-banner__color-strip {
         @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
     }
