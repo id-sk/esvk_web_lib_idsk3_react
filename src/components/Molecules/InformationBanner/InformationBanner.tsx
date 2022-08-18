@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import BaseButton from '../../Atoms/Button/BaseButton';
 
-export interface InformationBannerProps extends React.AllHTMLAttributes<HTMLDivElement> {
+export interface InformationBannerProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   variant?: 'information' | 'alert' | 'warning' | 'success';
@@ -22,6 +22,7 @@ const InformationBanner = ({
   actionButton,
   hideCloseButton,
   closeButtonOnClick,
+  className,
   ...props
 }: InformationBannerProps) => {
   const [visible, setVisibility] = useState(true);
@@ -46,12 +47,16 @@ const InformationBanner = ({
 
   return visible ? (
     <div
-      className={classNames({
-        'information-banner--information': variant == 'information',
-        'information-banner--alert': variant == 'alert',
-        'information-banner--warning': variant == 'warning',
-        'information-banner--success': variant == 'success'
-      })}
+      className={classNames(
+        'information-banner',
+        {
+          'information-banner--information': variant == 'information',
+          'information-banner--alert': variant == 'alert',
+          'information-banner--warning': variant == 'warning',
+          'information-banner--success': variant == 'success'
+        },
+        className
+      )}
       {...props}
       role="alert"
     >

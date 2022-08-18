@@ -316,22 +316,19 @@
         @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
     }
     .information-banner--information {
-        @apply information-banner text-primary bg-blue-100 border-primary;
+        @apply text-primary bg-blue-100 border-primary;
     }
     .information-banner--information .information-banner__description {
         @apply text-blue-500;
     }
-    .information-banner--information {
-        @apply information-banner text-primary bg-blue-100 border-primary;
-    }
     .information-banner--success {
-        @apply information-banner text-alert-positive bg-alert-positive-light border-alert-positive;
+        @apply text-alert-positive bg-alert-positive-light border-alert-positive;
     }
     .information-banner--alert {
-        @apply information-banner text-alert-attention bg-alert-attention-light border-alert-attention;
+        @apply text-alert-attention bg-alert-attention-light border-alert-attention;
     }
     .information-banner--warning {
-        @apply information-banner text-alert-warning bg-alert-warning-light border-alert-warning;
+        @apply text-alert-warning bg-alert-warning-light border-alert-warning;
     }
 
     .feedback {
