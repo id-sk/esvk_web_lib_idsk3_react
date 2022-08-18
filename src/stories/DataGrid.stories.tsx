@@ -4,13 +4,13 @@ import '/src/styles/idsk3_theme.css';
 import {
   DataGrid,
   DataGridItem,
+  DataGridItemValue,
   DateInput,
   IconLink,
   Input,
   PrimaryButton,
   Tag
 } from '../components';
-import { DataGridItemValue } from '../components/Molecules/DataGrid/DataGrid';
 import { DeleteIcon } from '../svgIcons/Actions';
 
 export default {
