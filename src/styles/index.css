@@ -171,7 +171,10 @@
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
     }
     .data-grid-item__checkbox {
-        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600 mt-1;
+        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
+    }
+    .data-grid-item .data-grid-item__checkbox {
+        @apply mt-1;
     }
     .data-grid-item__checkbox > input {
         @apply appearance-none w-7 h-7;
