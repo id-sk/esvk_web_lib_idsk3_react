@@ -30,13 +30,7 @@ const HeaderContainer = ({
 }: HeaderProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
 
-  const headerClasses = classNames(
-    'header-container__wrapper',
-    {
-      sticky: fixed
-    },
-    className
-  );
+  const headerClasses = classNames('header-container__wrapper', className);
 
   useEffect(() => {
     function handleWindowResize() {
@@ -53,7 +47,13 @@ const HeaderContainer = ({
   }, []);
 
   return (
-    <FocusLock disabled={!!isDesktop ? true : !focusLock} {...focusLockProps}>
+    <FocusLock
+      disabled={!!isDesktop ? true : !focusLock}
+      className={classNames({
+        'header-container__wrapper--sticky': fixed
+      })}
+      {...focusLockProps}
+    >
       <header className={headerClasses} {...props}>
         {!!secondaryNavigation && secondaryNavigation}
         {!!children && (

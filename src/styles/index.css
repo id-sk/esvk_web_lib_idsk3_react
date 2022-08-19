@@ -390,6 +390,9 @@
     .header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white;
     }
+    .header-container__wrapper--sticky {
+        @apply sticky top-0 z-40;
+    }
     .header-container__wrapper--opened-mobile-menu {
         @apply h-screen bg-neutral-90 dm1:bg-white dm1:h-auto overflow-y-auto;
     }
@@ -733,7 +736,7 @@
         @apply pt-[1.875rem] pb-16 tb1:pt-[3.25rem] bg-neutral-100 flex-auto flex flex-col;
     }
     .page-layout__breadcrumbs {
-        @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
+        @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full z-30;
     }
     .page-layout__title {
         @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
