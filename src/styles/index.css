@@ -100,7 +100,10 @@
         @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]
     }
     .anchor-card__heading {
-        @apply flex items-center link-m font-bold pb-2.5;
+        @apply flex items-center link-l font-bold pb-2.5;
+    }
+    .article-card__text {
+        @apply text-body;
     }
     .anchor-card--vertical .article-card__text {
         @apply tb2:text-ellipsis tb2:overflow-hidden;
