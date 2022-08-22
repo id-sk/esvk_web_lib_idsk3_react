@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Input from '../components/Atoms/Input';
+import { Input } from '../components/Atoms/Input/index';
 import { PlaceholderIcon } from '../svgIcons';
 import '/src/styles/idsk3_theme.css';
 

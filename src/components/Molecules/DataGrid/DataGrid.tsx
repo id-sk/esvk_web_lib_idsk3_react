@@ -1,8 +1,7 @@
 import React, { Children, ReactNode } from 'react';
-import { CheckBoxOutlineBlankIcon, CheckBoxIcon } from '../../../svgIcons/Toggle';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
-import { DropDown } from '../../Atoms';
+import { Checkbox, DropDown } from '../../Atoms';
 import { InfoIcon } from '../../../svgIcons/Actions';
 
 export interface DataGridItemValueProps extends React.AllHTMLAttributes<HTMLDivElement> {
@@ -67,16 +66,12 @@ export function DataGridItem({
   return (
     <div className={dataGridClasses} id={id} {...props}>
       {checkbox && (
-        <label className="data-grid-item__checkbox">
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={onChange}
-            id={id ? id + '-checkbox' : undefined}
-          />
-          <CheckBoxOutlineBlankIcon className="data-grid-item__checkbox-icon-blank" />
-          <CheckBoxIcon className="data-grid-item__checkbox-icon" />
-        </label>
+        <Checkbox
+          name="checkbox"
+          checked={checked}
+          onChange={onChange}
+          id={id ? id + '-checkbox' : undefined}
+        />
       )}
       <div className="data-grid-item__dot-wrapper">
         <div
@@ -125,16 +120,12 @@ function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) 
     <div className="data-grid" id={id} {...props}>
       <div className="data-grid__head">
         {props.checkboxEverything && (
-          <label className="data-grid-item__checkbox">
-            <input
-              type="checkbox"
-              checked={checked}
-              onChange={handleSelectAllChange}
-              id={id ? id + '-checkbox-all' : undefined}
-            />
-            <CheckBoxOutlineBlankIcon className="data-grid-item__checkbox-icon-blank" />
-            <CheckBoxIcon className="data-grid-item__checkbox-icon" />
-          </label>
+          <Checkbox
+            name="checkbox"
+            checked={checked}
+            onChange={handleSelectAllChange}
+            id={id ? id + '-checkbox-all' : undefined}
+          />
         )}
         {props.headItems}
       </div>

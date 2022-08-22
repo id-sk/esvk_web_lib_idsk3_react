@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Input from './Input';
+import Checkbox from './Checkbox';
+import RadioButton from './RadioButton';
 
 describe('Input', () => {
   test('renders the Input component', () => {
@@ -33,5 +35,13 @@ describe('Input', () => {
     render(<Input actionButton={{ label: 'Test Action', onClick: mockActionClick }} />);
     fireEvent.click(screen.getByText('Test Action'));
     expect(mockActionClick).toHaveBeenCalled();
+  });
+  test('renders the Checkbox component', () => {
+    render(<Checkbox name="name">Text label</Checkbox>);
+    expect(screen.getByText('Text label')).toBeDefined();
+  });
+  test('renders the RadioButton component', () => {
+    render(<RadioButton name="name">Text label</RadioButton>);
+    expect(screen.getByText('Text label')).toBeDefined();
   });
 });

@@ -167,6 +167,52 @@
         @apply grid grid-cols-1 gap-3;
     }
 
+    .checkbox {
+        @apply flex items-center h-fit;
+    }
+    .checkbox--large {
+        @apply text-body gap-2;
+    }
+    .checkbox--small {
+        @apply text-body-1 gap-1;
+    }
+    .checkbox__icon {
+        @apply absolute checkbox-check opacity-0 ml-[0.125rem];
+    }
+    .checkbox__icon--large {
+        @apply w-7 h-7;
+    }
+    .checkbox__icon--small {
+        @apply w-6 h-6;
+    }
+    .checkbox__icon--small-disabled {
+        @apply checkbox__icon--small text-neutral-600;
+    }
+    .checkbox__icon--large-disabled {
+        @apply checkbox__icon--large text-neutral-600;
+    }
+    .checkbox__unchecked-icon {
+        @apply absolute ml-[0.125rem];
+    }
+    .checkbox__input {
+        @apply appearance-none hover:bg-neutral-600 rounded;
+    }
+    .checkbox__input--large {
+        @apply w-8 h-8;
+    }
+    .checkbox__input--small{
+        @apply w-7 h-7;
+    }
+    .checkbox__input--large-disabled {
+        @apply checkbox__input--large hover:bg-transparent;
+    }
+    .checkbox__input--small-disabled {
+        @apply checkbox__input--small hover:bg-transparent;
+    }
+    .checkbox > input[type="checkbox"]:checked ~ .checkbox-check {
+        @apply opacity-100;
+    }
+
     .data-grid-item {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;
     }
@@ -175,24 +221,6 @@
     }
     .data-grid-item--checked {
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
-    }
-    .data-grid-item__checkbox {
-        @apply flex flex-initial h-8 w-8 items-center justify-center rounded hover:bg-neutral-600;
-    }
-    .data-grid-item .data-grid-item__checkbox {
-        @apply mt-1;
-    }
-    .data-grid-item__checkbox > input {
-        @apply appearance-none w-7 h-7;
-    }
-    .data-grid-item__checkbox > input[type="checkbox"]:checked ~ .check {
-        @apply opacity-100;
-    }
-    .data-grid-item__checkbox-icon-blank {
-        @apply w-7 h-7 -ml-7;
-    }
-    .data-grid-item__checkbox-icon {
-        @apply check opacity-0 w-7 h-7 -ml-7;
     }
     .data-grid-item__dot-wrapper {
         @apply flex mt-3.5;
@@ -228,7 +256,7 @@
     .data-grid__value:first-of-type {
         @apply ml-6;
     }
-
+    
     .date-input__wrapper {
         @apply flex gap-3;
     }
@@ -746,6 +774,58 @@
     }
     .page-layout__body {
         @apply relative inset-x-0 px-0 page-content min-h-full flex-auto w-full;
+    }
+
+    .radio-button {
+        @apply flex items-center h-fit;
+    }
+    .radio-button--large {
+        @apply text-body gap-2;
+    }
+    .radio-button--small {
+        @apply text-body-1 gap-1;
+    }
+    .radio-button__icon {
+        @apply absolute radio-check opacity-0 ml-[0.125rem];
+    }
+    .radio-button__icon--large {
+        @apply w-7 h-7;
+    }
+    .radio-button__icon--small {
+        @apply w-6 h-6;
+    }
+    .radio-button__icon--large-disabled {
+        @apply w-7 h-7 text-neutral-600;
+    }
+    .radio-button__icon--small-disabled {
+        @apply w-6 h-6 text-neutral-600;
+    }
+    .radio-button__unchecked-icon {
+        @apply absolute ml-[0.125rem];
+    }
+    .radio-button__unchecked-icon--large-disabled {
+        @apply w-7 h-7 text-neutral-600;
+    }
+    .radio-button__unchecked-icon--small-disabled {
+        @apply w-6 h-6 text-neutral-600;
+    }
+    .radio-button__input {
+        @apply appearance-none hover:bg-neutral-600 rounded-full;
+    }
+    .radio-button__input--large {
+        @apply w-8 h-8;
+    }
+    .radio-button__input--small{
+        @apply w-7 h-7;
+    }
+    .radio-button__input--large-disabled {
+        @apply appearance-none w-8 h-8 hover:bg-transparent rounded-full;
+    }
+    .radio-button__input--small-disabled {
+        @apply appearance-none w-7 h-7 hover:bg-transparent rounded-full;
+    }
+    .radio-button > input[type="radio"]:checked ~ .radio-check {
+        @apply opacity-100;
     }
 
     .secondary-button {
