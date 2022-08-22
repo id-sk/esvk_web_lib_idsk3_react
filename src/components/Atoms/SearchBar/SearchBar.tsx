@@ -10,7 +10,6 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   openable?: boolean;
   fullWidth?: boolean;
   containerClassName?: string;
-  buttonId?: string;
 }
 
 const SearchBar = ({
@@ -22,8 +21,8 @@ const SearchBar = ({
   containerClassName,
   className,
   buttonOnClick,
+  id,
   style,
-  buttonId,
   ...props
 }: SearchBarProps) => {
   const [searchbarOpened, setSearchbarOpened] = useState<boolean>(false);
@@ -78,9 +77,15 @@ const SearchBar = ({
             paddingRight: !!rightPadding ? rightPadding + 8 + 'px' : undefined,
             ...style
           }}
+          id={id ? id + '-input' : undefined}
           {...props}
         />
-        <button onClick={buttonOnClick} className={buttonClasses} ref={buttonRef} id={buttonId}>
+        <button
+          onClick={buttonOnClick}
+          className={buttonClasses}
+          ref={buttonRef}
+          id={id ? id + '-button' : undefined}
+        >
           <SearchIcon className={iconClasses} />
           {buttonLabel}
         </button>

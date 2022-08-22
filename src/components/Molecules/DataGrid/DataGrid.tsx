@@ -68,7 +68,12 @@ export function DataGridItem({
     <div className={dataGridClasses} id={id} {...props}>
       {checkbox && (
         <label className="data-grid-item__checkbox">
-          <input type="checkbox" checked={checked} onChange={onChange} />
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={onChange}
+            id={id ? id + '-checkbox' : undefined}
+          />
           <CheckBoxOutlineBlankIcon className="data-grid-item__checkbox-icon-blank" />
           <CheckBoxIcon className="data-grid-item__checkbox-icon" />
         </label>
@@ -82,7 +87,12 @@ export function DataGridItem({
       </div>
       {children}
       {moreOptions ? (
-        <DropDown dropDownTitle={moreIcon} optionsSide="left" arrowIcon={<></>}>
+        <DropDown
+          dropDownTitle={moreIcon}
+          optionsSide="left"
+          arrowIcon={<></>}
+          id={id ? id + '-more-options' : undefined}
+        >
           {moreOptions}
         </DropDown>
       ) : customMoreButton ? (
@@ -100,7 +110,7 @@ export interface DataGridProps extends React.AllHTMLAttributes<HTMLDivElement> {
   headItems?: ReactNode;
 }
 
-function DataGrid({ children, checked, onChange, ...props }: DataGridProps) {
+function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) {
   const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
@@ -112,11 +122,16 @@ function DataGrid({ children, checked, onChange, ...props }: DataGridProps) {
     props.onSelectAllCheck?.(e.currentTarget.checked);
   };
   return (
-    <div className="data-grid">
+    <div className="data-grid" id={id} {...props}>
       <div className="data-grid__head">
         {props.checkboxEverything && (
           <label className="data-grid-item__checkbox">
-            <input type="checkbox" checked={checked} onChange={handleSelectAllChange} />
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleSelectAllChange}
+              id={id ? id + '-checkbox-all' : undefined}
+            />
             <CheckBoxOutlineBlankIcon className="data-grid-item__checkbox-icon-blank" />
             <CheckBoxIcon className="data-grid-item__checkbox-icon" />
           </label>

@@ -28,9 +28,9 @@ const Feedback = ({ children, closeButton = <CloseIcon />, id, ...props }: Feedb
             {props.yesButton}
           </PrimaryButton>
           <SecondaryButton
-            onClick={props.yesButtonOnClick}
+            onClick={props.noButtonOnClick}
             variant="transparent"
-            id={id ? id + '-yes-button' : undefined}
+            id={id ? id + '-no-button' : undefined}
           >
             {props.noButton}
           </SecondaryButton>
