@@ -8,7 +8,7 @@ export interface ArticleCardProps
     React.AnchorHTMLAttributes<HTMLAnchorElement> {
   heading: ReactNode;
   featuredImg: ReactNode;
-  date: string | number | Date;
+  date?: string | number | Date;
   datePosition?: 'top' | 'bottom';
   tags?: string[];
   dateFormatString?: string;
@@ -28,25 +28,43 @@ const ArticleCard = ({
   layout,
   ...props
 }: ArticleCardProps) => {
-  const dateObject = new Date(date);
-  const dateTags = (
-    <>
-      <time dateTime={format(dateObject, dateFormatString)}>
-        {format(dateObject, dateFormatString)}
-      </time>{' '}
-      {!!tags.length && <span>— {tags.map((item, index) => (!index ? item : ' | ' + item))}</span>}
-    </>
-  );
+  const renderDateTags = (dateToRender: string | number | Date) => {
+    const dateObject = new Date(dateToRender);
+    return (
+      <>
+        <time dateTime={format(dateObject, dateFormatString)}>
+          {format(dateObject, dateFormatString)}
+        </time>{' '}
+        {!!tags.length && (
+          <span>— {tags.map((item, index) => (!index ? item : ' | ' + item))}</span>
+        )}
+      </>
+    );
+  };
+
   return (
-    <AnchorCard className={className} layout={layout} grid={true} {...props}>
+    <AnchorCard
+      className={classNames(
+        'article_card',
+        { 'article-card--vertical': layout === 'vertical' },
+        className
+      )}
+      layout={layout}
+      grid={true}
+      {...props}
+    >
       <div className={classNames('article-card__image-wrapper', imageWrapperClasses)}>
         {featuredImg}
       </div>
       <div className="flex-1">
-        {datePosition === 'top' && <p className="article-card__date-tags--top">{dateTags}</p>}
+        {!!date && datePosition === 'top' && (
+          <p className="article-card__date-tags--top">{renderDateTags(date)}</p>
+        )}
         <div className="anchor-card__heading">{heading}</div>
         <div className="article-card__text">{children}</div>
-        {datePosition === 'bottom' && <p className="article-card__date-tags">{dateTags}</p>}
+        {!!date && datePosition === 'bottom' && (
+          <p className="article-card__date-tags">{renderDateTags(date)}</p>
+        )}
       </div>
     </AnchorCard>
   );

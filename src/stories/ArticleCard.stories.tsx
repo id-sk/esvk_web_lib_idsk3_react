@@ -21,3 +21,12 @@ Default.args = {
   children:
     'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
 };
+
+export const WithoutDate = Template.bind({});
+WithoutDate.args = {
+  heading: <a href="/">Nadpis</a>,
+  tags: ['Lorem', 'ipsum', 'consectetur'],
+  featuredImg: <img src={placeholderImg} />,
+  children:
+    'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
+};

@@ -93,9 +93,6 @@
     .anchor-card {
         @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
     }
-    .anchor-card--grid {
-        @apply grid grid-cols-1 gap-x-8 gap-y-5;
-    }
     .anchor-card--vertical {
         @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]
     }
@@ -105,10 +102,13 @@
     .article-card__text {
         @apply text-body;
     }
-    .anchor-card--vertical .article-card__text {
+    .article-card__text {
         @apply tb2:text-ellipsis tb2:overflow-hidden;
     }
 
+    .article_card {
+        @apply gap-y-5;
+    }
     .article-card__date-tags {
         @apply text-neutral-700 text-body-1 pt-2.5;
         word-spacing: 0.5rem;
@@ -117,13 +117,16 @@
         @apply text-neutral-700 text-body-1 pb-2.5;
     }
     .article-card__image-wrapper {
-        @apply overflow-hidden relative flex-auto aspect-[3/2];
+        @apply overflow-hidden relative aspect-[3/2];
     }
     .article-card__image-wrapper > * {
         @apply absolute top-0 object-cover w-full h-full object-center;
     }
     .article-card__image-wrapper > a {
         @apply relative;
+    }
+    .article-card--vertical {
+        @apply grid gap-x-8;
     }
 
     .avatar-circle {
@@ -951,7 +954,7 @@
 }
 
 @screen tb2 {
-    .anchor-card--vertical .article-card__text {
+    .article-card__text {
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
