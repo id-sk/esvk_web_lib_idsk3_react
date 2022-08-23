@@ -9,6 +9,7 @@ export interface AccordionProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   inGroup?: boolean;
   index?: number | 0;
   bgGray?: boolean;
+  fullWidthBody?: boolean;
 }
 
 const Accordion = ({
@@ -21,6 +22,7 @@ const Accordion = ({
   index = 0,
   className,
   bgGray = false,
+  fullWidthBody = false,
   ...props
 }: AccordionProps) => {
   const [closed, setClosed] = useState<boolean>(initiallyClosed);
@@ -30,17 +32,17 @@ const Accordion = ({
     setClosed((p) => !p);
   };
 
-  const contentClasses = classNames(
-    'accordion__content',
-    { 'accordion__content--open': !closed },
-    className
-  );
+  const contentClasses = classNames('accordion__content', { 'accordion__content--open': !closed });
   return (
     <div
-      className={classNames('accordion', {
-        'accordion--in-list-group': inGroup,
-        'accordion--gray': bgGray
-      })}
+      className={classNames(
+        'accordion',
+        {
+          'accordion--in-list-group': inGroup,
+          'accordion--gray': bgGray
+        },
+        className
+      )}
     >
       {!!inGroup && (
         <div className={classNames('accordion--list', { 'accordion--list-bullet': !index })}>
@@ -58,7 +60,15 @@ const Accordion = ({
         </span>
         {!!subTitle && <span className="accordion__subtitle">{subTitle}</span>}
       </button>
-      <div className={contentClasses}>{children}</div>
+      <div className={contentClasses}>
+        <div
+          className={classNames('accordion__content-body', {
+            'accordion__content-body--full-width': fullWidthBody
+          })}
+        >
+          {children}
+        </div>
+      </div>
     </div>
   );
 };

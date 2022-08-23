@@ -66,10 +66,16 @@
         @apply text-[1.875rem] w-[1.875rem] h-[1.875rem];
     }
     .accordion__content {
-        @apply hidden px-5 border-t border-neutral-300 pt-5 pb-10;
+        @apply hidden px-5 border-t border-neutral-300 pt-5 pb-10 text-body;
     }
     .accordion__content--open {
         @apply block;
+    }
+    .accordion__content-body {
+        @apply max-w-4xl;
+    }
+    .accordion__content-body--full-width {
+        @apply max-w-none;
     }
     .accordion--list-group {
         @apply relative;
@@ -921,7 +927,7 @@
         @apply border border-neutral-300 rounded-lg overflow-hidden;
     }
     .text-signpost {
-        @apply border-b border-neutral-400 pb-8;
+        @apply border-b border-neutral-400 pb-8 max-w-4xl;
     }
 
     .tab-bar {
