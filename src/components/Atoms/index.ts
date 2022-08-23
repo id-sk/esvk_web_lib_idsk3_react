@@ -26,3 +26,4 @@ export {
   FooterContainerSection
 } from '../Molecules/FooterContainer';
 export { Table, TableProps, TableRowsContainer, TableRow, TableRowItem } from './Table';
+export { default as TextSignpost, TextSignpostProps } from './TextSignpost';

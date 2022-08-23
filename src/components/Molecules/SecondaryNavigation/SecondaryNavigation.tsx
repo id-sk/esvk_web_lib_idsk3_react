@@ -69,6 +69,7 @@ const SecondaryNavigation = ({
           id={id ? id + '-dropdown' : undefined}
           dropDownTitle={dropDownTitle}
           className="secondary-navigation__dropdown"
+          closeOnOptionClick={true}
         >
           {dropDownOptions.length &&
             dropDownOptions.map((item, index) => React.cloneElement(item, { key: index }))}

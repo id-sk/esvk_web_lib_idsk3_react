@@ -920,6 +920,9 @@
     .signpost-group {
         @apply border border-neutral-300 rounded-lg overflow-hidden;
     }
+    .text-signpost {
+        @apply border-b border-neutral-400 pb-8;
+    }
 
     .tab-bar {
         @apply  flex items-start border-b border-neutral-300;

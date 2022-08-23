@@ -181,7 +181,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
             mobileHeading="SK"
             mobileHeadingButton="e-Gov"
             dropDownTitle="slovenčina"
-            dropDownOptions={[<a href="/">english</a>]}
+            dropDownOptions={[<a>english</a>]}
           >
             <SecChildren />
           </SecondaryNavigation>

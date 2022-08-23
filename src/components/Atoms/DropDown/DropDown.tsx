@@ -18,6 +18,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   buttonClassName?: string;
   optionsSide?: 'left' | 'right';
   buttonId?: string;
+  closeOnOptionClick?: boolean;
 }
 
 const DropDown = ({
@@ -29,6 +30,7 @@ const DropDown = ({
   buttonClassName,
   optionsSide = 'right',
   buttonId,
+  closeOnOptionClick = false,
   ...props
 }: DropDownProps) => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -64,7 +66,16 @@ const DropDown = ({
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return <li className="dropdown__option">{child}</li>;
+      return (
+        <li className="dropdown__option">
+          {React.cloneElement(child, {
+            onClick: (e: React.MouseEvent) => {
+              if (child?.props?.onClick) child.props.onClick(e);
+              if (closeOnOptionClick) setOpened(false);
+            }
+          })}
+        </li>
+      );
     }
   });
 
