@@ -4,19 +4,19 @@ import classNames from 'classnames';
 import { Checkbox, DropDown } from '../../Atoms';
 import { InfoIcon } from '../../../svgIcons/Actions';
 
-export interface DataGridItemValueProps extends React.AllHTMLAttributes<HTMLDivElement> {
+export interface DataGridRowValueProps extends React.AllHTMLAttributes<HTMLDivElement> {
   information?: string;
   align?: 'left' | 'right';
   className?: string;
 }
 
-export const DataGridItemValue = ({
+export const DataGridRowValue = ({
   align,
   className,
   children,
   information,
   ...props
-}: DataGridItemValueProps) => {
+}: DataGridRowValueProps) => {
   return (
     <div
       className={classNames(
@@ -34,7 +34,7 @@ export const DataGridItemValue = ({
   );
 };
 
-export interface DataGridItemProps {
+export interface DataGridRowProps {
   moreIcon?: ReactNode;
   moreOptions?: ReactNode;
   customMoreButton?: ReactNode;
@@ -46,7 +46,7 @@ export interface DataGridItemProps {
   checkbox?: boolean;
 }
 
-export function DataGridItem({
+export function DataGridRow({
   children,
   moreIcon = <MoreVertIcon />,
   moreOptions,
@@ -57,11 +57,11 @@ export function DataGridItem({
   checkbox,
   id,
   ...props
-}: DataGridItemProps) {
+}: DataGridRowProps) {
   const dataGridClasses = classNames(
-    'data-grid-item',
-    { 'data-grid-item--active': active },
-    { 'data-grid-item--checked': checked }
+    'data-grid-row',
+    { 'data-grid-row--active': active },
+    { 'data-grid-row--checked': checked }
   );
   return (
     <div className={dataGridClasses} id={id} {...props}>
@@ -73,10 +73,10 @@ export function DataGridItem({
           id={id ? id + '-checkbox' : undefined}
         />
       )}
-      <div className="data-grid-item__dot-wrapper">
+      <div className="data-grid-row__dot-wrapper">
         <div
-          className={classNames('data-grid-item__dot', {
-            'data-grid-item__dot--active': active
+          className={classNames('data-grid-row__dot', {
+            'data-grid-row__dot--active': active
           })}
         />
       </div>
@@ -93,7 +93,7 @@ export function DataGridItem({
       ) : customMoreButton ? (
         customMoreButton
       ) : (
-        <div className="data-grid-item__dropdown-space" />
+        <div className="data-grid-row__dropdown-space" />
       )}
     </div>
   );
@@ -102,7 +102,7 @@ export function DataGridItem({
 export interface DataGridProps extends React.AllHTMLAttributes<HTMLDivElement> {
   checkboxEverything?: boolean;
   onSelectAllCheck?: (checked: boolean) => void;
-  headItems?: ReactNode;
+  headRow?: ReactNode;
 }
 
 function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) {
@@ -127,7 +127,7 @@ function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) 
             id={id ? id + '-checkbox-all' : undefined}
           />
         )}
-        {props.headItems}
+        {props.headRow}
       </div>
       {renderedChildren}
     </div>

@@ -3,8 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '/src/styles/idsk3_theme.css';
 import {
   DataGrid,
-  DataGridItem,
-  DataGridItemValue,
+  DataGridRow,
+  DataGridRowValue,
   DateInput,
   IconLink,
   Input,
@@ -72,19 +72,19 @@ const DecisionListMock = [
 export const DecisionList = Template.bind({});
 DecisionList.args = {
   checkboxEverything: true,
-  headItems: (
+  headRow: (
     <>
-      <DataGridItemValue>Odosielateľ</DataGridItemValue>
-      <DataGridItemValue className="tb2:flex hidden" align="right">
+      <DataGridRowValue>Odosielateľ</DataGridRowValue>
+      <DataGridRowValue className="tb2:flex hidden" align="right">
         Štítky
-      </DataGridItemValue>
-      <DataGridItemValue className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]" align="right">
+      </DataGridRowValue>
+      <DataGridRowValue className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]" align="right">
         Dátum
-      </DataGridItemValue>
+      </DataGridRowValue>
     </>
   ),
   children: DecisionListMock.map((gridItem) => (
-    <DataGridItem
+    <DataGridRow
       checkbox={true}
       active={!gridItem.inactive}
       key={gridItem.id}
@@ -95,7 +95,7 @@ DecisionList.args = {
         <p key={4}>Zobraziť detail</p>
       ]}
     >
-      <DataGridItemValue>
+      <DataGridRowValue>
         <div>
           <div className="flex gap-2.5 items-center min-h-[2.375rem]">
             <div className={!gridItem.inactive ? 'font-bold' : ''}>{gridItem.title}</div>
@@ -103,46 +103,46 @@ DecisionList.args = {
           </div>
           {gridItem.text}
         </div>
-      </DataGridItemValue>
-      <DataGridItemValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
         {gridItem.tags}
-      </DataGridItemValue>
-      <DataGridItemValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}
-      </DataGridItemValue>
-    </DataGridItem>
+      </DataGridRowValue>
+    </DataGridRow>
   ))
 };
 
 export const DecisionSharingList = Template.bind({});
 DecisionSharingList.args = {
-  headItems: (
+  headRow: (
     <>
-      <DataGridItemValue information="Random information">
+      <DataGridRowValue information="Random information">
         Číslo schránky/IČO/e-mail
-      </DataGridItemValue>
-      <DataGridItemValue information="Another random information">
+      </DataGridRowValue>
+      <DataGridRowValue information="Another random information">
         Obmedzenie prístupu
-      </DataGridItemValue>
-      <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="flex-none min-w-[6rem]">
         Akcie
-      </DataGridItemValue>
+      </DataGridRowValue>
     </>
   ),
   children: (
     <>
-      <DataGridItem>
-        <DataGridItemValue>
+      <DataGridRow>
+        <DataGridRowValue>
           <Input fullWidth={true} />
-        </DataGridItemValue>
-        <DataGridItemValue>
+        </DataGridRowValue>
+        <DataGridRowValue>
           <Input placeholder="select not ready" />
-        </DataGridItemValue>
-        <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
+        </DataGridRowValue>
+        <DataGridRowValue align="right" className="flex-none min-w-[6rem]">
           <PrimaryButton>Pridať</PrimaryButton>
-        </DataGridItemValue>
-      </DataGridItem>
-      <DataGridItem
+        </DataGridRowValue>
+      </DataGridRow>
+      <DataGridRow
         moreOptions={[
           <p key={1}>Exportovať</p>,
           <p key={2}>Archivovať</p>,
@@ -150,19 +150,19 @@ DecisionSharingList.args = {
           <p key={4}>Zobraziť detail</p>
         ]}
       >
-        <DataGridItemValue>
+        <DataGridRowValue>
           <Input fullWidth={true} />
-        </DataGridItemValue>
-        <DataGridItemValue>
+        </DataGridRowValue>
+        <DataGridRowValue>
           <Input placeholder="select not ready" />
           <DateInput />
-        </DataGridItemValue>
-        <DataGridItemValue align="right" className="flex-none min-w-[6rem]">
+        </DataGridRowValue>
+        <DataGridRowValue align="right" className="flex-none min-w-[6rem]">
           <IconLink>
             <DeleteIcon width="1.8rem" height="1.8rem" color="red" className="text-alert-warning" />
           </IconLink>
-        </DataGridItemValue>
-      </DataGridItem>
+        </DataGridRowValue>
+      </DataGridRow>
     </>
   )
 };

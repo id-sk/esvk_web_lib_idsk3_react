@@ -1,8 +1,8 @@
 export {
   default as DataGrid,
-  DataGridItem,
-  DataGridItemValue,
+  DataGridRow,
+  DataGridRowValue,
   DataGridProps,
-  DataGridItemProps,
-  DataGridItemValueProps
+  DataGridRowProps,
+  DataGridRowValueProps
 } from './DataGrid';

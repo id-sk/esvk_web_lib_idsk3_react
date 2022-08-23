@@ -19,13 +19,14 @@ export {
 export { default as Feedback, FeedbackProps } from './Feedback';
 export {
   DataGrid,
-  DataGridItem,
-  DataGridItemValue,
+  DataGridRow,
+  DataGridRowValue,
   DataGridProps,
-  DataGridItemProps,
-  DataGridItemValueProps
+  DataGridRowProps,
+  DataGridRowValueProps
 } from './DataGrid';
 export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Signpost, SignpostsGroup, SignpostProps } from '../Molecules/Signpost';
 export { default as Dialog, DialogProps } from '../Molecules/Dialog';
 export { default as SearchContainer, SearchContainerProps } from '../Molecules/SearchContainer';
+export { Table, TableProps, TableRow, TableRowValue } from '../Molecules/Table';

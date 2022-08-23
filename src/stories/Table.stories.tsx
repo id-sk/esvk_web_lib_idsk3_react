@@ -1,111 +1,170 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '/src/styles/idsk3_theme.css';
-import { Table } from '../components';
-import { TableRowsContainer, TableRow, TableRowItem } from '../components/Atoms/Table/Table';
+import { Table, TableRow, TableRowValue, TextButton } from '../components';
 import { MoreVertIcon } from '../svgIcons/Navigation';
 import { DownloadIcon } from '../svgIcons/File';
+import { AddIcon } from '../svgIcons/Content';
 
 export default {
-  title: 'Atoms/Table',
+  title: 'Molecules/Table',
   component: Table
 } as ComponentMeta<typeof Table>;
 
-export const Template: ComponentStory<typeof Table> = (args) => {
-  return (
-    <Table>
-      <TableRowsContainer
-        {...args}
-        title="Podpisy"
-        titles={[
-          <TableRowItem>Názov</TableRowItem>,
-          <TableRowItem>Podpísané</TableRowItem>,
-          <TableRowItem>Podpis</TableRowItem>,
-          <TableRowItem alignRight={true}>Akcie</TableRowItem>
-        ]}
-        addButton={true}
-        addButtonLabel="Pridať podpis"
-      >
-        <TableRow>
-          <TableRowItem>Martin Mucha</TableRowItem>
-          <TableRowItem>19.1.2022 o 15:32</TableRowItem>
-          <TableRowItem>
-            <a href="#" className="link-m font-bold">
-              Detail podpisu
-            </a>
-          </TableRowItem>
-          <TableRowItem alignRight={true}>
-            <button>
-              <MoreVertIcon className="w-6 h-6" />
-            </button>
-          </TableRowItem>
-        </TableRow>
-        <TableRow>
-          <TableRowItem>Ján Novák</TableRowItem>
-          <TableRowItem>19.1.2022 o 15:32</TableRowItem>
-          <TableRowItem>
-            <a href="#" className="link-m font-bold">
-              Detail podpisu
-            </a>
-          </TableRowItem>
-          <TableRowItem alignRight={true}>
-            <button>
-              <MoreVertIcon className="w-6 h-6" />
-            </button>
-          </TableRowItem>
-        </TableRow>
-      </TableRowsContainer>
-      <TableRowsContainer
-        {...args}
-        title="Prílohy"
-        titles={[
-          <TableRowItem>Názov</TableRowItem>,
-          <TableRowItem>Pridané</TableRowItem>,
-          <TableRowItem>Podpis</TableRowItem>,
-          <TableRowItem alignRight={true}>Akcie</TableRowItem>
-        ]}
-        addButton={true}
-        addButtonLabel="Pridať prílohu"
-      >
-        <TableRow>
-          <TableRowItem>
-            <a className="link-m">Príloha.pdf</a>
-          </TableRowItem>
-          <TableRowItem>19.1.2022 o 15:32</TableRowItem>
-          <TableRowItem>
-            <a href="#" className="link-m font-bold">
-              Podpísať
-            </a>
-          </TableRowItem>
-          <TableRowItem alignRight={true}>
-            <button>
-              <DownloadIcon className="w-6 h-6" />
-            </button>
-            <button>
-              <MoreVertIcon className="w-6 h-6" />
-            </button>
-          </TableRowItem>
-        </TableRow>
-        <TableRow>
-          <TableRowItem>
-            <a className="link-m">Príloha.pdf</a>
-          </TableRowItem>
-          <TableRowItem>19.1.2022 o 15:32</TableRowItem>
-          <TableRowItem>
-            <a href="#" className="link-m font-bold">
-              Podpísať
-            </a>
-          </TableRowItem>
-          <TableRowItem alignRight={true}>
-            <button>
-              <DownloadIcon className="w-6 h-6" />
-            </button>
-            <button>
-              <MoreVertIcon className="w-6 h-6" />
-            </button>
-          </TableRowItem>
-        </TableRow>
-      </TableRowsContainer>
-    </Table>
-  );
+const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  headRow: (
+    <>
+      <TableRowValue>Názov</TableRowValue>
+      <TableRowValue>Pridané</TableRowValue>
+      <TableRowValue>Podpis</TableRowValue>
+      <TableRowValue align="right">Akcie</TableRowValue>
+    </>
+  ),
+  children: (
+    <>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+    </>
+  )
+};
+
+export const HeadingAndAction = Template.bind({});
+HeadingAndAction.args = {
+  heading: 'Prílohy',
+  headRow: (
+    <>
+      <TableRowValue>Názov</TableRowValue>
+      <TableRowValue>Pridané</TableRowValue>
+      <TableRowValue>Podpis</TableRowValue>
+      <TableRowValue align="right">Akcie</TableRowValue>
+    </>
+  ),
+  actions: <TextButton label="Pridať prílohu" icon={<AddIcon />} />,
+  children: (
+    <>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+    </>
+  )
+};
+
+export const OnlyRows = Template.bind({});
+OnlyRows.args = {
+  children: (
+    <>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m">Príloha.pdf</a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue>
+          <a href="#" className="link-m font-bold">
+            Podpísať
+          </a>
+        </TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <DownloadIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+    </>
+  )
 };

@@ -1,20 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import DataGrid, { DataGridItem, DataGridItemValue } from './DataGrid';
+import DataGrid, { DataGridRow, DataGridRowValue } from './DataGrid';
 
 describe('DataGrid', () => {
   test('renders children', () => {
     render(
       <DataGrid>
-        <DataGridItemValue>test</DataGridItemValue>
+        <DataGridRowValue>test</DataGridRowValue>
       </DataGrid>
     );
     expect(screen.getByText('test')).toBeDefined();
   });
   test('renders head', () => {
     render(
-      <DataGrid headItems={<DataGridItemValue>Test head</DataGridItemValue>}>
-        <DataGridItem>Test item</DataGridItem>
+      <DataGrid headRow={<DataGridRowValue>Test head</DataGridRowValue>}>
+        <DataGridRow>Test item</DataGridRow>
       </DataGrid>
     );
     expect(screen.getByText('Test head')).toBeDefined();
