@@ -915,7 +915,7 @@
         @apply text-blue-400 text-2xl h-[1.875rem] flex items-center;
     }
     .signpost__description {
-        @apply text-body-1;
+        @apply text-body;
     }
     .signpost__description--with-action {
         @apply mb-4;
