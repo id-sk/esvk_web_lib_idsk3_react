@@ -105,11 +105,14 @@
     .anchor-card__heading {
         @apply flex items-center link-l font-bold pb-2.5;
     }
-    .article-card__text {
-        @apply text-body;
+    .anchor-card__description {
+        @apply text-body text-ellipsis overflow-hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
     }
-    .article-card__text {
-        @apply tb2:text-ellipsis tb2:overflow-hidden;
+    .anchor-card__description--with-action {
+        @apply mb-4;
     }
 
     .article_card {
@@ -914,12 +917,6 @@
     .signpost__icon {
         @apply text-blue-400 text-2xl h-[1.875rem] flex items-center;
     }
-    .signpost__description {
-        @apply text-body;
-    }
-    .signpost__description--with-action {
-        @apply mb-4;
-    }
     .signpost__arrow-icon {
         @apply font-bold text-2xl w-6 h-6 ml-4;
     }
@@ -931,7 +928,7 @@
     }
 
     .tab-bar {
-        @apply  flex items-start border-b border-neutral-300;
+        @apply flex items-start border-b border-neutral-300;
     }
     .tab-bar__link {
         @apply  text-body text-black  border-b-4 flex-row items-center hover:bg-blue-100 border-transparent;
@@ -1043,12 +1040,4 @@
         @apply ml-2;
     }
 
-}
-
-@screen tb2 {
-    .article-card__text {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
 }

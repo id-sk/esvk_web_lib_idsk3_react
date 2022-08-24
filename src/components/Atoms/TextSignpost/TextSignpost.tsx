@@ -12,7 +12,7 @@ const TextSignpost = React.forwardRef<HTMLAnchorElement, TextSignpostProps>(
         <a className="anchor-card__heading" {...props} ref={ref}>
           {heading}
         </a>
-        <div className="signpost__description">{children}</div>
+        <div className="anchor-card__description">{children}</div>
       </div>
     );
   }

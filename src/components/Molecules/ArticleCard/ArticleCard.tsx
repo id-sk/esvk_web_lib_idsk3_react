@@ -61,7 +61,7 @@ const ArticleCard = ({
           <p className="article-card__date-tags--top">{renderDateTags(date)}</p>
         )}
         <div className="anchor-card__heading">{heading}</div>
-        <div className="article-card__text">{children}</div>
+        <div className="anchor-card__description">{children}</div>
         {!!date && datePosition === 'bottom' && (
           <p className="article-card__date-tags">{renderDateTags(date)}</p>
         )}

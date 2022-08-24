@@ -44,8 +44,8 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
               {heading}
             </a>
             <div
-              className={classNames('signpost__description', {
-                'signpost__description--with-action': renderAction
+              className={classNames('anchor-card__description', {
+                'anchor-card__description--with-action': renderAction
               })}
             >
               {children}

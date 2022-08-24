@@ -51,7 +51,8 @@ export const WithActionButton = Template.bind({});
 WithActionButton.args = {
   icon: <HomeIcon />,
   heading: 'Very long title',
-  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
+  children:
+    'Všetky informácie o vašom sociálnom poistení na jednom mieste. Všetky informácie o vašom sociálnom poistení na jednom mieste.',
   layout: 'horizontal',
   href: '/',
   actionButton: { label: 'Action' }
