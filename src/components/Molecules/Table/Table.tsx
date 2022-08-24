@@ -29,7 +29,7 @@ export function Table({
 
 export const TableRow = ({ children, className, ...props }: TableProps) => {
   return (
-    <div {...props} className={classNames('table_row', className)}>
+    <div {...props} className={classNames('table__row', className)}>
       {children}
     </div>
   );
