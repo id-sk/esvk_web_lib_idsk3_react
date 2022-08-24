@@ -34,7 +34,7 @@ export const DataGridRowValue = ({
   );
 };
 
-export interface DataGridRowProps {
+export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement> {
   moreIcon?: ReactNode;
   moreOptions?: ReactNode;
   customMoreButton?: ReactNode;
@@ -55,13 +55,15 @@ export function DataGridRow({
   onChange,
   active,
   checkbox,
+  className,
   id,
   ...props
 }: DataGridRowProps) {
   const dataGridClasses = classNames(
     'data-grid-row',
     { 'data-grid-row--active': active },
-    { 'data-grid-row--checked': checked }
+    { 'data-grid-row--checked': checked },
+    className
   );
   return (
     <div className={dataGridClasses} id={id} {...props}>
@@ -105,7 +107,17 @@ export interface DataGridProps extends React.AllHTMLAttributes<HTMLDivElement> {
   headRow?: ReactNode;
 }
 
-function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) {
+function DataGrid({
+  children,
+  checked,
+  onChange,
+  onSelectAllCheck,
+  headRow,
+  className,
+  checkboxEverything,
+  id,
+  ...props
+}: DataGridProps) {
   const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
@@ -114,12 +126,12 @@ function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) 
     }
   });
   const handleSelectAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.onSelectAllCheck?.(e.currentTarget.checked);
+    onSelectAllCheck?.(e.currentTarget.checked);
   };
   return (
-    <div className="data-grid" id={id} {...props}>
+    <div className={classNames('data-grid', className)} id={id} {...props}>
       <div className="data-grid__head">
-        {props.checkboxEverything && (
+        {checkboxEverything && (
           <Checkbox
             name="checkbox"
             checked={checked}
@@ -127,7 +139,7 @@ function DataGrid({ children, checked, onChange, id, ...props }: DataGridProps) 
             id={id ? id + '-checkbox-all' : undefined}
           />
         )}
-        {props.headRow}
+        {headRow}
       </div>
       {renderedChildren}
     </div>
