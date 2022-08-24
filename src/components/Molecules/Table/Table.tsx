@@ -8,9 +8,17 @@ export interface TableProps extends React.AllHTMLAttributes<HTMLDivElement> {
   actions?: ReactNode;
   align?: 'left' | 'right';
 }
-export function Table({ children, heading, headRow, actions, id, ...props }: TableProps) {
+export function Table({
+  children,
+  heading,
+  headRow,
+  actions,
+  id,
+  className,
+  ...props
+}: TableProps) {
   return (
-    <div {...props} className="table">
+    <div {...props} className={classNames('table', className)}>
       {heading && <h3 className="table__heading">{heading}</h3>}
       {headRow && <div className="table__head">{headRow}</div>}
       <div className="table__rows">{children}</div>
@@ -19,9 +27,9 @@ export function Table({ children, heading, headRow, actions, id, ...props }: Tab
   );
 }
 
-export const TableRow = ({ children, ...props }: TableProps) => {
+export const TableRow = ({ children, className, ...props }: TableProps) => {
   return (
-    <div {...props} className="table__row">
+    <div {...props} className={classNames('table_row', className)}>
       {children}
     </div>
   );
