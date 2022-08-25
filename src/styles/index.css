@@ -946,7 +946,7 @@
         @apply flex flex-auto justify-between w-full;
     }
     .signpost__icon {
-        @apply text-blue-400 text-2xl h-[1.875rem] flex items-center;
+        @apply text-blue-400 text-2xl flex items-center pb-1.5;
     }
     .signpost__arrow-icon {
         @apply font-bold text-2xl w-6 h-6 ml-4;
