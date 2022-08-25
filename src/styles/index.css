@@ -719,6 +719,37 @@
         @apply absolute right-2.5 w-5 h-5 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold pointer-events-none;
     }
 
+    .in-page-navigation {
+        @apply gap-5;
+    }
+    .in-page-navigation-desktop {
+        @apply hidden tb2:inline;
+    }
+    .in-page-navigation__title {
+        @apply text-2xl font-bold leading-normal;
+    }
+    .in-page-navigation__subtitle {
+        @apply text-neutral-700 font-bold pt-3.5;
+    }
+    .in-page-navigation__list {
+        @apply pl-7 py-2.5 grid gap-3.5 text-lg;
+    }
+    .in-page-navigation__list a {
+        @apply cursor-pointer inline-block;
+    }
+    .in-page-navigation__list a:not(.active) {
+        @apply text-primary underline;
+    }
+    .in-page-navigation__list a:not(.active) > svg {
+        @apply hidden;
+    }
+    .in-page-navigation__list a.active {
+        @apply font-bold text-blue-500 hover:no-underline;
+    }
+    .in-page-navigation__list a.active > svg {
+        @apply absolute left-5 h-7;
+    }
+
     .notification-card {
         @apply p-5 pl-10;
     }

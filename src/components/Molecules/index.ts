@@ -30,3 +30,11 @@ export { default as Signpost, SignpostsGroup, SignpostProps } from '../Molecules
 export { default as Dialog, DialogProps } from '../Molecules/Dialog';
 export { default as SearchContainer, SearchContainerProps } from '../Molecules/SearchContainer';
 export { Table, TableProps, TableRow, TableRowValue } from '../Molecules/Table';
+export {
+  InPageNavigation,
+  InPageNavigationProps,
+  InPageNavigationList,
+  InPageNavigationListProps,
+  InPageNavigationLink,
+  InPageNavigationLinkProps
+} from '../Molecules/InPageNavigation';
