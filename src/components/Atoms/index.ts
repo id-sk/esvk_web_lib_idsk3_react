@@ -26,3 +26,4 @@ export {
   FooterContainerSection
 } from '../Molecules/FooterContainer';
 export { default as TextSignpost, TextSignpostProps } from './TextSignpost';
+export { default as Tooltip, TooltipProps } from './Tooltip';
