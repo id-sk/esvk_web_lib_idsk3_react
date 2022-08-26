@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ReactNode } from 'react';
+import React, { Children, ReactNode } from 'react';
 import { RadioButtonCheckedIcon, RadioButtonUncheckedIcon } from '../../../svgIcons/Toggle';
 
 export interface RadioButtonProps {
@@ -9,6 +9,7 @@ export interface RadioButtonProps {
   children?: ReactNode;
   checked?: boolean;
   onChange?: () => void;
+  onChangeAll?: () => void;
   id?: string;
 }
 
@@ -54,6 +55,7 @@ const RadioButton = (props: RadioButtonProps) => {
         checked={props.checked}
         className={inputClasses}
         id={props.id}
+        onChange={props.onChange}
       />
       <RadioButtonCheckedIcon className={iconSizeClasses} />
       <RadioButtonUncheckedIcon className={uncheckedIconSizeClasses} />
@@ -61,5 +63,18 @@ const RadioButton = (props: RadioButtonProps) => {
     </label>
   );
 };
+
+export function RadioButtonGroup({ children, ...props }: RadioButtonProps) {
+  const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child);
+    }
+  });
+  return (
+    <div {...props} onChange={props.onChangeAll}>
+      {renderedChildren}
+    </div>
+  );
+}
 
 export default RadioButton;

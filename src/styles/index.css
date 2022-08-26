@@ -265,7 +265,7 @@
     .data-grid__value:first-of-type {
         @apply ml-6;
     }
-
+    
     .date-input__wrapper {
         @apply flex gap-3;
     }
