@@ -290,16 +290,22 @@
         @apply hidden opacity-0;
     }
     .dialog-wrapper {
-        @apply page-content;
+        @apply w-full h-full tb2:h-auto tb2:w-auto tb2:page-content;
     }
     .dialog {
-        @apply bg-white rounded-lg shadow-medium;
+        @apply flex flex-col h-full tb2:h-auto tb2:rounded-lg bg-white shadow-medium;
     }
     .dialog__header {
         @apply px-7 pt-7 pb-5 border-b border-neutral-300;
     }
+    .dialog__content {
+        @apply flex flex-1 gap-2 flex-col px-7 py-5;
+    }
     .dialog__header-title {
         @apply flex justify-between items-center gap-5;
+    }
+    .dialog__header-description {
+        @apply subtitle mt-4;
     }
     .dialog__close-icon {
         @apply p-1 border rounded;

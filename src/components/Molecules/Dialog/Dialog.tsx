@@ -2,29 +2,42 @@ import React, { ReactNode } from 'react';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 
-export interface DialogProps {
+export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
-  children?: ReactNode;
   opened: boolean;
   toggleOpened?: () => void;
-  id?: string;
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
 }
 
-const Dialog = ({ opened, toggleOpened, id, ...props }: DialogProps) => {
-  const dialogClasses = classNames('dialog-screen', {
-    'dialog-screen--hidden': !opened
-  });
+const Dialog = ({
+  opened,
+  toggleOpened,
+  id,
+  className,
+  title,
+  description,
+  children,
+  primaryButton,
+  secondaryButton,
+  ...props
+}: DialogProps) => {
+  const dialogClasses = classNames(
+    'dialog-screen',
+    {
+      'dialog-screen--hidden': !opened
+    },
+    className
+  );
 
   return (
-    <div className={dialogClasses}>
+    <div {...props} className={dialogClasses} id={id}>
       <div className="dialog-wrapper">
         <div className="dialog">
           <div className="dialog__header">
             <div className="dialog__header-title">
-              <h2>{props.title}</h2>
+              <h2>{title}</h2>
               <button
                 onClick={toggleOpened}
                 className="dialog__close-icon"
@@ -33,13 +46,13 @@ const Dialog = ({ opened, toggleOpened, id, ...props }: DialogProps) => {
                 <CloseIcon />
               </button>
             </div>
-            {!!props.description && <p className="subtitle mt-4">{props.description}</p>}
+            {!!description && <p className="dialog__header-description">{description}</p>}
           </div>
 
-          <div className="flex gap-2 flex-col flex-start px-7 py-5">{props.children}</div>
+          <div className="dialog__content">{children}</div>
           <div className="dialog__buttons">
-            {props.secondaryButton}
-            {props.primaryButton}
+            {secondaryButton}
+            {primaryButton}
           </div>
         </div>
       </div>
