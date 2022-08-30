@@ -54,19 +54,25 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .accordion__title {
-        @apply flex items-center justify-between pb-[0.625rem];
+        @apply flex items-center justify-between underline;
     }
     .accordion__subtitle {
-        @apply text-body-1;
+        @apply block text-body-1 text-lg pt-2.5;
+    }
+    .accordion--small .accordion__subtitle {
+        @apply pt-1.5;
     }
     .accordion__button {
-        @apply w-full px-5 pb-5 pt-[1.875rem] text-left;
+        @apply w-full p-7 text-left;
+    }
+    .accordion--small .accordion__button {
+        @apply py-4;
     }
     .accordion__icon {
         @apply text-[1.875rem] w-[1.875rem] h-[1.875rem];
     }
     .accordion__content {
-        @apply hidden px-5 border-t border-neutral-300 pt-5 pb-10 text-body;
+        @apply hidden px-7 border-t border-neutral-300 pt-5 pb-10 text-body;
     }
     .accordion__content--open {
         @apply block;
@@ -265,7 +271,7 @@
     .data-grid__value:first-of-type {
         @apply ml-6;
     }
-    
+
     .date-input__wrapper {
         @apply flex gap-3;
     }

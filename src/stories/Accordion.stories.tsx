@@ -41,6 +41,39 @@ InitiallyOpen.args = {
     </>
   )
 };
+export const WithoutSubTitle = Template.bind({});
+WithoutSubTitle.args = {
+  heading: <h4>Základné údaje</h4>,
+  children: (
+    <>
+      <h4>Filtrovania</h4>
+      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
+    </>
+  )
+};
+export const Small = Template.bind({});
+Small.args = {
+  heading: <h4>Základné údaje</h4>,
+  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  size: 'small',
+  children: (
+    <>
+      <h4>Filtrovania</h4>
+      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
+    </>
+  )
+};
+export const SmallWithoutSubTitle = Template.bind({});
+SmallWithoutSubTitle.args = {
+  heading: <h4>Základné údaje</h4>,
+  size: 'small',
+  children: (
+    <>
+      <h4>Filtrovania</h4>
+      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
+    </>
+  )
+};
 export const GrayBackground = Template.bind({});
 GrayBackground.args = {
   heading: <h4>Základné údaje</h4>,

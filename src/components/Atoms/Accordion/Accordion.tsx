@@ -10,6 +10,7 @@ export interface AccordionProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   index?: number | 0;
   bgGray?: boolean;
   fullWidthBody?: boolean;
+  size?: 'large' | 'small';
 }
 
 const Accordion = ({
@@ -20,6 +21,7 @@ const Accordion = ({
   initiallyClosed = true,
   inGroup = false,
   index = 0,
+  size = 'large',
   className,
   bgGray = false,
   fullWidthBody = false,
@@ -39,7 +41,8 @@ const Accordion = ({
         'accordion',
         {
           'accordion--in-list-group': inGroup,
-          'accordion--gray': bgGray
+          'accordion--gray': bgGray,
+          'accordion--small': size == 'small'
         },
         className
       )}
