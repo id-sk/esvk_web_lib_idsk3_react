@@ -16,7 +16,12 @@ import {
   FooterContainerSection,
   FooterContainerSectionHeading
 } from '../components/Atoms';
-import { NavigationLink, NavigationLinkOption, FooterContainer } from '../components';
+import {
+  NavigationLink,
+  NavigationLinkOption,
+  FooterContainer,
+  PrimaryButton
+} from '../components';
 import { Logo, MobileLogo } from '../svgImages/Logos';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
@@ -282,7 +287,19 @@ const Template: ComponentStory<typeof PageLayout> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  titleSection,
+  heading: titleSection,
+  header: <Header />,
+  footer: pageFooter,
+  breadcrumbs: breadcrumbs
+};
+
+export const HeadingButton = Template.bind({});
+HeadingButton.args = {
+  heading: (
+    <div className="flex justify-between">
+      {titleSection} <PrimaryButton>Pridať do kalendára</PrimaryButton>
+    </div>
+  ),
   header: <Header />,
   footer: pageFooter,
   breadcrumbs: breadcrumbs

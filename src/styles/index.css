@@ -834,7 +834,7 @@
     .page-layout__breadcrumbs {
         @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full z-30;
     }
-    .page-layout__title {
+    .page-layout__heading {
         @apply inset-x-0 pb-6 tb1:pb-7 px-5 page-content w-full;
     }
     .page-layout__body {

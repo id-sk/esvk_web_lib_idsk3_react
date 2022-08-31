@@ -1,19 +1,19 @@
 import React, { ReactNode } from 'react';
 
 export interface PageLayoutProps extends React.AllHTMLAttributes<HTMLElement> {
-  titleSection: ReactNode;
   header: ReactNode;
+  heading?: ReactNode;
   footer: ReactNode;
-  breadcrumbs: ReactNode;
+  breadcrumbs?: ReactNode;
 }
 
 const PageLayout = ({
-  children,
-  titleSection,
-  className = '',
   header,
-  footer,
   breadcrumbs,
+  heading,
+  children,
+  footer,
+  className = '',
   ...props
 }: PageLayoutProps) => {
   return (
@@ -21,7 +21,7 @@ const PageLayout = ({
       {header}
       <main className={`page-layout__main ${className}`} {...props}>
         {!!breadcrumbs && <div className="page-layout__breadcrumbs">{breadcrumbs}</div>}
-        <div className="page-layout__title">{titleSection}</div>
+        {!!heading && <div className="page-layout__heading">{heading}</div>}
         <div className="page-layout__body">{children}</div>
       </main>
       {footer}
