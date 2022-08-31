@@ -1046,7 +1046,7 @@
         @apply hidden content-[attr(data-tooltip)];
     }
     .tooltip:hover::after {
-        @apply block absolute rounded-lg p-5 mt-2 bg-neutral-900 text-white shadow-medium text-body-1 z-10 overflow-hidden w-max
+        @apply block absolute rounded-lg p-6 mt-2 bg-neutral-900 text-white shadow-medium text-body-1 z-10 overflow-hidden w-max
         mb:max-w-[10rem] tb1:max-w-[14rem] tb2:max-w-[21rem] dm1:max-w-[32rem] dm2:max-w-[34rem];
     }
     .tooltip--left::after {
