@@ -567,7 +567,7 @@
         @apply text-alert-warning;
     }
     .input__icon {
-        @apply absolute inset-y-0 m-auto;
+        @apply absolute inset-y-0 m-auto pointer-events-none;
     }
     .input__icon--large {
         @apply text-[1.25rem] w-[1.25rem] h-[1.25rem];
@@ -591,13 +591,23 @@
         @apply text-body-1 text-neutral-600;
     }
     .input__caption {
-        @apply text-body-1 text-neutral-600  border-l border-transparent px-4;
+        @apply text-body-1 text-neutral-600  border-l border-transparent;
     }
     .input__caption--error {
         @apply text-alert-warning;
     }
     .input--w-full, .searchbar--w-full {
         @apply w-full;
+    }
+
+    .select {
+        @apply input appearance-none pr-14;
+    }
+    .select__arrow {
+        @apply absolute right-5 top-0 bottom-0 flex flex-col justify-center;
+    }
+    .input__wrapper .select__arrow {
+        @apply pointer-events-none;
     }
 
     .link-button {

@@ -100,7 +100,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <>
         <label className={classNames({ 'w-full': fullWidth })}>
-          <p className="input__label">{label}</p>
+          {!!label && <p className="input__label">{label}</p>}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <input
