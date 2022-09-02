@@ -1,4 +1,4 @@
-import React, { ReactElement, SVGProps } from 'react';
+import React, { ChangeEvent, ReactElement, SVGProps, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { ExpandMoreIcon } from '../../../svgIcons/Navigation';
@@ -10,6 +10,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   label?: string;
   caption?: string;
   subtitle?: string;
+  placeholder?: string;
   disabled?: boolean;
   fullWidth?: boolean;
   arrowIcon?: ReactElement;
@@ -28,6 +29,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       caption,
       disabled,
       fullWidth,
+      placeholder,
       onChange,
       className,
       children,
@@ -37,6 +39,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     }: SelectProps,
     ref
   ) => {
+    const defaultSelectValue = 'default'; // to have selected item on default
+    const [activePlaceholder, setActivePlaceholder] = useState(placeholder != null);
+
+    const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
+      setActivePlaceholder(e.target.value == defaultSelectValue);
+      if (onChange != undefined) onChange(e);
+    };
+
     const selectClasses: string = classNames(
       'select',
       {
@@ -45,7 +55,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         'input--small': inputSize === 'small',
         'input--icon-left': !!icon,
         'input--error': error,
-        'input--w-full': fullWidth
+        'input--w-full': fullWidth,
+        'select--not-selected': activePlaceholder
       },
       className
     );
@@ -78,11 +89,17 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               className={selectClasses}
               disabled={disabled}
               aria-disabled={disabled}
-              onChange={onChange}
+              onChange={handleOnChange}
               aria-invalid={error}
               aria-errormessage={idForAria}
+              defaultValue={defaultSelectValue}
               {...props}
             >
+              {placeholder && (
+                <option value={defaultSelectValue} disabled hidden>
+                  {placeholder}
+                </option>
+              )}
               {children}
             </select>
             {!!arrowIcon && <div className="select__arrow">{arrowIcon}</div>}

@@ -606,6 +606,12 @@
     .select__arrow {
         @apply absolute right-5 top-0 bottom-0 flex flex-col justify-center;
     }
+    .select--not-selected {
+        @apply text-neutral-600;
+    }
+    .select--not-selected option {
+        @apply text-black;
+    }
     .input__wrapper .select__arrow {
         @apply pointer-events-none;
     }

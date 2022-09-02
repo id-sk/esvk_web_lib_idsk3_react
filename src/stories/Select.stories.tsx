@@ -13,17 +13,19 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Select> = (args) => (
   <Select {...args}>
-    <option disabled selected hidden>
-      Pick some option
-    </option>
-    <option>Some really random option</option>
-    <option>Some another option</option>
-    <option>This is nice option</option>
+    <option value="1">Some really random option</option>
+    <option value="2">Some another option</option>
+    <option value="3">This is nice option</option>
   </Select>
 );
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  placeholder: 'Select some option'
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
