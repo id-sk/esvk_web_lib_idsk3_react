@@ -599,6 +599,12 @@
     .input--w-full, .searchbar--w-full {
         @apply w-full;
     }
+    .input-textarea {
+        @apply pt-2 pb-5 h-auto;
+    }
+    .input-textarea--counter {
+        @apply text-neutral-600 absolute right-5 bottom-2;
+    }
 
     .select {
         @apply input appearance-none pr-14;

@@ -5,6 +5,7 @@ export interface BaseButtonProps {
   id?: string;
   className?: string;
   label?: string;
+  type?: 'button' | 'reset' | 'submit' | undefined;
   children?: ReactNode | undefined;
   disabled?: boolean;
   size?: 'medium' | 'large';
@@ -37,6 +38,7 @@ const BaseButton = (props: BaseButtonProps) => {
       className={buttonClasses}
       disabled={props.disabled}
       id={props.id}
+      type={props.type}
       aria-disabled={props.disabled}
       onClick={props.onClick}
       {...props.buttonElementProps}
