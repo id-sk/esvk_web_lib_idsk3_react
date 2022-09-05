@@ -41,6 +41,9 @@
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
     }
+    [type='button'], [type='reset'], [type='submit'] {
+        @apply bg-primary;
+    }
 }
 
 @layer utilities {

@@ -31,7 +31,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       placeholder,
       rows = 3,
       maxLength = 200,
-      onChange,
+      onChange = () => {},
       className,
       ...props
     }: TextFieldProps,
@@ -45,7 +45,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
       setValue(event.target.value);
-      return onChange;
+      onChange(event);
     }
 
     const inputClasses: string = classNames(
