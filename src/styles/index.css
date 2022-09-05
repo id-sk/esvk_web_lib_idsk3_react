@@ -41,7 +41,7 @@
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
     }
-    [type='button'], [type='reset'], [type='submit'] {
+    button, button[type='button'], button[type='reset'], button[type='submit'] {
         @apply bg-primary;
     }
 }
