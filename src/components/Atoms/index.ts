@@ -8,7 +8,9 @@ export {
   CheckboxProps,
   RadioButton,
   RadioButtonGroup,
-  RadioButtonProps
+  RadioButtonProps,
+  TextField,
+  TextFieldProps
 } from './Input';
 export { default as DateInput, DateInputProps } from './DateInput';
 export { default as CardWrapper, CardWrapperProps } from './CardWrapper';
