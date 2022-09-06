@@ -41,9 +41,6 @@
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
     }
-    button, button[type='button'], button[type='reset'], button[type='submit'] {
-        @apply bg-primary;
-    }
 }
 
 @layer utilities {
@@ -1142,6 +1139,11 @@
     }
     .pagination__button-break {
         @apply w-9 h-9 flex items-end justify-center;
+    }
+
+    .primary-button[type='button'], .primary-button[type='reset'], .primary-button[type='submit'],
+    .secondary-button[type='button'], .secondary-button[type='reset'], .secondary-button[type='submit'] {
+        @apply bg-primary;
     }
 
 }
