@@ -7,7 +7,6 @@ export interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {
   fixed?: boolean;
   children?: ReactNode;
   logo?: ReactNode;
-  mobileLogo?: ReactNode;
   secondaryNavigation?: ReactNode;
   largeMenu?: ReactNode;
   mobileMenu?: ReactNode;
@@ -21,7 +20,6 @@ const HeaderContainer = ({
   secondaryNavigation,
   className,
   logo,
-  mobileLogo,
   largeMenu,
   mobileMenu,
   focusLock = false,
@@ -58,18 +56,7 @@ const HeaderContainer = ({
         {!!secondaryNavigation && secondaryNavigation}
         {!!children && (
           <div className="header-container">
-            {!!logo ? (
-              !!mobileLogo ? (
-                <>
-                  <span className="header-container__mobile-logo">{mobileLogo}</span>
-                  <span className="header-container__desktop-logo">{logo}</span>
-                </>
-              ) : (
-                logo
-              )
-            ) : (
-              ''
-            )}
+            {logo}
             {children}
           </div>
         )}

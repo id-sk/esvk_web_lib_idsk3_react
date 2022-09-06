@@ -17,9 +17,10 @@ import {
   PrimaryButton as Button,
   SearchBar,
   PrimaryButton,
-  TextButton
+  TextButton,
+  Logo
 } from '../components/Atoms';
-import { Logo, MobileLogo } from '../svgImages/Logos';
+import { LogoImage } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
@@ -187,13 +188,13 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
           </SecondaryNavigation>
         }
         logo={
-          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
-            <Logo style={{ height: '100%', width: 'auto' }} />
-          </a>
-        }
-        mobileLogo={
-          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
-            <MobileLogo style={{ height: '100%', width: 'auto' }} />
+          <a href="/">
+            <Logo
+              image={<LogoImage />}
+              title={'Slovensko.sk'}
+              subtitle={'Ústredný portál verejnej správy'}
+              shortSubtitle={'ÚPVS'}
+            />
           </a>
         }
         className={mobileNavOpened ? 'header-container__wrapper--opened-mobile-menu' : ''}

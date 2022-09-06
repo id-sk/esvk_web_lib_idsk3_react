@@ -20,6 +20,7 @@ export { default as MenuButton, MenuButtonProps } from './MenuButton';
 export { default as HeaderContainer, HeaderProps } from '../Molecules/HeaderContainer';
 export { default as NotificationIcon, NotificationIconProps } from './NotificationIcon';
 export { default as AvatarCircle, AvatarCircleProps } from './AvatarCircle';
+export { default as Logo, LogoProps } from './Logo';
 export { ModalSideBar, ModalSideBarProps, ModalSideBarFooterButton } from './ModalSideBar';
 export { default as CardsContainer } from './CardsContainer';
 export { default as IconLink, IconLinkProps } from './IconLink';

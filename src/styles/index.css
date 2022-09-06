@@ -460,12 +460,6 @@
     .header-container__wrapper--opened-mobile-menu .header-container__menu--mobile {
         @apply pb-4;
     }
-    .header-container__mobile-logo {
-        @apply flex tb1:hidden;
-    }
-    .header-container__desktop-logo {
-        @apply hidden tb1:flex;
-     }
 
     .icon-link {
         @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-500 cursor-pointer;
@@ -664,6 +658,25 @@
     }
     .loader__label {
         @apply text-body mt-2;
+    }
+
+    .logo {
+        @apply flex gap-3;
+    }
+    .logo__titles {
+        @apply max-w-[10rem] tb1:max-w-none flex flex-col justify-center;
+    }
+    .logo__title {
+        @apply text-2xl text-blue-500 font-bold leading-none hidden tb1:block;
+    }
+    .logo__short-title {
+        @apply text-body text-blue-500 font-bold leading-none block tb1:hidden text-body;
+    }
+    .logo__subtitle {
+        @apply tb1:block hidden text-xs tracking-wide;
+    }
+    .logo__short-subtitle {
+        @apply logo__subtitle block tb1:hidden;
     }
 
     .menu--mobile {

@@ -20,9 +20,10 @@ import {
   NavigationLink,
   NavigationLinkOption,
   FooterContainer,
-  PrimaryButton
+  PrimaryButton,
+  Logo
 } from '../components';
-import { Logo, MobileLogo } from '../svgImages/Logos';
+import { LogoImage } from '../svgImages/Logos';
 import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
 
@@ -127,7 +128,7 @@ const Header = () => {
           >
             <div className="grid grid-cols-1 gap-4 tb2:grid-cols-2 tb2:gap-8">
               <div>
-                <h3 className="text-body-1">Doména gov.sk je oficálna</h3>
+                <h3 className="text-body-1">Doména gov.sk je oficiálna</h3>
                 <p className="py-2.5">
                   Toto je oficiálna webová stránka orgánu verejnej moci Slovenskej republiky.
                   Oficiálne stránky využívajú najmä doménu gov.sk.{' '}
@@ -153,13 +154,13 @@ const Header = () => {
         }
         fixed={true}
         logo={
-          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
-            <Logo style={{ height: '100%', width: 'auto' }} />
-          </a>
-        }
-        mobileLogo={
-          <a href="/" className={mobileNavOpened ? 'hidden dm1:inline-block' : 'inline-block'}>
-            <MobileLogo style={{ height: '100%', width: 'auto' }} />
+          <a href="/">
+            <Logo
+              image={<LogoImage />}
+              title={'Slovensko.sk'}
+              subtitle={'Ústredný portál verejnej správy'}
+              shortSubtitle={'ÚPVS'}
+            />
           </a>
         }
       >

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 export interface AvatarCircleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   firstName: string;
@@ -14,7 +15,7 @@ const AvatarCircle = ({
   ...props
 }: AvatarCircleProps) => {
   return (
-    <button className={`avatar-circle ${className}`} onClick={onClick} {...props}>
+    <button className={classNames('avatar-circle', className)} onClick={onClick} {...props}>
       {firstName?.slice(0, 1) + lastName?.slice(0, 1)}
     </button>
   );
