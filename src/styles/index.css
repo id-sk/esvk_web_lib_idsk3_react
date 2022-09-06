@@ -610,7 +610,7 @@
     }
 
     .select {
-        @apply input appearance-none pr-14;
+        @apply input text-ellipsis appearance-none pr-14;
     }
     .select__arrow {
         @apply absolute right-5 top-0 bottom-0 flex flex-col justify-center;
