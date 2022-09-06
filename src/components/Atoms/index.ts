@@ -37,3 +37,4 @@ export {
 } from '../Molecules/FooterContainer';
 export { default as TextSignpost, TextSignpostProps } from './TextSignpost';
 export { default as Tooltip, TooltipProps } from './Tooltip';
+export { default as Pagination } from './Pagination';
