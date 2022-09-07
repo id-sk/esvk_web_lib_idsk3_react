@@ -862,7 +862,7 @@
     .page-layout__heading {
         @apply inset-x-0 pb-6 tb1:pb-5 px-5 page-content w-full;
     }
-    .page-layout__body {
+    .page-layout__content {
         @apply relative inset-x-0 px-0 page-content min-h-full flex-auto w-full;
     }
 
