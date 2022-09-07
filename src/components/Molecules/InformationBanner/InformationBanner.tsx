@@ -71,7 +71,7 @@ const InformationBanner = ({
 
       {!!icon &&
         React.cloneElement(icon, {
-          className: classNames('information-banner__icon')
+          className: classNames('information-banner__icon', icon.props.className)
         })}
       <div className={'flex-grow-[2]'}>
         {!!title && (
