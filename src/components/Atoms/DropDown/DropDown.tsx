@@ -90,7 +90,7 @@ const DropDown = ({
         {renderedIcon}
       </button>
       <ul className={optionClasses} data-testid="dropdown-options">
-        {renderedChildren}
+        <div onClick={() => setOpened(false)}>{renderedChildren}</div>
       </ul>
     </div>
   );
