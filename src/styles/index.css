@@ -371,7 +371,7 @@
         @apply font-bold text-base;
     }
     .information-banner__description {
-        @apply caption;
+        @apply text-body-1;
     }
     .information-banner__description--without-title {
         @apply text-body;

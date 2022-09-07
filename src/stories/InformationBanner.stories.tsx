@@ -22,7 +22,7 @@ Information.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -37,7 +37,7 @@ Warning.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -52,7 +52,7 @@ Alert.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -67,7 +67,7 @@ Success.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -82,7 +82,7 @@ InformationActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -98,7 +98,7 @@ WarningActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -114,7 +114,7 @@ AlertActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
@@ -130,7 +130,7 @@ SuccessActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-caption ml-3.5">
+      <a href="#" className="link-s block">
         Viac informácií
       </a>
     </p>
