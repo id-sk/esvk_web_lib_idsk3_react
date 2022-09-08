@@ -1154,8 +1154,8 @@
         @apply w-9 h-9 flex items-end justify-center;
     }
 
-    .primary-button[type='button'], .primary-button[type='reset'], .primary-button[type='submit'],
-    .secondary-button[type='button'], .secondary-button[type='reset'], .secondary-button[type='submit'] {
+    .primary-button[type='button']:enabled, .primary-button[type='reset']:enabled, .primary-button[type='submit']:enabled,
+    .secondary-button[type='button']:enabled, .secondary-button[type='reset']:enabled, .secondary-button[type='submit']:enabled {
         @apply bg-primary;
     }
 
