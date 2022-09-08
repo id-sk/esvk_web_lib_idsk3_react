@@ -14,66 +14,73 @@ export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInpu
   advancedSearchButton?: TextButtonProps;
 }
 
-const SearchContainer = ({
-  title,
-  containerClassName,
-  error,
-  errorMsg,
-  caption,
-  searchButton,
-  advancedSearchButton,
-  ...props
-}: SearchContainerProps) => {
-  const containerClasses: string = classNames('search-container', containerClassName);
-
-  const inputClasses: string = classNames(
-    'input',
-    'input--medium',
-    'input--w-full',
+const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>(
+  (
     {
-      'input--error': error
+      title,
+      containerClassName,
+      error,
+      errorMsg,
+      caption,
+      searchButton,
+      advancedSearchButton,
+      className,
+      ...props
     },
-    props.className
-  );
+    ref
+  ) => {
+    const containerClasses: string = classNames('search-container', containerClassName);
 
-  const idForAria: string = uuidv4();
+    const inputClasses: string = classNames(
+      'input',
+      'input--medium',
+      'input--w-full',
+      {
+        'input--error': error
+      },
+      className
+    );
 
-  return (
-    <div className={containerClasses}>
-      {!!title && (
-        <div className="search-container__header">
-          <span className="search-container__title">{title}</span>
-        </div>
-      )}
-      <div className="search-container__input">
-        <input
-          aria-invalid={error}
-          aria-errormessage={idForAria}
-          className={inputClasses}
-          {...props}
-        />
-        {(!!errorMsg || !!caption) && (
-          <p
-            className={classNames('input__caption', {
-              'input__caption--error': error
-            })}
-          >
-            {error && !!errorMsg ? (
-              <span id={idForAria} role="alert">
-                {errorMsg}
-              </span>
-            ) : (
-              <span>{caption}</span>
-            )}
-          </p>
+    const idForAria: string = uuidv4();
+
+    return (
+      <div className={containerClasses}>
+        {!!title && (
+          <div className="search-container__header">
+            <span className="search-container__title">{title}</span>
+          </div>
         )}
+        <div className="search-container__input">
+          <input
+            aria-invalid={error}
+            aria-errormessage={idForAria}
+            className={inputClasses}
+            {...props}
+            ref={ref}
+          />
+          {(!!errorMsg || !!caption) && (
+            <p
+              className={classNames('input__caption', {
+                'input__caption--error': error
+              })}
+            >
+              {error && !!errorMsg ? (
+                <span id={idForAria} role="alert">
+                  {errorMsg}
+                </span>
+              ) : (
+                <span>{caption}</span>
+              )}
+            </p>
+          )}
+        </div>
+        <div className="search-container__buttons">
+          <PrimaryButton {...searchButton} iconPosition="left" icon={<SearchIcon />} />
+          <TextButton {...advancedSearchButton} />
+        </div>
       </div>
-      <div className="search-container__buttons">
-        <PrimaryButton {...searchButton} iconPosition="left" icon={<SearchIcon />} />
-        <TextButton {...advancedSearchButton} />
-      </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 export default SearchContainer;
