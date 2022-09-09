@@ -23,7 +23,7 @@ const BaseButton = (props: BaseButtonProps) => {
   const icon = props.icon
     ? React.cloneElement(props.icon, {
         className: classNames('button__icon', {
-          'button__icon--left': props.iconPosition == 'left',
+          'button__icon--left': props.iconPosition == 'left' || props.iconPosition == undefined,
           'button__icon--right': props.iconPosition == 'right'
         })
       })
@@ -43,7 +43,7 @@ const BaseButton = (props: BaseButtonProps) => {
       onClick={props.onClick}
       {...props.buttonElementProps}
     >
-      {props.iconPosition == 'left' && icon}
+      {(props.iconPosition == 'left' && icon) || (props.iconPosition == undefined && icon)}
       {props.label && <span>{props.label}</span>}
       {props.children && props.children}
       {props.iconPosition == 'right' && icon}

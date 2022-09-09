@@ -23,8 +23,8 @@ Default.args = {
   children: [<a href="/">english</a>, <a href="/">український</a>]
 };
 
-export const WithCustomIcon = Template.bind({});
-WithCustomIcon.args = {
+export const CustomArrowIcon = Template.bind({});
+CustomArrowIcon.args = {
   dropDownTitle: 'slovenčina',
   children: [<a href="/">english</a>, <a href="/">український</a>],
   arrowIcon: <ExpandMoreIcon width="1.5rem" height="1.5rem" />

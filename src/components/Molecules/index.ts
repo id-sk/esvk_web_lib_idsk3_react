@@ -2,6 +2,12 @@ export { default as EventCard, EventCardProps } from './EventCard';
 export { default as VerticalEventCard, VerticalEventCardProps } from './VerticalEventCard';
 export { default as NotificationCard, NotificationCardProps } from './NotificationCard';
 export { default as SecondaryNavigation, SecondaryNavProps } from './SecondaryNavigation';
+export {
+  default as HorizontalNavigation,
+  HorizontalNavigationItem,
+  HorizontalNavigationItemProps,
+  HorizontalNavigationGroup
+} from './HorizontalNavigation';
 export { default as InformationBanner, InformationBannerProps } from './InformationBanner';
 export { MenuMobile, MenuMobileProps } from './MenuMobile';
 export {
