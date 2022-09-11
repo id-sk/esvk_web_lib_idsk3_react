@@ -1167,7 +1167,7 @@
     }
 
     .pagination {
-        @apply flex items-center caption font-bold gap-2.5;
+        @apply flex flex-wrap items-center caption font-bold gap-2.5;
     }
     .pagination__button {
         @apply bg-white w-9 h-9 flex items-center justify-center border border-neutral-300 hover:border-neutral-600 rounded;

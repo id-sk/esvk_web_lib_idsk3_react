@@ -10,6 +10,7 @@ import {
 const Pagination = (props: ReactPaginateProps) => {
   return (
     <ReactPaginate
+      {...props}
       breakLabel="..."
       nextLabel={<RightIcon className="pagination__button-icon" />}
       previousLabel={<LeftIcon className="pagination__button-icon" />}
@@ -19,7 +20,6 @@ const Pagination = (props: ReactPaginateProps) => {
       nextLinkClassName="pagination__button"
       activeLinkClassName="pagination__button--active"
       breakLinkClassName="pagination__button-break"
-      {...props}
     />
   );
 };
