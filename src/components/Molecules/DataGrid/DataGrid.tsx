@@ -105,6 +105,7 @@ export interface DataGridProps extends React.AllHTMLAttributes<HTMLDivElement> {
   checkboxEverything?: boolean;
   onSelectAllCheck?: (checked: boolean) => void;
   headRow?: ReactNode;
+  hasUncheckIcon?: boolean;
 }
 
 function DataGrid({
@@ -136,6 +137,7 @@ function DataGrid({
             name="checkbox"
             checked={checked}
             onChange={handleSelectAllChange}
+            hasUncheckIcon={props.hasUncheckIcon}
             id={id ? id + '-checkbox-all' : undefined}
           />
         )}

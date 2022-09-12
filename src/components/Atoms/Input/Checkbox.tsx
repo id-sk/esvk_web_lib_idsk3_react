@@ -13,7 +13,7 @@ export interface CheckboxProps {
   children?: ReactNode;
   checked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  uncheckIcon?: boolean;
+  hasUncheckIcon?: boolean;
   id?: string;
 }
 const defaultCheckboxProps: CheckboxProps = {
@@ -56,7 +56,7 @@ const Checkbox = (props: CheckboxProps) => {
         className={inputClasses}
         id={props.id}
       />
-      {!!props.uncheckIcon ? (
+      {!!props.hasUncheckIcon ? (
         <IndeterminateCheckBoxIcon className={iconSizeClasses} />
       ) : (
         <CheckBoxIcon className={iconSizeClasses} />
