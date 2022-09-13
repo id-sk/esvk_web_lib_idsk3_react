@@ -333,10 +333,10 @@
         @apply right-0;
     }
     .dropdown__option {
-        @apply flex whitespace-nowrap first:mt-1 last:mb-1 px-5 py-3 hover:bg-neutral-100 focus:bg-neutral-100 active:font-bold active:text-blue-500;
+        @apply flex whitespace-nowrap first:mt-1 last:mb-1;
     }
-    .dropdown__option a {
-        @apply w-full;
+    .dropdown__option *:not(hr) {
+        @apply w-full px-5 py-3 hover:bg-neutral-100 focus:bg-neutral-100 active:font-bold active:text-blue-500;
     }
     .dropdown__options hr {
         @apply border-neutral-300 w-[200%] absolute -left-5 ;
