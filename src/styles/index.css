@@ -33,7 +33,7 @@
         @apply text-base leading-[1.75rem] tracking-[.5px];
     }
     .link-l, .link-m, .link-s, .link-caption {
-        @apply text-primary underline;
+        @apply text-primary underline active:font-bold hover:text-primary-dark hover:font-bold hover:decoration-[3px] visited:font-bold visited:text-blue-500 focus:font-bold;
     }
     .text-button {
         @apply text-base font-bold;
@@ -333,7 +333,7 @@
         @apply right-0;
     }
     .dropdown__option {
-        @apply flex my-5 whitespace-nowrap first:mb-0 only:mb-5 px-5;
+        @apply flex whitespace-nowrap first:mt-1 last:mb-1 px-5 py-3 hover:bg-neutral-100 focus:bg-neutral-100 active:font-bold active:text-blue-500;
     }
     .dropdown__option a {
         @apply w-full;
