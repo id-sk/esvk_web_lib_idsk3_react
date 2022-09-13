@@ -10,17 +10,17 @@ export default {
 
 const Template: ComponentStory<typeof Checkbox> = (args) => (
   <div>
-    <Checkbox {...args} id="1"></Checkbox>
-    <Checkbox {...args} id="2"></Checkbox>
-    <Checkbox {...args} id="3"></Checkbox>
-    <Checkbox {...args} id="4"></Checkbox>
+    <Checkbox {...args} id="1" />
+    <Checkbox {...args} id="2" />
+    <Checkbox {...args} id="3" />
+    <Checkbox {...args} id="4" />
   </div>
 );
 export const Default = Template.bind({});
 Default.args = {};
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  children: 'Text label'
+  label: 'Text label'
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -29,5 +29,5 @@ Disabled.args = {
 export const DisabledWithLabel = Template.bind({});
 DisabledWithLabel.args = {
   disabled: true,
-  children: 'Text label'
+  label: 'Text label'
 };

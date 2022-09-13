@@ -37,11 +37,11 @@ describe('Input', () => {
     expect(mockActionClick).toHaveBeenCalled();
   });
   test('renders the Checkbox component', () => {
-    render(<Checkbox name="name">Text label</Checkbox>);
+    render(<Checkbox name="name" label="Text label" />);
     expect(screen.getByText('Text label')).toBeDefined();
   });
   test('renders the RadioButton component', () => {
-    render(<RadioButton name="name">Text label</RadioButton>);
+    render(<RadioButton name="name" label="Text label" />);
     expect(screen.getByText('Text label')).toBeDefined();
   });
 });

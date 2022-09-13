@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { RadioButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
-import { RadioButtonGroup } from '../components/Atoms/Input/RadioButton';
+import { RadioButtonGroup } from '../components';
 
 export default {
   title: 'Atoms/RadioButton',
@@ -10,16 +10,16 @@ export default {
 } as ComponentMeta<typeof RadioButton>;
 const Template: ComponentStory<typeof RadioButton> = (args) => (
   <RadioButtonGroup>
-    <RadioButton {...args} id={'1'}></RadioButton>
-    <RadioButton {...args} id={'2'}></RadioButton>
-    <RadioButton {...args} id={'3'}></RadioButton>
+    <RadioButton {...args} id="1" />
+    <RadioButton {...args} id="2" />
+    <RadioButton {...args} id="3" />
   </RadioButtonGroup>
 );
 export const Default = Template.bind({});
 Default.args = {};
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  children: 'Text label'
+  label: 'Text label'
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -28,5 +28,5 @@ Disabled.args = {
 export const DisabledWithLabel = Template.bind({});
 DisabledWithLabel.args = {
   disabled: true,
-  children: 'Text label'
+  label: 'Text label'
 };
