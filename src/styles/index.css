@@ -69,7 +69,7 @@
         @apply py-4;
     }
     .accordion__icon {
-        @apply text-[1.875rem] w-[1.875rem] h-[1.875rem];
+        @apply flex-none text-[1.875rem] w-[1.875rem] h-[1.875rem];
     }
     .accordion__content {
         @apply hidden px-7 border-t border-neutral-300 pt-5 pb-10 text-body;
