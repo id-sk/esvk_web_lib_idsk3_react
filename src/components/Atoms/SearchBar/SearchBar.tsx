@@ -10,6 +10,8 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   openable?: boolean;
   fullWidth?: boolean;
   containerClassName?: string;
+  error?: boolean;
+  errorMsg?: string;
 }
 
 const SearchBar = ({
@@ -23,6 +25,8 @@ const SearchBar = ({
   buttonOnClick,
   id,
   style,
+  error,
+  errorMsg,
   ...props
 }: SearchBarProps) => {
   const [searchbarOpened, setSearchbarOpened] = useState<boolean>(false);
@@ -90,6 +94,7 @@ const SearchBar = ({
           {buttonLabel}
         </button>
       </div>
+      {error && !!errorMsg && <p className="input__caption--error">{errorMsg}</p>}
     </div>
   );
 };
