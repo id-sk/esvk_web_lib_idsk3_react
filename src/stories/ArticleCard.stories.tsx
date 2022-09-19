@@ -12,9 +12,20 @@ export default {
 
 const Template: ComponentStory<typeof ArticleCard> = (args) => <ArticleCard {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Horizontal = Template.bind({});
+Horizontal.args = {
   heading: <a href="/">Nadpis</a>,
+  date: new Date().getTime(),
+  tags: ['Lorem', 'ipsum', 'consectetur'],
+  featuredImg: <img src={placeholderImg} />,
+  children:
+    'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
+};
+
+export const Vertical = Template.bind({});
+Vertical.args = {
+  heading: <a href="/">Nadpis</a>,
+  layout: 'vertical',
   date: new Date().getTime(),
   tags: ['Lorem', 'ipsum', 'consectetur'],
   featuredImg: <img src={placeholderImg} />,
@@ -27,6 +38,15 @@ WithoutDate.args = {
   heading: <a href="/">Nadpis</a>,
   tags: ['Lorem', 'ipsum', 'consectetur'],
   featuredImg: <img src={placeholderImg} />,
+  children:
+    'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
+};
+
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  heading: <a href="/">Nadpis</a>,
+  date: new Date().getTime(),
+  tags: ['Lorem', 'ipsum', 'consectetur'],
   children:
     'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
 };

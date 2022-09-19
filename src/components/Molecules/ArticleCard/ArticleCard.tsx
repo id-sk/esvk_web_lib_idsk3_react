@@ -46,16 +46,18 @@ const ArticleCard = ({
     <AnchorCard
       className={classNames(
         'article_card',
-        { 'article-card--vertical': layout === 'vertical' },
+        { 'article-card--vertical': layout === 'vertical' && !!featuredImg },
         className
       )}
       layout={layout}
       grid={true}
       {...props}
     >
-      <div className={classNames('article-card__image-wrapper', imageWrapperClasses)}>
-        {featuredImg}
-      </div>
+      {featuredImg && (
+        <div className={classNames('article-card__image-wrapper', imageWrapperClasses)}>
+          {featuredImg}
+        </div>
+      )}
       <div className="flex-1">
         {!!date && datePosition === 'top' && (
           <p className="article-card__date-tags--top">{renderDateTags(date)}</p>
