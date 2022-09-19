@@ -227,6 +227,42 @@
     .checkbox > input[type="checkbox"]:checked ~ .checkbox-check {
         @apply opacity-100;
     }
+    .toggle__wrapper {
+        @apply flex items-center gap-2.5;
+    }
+    .toggle {
+        @apply relative inline-flex h-6 w-11 items-center rounded-full bg-neutral-700 hover:outline hover:outline-4 outline-blue-200;
+    }
+    .toggle--checked {
+        @apply bg-primary;
+    }
+    .toggle__dot {
+        @apply inline-block h-[1.3rem] w-[1.3rem] transform rounded-full bg-white transition translate-x-[0.13rem];
+    }
+    .toggle--disabled .toggle__dot {
+        @apply bg-neutral-500;
+    }
+    .toggle--checked .toggle__dot {
+        @apply translate-x-[1.4rem] bg-white;
+    }
+    .toggle--small {
+        @apply h-5 w-10;
+    }
+    .toggle--small .toggle__dot {
+        @apply h-[1.05rem] w-[1.05rem];
+    }
+    .toggle--checked.toggle--small .toggle__dot {
+        @apply translate-x-[1.3rem];
+    }
+    .toggle__label--large {
+        @apply text-lg;
+    }
+    .toggle--disabled {
+        @apply bg-neutral-300;
+    }
+    .toggle--disabled.toggle--checked {
+        @apply bg-blue-200;
+    }
 
     .data-grid-row {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;

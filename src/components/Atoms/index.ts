@@ -6,6 +6,8 @@ export {
   InputProps,
   Checkbox,
   CheckboxProps,
+  Toggle,
+  ToggleProps,
   RadioButton,
   RadioButtonGroup,
   RadioButtonProps,

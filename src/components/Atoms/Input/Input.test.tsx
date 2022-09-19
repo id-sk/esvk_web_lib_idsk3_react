@@ -2,9 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Input from './Input';
-import Checkbox from './Checkbox';
-import RadioButton from './RadioButton';
+import { Checkbox, Input, RadioButton, Toggle } from './index';
 
 describe('Input', () => {
   test('renders the Input component', () => {
@@ -42,6 +40,10 @@ describe('Input', () => {
   });
   test('renders the RadioButton component', () => {
     render(<RadioButton name="name" label="Text label" />);
+    expect(screen.getByText('Text label')).toBeDefined();
+  });
+  test('renders the toggle component', () => {
+    render(<Toggle label="Text label" />);
     expect(screen.getByText('Text label')).toBeDefined();
   });
 });
