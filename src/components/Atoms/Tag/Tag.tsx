@@ -7,6 +7,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   rightIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   variant?: 'default' | 'basic' | 'warning' | 'success' | 'attention';
   disabled?: boolean;
+  size?: 'small' | 'medium';
   interaction?: boolean;
   selected?: boolean;
 }
@@ -16,6 +17,7 @@ const Tag = ({
   label,
   rightIcon,
   className,
+  size = 'medium',
   disabled = false,
   interaction = false,
   selected = false,
@@ -34,7 +36,8 @@ const Tag = ({
           'tag--warning': variant === 'warning' && !disabled && !interaction,
           'tag--success': variant === 'success' && !disabled && !interaction,
           'tag--attention': variant === 'attention' && !disabled && !interaction,
-          'tag--selected': !disabled && selected
+          'tag--selected': !disabled && selected,
+          'tag--small': size == 'small'
         },
         className
       )}

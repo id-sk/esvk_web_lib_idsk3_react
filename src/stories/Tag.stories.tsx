@@ -10,9 +10,34 @@ export default {
 } as ComponentMeta<typeof Tag>;
 
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
-export const Default = Template.bind({});
-Default.args = {
-  label: 'Text'
+export const Static = Template.bind({});
+Static.args = {
+  label: 'Static tag'
+};
+
+export const Intractable = Template.bind({});
+Intractable.args = {
+  label: 'You can hover this',
+  interaction: true
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  label: 'Selected tag',
+  interaction: true,
+  selected: true
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Disabled',
+  disabled: true
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  label: 'Small tag',
+  size: 'small'
 };
 
 export const LeftIcon = Template.bind({});

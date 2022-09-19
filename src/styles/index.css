@@ -1117,7 +1117,10 @@
     }
 
     .tag {
-        @apply inline-flex gap-2.5 rounded-md px-2.5 py-1 text-body  items-center border;
+        @apply inline-flex gap-2.5 rounded-md px-3.5 py-1 text-body items-center border;
+    }
+    .tag--small {
+        @apply text-base tracking-[.5px];
     }
     .tag--disabled {
         @apply border-neutral-300 bg-white/70 text-neutral-600
