@@ -15,5 +15,6 @@ const Template: ComponentStory<typeof Feedback> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   yesButton: 'Áno',
-  noButton: 'Nie'
+  noButton: 'Nie',
+  reportButton: 'Nahlásiť chybu'
 };
