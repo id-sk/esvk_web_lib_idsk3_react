@@ -47,22 +47,28 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
       'radio-button__input--small hover:bg-transparent':
         props.inputSize === 'small' && props.disabled === true
     });
+    const labelClasses: string = classNames('radio-button', {
+      'radio-button__label': !props.disabled,
+      'radio-button__label--disabled': props.disabled === true
+    });
     return (
-      <label className={textSizeClasses}>
-        <input
-          type="radio"
-          ref={ref}
-          name={props.name}
-          disabled={props.disabled}
-          checked={props.checked}
-          className={inputClasses}
-          onChange={props.onChange}
-          {...props}
-        />
-        <RadioButtonCheckedIcon className={iconSizeClasses} />
-        <RadioButtonUncheckedIcon className={uncheckedIconSizeClasses} />
-        {props.label}
-      </label>
+      <div className="radio-button-container">
+        <label className={labelClasses}>
+          <input
+            type="radio"
+            ref={ref}
+            name={props.name}
+            disabled={props.disabled}
+            checked={props.checked}
+            className={inputClasses}
+            onChange={props.onChange}
+            {...props}
+          />
+          <RadioButtonCheckedIcon className={iconSizeClasses} />
+          <RadioButtonUncheckedIcon className={uncheckedIconSizeClasses} />
+        </label>
+        <div className={textSizeClasses}>{props.label}</div>
+      </div>
     );
   }
 );

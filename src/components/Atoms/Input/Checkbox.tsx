@@ -45,26 +45,32 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>((props: Check
     'checkbox__input--large-disabled': props.inputSize === 'large' && props.disabled === true,
     'checkbox__input--small-disabled': props.inputSize === 'small' && props.disabled === true
   });
+  const labelClasses: string = classNames('checkbox', {
+    checkbox__label: !props.disabled,
+    'checkbox__label--disabled': props.disabled === true
+  });
   return (
-    <label className={textSizeClasses}>
-      <input
-        ref={ref}
-        type="checkbox"
-        name={props.name}
-        checked={props.checked}
-        disabled={props.disabled}
-        onChange={props.onChange}
-        className={inputClasses}
-        {...props}
-      />
-      {!!props.hasUncheckIcon ? (
-        <IndeterminateCheckBoxIcon className={iconSizeClasses} />
-      ) : (
-        <CheckBoxIcon className={iconSizeClasses} />
-      )}
-      <CheckBoxOutlineBlankIcon className={uncheckedIconSizeClasses} />
-      {props.label}
-    </label>
+    <div className="checkbox-container">
+      <label className={labelClasses}>
+        <input
+          ref={ref}
+          type="checkbox"
+          name={props.name}
+          checked={props.checked}
+          disabled={props.disabled}
+          onChange={props.onChange}
+          className={inputClasses}
+          {...props}
+        />
+        {!!props.hasUncheckIcon ? (
+          <IndeterminateCheckBoxIcon className={iconSizeClasses} />
+        ) : (
+          <CheckBoxIcon className={iconSizeClasses} />
+        )}
+        <CheckBoxOutlineBlankIcon className={uncheckedIconSizeClasses} />
+      </label>
+      <div className={textSizeClasses}>{props.label}</div>
+    </div>
   );
 });
 

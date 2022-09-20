@@ -195,10 +195,10 @@
         @apply absolute checkbox-check opacity-0 ml-[0.125rem];
     }
     .checkbox__icon--large {
-        @apply w-7 h-7;
+        @apply w-7 h-7 rounded;
     }
     .checkbox__icon--small {
-        @apply w-6 h-6;
+        @apply w-6 h-6 rounded;
     }
     .checkbox__icon--small-disabled {
         @apply checkbox__icon--small text-neutral-600;
@@ -210,7 +210,7 @@
         @apply absolute ml-[0.125rem];
     }
     .checkbox__input {
-        @apply appearance-none hover:bg-neutral-600 rounded;
+        @apply appearance-none rounded;
     }
     .checkbox__input--large {
         @apply w-8 h-8;
@@ -219,14 +219,24 @@
         @apply w-7 h-7;
     }
     .checkbox__input--large-disabled {
-        @apply checkbox__input--large hover:bg-transparent;
+        @apply checkbox__input--large;
     }
     .checkbox__input--small-disabled {
-        @apply checkbox__input--small hover:bg-transparent;
+        @apply checkbox__input--small;
     }
     .checkbox > input[type="checkbox"]:checked ~ .checkbox-check {
         @apply opacity-100;
     }
+    .checkbox-container {
+        @apply flex items-center gap-[0.625rem];
+    }
+    .checkbox__label{
+        @apply hover:bg-neutral-600 rounded;
+    }
+    .checkbox__label--disabled{
+        @apply hover:bg-transparent rounded;
+    }
+
     .toggle__wrapper {
         @apply flex items-center gap-2.5;
     }
@@ -973,7 +983,7 @@
         @apply w-6 h-6 text-neutral-600;
     }
     .radio-button__input {
-        @apply appearance-none hover:bg-neutral-600 rounded-full;
+        @apply appearance-none;
     }
     .radio-button__input--large {
         @apply w-8 h-8;
@@ -989,6 +999,15 @@
     }
     .radio-button > input[type="radio"]:checked ~ .radio-check {
         @apply opacity-100;
+    }
+    .radio-button-container {
+        @apply flex items-center gap-[0.625rem];
+    }
+    .radio-button__label{
+        @apply hover:bg-neutral-600 rounded-full;
+    }
+    .radio-button__label--disabled{
+        @apply hover:bg-transparent rounded-full;
     }
 
     .secondary-button {
