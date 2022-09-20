@@ -537,7 +537,7 @@
         @apply relative inline-block;
     }
     .searchbar__button {
-        @apply absolute inset-0 left-auto bg-primary rounded-r-lg text-white flex items-center;
+        @apply absolute inset-0 left-auto bg-primary rounded-r-lg text-white flex items-center hover:ring hover:ring-offset-0 focus:outline-none focus:ring focus:ring-offset-0 disabled:ring-0 hover:ring-primary-dark focus:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
     }
     .searchbar__button--large {
         @apply  text-2xl px-4  gap-2;
@@ -799,8 +799,8 @@
     .navigation__dropdown-options {
         @apply px-0 w-full dm1:w-auto rounded-none dm1:rounded-md shadow-none dm1:shadow-medium relative dm1:absolute dm1:-left-2 top-0 dm1:top-3/4;
     }
-    .navigation__dropdown-options .dropdown__option {
-        @apply px-4 dm1:px-8 my-0 py-5 hover:bg-blue-100 hover:underline;
+    .navigation__dropdown-options .dropdown__option a {
+        @apply hover:bg-blue-100 hover:underline;
     }
     .navigation__link {
         @apply flex h-full w-full dm1:w-auto items-center border-y-4 border-transparent hover:bg-blue-100 relative;
