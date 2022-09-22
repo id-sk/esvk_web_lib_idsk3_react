@@ -33,7 +33,7 @@
         @apply text-base leading-[1.75rem] tracking-[.5px];
     }
     .link-l, .link-m, .link-s, .link-caption {
-        @apply text-primary underline active:font-bold hover:text-primary-dark hover:font-bold hover:decoration-[3px] visited:font-bold visited:text-blue-500 focus:font-bold;
+        @apply text-primary underline active:font-bold hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500 focus:font-bold;
     }
     .text-button {
         @apply text-base font-bold;
@@ -54,7 +54,7 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .accordion__title {
-        @apply flex items-center justify-between underline;
+        @apply flex items-center justify-between;
     }
     .accordion__subtitle {
         @apply block text-body-1 text-lg pt-2.5;
@@ -78,7 +78,7 @@
         @apply block;
     }
     .accordion__content-body {
-        @apply max-w-4xl;
+        @apply max-w-3xl;
     }
     .accordion__content-body--full-width {
         @apply max-w-none;
@@ -122,7 +122,7 @@
     }
 
     .article_card {
-        @apply gap-y-5;
+        @apply gap-y-5 max-w-3xl;
     }
     .article-card__date-tags {
         @apply text-neutral-700 text-body-1 pt-2.5;
@@ -152,7 +152,7 @@
         @apply flex items-center gap-2;
     }
     .breadcrumbs > a, .breadcrumbs > button {
-        @apply link-s text-black last:no-underline;
+        @apply link-s text-black last:no-underline visited:text-black;
     }
 
     .button__icon {
@@ -485,7 +485,7 @@
         @apply py-12 bg-neutral-100 border-t border-black/25 text-body-1;
     }
     .footer-container a {
-        @apply link-s text-black;
+        @apply link-s text-black visited:text-black;
     }
     .footer-container__content {
         @apply page-content;
@@ -1109,7 +1109,7 @@
         @apply border border-neutral-300 rounded-lg overflow-hidden;
     }
     .text-signpost {
-        @apply border-b border-neutral-400 pb-8 max-w-4xl;
+        @apply border-b border-neutral-400 pb-8 max-w-3xl;
     }
 
     .tab-bar {
@@ -1183,7 +1183,7 @@
 
     .tooltip::after {
         content: attr(data-tooltip);
-      }
+    }
     .tooltip {
         @apply relative w-fit;
     }
