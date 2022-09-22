@@ -917,6 +917,10 @@
         @apply link-s font-bold;
     }
 
+    .primary-button[type='button']:enabled:not(:active), .primary-button[type='reset']:enabled:not(:active), .primary-button[type='submit']:enabled:not(:active),
+    .secondary-button[type='button']:enabled:not(:active), .secondary-button[type='reset']:enabled:not(:active), .secondary-button[type='submit']:enabled:not(:active) {
+        @apply bg-primary;
+    }
     .primary-button {
         @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0 focus:outline-none focus:ring focus:ring-offset-0 disabled:ring-0;
     }
@@ -1262,11 +1266,6 @@
     }
     .pagination__button-break {
         @apply w-9 h-9 flex items-end justify-center;
-    }
-
-    .primary-button[type='button']:enabled, .primary-button[type='reset']:enabled, .primary-button[type='submit']:enabled,
-    .secondary-button[type='button']:enabled, .secondary-button[type='reset']:enabled, .secondary-button[type='submit']:enabled {
-        @apply bg-primary;
     }
 
 }
