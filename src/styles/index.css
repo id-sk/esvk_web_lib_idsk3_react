@@ -145,7 +145,19 @@
     }
 
     .avatar-circle {
-        @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1;
+        @apply flex items-center gap-2.5;
+    }
+    .avatar-circle__circle {
+        @apply flex items-center justify-center bg-black rounded-full h-10 w-10 text-white text-body-1 overflow-hidden;
+    }
+    .avatar-circle--custom-content {
+        @apply text-2xl;
+    }
+    .avatar-circle__text {
+        @apply flex flex-col;
+    }
+    .avatar-circle__text__caption {
+        @apply caption text-neutral-600;
     }
 
     .breadcrumbs {
@@ -480,7 +492,7 @@
     .feedback__report-button {
         @apply truncate;
     }
-    
+
     .footer-container {
         @apply py-12 bg-neutral-100 border-t border-black/25 text-body-1;
     }
@@ -546,6 +558,9 @@
     }
     .identification-card__identification {
         @apply text-body-1 text-neutral-600 mb-5;
+    }
+    .identification-card__avatar {
+        @apply h-12 w-12 mb-5;
     }
 
     .searchbar__wrapper {
