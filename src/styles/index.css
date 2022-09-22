@@ -410,8 +410,23 @@
     .information-banner {
         @apply pl-4 pr-2 tb1:px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
     }
+    .information-banner__wrapper {
+        @apply flex items-center justify-between w-full;
+    }
+    .information-banner__base-button {
+        @apply p-1 pl-3 pr-0 hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
+    }
+    .information-announcement {
+        @apply pr-2 py-5 items-center relative overflow-hidden rounded;
+    }
+    .information-announcement__wrapper {
+        @apply flex items-center page-content;
+    }
     .information-banner__icon {
         @apply text-center mr-4 text-2xl flex-none;
+    }
+    .information-banner__title-wrapper {
+        @apply flex-grow-[2];
     }
     .information-banner__title {
         @apply font-bold text-base;

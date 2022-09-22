@@ -3,7 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PageLayout } from '../components/Templates';
 import '/src/styles/idsk3_theme.css';
 
-import { EventCard, Navigation, SecondaryNavigation } from '../components/Molecules';
+import {
+  EventCard,
+  InformationBanner,
+  Navigation,
+  SecondaryNavigation
+} from '../components/Molecules';
 import {
   AvatarCircle,
   Breadcrumbs,
@@ -34,6 +39,17 @@ export default {
     layout: 'fullscreen'
   }
 } as ComponentMeta<typeof PageLayout>;
+
+const informationBanner = (
+  <InformationBanner icon={<InfoIcon />} title="Oznam" variant="warning" type="announcement">
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry
+      <a href="#" className="link-s block">
+        Viac informácií
+      </a>
+    </p>
+  </InformationBanner>
+);
 
 const breadcrumbs = (
   <Breadcrumbs>
@@ -204,7 +220,6 @@ const Header = () => {
     </>
   );
 };
-
 const logoFooter = require('./images/logo-footer.svg');
 
 const pageFooter = (
@@ -291,6 +306,7 @@ Default.args = {
   heading: titleSection,
   header: <Header />,
   footer: pageFooter,
+  informationBanner: informationBanner,
   breadcrumbs: breadcrumbs
 };
 

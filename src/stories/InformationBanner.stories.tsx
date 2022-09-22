@@ -144,3 +144,18 @@ WithoutTitle.args = {
   variant: 'alert',
   children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
 };
+export const InformationAnnouncement = Template.bind({});
+InformationAnnouncement.args = {
+  icon: <InfoIcon />,
+  title: 'Oznam',
+  variant: 'alert',
+  type: 'announcement',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry
+      <a href="#" className="link-s block">
+        Viac informácií
+      </a>
+    </p>
+  )
+};
