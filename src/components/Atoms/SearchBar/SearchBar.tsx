@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import classNames from 'classnames';
 import { SearchIcon } from '../../../svgIcons/Actions';
 import IconLink from '../IconLink';
 
 export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  buttonLabel?: string;
+  buttonLabel?: string | ReactNode;
+  buttonDisabled?: boolean;
   buttonOnClick?: React.MouseEventHandler<HTMLButtonElement>;
   searchbarSize?: 'large' | 'medium' | 'small';
   openable?: boolean;
@@ -16,6 +17,7 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
 
 const SearchBar = ({
   buttonLabel,
+  buttonDisabled,
   placeholder,
   searchbarSize = 'large',
   openable = false,
@@ -87,6 +89,7 @@ const SearchBar = ({
         <button
           onClick={buttonOnClick}
           className={buttonClasses}
+          disabled={buttonDisabled}
           ref={buttonRef}
           id={id ? id + '-button' : undefined}
         >
