@@ -11,6 +11,7 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   openable?: boolean;
   fullWidth?: boolean;
   containerClassName?: string;
+  wrapperClassName?: string;
   error?: boolean;
   errorMsg?: string;
 }
@@ -23,6 +24,7 @@ const SearchBar = ({
   openable = false,
   fullWidth = false,
   containerClassName,
+  wrapperClassName,
   className,
   buttonOnClick,
   id,
@@ -53,11 +55,14 @@ const SearchBar = ({
     'searchbar__icon--medium': searchbarSize === 'medium',
     'searchbar__icon--small': searchbarSize === 'small'
   });
-  const contentClasses = classNames({
-    relative: fullWidth,
-    searchbar__wrapper: !fullWidth,
-    hidden: openable && !searchbarOpened
-  });
+  const contentClasses = classNames(
+    {
+      relative: fullWidth,
+      searchbar__wrapper: !fullWidth,
+      hidden: openable && !searchbarOpened
+    },
+    wrapperClassName
+  );
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const [rightPadding, setRightPadding] = useState<number | undefined>();
