@@ -128,11 +128,11 @@
         @apply gap-y-5 max-w-3xl;
     }
     .article-card__date-tags {
-        @apply text-neutral-700 text-body-1 pt-2.5;
+        @apply text-neutral-600 text-body-1 pt-2.5 leading-6;
         word-spacing: 0.5rem;
     }
     .article-card__date-tags--top {
-        @apply text-neutral-700 text-body-1 pb-2.5;
+        @apply text-neutral-600 text-body-1 pb-2.5 leading-6;
     }
     .article-card__image-wrapper {
         @apply overflow-hidden relative aspect-[3/2];
@@ -168,7 +168,7 @@
     }
     .breadcrumbs > a, .breadcrumbs > button {
         @apply link-s text-black last:no-underline visited:text-black;
-    } 
+    }
 
     .button__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
