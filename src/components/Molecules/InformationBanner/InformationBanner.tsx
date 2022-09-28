@@ -35,16 +35,17 @@ const InformationBanner = ({
   // define close button by variant style
   const closeButton = (
     <BaseButton
-      icon={<CloseIcon />}
       onClick={closeButtonOnClick || (() => setVisibility(false))}
       iconPosition={'left'}
       className={classNames('information-banner__base-button', {
-        'text-alert-positive': variant == 'success',
-        'text-blue-500': variant == 'information',
-        'text-alert-attention-dark': variant == 'alert',
-        'text-alert-warning-dark': variant == 'warning'
+        'information-banner__base-button--positive': variant == 'success',
+        'information-banner__base-button--primary': variant == 'information',
+        'information-banner__base-button--attention': variant == 'alert',
+        'information-banner__base-button--warning': variant == 'warning'
       })}
-    />
+    >
+      <CloseIcon className="information-banner__base-button-icon" />
+    </BaseButton>
   );
   const infoClasses = classNames(
     { 'information-banner': props.type == 'banner' },
@@ -87,7 +88,12 @@ const InformationBanner = ({
 
         {!!icon &&
           React.cloneElement(icon, {
-            className: classNames('information-banner__icon', icon.props.className)
+            className: classNames('information-banner__icon', icon.props.className, {
+              'information-banner__icon--primary': variant == 'information',
+              'information-banner__icon--attention': variant == 'alert',
+              'information-banner__icon--warning': variant == 'warning',
+              'information-banner__icon--positive': variant == 'success'
+            })
           })}
         <div className="information-banner__title-wrapper">
           {!!title && (
@@ -112,8 +118,9 @@ const InformationBanner = ({
             </div>
           )}
         </div>
-
-        <div>{actionButton || (!hideCloseButton && closeButton)}</div>
+        <div className="information-banner__close-button">
+          {actionButton || (!hideCloseButton && closeButton)}
+        </div>
       </div>
     </div>
   ) : null;

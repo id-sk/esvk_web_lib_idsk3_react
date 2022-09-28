@@ -29,8 +29,11 @@
     .text-body, .link-m {
         @apply text-[1.1875rem] leading-[1.75rem] tracking-[.5px];
     }
-    .text-body-1, .link-s {
-        @apply text-base leading-[1.75rem] tracking-[.5px];
+    .text-body-1 {
+        @apply text-base tracking-[.5px];
+    }
+    .link-s {
+        @apply text-base leading-[1.75rem];
     }
     .link-l, .link-m, .link-s, .link-caption {
         @apply text-primary underline active:font-bold hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500 focus:font-bold;
@@ -165,7 +168,7 @@
     }
     .breadcrumbs > a, .breadcrumbs > button {
         @apply link-s text-black last:no-underline visited:text-black;
-    }
+    } 
 
     .button__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
@@ -179,6 +182,7 @@
     .button--w-full {
         @apply w-full;
     }
+
 
     .card-wrapper {
         @apply relative rounded-[0.625rem] bg-white overflow-hidden text-body-1 border border-neutral-300;
@@ -426,7 +430,10 @@
         @apply flex items-center justify-between w-full;
     }
     .information-banner__base-button {
-        @apply p-1 pl-3 pr-0 hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
+        @apply hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
+    }
+    .information-banner__base-button-icon {
+        @apply w-6 h-6;
     }
     .information-announcement {
         @apply pr-2 py-5 items-center relative overflow-hidden rounded;
@@ -437,17 +444,29 @@
     .information-banner__icon {
         @apply text-center mr-4 text-2xl flex-none;
     }
+    .information-banner__icon--primary {
+        @apply text-primary;
+    }
+    .information-banner__icon--warning {
+        @apply text-alert-warning;
+    }
+    .information-banner__icon--attention {
+        @apply text-alert-attention;
+    }
+    .information-banner__icon--positive {
+        @apply text-alert-positive;
+    }
     .information-banner__title-wrapper {
         @apply flex-grow-[2];
     }
     .information-banner__title {
-        @apply font-bold text-base;
+        @apply font-bold text-body-1;
     }
     .information-banner__description {
         @apply text-body-1;
     }
     .information-banner__description--without-title {
-        @apply text-body;
+        @apply text-body-1;
     }
     .information-banner__color-strip {
         @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
@@ -456,18 +475,33 @@
         @apply text-primary bg-blue-100 border-primary;
     }
     .information-banner--information .information-banner__description {
-        @apply text-blue-500;
+        @apply text-blue-600;
     }
     .information-banner--success {
-        @apply text-alert-positive bg-alert-positive-light border-alert-positive;
+        @apply text-alert-positive-dark bg-alert-positive-light border-alert-positive;
     }
     .information-banner--alert {
-        @apply text-alert-attention bg-alert-attention-light border-alert-attention;
+        @apply text-alert-attention-dark bg-alert-attention-light border-alert-attention;
     }
     .information-banner--warning {
-        @apply text-alert-warning bg-alert-warning-light border-alert-warning;
+        @apply text-alert-warning-dark bg-alert-warning-light border-alert-warning;
+    }
+    .information-banner__close-button {
+        @apply ml-4 flex justify-center;
+    }
+    .information-banner__base-button--positive {
+        @apply text-alert-positive;
+    }
+    .information-banner__base-button--primary {
+        @apply text-blue-400;
+    }
+    .information-banner__base-button--attention {
+        @apply text-alert-attention;
     }
 
+    .information-banner__base-button--warning {
+        @apply text-alert-warning;
+    }
     .feedback {
         @apply bg-blue-600 text-white items-center py-2.5 text-body-1 font-bold;
     }

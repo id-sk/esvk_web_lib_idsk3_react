@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InformationBanner } from '../components/Molecules';
 import '/src/styles/idsk3_theme.css';
-import { InfoIcon } from '../svgIcons/Actions';
+import { InfoIcon, CheckCircleIcon } from '../svgIcons/Actions';
+import { WarningIcon } from '../svgIcons/Alert';
 import { TextButton } from '../components';
 
 export default {
@@ -31,7 +32,7 @@ Information.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-  icon: <InfoIcon />,
+  icon: <WarningIcon />,
   title: 'Oznam',
   variant: 'warning',
   children: (
@@ -61,7 +62,7 @@ Alert.args = {
 
 export const Success = Template.bind({});
 Success.args = {
-  icon: <InfoIcon />,
+  icon: <CheckCircleIcon />,
   title: 'Oznam',
   variant: 'success',
   children: (
@@ -92,7 +93,7 @@ InformationActionButton.args = {
 
 export const WarningActionButton = Template.bind({});
 WarningActionButton.args = {
-  icon: <InfoIcon />,
+  icon: <WarningIcon />,
   title: 'Oznam',
   variant: 'warning',
   children: (
@@ -124,7 +125,7 @@ AlertActionButton.args = {
 
 export const SuccessActionButton = Template.bind({});
 SuccessActionButton.args = {
-  icon: <InfoIcon />,
+  icon: <CheckCircleIcon />,
   title: 'Oznam',
   variant: 'success',
   children: (
@@ -144,11 +145,55 @@ WithoutTitle.args = {
   variant: 'alert',
   children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
 };
-export const InformationAnnouncement = Template.bind({});
-InformationAnnouncement.args = {
+export const InformationAnnouncementInformation = Template.bind({});
+InformationAnnouncementInformation.args = {
+  icon: <InfoIcon />,
+  title: 'Oznam',
+  variant: 'information',
+  type: 'announcement',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry
+      <a href="#" className="link-s block">
+        Viac informácií
+      </a>
+    </p>
+  )
+};
+export const WarningInformationAnnouncement = Template.bind({});
+WarningInformationAnnouncement.args = {
+  icon: <WarningIcon />,
+  title: 'Oznam',
+  variant: 'warning',
+  type: 'announcement',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry
+      <a href="#" className="link-s block">
+        Viac informácií
+      </a>
+    </p>
+  )
+};
+export const AlertInformationAnnouncement = Template.bind({});
+AlertInformationAnnouncement.args = {
   icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'alert',
+  type: 'announcement',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry
+      <a href="#" className="link-s block">
+        Viac informácií
+      </a>
+    </p>
+  )
+};
+export const InformationAnnouncementWithoutTitle = Template.bind({});
+InformationAnnouncementWithoutTitle.args = {
+  icon: <InfoIcon />,
+  variant: 'information',
   type: 'announcement',
   children: (
     <p>
