@@ -36,7 +36,7 @@
         @apply text-base leading-[1.75rem];
     }
     .link-l, .link-m, .link-s, .link-caption {
-        @apply text-primary underline active:font-bold hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500 focus:font-bold;
+        @apply py-[3px] px-[2px] text-primary underline hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500 focus:ring focus:ring-offset-0 focus:ring-focus-state focus:rounded-md;
     }
     .text-button {
         @apply text-base font-bold;
