@@ -111,7 +111,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               placeholder={placeholder}
               onChange={onChange}
               aria-invalid={error}
-              aria-errormessage={idForAria}
+              aria-errormessage={props.id ?? idForAria}
               style={{
                 paddingRight: !!rightPadding ? rightPadding + 'px' : undefined
               }}
@@ -137,7 +137,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             })}
           >
             {error && !!errorMsg && !disabled ? (
-              <span id={idForAria} role="alert">
+              <span id={props.id ?? idForAria} role="alert">
                 {errorMsg}
               </span>
             ) : (

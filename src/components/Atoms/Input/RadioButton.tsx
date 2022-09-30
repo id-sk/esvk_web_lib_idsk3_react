@@ -8,48 +8,36 @@ export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputEle
   name?: string;
   label?: ReactNode;
   checked?: boolean;
-  onChange?: () => void;
-  onChangeAll?: () => void;
+  onChange?: (event?: React.ChangeEvent) => void;
 }
 
-const defaultRadioProps: RadioButtonProps = {
-  name: 'name',
-  inputSize: 'large',
-  disabled: false
-};
-
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
-  (props: RadioButtonProps, ref) => {
-    props = { ...defaultRadioProps, ...props };
+  ({ name = 'name', inputSize = 'large', disabled = false, ...props }: RadioButtonProps, ref) => {
     const textSizeClasses = classNames('radio-button', {
-      'radio-button--large': props.inputSize === 'large',
-      'radio-button--small': props.inputSize === 'small'
+      'radio-button--large': inputSize === 'large',
+      'radio-button--small': inputSize === 'small'
     });
     const iconSizeClasses = classNames('radio-button__icon', {
-      'radio-button__icon--large': props.inputSize === 'large',
-      'radio-button__icon--small': props.inputSize === 'small',
-      'radio-button__icon--large-disabled': props.inputSize === 'large' && props.disabled === true,
-      'radio-button__icon--small-disabled': props.inputSize === 'small' && props.disabled === true
+      'radio-button__icon--large': inputSize === 'large',
+      'radio-button__icon--small': inputSize === 'small',
+      'radio-button__icon--large-disabled': inputSize === 'large' && disabled === true,
+      'radio-button__icon--small-disabled': inputSize === 'small' && disabled === true
     });
     const uncheckedIconSizeClasses = classNames('radio-button__unchecked-icon', {
-      'radio-button__icon--large': props.inputSize === 'large',
-      'radio-button__icon--small': props.inputSize === 'small',
-      'radio-button__unchecked-icon--large-disabled':
-        props.inputSize === 'large' && props.disabled === true,
-      'radio-button__unchecked-icon--small-disabled':
-        props.inputSize === 'small' && props.disabled === true
+      'radio-button__icon--large': inputSize === 'large',
+      'radio-button__icon--small': inputSize === 'small',
+      'radio-button__unchecked-icon--large-disabled': inputSize === 'large' && disabled === true,
+      'radio-button__unchecked-icon--small-disabled': inputSize === 'small' && disabled === true
     });
     const inputClasses = classNames('radio-button__input', {
-      'radio-button__input--large': props.inputSize === 'large',
-      'radio-button__input--small': props.inputSize === 'small',
-      'radio-button__input--large hover:bg-transparent':
-        props.inputSize === 'large' && props.disabled === true,
-      'radio-button__input--small hover:bg-transparent':
-        props.inputSize === 'small' && props.disabled === true
+      'radio-button__input--large': inputSize === 'large',
+      'radio-button__input--small': inputSize === 'small',
+      'radio-button__input--large hover:bg-transparent': inputSize === 'large' && disabled === true,
+      'radio-button__input--small hover:bg-transparent': inputSize === 'small' && disabled === true
     });
     const labelClasses: string = classNames('radio-button', {
-      'radio-button__label': !props.disabled,
-      'radio-button__label--disabled': props.disabled === true
+      'radio-button__label': !disabled,
+      'radio-button__label--disabled': disabled === true
     });
     return (
       <div className="radio-button-container">
@@ -57,8 +45,8 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           <input
             type="radio"
             ref={ref}
-            name={props.name}
-            disabled={props.disabled}
+            name={name}
+            disabled={disabled}
             checked={props.checked}
             className={inputClasses}
             onChange={props.onChange}
@@ -73,17 +61,19 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   }
 );
 
-export function RadioButtonGroup({ children, ...props }: RadioButtonProps) {
+export interface RadioButtonGroupProps extends React.AllHTMLAttributes<HTMLDivElement> {
+  onChangeAll?: (event?: React.ChangeEvent) => void;
+}
+
+export function RadioButtonGroup({ children, onChangeAll, ...props }: RadioButtonGroupProps) {
   const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child);
+      return !!onChangeAll
+        ? React.cloneElement(child, { onChange: onChangeAll })
+        : React.cloneElement(child);
     }
   });
-  return (
-    <div {...props} onChange={props.onChangeAll}>
-      {renderedChildren}
-    </div>
-  );
+  return <div {...props}>{renderedChildren}</div>;
 }
 
 export default RadioButton;

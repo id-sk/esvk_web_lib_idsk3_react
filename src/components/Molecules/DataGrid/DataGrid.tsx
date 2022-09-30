@@ -116,14 +116,13 @@ function DataGrid({
   headRow,
   className,
   checkboxEverything,
+  hasUncheckIcon,
   id,
   ...props
 }: DataGridProps) {
   const renderedChildren = Children.map<ReactNode, ReactNode>(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, {
-        inGroup: true
-      });
+      return React.cloneElement(child);
     }
   });
   const handleSelectAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,7 +136,7 @@ function DataGrid({
             name="checkbox"
             checked={checked}
             onChange={handleSelectAllChange}
-            hasUncheckIcon={props.hasUncheckIcon}
+            hasUncheckIcon={hasUncheckIcon}
             id={id ? id + '-checkbox-all' : undefined}
           />
         )}
