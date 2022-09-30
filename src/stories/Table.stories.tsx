@@ -27,7 +27,9 @@ Default.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
@@ -46,7 +48,9 @@ Default.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
@@ -83,7 +87,9 @@ HeadingAndAction.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
@@ -102,7 +108,9 @@ HeadingAndAction.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
@@ -129,7 +137,9 @@ OnlyRows.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
@@ -148,7 +158,9 @@ OnlyRows.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m">Príloha.pdf</a>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>

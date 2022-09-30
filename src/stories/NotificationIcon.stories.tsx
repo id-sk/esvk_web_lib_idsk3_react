@@ -12,7 +12,10 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof NotificationIcon> = (args) => <NotificationIcon {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const NotAlerted = Template.bind({});
+NotAlerted.args = {};
+
+export const Alerted = Template.bind({});
+Alerted.args = {
   alert: true
 };

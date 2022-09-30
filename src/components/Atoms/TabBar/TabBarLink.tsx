@@ -14,11 +14,9 @@ const TabBarLink = React.forwardRef<HTMLAnchorElement, TabBarLinkProps>(
       'tab-bar__link--clicked': selected
     });
     return (
-      <span className={linkClasses}>
-        <a ref={ref} href={href} onClick={onClick}>
-          {children}
-        </a>
-      </span>
+      <a ref={ref} href={href} onClick={onClick} className={linkClasses}>
+        {children}
+      </a>
     );
   }
 );

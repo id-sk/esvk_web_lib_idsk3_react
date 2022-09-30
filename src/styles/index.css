@@ -36,13 +36,17 @@
         @apply text-base leading-[1.75rem];
     }
     .link-l, .link-m, .link-s, .link-caption {
-        @apply py-[3px] px-[2px] text-primary underline hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500 focus:ring focus:ring-offset-0 focus:ring-focus-state focus:rounded-md;
+        @apply py-[3px] px-[2px] text-primary underline hover:text-primary-dark hover:decoration-[3px] visited:text-blue-500;
     }
     .text-button {
         @apply text-base font-bold;
     }
     .link-l, .link-m, .link-s, .text-button {
         @apply tracking-[.5px];
+    }
+    /* Focusable elements */
+    .focusable, button, a, input, select, textarea {
+        @apply rounded focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus-state focus-visible:z-10;
     }
 }
 
@@ -57,7 +61,7 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .accordion__title {
-        @apply flex items-center justify-between;
+        @apply flex items-center justify-between underline;
     }
     .accordion__subtitle {
         @apply block text-body-1 text-lg pt-2.5;
@@ -66,7 +70,7 @@
         @apply pt-1.5;
     }
     .accordion__button {
-        @apply w-full p-7 text-left;
+        @apply w-full p-7 text-left cursor-pointer;
     }
     .accordion--small .accordion__button {
         @apply py-4;
@@ -112,10 +116,10 @@
         @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]
     }
     .anchor-card__heading {
-        @apply flex items-center link-l font-bold pb-2.5 cursor-pointer;
+        @apply link-l font-bold cursor-pointer;
     }
     .anchor-card__description {
-        @apply text-body text-ellipsis overflow-hidden;
+        @apply text-body text-ellipsis overflow-hidden mt-2.5;
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
@@ -183,7 +187,6 @@
         @apply w-full;
     }
 
-
     .card-wrapper {
         @apply relative rounded-[0.625rem] bg-white overflow-hidden text-body-1 border border-neutral-300;
     }
@@ -226,7 +229,7 @@
         @apply absolute ml-[0.125rem];
     }
     .checkbox__input {
-        @apply appearance-none rounded;
+        @apply appearance-none rounded focus-visible:outline-offset-[-3px] focus-visible:rounded-lg;
     }
     .checkbox__input--large {
         @apply w-8 h-8;
@@ -246,10 +249,10 @@
     .checkbox-container {
         @apply flex items-center gap-[0.625rem];
     }
-    .checkbox__label{
+    .checkbox__label {
         @apply hover:bg-neutral-600 rounded;
     }
-    .checkbox__label--disabled{
+    .checkbox__label--disabled {
         @apply hover:bg-transparent rounded;
     }
 
@@ -389,7 +392,7 @@
         @apply relative inline-block;
     }
     .dropdown__options {
-        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black overflow-hidden z-10;
+        @apply absolute top-full rounded-md bg-white shadow-medium text-body-1 text-black z-10;
     }
     .dropdown__options--left {
         @apply right-0;
@@ -398,10 +401,10 @@
         @apply flex whitespace-nowrap first:mt-1 last:mb-1;
     }
     .dropdown__option *:not(hr) {
-        @apply w-full px-5 py-3 hover:bg-neutral-100 focus:bg-neutral-100 active:font-bold active:text-blue-500;
+        @apply w-full px-5 py-3 hover:bg-neutral-100 active:font-bold active:text-blue-500;
     }
     .dropdown__options hr {
-        @apply border-neutral-300 w-[200%] absolute -left-5 ;
+        @apply border-neutral-300 w-[100%] absolute left-0 right-0;
     }
     .dropdown__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
@@ -552,7 +555,7 @@
         @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5;
     }
     .footer-container__logo-wrapper {
-        @apply mt-8;
+        @apply mt-8 flex;
     }
 
     .header-container {
@@ -578,7 +581,7 @@
     }
 
     .icon-link {
-        @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-500 cursor-pointer;
+        @apply w-10 h-10 rounded-full hover:bg-blue-100 flex items-center justify-center text-blue-500 cursor-pointer text-2xl focus:ring-offset-0;
     }
     .icon-link--active {
         @apply bg-blue-100;
@@ -598,19 +601,19 @@
     }
 
     .searchbar__wrapper {
-        @apply relative inline-block;
+        @apply relative inline-block flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
     }
     .searchbar__button {
-        @apply absolute inset-0 left-auto bg-primary rounded-r-lg text-white flex items-center hover:ring hover:ring-offset-0 focus:outline-none focus:ring focus:ring-offset-0 disabled:ring-0 hover:ring-primary-dark focus:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
+        @apply bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
     }
     .searchbar__button--large {
-        @apply  text-2xl px-4  gap-2;
+        @apply text-2xl px-4  gap-2;
     }
     .searchbar__button--medium {
-        @apply  text-xl px-3.5  gap-1.5;
+        @apply text-xl px-3.5  gap-1.5;
     }
     .searchbar__button--small {
-        @apply  text-base px-3  gap-1;
+        @apply text-base px-3  gap-1;
     }
     .searchbar__icon--large {
         @apply text-[2rem] w-[2rem] h-[2rem];
@@ -623,10 +626,13 @@
     }
 
     .input, .searchbar {
-        @apply bg-white px-4 text-black placeholder:text-neutral-600 border outline-1 outline-none outline-offset-0 rounded-lg hover:shadow-border hover:shadow-neutral-600 focus:shadow-border focus:shadow-neutral-600 disabled:text-neutral-600 disabled:border-neutral-400 disabled:shadow-none disabled:outline-transparent outline-black border-black focus:outline-black focus:border-black placeholder-shown:border-neutral-800 placeholder-shown:outline-transparent;
+        @apply bg-white px-4 text-black placeholder:text-neutral-600 border-2 outline-1 rounded-lg hover:shadow-border hover:shadow-neutral-600 disabled:text-neutral-600 disabled:border-neutral-400 disabled:shadow-none disabled:outline-transparent outline-black border-black placeholder-shown:border-neutral-800;
+    }
+    .searchbar {
+        @apply rounded-r-none border-r-0 hover:shadow-none;
     }
     .input--error {
-        @apply border-alert-warning outline-alert-warning focus:border-alert-warning focus:outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
+        @apply border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
     }
     .input--large, .searchbar--large {
         @apply text-body h-12;
@@ -736,19 +742,19 @@
     }
 
     .link-button {
-        @apply flex justify-center items-center bg-none rounded-md text-button underline active:ring-0 hover:ring-1 hover:ring-offset-0 focus:outline-none focus:ring-1 focus:ring-offset-0;
+        @apply flex justify-center items-center bg-none rounded-md text-button underline active:ring-0 hover:ring-1 hover:ring-offset-0;
     }
     .link-button--basic {
-        @apply text-primary hover:ring-primary focus:ring-primary active:text-primary-dark disabled:text-neutral-600 disabled:ring-0;
+        @apply text-primary hover:ring-primary active:text-primary-dark disabled:text-neutral-600 disabled:ring-0;
     }
     .link-button--success {
-        @apply text-alert-positive hover:ring-alert-positive focus:ring-alert-positive active:text-alert-positive-dark disabled:text-neutral-600 disabled:ring-0;
+        @apply text-alert-positive hover:ring-alert-positive active:text-alert-positive-dark disabled:text-neutral-600 disabled:ring-0;
     }
     .link-button--warning {
-        @apply text-alert-warning hover:ring-alert-warning focus:ring-alert-warning active:text-alert-warning-dark disabled:text-neutral-600 disabled:ring-0;
+        @apply text-alert-warning hover:ring-alert-warning active:text-alert-warning-dark disabled:text-neutral-600 disabled:ring-0;
     }
     .link-button--contrast {
-        @apply text-primary hover:ring-primary focus:ring-primary active:text-blue-300 disabled:text-neutral-600 disabled:ring-0;
+        @apply text-primary hover:ring-primary active:text-blue-300 disabled:text-neutral-600 disabled:ring-0;
     }
     .link-button--medium {
         @apply py-2 px-4;
@@ -971,16 +977,16 @@
         @apply bg-primary;
     }
     .primary-button {
-        @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0 focus:outline-none focus:ring focus:ring-offset-0 disabled:ring-0;
+        @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0;
     }
     .primary-button--basic {
-        @apply bg-primary hover:ring-primary-dark focus:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
+        @apply bg-primary hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
     }
     .primary-button--success {
-        @apply bg-alert-positive hover:ring-alert-positive-dark focus:ring-alert-positive-dark active:bg-alert-positive-dark disabled:bg-neutral-500;
+        @apply bg-alert-positive hover:ring-alert-positive-dark active:bg-alert-positive-dark disabled:bg-neutral-500;
     }
     .primary-button--warning {
-        @apply bg-alert-warning hover:ring-alert-warning-dark focus:ring-alert-warning-dark active:bg-alert-warning-dark disabled:bg-neutral-500;
+        @apply bg-alert-warning hover:ring-alert-warning-dark active:bg-alert-warning-dark disabled:bg-neutral-500;
     }
     .primary-button--medium {
         @apply py-2 px-4;
@@ -1079,22 +1085,22 @@
     }
 
     .secondary-button {
-        @apply flex justify-center items-center rounded-md border-2 text-button active:ring-1 active:ring-offset-0 hover:ring-1 hover:ring-offset-0 focus:outline-none focus:ring-1 focus:ring-offset-0 disabled:bg-neutral-100 disabled:text-neutral-600;
+        @apply flex justify-center items-center rounded-md border-2 text-button active:ring-1 active:ring-offset-0 hover:ring-1 hover:ring-offset-0 disabled:bg-neutral-100 disabled:text-neutral-600;
     }
     .secondary-button--basic {
-        @apply text-primary-dark bg-blue-100 border-blue-400 hover:ring-blue-400 focus:ring-blue-400 active:border-primary-dark active:ring-primary-dark disabled:border-neutral-500 disabled:ring-0;
+        @apply text-primary-dark bg-blue-100 border-blue-400 hover:ring-blue-400 active:border-primary-dark active:ring-primary-dark disabled:border-neutral-500 disabled:ring-0;
     }
     .secondary-button--success {
-        @apply text-alert-positive-dark bg-alert-positive-light border-alert-positive hover:ring-alert-positive focus:ring-alert-positive active:border-alert-positive-dark active:ring-alert-positive-dark disabled:border-neutral-500 disabled:ring-0;
+        @apply text-alert-positive-dark bg-alert-positive-light border-alert-positive hover:ring-alert-positive active:border-alert-positive-dark active:ring-alert-positive-dark disabled:border-neutral-500 disabled:ring-0;
     }
     .secondary-button--warning {
-        @apply text-alert-warning-dark bg-alert-warning-light border-alert-warning hover:ring-alert-warning focus:ring-alert-warning active:border-alert-warning-dark active:ring-alert-warning-dark disabled:border-neutral-500 disabled:ring-0;
+        @apply text-alert-warning-dark bg-alert-warning-light border-alert-warning hover:ring-alert-warning active:border-alert-warning-dark active:ring-alert-warning-dark disabled:border-neutral-500 disabled:ring-0;
     }
     .secondary-button--contrast {
-        @apply text-primary bg-black/10 border-blue-400 hover:ring-blue-400 focus:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
+        @apply text-primary bg-black/10 border-blue-400 hover:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
     }
     .secondary-button--transparent {
-        @apply text-white bg-black/10 border-white/70 h-10 hover:ring-blue-400 focus:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
+        @apply text-white bg-black/10 border-white/70 h-10 hover:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
     }
     .secondary-button--medium {
         @apply py-2 px-4;
@@ -1139,11 +1145,14 @@
     .secondary-navigation__heading-desktop {
         @apply hidden tb1:inline;
     }
-    .secondary-navigation__dropdown {
-        @apply text-body-1;
+    .secondary-navigation__dropdown .dropdown {
+        @apply text-body-1 p-0;
     }
     .secondary-navigation__dropdown .dropdown__options {
         @apply right-2;
+    }
+    .secondary-navigation a, .secondary-navigation a:visited {
+        @apply text-white hover:text-white;
     }
 
     .signpost--in-group {
@@ -1169,10 +1178,7 @@
         @apply flex items-start border-b border-neutral-300;
     }
     .tab-bar__link {
-        @apply  text-body text-black  border-b-4 flex-row items-center hover:bg-blue-100 border-transparent;
-    }
-    .tab-bar__link > a {
-        @apply text-body py-2.5 px-4 block;
+        @apply text-body text-black border-b-4 flex-row items-center hover:bg-blue-100 border-transparent py-2.5 px-4 rounded-none;
     }
     .tab-bar__link--clicked {
         @apply border-blue-400 font-bold;
@@ -1228,7 +1234,7 @@
         @apply text-alert-attention bg-alert-attention-light border-alert-attention-medium;
     }
     .tag--with-interactions {
-        @apply cursor-pointer hover:bg-blue-100 hover:border-primary select-none
+        @apply focusable cursor-pointer hover:bg-blue-100 hover:border-primary select-none;
     }
     .tag--selected {
         @apply text-blue-500 bg-blue-100 border-primary font-bold

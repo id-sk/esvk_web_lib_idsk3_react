@@ -41,12 +41,12 @@ export const WithDivider = Template.bind({});
 WithDivider.args = {
   dropDownTitle: 'Menu',
   children: [
-    <p>Exportovať</p>,
-    <p>Archivovať</p>,
+    <a href="/">Exportovať</a>,
+    <a href="/">Archivovať</a>,
     <hr />,
-    <p>Sprievodca schránkou</p>,
-    <p>Zobraziť detail</p>,
+    <a href="/">Sprievodca schránkou</a>,
+    <a href="/">Zobraziť detail</a>,
     <hr />,
-    <p>Pomoc</p>
+    <a href="/">Pomoc</a>
   ]
 };

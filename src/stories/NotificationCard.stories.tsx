@@ -17,8 +17,8 @@ Default.args = {
   title: 'Daň z prijmov fyzických a právnických osôb za rok 2021',
   date: new Date().getTime(),
   actions: [
-    { label: 'Detail služby', href: 'aaa' },
-    { label: 'Podať priznanie', href: '' }
+    { label: 'Detail služby', href: '#' },
+    { label: 'Podať priznanie', href: '#' }
   ],
   children: (
     <p>

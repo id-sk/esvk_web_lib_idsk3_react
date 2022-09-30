@@ -11,6 +11,7 @@ const NotificationIcon = ({ alert, id, ...props }: NotificationIconProps) => {
   return (
     <IconLink
       id={id}
+      href="#"
       children={alert ? <NotificationsAlertIcon {...props} /> : <NotificationsIcon {...props} />}
     />
   );

@@ -14,4 +14,4 @@ export default {
 const Template: ComponentStory<typeof IconLink> = (args) => <IconLink {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { children: <NotificationsAlertIcon /> };
+Default.args = { children: <NotificationsAlertIcon />, href: '#' };

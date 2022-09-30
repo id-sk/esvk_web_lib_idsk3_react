@@ -25,7 +25,7 @@ ThreeSections.args = {
     <div className="grid grid-cols-1 tb1:grid-cols-2 tb2:grid-cols-4 gap-5">
       <FooterContainerSection>
         <FooterContainerSectionHeading>Informácie</FooterContainerSectionHeading>
-        <a>Informácie a návody</a>
+        <a href="#">Informácie a návody</a>
         <a>Pre občanov</a>
         <a>Informácie a návody</a>
         <a>Pre občanov</a>

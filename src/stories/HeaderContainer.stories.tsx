@@ -83,7 +83,7 @@ const ChildrenInnerNavigationLoggedIn = () => (
     </Navigation>
     <div className="flex-auto" />
     <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
-    <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
+    <IconLink href="#" children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
     <AvatarCircle firstName="Janko" lastName="Hraško" />
   </>
 );
@@ -234,7 +234,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
         heading="Profil"
         toggleOpened={setSideBarOpened}
         footerButton={
-          <ModalSideBarFooterButton onClick={() => setSideBarOpened(false)}>
+          <ModalSideBarFooterButton href="#" onClick={() => setSideBarOpened(false)}>
             Test Button
           </ModalSideBarFooterButton>
         }

@@ -22,8 +22,8 @@ Information.args = {
   variant: 'information',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -37,8 +37,8 @@ Warning.args = {
   variant: 'warning',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -52,8 +52,8 @@ Alert.args = {
   variant: 'alert',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -67,8 +67,8 @@ Success.args = {
   variant: 'success',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -82,8 +82,8 @@ InformationActionButton.args = {
   variant: 'information',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -98,8 +98,8 @@ WarningActionButton.args = {
   variant: 'warning',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -114,8 +114,8 @@ AlertActionButton.args = {
   variant: 'alert',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -130,8 +130,8 @@ SuccessActionButton.args = {
   variant: 'success',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -153,8 +153,8 @@ InformationAnnouncementInformation.args = {
   type: 'announcement',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -168,8 +168,8 @@ WarningInformationAnnouncement.args = {
   type: 'announcement',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -183,8 +183,8 @@ AlertInformationAnnouncement.args = {
   type: 'announcement',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>
@@ -197,8 +197,8 @@ InformationAnnouncementWithoutTitle.args = {
   type: 'announcement',
   children: (
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
         Viac informácií
       </a>
     </p>

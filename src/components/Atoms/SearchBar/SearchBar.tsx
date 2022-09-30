@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useState, useRef, ReactNode } from 'react';
 import classNames from 'classnames';
 import { SearchIcon } from '../../../svgIcons/Actions';
 import IconLink from '../IconLink';
@@ -65,12 +65,6 @@ const SearchBar = ({
   );
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const [rightPadding, setRightPadding] = useState<number | undefined>();
-  useEffect(() => {
-    if (!!buttonRef.current) {
-      setRightPadding(buttonRef.current.offsetWidth);
-    }
-  }, [buttonLabel, searchbarSize]);
   return (
     <div className={containerClassName}>
       {openable && (
@@ -84,10 +78,6 @@ const SearchBar = ({
         <input
           className={inputClasses}
           placeholder={placeholder}
-          style={{
-            paddingRight: !!rightPadding ? rightPadding + 8 + 'px' : undefined,
-            ...style
-          }}
           id={id ? id + '-input' : undefined}
           {...props}
         />

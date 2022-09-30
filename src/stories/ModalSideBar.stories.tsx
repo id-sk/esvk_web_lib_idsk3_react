@@ -24,5 +24,5 @@ export const WithFooterButton = Template.bind({});
 WithFooterButton.args = {
   opened: true,
   heading: 'Profil',
-  footerButton: <ModalSideBarFooterButton>Zobraziť všetko</ModalSideBarFooterButton>
+  footerButton: <ModalSideBarFooterButton href="#">Zobraziť všetko</ModalSideBarFooterButton>
 };

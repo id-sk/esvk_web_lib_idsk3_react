@@ -23,13 +23,9 @@ const DecisionListMock = [
   {
     id: '1',
     titleTag: (
-      <Tag
-        label={
-          <a className={'link'} href="#">
-            1 správa
-          </a>
-        }
-      />
+      <a className={'link'} href="#">
+        <Tag label={'1 správa'} />
+      </a>
     ),
     title: 'NCZI',
     text: 'Výsledok AG testu - negatívny',
@@ -158,7 +154,7 @@ DecisionSharingList.args = {
           <DateInput />
         </DataGridRowValue>
         <DataGridRowValue align="right" className="flex-none min-w-[6rem]">
-          <IconLink>
+          <IconLink href="#">
             <DeleteIcon width="1.8rem" height="1.8rem" color="red" className="text-alert-warning" />
           </IconLink>
         </DataGridRowValue>

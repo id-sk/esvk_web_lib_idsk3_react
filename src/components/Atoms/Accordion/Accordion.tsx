@@ -2,7 +2,7 @@ import React, { Children, useState, ReactNode } from 'react';
 import classNames from 'classnames';
 import { AddIcon, RemoveIcon } from '../../../svgIcons/Content';
 
-export interface AccordionProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: ReactNode;
   subTitle?: string;
   initiallyClosed?: boolean;
@@ -29,7 +29,7 @@ const Accordion = ({
 }: AccordionProps) => {
   const [closed, setClosed] = useState<boolean>(initiallyClosed);
 
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleOnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onClick(e);
     setClosed((p) => !p);
   };
@@ -52,9 +52,9 @@ const Accordion = ({
           <span className="accordion__list-number">{!!index && index}</span>
         </div>
       )}
-      <button className="accordion__button" onClick={handleOnClick} {...props}>
+      <div className="accordion__button" onClick={handleOnClick} {...props}>
         <span className="accordion__title">
-          {heading}
+          <button>{heading}</button>
           {!closed ? (
             <RemoveIcon className="accordion__icon" />
           ) : (
@@ -62,7 +62,7 @@ const Accordion = ({
           )}
         </span>
         {!!subTitle && <span className="accordion__subtitle">{subTitle}</span>}
-      </button>
+      </div>
       <div className={contentClasses}>
         <div
           className={classNames('accordion__content-body', {

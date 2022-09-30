@@ -41,6 +41,7 @@ const Tag = ({
         },
         className
       )}
+      tabIndex={interaction ? 0 : -1}
       {...props}
     >
       {leftIcon}
