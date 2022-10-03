@@ -56,7 +56,11 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
           >
             <span className="toggle__dot" />
           </Switch>
-          <Switch.Label className={classNames({ 'toggle__label--large': inputSize == 'large' })}>
+          <Switch.Label
+            className={classNames('toggle__label', {
+              'toggle__label--large': inputSize == 'large'
+            })}
+          >
             {label}
           </Switch.Label>
         </div>

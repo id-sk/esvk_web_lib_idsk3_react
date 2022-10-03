@@ -163,6 +163,9 @@
     .avatar-circle__text {
         @apply flex flex-col;
     }
+    .avatar-circle__text__name {
+        @apply text-body-1;
+    }
     .avatar-circle__text__caption {
         @apply caption text-neutral-600;
     }
@@ -283,8 +286,11 @@
     .toggle--checked.toggle--small .toggle__dot {
         @apply translate-x-[1.3rem];
     }
+    .toggle__label {
+        @apply text-body-1;
+    }
     .toggle__label--large {
-        @apply text-lg;
+        @apply text-body;
     }
     .toggle--disabled {
         @apply bg-neutral-300;
