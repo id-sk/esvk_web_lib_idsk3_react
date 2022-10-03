@@ -918,10 +918,10 @@
     .horizontal-navigation-group .horizontal-navigation-item, .horizontal-navigation-group .dropdown {
         @apply rounded-none border-r-0;
     }
-    .horizontal-navigation-group .horizontal-navigation-item:last-child, .horizontal-navigation-group .dropdown:last-child {
+    .horizontal-navigation-group .horizontal-navigation-item:last-of-type, .horizontal-navigation-group .dropdown:last-child {
         @apply rounded-r-[0.31rem] border-r-[1px];
     }
-    .horizontal-navigation-group .horizontal-navigation-item:first-child, .horizontal-navigation-group .dropdown:first-child {
+    .horizontal-navigation-group .horizontal-navigation-item:first-of-type, .horizontal-navigation-group .dropdown:first-child {
         @apply rounded-l-[0.31rem];
     }
 
