@@ -1,52 +1,62 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { PrimaryButton } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
 import { PlaceholderIcon } from '../svgIcons';
 import { CheckCircleIcon, ReportProblemIcon } from '../svgIcons/Actions';
+import { SecondaryIconButton } from '../components';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Atoms/PrimaryButton',
-  component: PrimaryButton
-} as ComponentMeta<typeof PrimaryButton>;
+  title: 'Atoms/SecondaryIconButton',
+  component: SecondaryIconButton
+} as ComponentMeta<typeof SecondaryIconButton>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof PrimaryButton> = (args) => <PrimaryButton {...args} />;
+const Template: ComponentStory<typeof SecondaryIconButton> = (args) => (
+  <SecondaryIconButton {...args} />
+);
 
-export const PrimaryBasic = Template.bind({});
-PrimaryBasic.args = {
-  label: 'Primary / Basic',
+export const MediumBasicVariant = Template.bind({});
+MediumBasicVariant.args = {
+  icon: <PlaceholderIcon />,
   onClick: () => console.log('button clicked!')
 };
 
-export const PrimaryBasicWithIcon = Template.bind({});
-PrimaryBasicWithIcon.args = {
-  label: 'Primary / Basic',
+export const LargeBasicVariant = Template.bind({});
+LargeBasicVariant.args = {
   icon: <PlaceholderIcon />,
+  size: 'large',
   onClick: () => console.log('button clicked!')
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: 'Disabled',
+  icon: <PlaceholderIcon />,
+  size: 'large',
   disabled: true,
   onClick: () => console.log('button clicked!')
 };
 
-export const PrimarySuccessWithIcon = Template.bind({});
-PrimarySuccessWithIcon.args = {
-  label: 'Primary / Success',
+export const SuccessVariant = Template.bind({});
+SuccessVariant.args = {
   variant: 'success',
+  size: 'large',
   icon: <CheckCircleIcon />,
-  iconPosition: 'right',
   onClick: () => console.log('button clicked!')
 };
 
-export const PrimaryWarningWithIcon = Template.bind({});
-PrimaryWarningWithIcon.args = {
-  label: 'Primary / Warning',
+export const WarningVariant = Template.bind({});
+WarningVariant.args = {
   variant: 'warning',
+  size: 'large',
+  icon: <ReportProblemIcon />,
+  onClick: () => console.log('button clicked!')
+};
+
+export const ContrastVariant = Template.bind({});
+ContrastVariant.args = {
+  variant: 'contrast',
+  size: 'large',
   icon: <ReportProblemIcon />,
   onClick: () => console.log('button clicked!')
 };

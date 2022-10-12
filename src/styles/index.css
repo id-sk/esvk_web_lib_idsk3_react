@@ -983,7 +983,7 @@
         @apply bg-primary;
     }
     .primary-button {
-        @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0;
+        @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0 disabled:ring-0;
     }
     .primary-button--basic {
         @apply bg-primary hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
@@ -1011,6 +1011,60 @@
     }
     .primary-button--large.primary-button--icon-right {
         @apply pr-4;
+    }
+
+    .icon-button {
+        @apply flex justify-center items-center rounded-md text-button hover:ring hover:ring-offset-0 disabled:ring-0;
+    }
+    .icon-button .button__icon {
+        @apply w-6 h-6;
+    }
+    .icon-button--large .button__icon {
+        @apply m-3;
+    }
+    .icon-button--medium .button__icon {
+        @apply m-2;
+    }
+    .primary-icon-button {
+        @apply icon-button text-white;
+    }
+    .primary-icon-button--basic {
+        @apply primary-icon-button bg-primary hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
+    }
+    .primary-icon-button--success {
+        @apply primary-icon-button bg-alert-positive hover:ring-alert-positive-dark active:bg-alert-positive-dark disabled:bg-neutral-500;
+    }
+    .primary-icon-button--warning {
+        @apply primary-icon-button bg-alert-warning hover:ring-alert-warning-dark active:bg-alert-warning-dark disabled:bg-neutral-500;
+    }
+
+    .secondary-icon-button {
+        @apply icon-button border-2 active:ring-1 active:ring-offset-0 hover:ring-1 disabled:ring-0 disabled:bg-neutral-100 disabled:text-neutral-600;
+    }
+    .secondary-icon-button--basic {
+        @apply secondary-icon-button text-primary-dark bg-blue-100 border-blue-400 hover:ring-blue-400 active:border-primary-dark active:ring-primary-dark disabled:border-neutral-500;
+    }
+    .secondary-icon-button--success {
+        @apply secondary-icon-button text-alert-positive-dark bg-alert-positive-light border-alert-positive hover:ring-alert-positive active:border-alert-positive-dark active:ring-alert-positive-dark disabled:border-neutral-500;
+    }
+    .secondary-icon-button--warning {
+        @apply secondary-icon-button text-alert-warning-dark bg-alert-warning-light border-alert-warning hover:ring-alert-warning active:border-alert-warning-dark active:ring-alert-warning-dark disabled:border-neutral-500;
+    }
+    .secondary-icon-button--contrast {
+        @apply secondary-icon-button text-primary bg-black/10 border-blue-400 hover:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10;
+    }
+
+    .tertiary-icon-button {
+        @apply icon-button hover:ring-0;
+    }
+    .tertiary-icon-button--basic {
+        @apply tertiary-icon-button text-blue-400 hover:bg-blue-100 active:bg-blue-200 disabled:bg-transparent disabled:text-neutral-600;
+    }
+    .tertiary-icon-button--success {
+        @apply tertiary-icon-button text-alert-positive hover:bg-alert-positive-light active:bg-alert-positive-medium disabled:bg-transparent disabled:text-neutral-600;
+    }
+    .tertiary-icon-button--warning {
+        @apply tertiary-icon-button text-alert-warning hover:bg-alert-warning-light active:bg-alert-warning-medium disabled:bg-transparent disabled:text-neutral-600;
     }
 
     .page-layout {

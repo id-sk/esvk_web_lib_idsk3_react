@@ -1,6 +1,17 @@
-export { PrimaryButton, PrimaryButtonProps } from './Button';
-export { SecondaryButton, SecondaryButtonProps } from './Button';
-export { TextButton, TextButtonProps } from './Button';
+export {
+  PrimaryButton,
+  PrimaryButtonProps,
+  SecondaryButton,
+  SecondaryButtonProps,
+  TextButton,
+  TextButtonProps,
+  PrimaryIconButton,
+  PrimaryIconButtonProps,
+  SecondaryIconButton,
+  SecondaryIconButtonProps,
+  TertiaryIconButton,
+  TertiaryIconButtonProps
+} from './Button';
 export {
   Input,
   InputProps,
