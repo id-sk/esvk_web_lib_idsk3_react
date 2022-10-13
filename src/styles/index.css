@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap');
+@import 'react-datepicker/dist/react-datepicker.css';
 
 @tailwind base;
 @tailwind components;
@@ -344,13 +345,13 @@
     }
 
     .date-input__wrapper {
-        @apply flex gap-3;
+        @apply flex gap-3 items-end;
     }
     .date-input .input {
-        @apply text-center appearance-none;
+        @apply appearance-none;
     }
     .date-input__day-n-month {
-        @apply w-14;
+        @apply w-[4.375rem];
     }
     .date-input__year {
         @apply w-20;
@@ -358,6 +359,18 @@
     .date-input .input::-webkit-outer-spin-button,
     .date-input .input::-webkit-inner-spin-button {
         @apply appearance-none;
+    }
+    .date-input__date-picker {
+        @apply py-3 px-5 bg-neutral-100 rounded w-min mb-2;
+    }
+    .date-input__date-picker--open {
+        @apply py-3 px-5 bg-blue-500 text-white rounded w-min mb-2;
+    }
+    .date-input__date-range {
+        @apply w-6 h-6 mr-auto ml-auto;
+    }
+    .date-input__date-picker-input{
+        @apply w-6 h-6 opacity-0 cursor-pointer;
     }
 
     .dialog-screen {

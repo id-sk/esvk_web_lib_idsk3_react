@@ -2,6 +2,9 @@ import React, { useImperativeHandle, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { Input } from '../index';
+import DateRange from '../../../svgIcons/Actions/DateRange';
+import DatePicker from 'react-datepicker';
+import { setDate, setMonth, setYear } from 'date-fns';
 
 export interface DateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
@@ -51,7 +54,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
     }: DateInputProps,
     ref
   ) => {
-    const [isError, setError] = useState(error);
     const dayRef = useRef<HTMLInputElement>(null);
     const monthRef = useRef<HTMLInputElement>(null);
     const yearRef = useRef<HTMLInputElement>(null);
@@ -64,28 +66,84 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
       }
     }));
 
-    const allInputClasses: string = classNames(
-      'input',
-      {
-        'input--error': isError
-      },
-      inputClasses
-    );
-
-    const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
-      'input__wrapper--error': isError,
-      'input__wrapper--disabled': disabled
-    });
-
     const idForAria: string = uuidv4();
+    const [startDate, setStartDate] = useState(new Date());
+    const [day, setInputDay] = useState('');
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, maxValue: number) => {
+    const [month, setInputMonth] = useState('');
+    const [year, setInputYear] = useState('');
+    const [open, setOpen] = useState(false);
+    const dateString = `${year}-${month}-${day}`;
+
+    const addDay = () => {
+      if (isNaN(Number(day))) return;
+      const newDate = setDate(startDate, Number(day));
+      setStartDate(newDate);
+    };
+    const handleDayInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputDay('');
       if (event.currentTarget.value == '') {
         return;
       }
       const inputValue = Number(event.currentTarget.value);
-      setError(isNaN(inputValue) || inputValue > maxValue || inputValue <= 0);
+      setInputDay(inputValue.toString());
     };
+
+    const addMonth = () => {
+      if (isNaN(Number(month))) return;
+      const newDate = setMonth(startDate, Number(month) - 1);
+      setStartDate(newDate);
+    };
+    const handleMonthInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputMonth('');
+      if (event.currentTarget.value == '') {
+        return;
+      }
+      const inputValue = Number(event.currentTarget.value);
+      setInputMonth(inputValue.toString());
+    };
+    const addYear = () => {
+      if (isNaN(Number(year))) return;
+      const newDate = setYear(startDate, Number(year));
+      if (dateString == '--') {
+        setStartDate(setYear(new Date(), Number(new Date().getFullYear())));
+      } else {
+        setStartDate(newDate);
+      }
+    };
+    const handleYearInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputYear('');
+      if (event.currentTarget.value == '') {
+        return;
+      }
+      const inputValue = Number(event.currentTarget.value);
+      setInputYear(inputValue.toString());
+    };
+
+    const checkInput = () => {
+      if (day.length == 1) {
+        setInputDay('0' + day);
+      }
+      if (month.length == 1) {
+        setInputMonth('0' + month);
+      }
+    };
+
+    const datePickerClasses: string = classNames('date-input__date-picker', {
+      'date-input__date-picker': day == '' || month == '' || year == '',
+      'date-input__date-picker--open': (day != '' && month != '' && year != '') || !!open
+    });
+    const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
+      'input__wrapper--error': (isNaN(Date.parse(dateString)) && dateString != '--') || error,
+      'input__wrapper--disabled': disabled
+    });
+    const allInputClasses: string = classNames(
+      { input: !isNaN(Date.parse(dateString)) && dateString == '--' },
+      {
+        'input--error': (isNaN(Date.parse(dateString)) && dateString != '--') || error
+      },
+      inputClasses
+    );
 
     return (
       <div className="date-input" id={id} {...props}>
@@ -99,7 +157,15 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
               label={dayLabel}
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
-              onChange={(e) => handleInputChange(e, 31)}
+              onChange={(e) => {
+                handleDayInputChange(e);
+              }}
+              value={day}
+              placeholder="DD"
+              onBlur={() => {
+                addDay();
+                checkInput();
+              }}
             />
           )}
           {!hideMonth && (
@@ -109,7 +175,13 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
               label={monthLabel}
               className={classNames(allInputClasses, 'date-input__day-n-month')}
               disabled={disabled}
-              onChange={(e) => handleInputChange(e, 12)}
+              onChange={(e) => handleMonthInputChange(e)}
+              value={month}
+              placeholder="MM"
+              onBlur={() => {
+                addMonth();
+                checkInput();
+              }}
             />
           )}
           {!hideYear && (
@@ -119,17 +191,42 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
               label={yearLabel}
               className={classNames(allInputClasses, 'date-input__year')}
               disabled={disabled}
-              onChange={(e) => handleInputChange(e, 9999)}
+              onChange={(e) => handleYearInputChange(e)}
+              value={year}
+              placeholder="YYYY"
+              onBlur={() => {
+                addYear();
+                checkInput();
+              }}
             />
           )}
+          <div className={datePickerClasses}>
+            <DateRange className="date-input__date-range" />
+            <div className="-mt-6">
+              <DatePicker
+                selected={startDate}
+                className="date-input__date-picker-input"
+                onCalendarOpen={() => setOpen(true)}
+                onCalendarClose={() => setOpen(false)}
+                onChange={(date: Date) => {
+                  setStartDate(date);
+                  setInputDay(date.getDate().toString());
+                  setInputMonth((date.getUTCMonth() + 1).toString());
+                  setInputYear(date.getFullYear().toString());
+                }}
+              />
+            </div>
+          </div>
         </div>
         {(!!errorMsg || !!caption) && (
           <p
             className={classNames('input__caption', {
-              'input__caption--error': isError && !disabled
+              'input__caption--error':
+                (isNaN(Date.parse(dateString)) && dateString != '--' && !disabled) || error
             })}
           >
-            {isError && !!errorMsg && !disabled ? (
+            {(isNaN(Date.parse(dateString)) && dateString != '--' && !!errorMsg && !disabled) ||
+            error ? (
               <span id={idForAria} role="alert">
                 {errorMsg}
               </span>
