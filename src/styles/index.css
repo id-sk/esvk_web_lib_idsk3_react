@@ -303,6 +303,9 @@
     .data-grid-row {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;
     }
+    .data-grid-row--without-head {
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4  first:rounded-t-lg first:border-t-0;
+    }
     .data-grid-row--active {
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-blue-100;
     }
@@ -310,7 +313,7 @@
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
     }
     .data-grid-row__dot-wrapper {
-        @apply flex mt-3.5;
+        @apply flex mt-3.5 absolute ml-10;
     }
     .data-grid-row__dot {
         @apply w-2.5 h-2.5 rounded-full;

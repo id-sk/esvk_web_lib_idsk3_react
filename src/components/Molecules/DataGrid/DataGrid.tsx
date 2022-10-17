@@ -34,7 +34,7 @@ export const DataGridRowValue = ({
   );
 };
 
-export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement> {
+export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement>, DataGridProps {
   moreIcon?: ReactNode;
   moreOptions?: ReactNode;
   customMoreButton?: ReactNode;
@@ -61,6 +61,7 @@ export function DataGridRow({
 }: DataGridRowProps) {
   const dataGridClasses = classNames(
     'data-grid-row',
+    { 'data-grid-row--without-head': !props.headRow },
     { 'data-grid-row--active': active },
     { 'data-grid-row--checked': checked },
     className
@@ -75,13 +76,15 @@ export function DataGridRow({
           id={id ? id + '-checkbox' : undefined}
         />
       )}
-      <div className="data-grid-row__dot-wrapper">
-        <div
-          className={classNames('data-grid-row__dot', {
-            'data-grid-row__dot--active': active
-          })}
-        />
-      </div>
+      {!!active && (
+        <div className="data-grid-row__dot-wrapper">
+          <div
+            className={classNames('data-grid-row__dot', {
+              'data-grid-row__dot--active': active
+            })}
+          />
+        </div>
+      )}
       {children}
       {moreOptions ? (
         <DropDown
@@ -130,18 +133,20 @@ function DataGrid({
   };
   return (
     <div className={classNames('data-grid', className)} id={id} {...props}>
-      <div className="data-grid__head">
-        {checkboxEverything && (
-          <Checkbox
-            name="checkbox"
-            checked={checked}
-            onChange={handleSelectAllChange}
-            hasUncheckIcon={hasUncheckIcon}
-            id={id ? id + '-checkbox-all' : undefined}
-          />
-        )}
-        {headRow}
-      </div>
+      {headRow && (
+        <div className="data-grid__head">
+          {checkboxEverything && (
+            <Checkbox
+              name="checkbox"
+              checked={checked}
+              onChange={handleSelectAllChange}
+              hasUncheckIcon={hasUncheckIcon}
+              id={id ? id + '-checkbox-all' : undefined}
+            />
+          )}
+          {headRow}
+        </div>
+      )}
       {renderedChildren}
     </div>
   );
