@@ -200,7 +200,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
               }}
             />
           )}
-          <div className={datePickerClasses}>
+          <button className={datePickerClasses}>
             <DateRange className="date-input__date-range" />
             <div className="-mt-6">
               <DatePicker
@@ -216,7 +216,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
                 }}
               />
             </div>
-          </div>
+          </button>
         </div>
         {(!!errorMsg || !!caption) && (
           <p
