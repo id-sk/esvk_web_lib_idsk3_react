@@ -12,6 +12,7 @@ export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInpu
   caption?: string;
   searchButton?: PrimaryButtonProps;
   advancedSearchButton?: TextButtonProps;
+  errorMessageId?: string;
 }
 
 const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>(
@@ -25,6 +26,7 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       searchButton,
       advancedSearchButton,
       className,
+      errorMessageId,
       ...props
     },
     ref
@@ -41,7 +43,7 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       className
     );
 
-    const idForAria: string = uuidv4();
+    const idForAria: string = errorMessageId || uuidv4();
 
     return (
       <div className={containerClasses}>

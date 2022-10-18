@@ -16,6 +16,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   arrowIcon?: ReactElement;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
+  errorMessageId?: string;
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -35,6 +36,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       children,
       arrowIcon = <ExpandMoreIcon width="1.5rem" height="1.5rem" />,
       icon,
+      errorMessageId,
       ...props
     }: SelectProps,
     ref
@@ -67,7 +69,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       'w-full': fullWidth
     });
 
-    const idForAria: string = uuidv4();
+    const idForAria: string = errorMessageId || uuidv4();
 
     const iconElement = !!icon
       ? React.cloneElement(icon, {

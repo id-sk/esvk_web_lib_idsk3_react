@@ -21,6 +21,7 @@ export interface DateInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   yearLabel?: string;
   inputClasses?: string;
   id?: string;
+  errorMessageId?: string;
 }
 
 export interface DateInputRef {
@@ -50,6 +51,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
       monthLabel,
       yearLabel,
       id,
+      errorMessageId,
       ...props
     }: DateInputProps,
     ref
@@ -66,7 +68,6 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
       }
     }));
 
-    const idForAria: string = uuidv4();
     const [startDate, setStartDate] = useState(new Date());
     const [day, setInputDay] = useState('');
 
@@ -88,6 +89,7 @@ const DateInput = React.forwardRef<DateInputRef, DateInputProps>(
       const inputValue = Number(event.currentTarget.value);
       setInputDay(inputValue.toString());
     };
+    const idForAria: string = errorMessageId || uuidv4();
 
     const addMonth = () => {
       if (isNaN(Number(month))) return;

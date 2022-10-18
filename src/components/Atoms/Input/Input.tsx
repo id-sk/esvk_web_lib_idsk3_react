@@ -23,6 +23,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
   actionButton?: { label: string; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
+  errorMessageId?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -42,6 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       icon,
       iconPosition = 'left',
       actionButton,
+      errorMessageId,
       ...props
     }: InputProps,
     ref
@@ -75,7 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       'input__action--error': error
     });
 
-    const idForAria: string = uuidv4();
+    const idForAria: string = errorMessageId || uuidv4();
 
     const iconElement = !!icon
       ? React.cloneElement(icon, {

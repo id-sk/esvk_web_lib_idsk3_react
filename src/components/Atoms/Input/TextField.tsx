@@ -15,6 +15,7 @@ export interface TextFieldProps extends React.TextareaHTMLAttributes<HTMLTextAre
   rows?: number;
   maxLength?: number;
   onChange?: React.ChangeEventHandler;
+  errorMessageId?: string;
 }
 
 const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
@@ -33,6 +34,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       maxLength = 200,
       onChange = () => {},
       className,
+      errorMessageId,
       ...props
     }: TextFieldProps,
     ref
@@ -67,7 +69,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       'w-full': fullWidth
     });
 
-    const idForAria: string = uuidv4();
+    const idForAria: string = errorMessageId || uuidv4();
 
     return (
       <>
