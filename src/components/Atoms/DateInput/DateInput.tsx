@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { Input } from '../index';
@@ -22,6 +22,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   monthLabel?: string;
   yearLabel?: string;
   inputClasses?: string;
+  initialDate?: Date | null | undefined;
   dateStringFormat?: string;
   onValueUpdate?: (value: string) => void;
 }
@@ -42,6 +43,7 @@ const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  initialDate,
   onValueUpdate,
   dateStringFormat = 'y-MM-dd',
   ...props
@@ -50,13 +52,20 @@ const DateInput = ({
   const monthRef = useRef<HTMLInputElement>(null);
   const yearRef = useRef<HTMLInputElement>(null);
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [day, setInputDay] = useState('');
-
-  const [month, setInputMonth] = useState('');
-  const [year, setInputYear] = useState('');
+  const [startDate, setStartDate] = useState(initialDate ?? new Date());
+  const [day, setInputDay] = useState(initialDate ? format(initialDate, 'dd') : '');
+  const [month, setInputMonth] = useState(initialDate ? format(initialDate, 'MM') : '');
+  const [year, setInputYear] = useState(initialDate ? format(initialDate, 'y') : '');
   const [open, setOpen] = useState(false);
   const dateString = `${year}-${month}-${day}`;
+
+  useEffect(() => {
+    console.log('useEffect', initialDate);
+    setStartDate(initialDate ?? new Date());
+    setInputDay(initialDate ? format(initialDate, 'dd') : '');
+    setInputMonth(initialDate ? format(initialDate, 'MM') : '');
+    setInputYear(initialDate ? format(initialDate, 'y') : '');
+  }, [initialDate]);
 
   const handleNewDate = (newDate: Date) => {
     setStartDate(newDate);
