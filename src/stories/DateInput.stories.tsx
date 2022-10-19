@@ -18,7 +18,8 @@ Default.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const WithLabel = Template.bind({});
@@ -27,7 +28,8 @@ WithLabel.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const WithCaption = Template.bind({});
@@ -37,7 +39,8 @@ WithCaption.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const WithSubtitle = Template.bind({});
@@ -48,7 +51,8 @@ WithSubtitle.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const Disabled = Template.bind({});
@@ -56,7 +60,8 @@ Disabled.args = {
   disabled: true,
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const WithoutYear = Template.bind({});
@@ -64,7 +69,8 @@ WithoutYear.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  hideYear: true
+  hideYear: true,
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
 
 export const ErrorFormat = Template.bind({});
@@ -74,5 +80,6 @@ ErrorFormat.args = {
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',
   monthLabel: 'Mesiac',
-  yearLabel: 'Rok'
+  yearLabel: 'Rok',
+  onValueUpdate: (value: string) => console.log('date update', value)
 };
