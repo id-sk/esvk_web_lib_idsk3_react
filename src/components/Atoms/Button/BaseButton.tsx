@@ -8,6 +8,7 @@ export interface BaseButtonProps {
   type?: 'button' | 'reset' | 'submit' | undefined;
   children?: ReactNode | undefined;
   disabled?: boolean;
+  ariaLabel?: string;
   size?: 'medium' | 'large';
   fullWidth?: boolean;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
@@ -39,6 +40,7 @@ const BaseButton = (props: BaseButtonProps) => {
       disabled={props.disabled}
       id={props.id}
       type={props.type}
+      aria-label={props.ariaLabel}
       aria-disabled={props.disabled}
       onClick={props.onClick}
       {...props.buttonElementProps}

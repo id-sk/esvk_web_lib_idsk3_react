@@ -577,7 +577,7 @@
         @apply border-b border-neutral-500 mb-6;
     }
     .footer-container__links-list {
-        @apply flex flex-wrap items-center gap-x-8 gap-y-3 pb-5;
+        @apply flex flex-wrap list-none items-center gap-x-8 gap-y-3 pb-5;
     }
     .footer-container__logo-wrapper {
         @apply mt-8 flex;
@@ -713,6 +713,9 @@
     .input__icon {
         @apply absolute inset-y-0 m-auto pointer-events-none;
     }
+    .input__icon-textarea {
+        @apply top-4 bottom-auto;
+    }
     .input__icon--large {
         @apply text-[1.25rem] w-[1.25rem] h-[1.25rem];
     }
@@ -729,7 +732,7 @@
         @apply right-4;
     }
     .input__label {
-        @apply text-body;
+        @apply text-body block;
     }
     .input__subtitle {
         @apply text-body-1 text-neutral-600;
@@ -889,7 +892,7 @@
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
     }
     .navigation__dropdown {
-        @apply h-full w-full dm1:w-auto hover:bg-blue-100 flex-col flex items-center text-body-1 text-black;
+        @apply h-full w-full dm1:w-auto hover:bg-blue-100 flex-col flex items-center border-y-4 border-transparent text-body-1 text-black;
     }
     .navigation__dropdown-options {
         @apply px-0 w-full dm1:w-auto rounded-none dm1:rounded-md shadow-none dm1:shadow-medium relative dm1:absolute dm1:-left-2 top-0 dm1:top-3/4;
@@ -949,9 +952,6 @@
     }
     .in-page-navigation-desktop {
         @apply hidden tb2:inline;
-    }
-    .in-page-navigation__title {
-        @apply text-2xl font-bold leading-normal;
     }
     .in-page-navigation__subtitle {
         @apply text-neutral-700 font-bold pt-3.5;

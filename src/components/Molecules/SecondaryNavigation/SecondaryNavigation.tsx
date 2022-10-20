@@ -46,6 +46,8 @@ const SecondaryNavigation = ({
               className="secondary-navigation__heading-button"
               onClick={() => setOpened((p) => !p)}
               id={id ? id + '-heading-button' : undefined}
+              aria-expanded={opened}
+              aria-controls={id ? id + '-body' : undefined}
             >
               {mobileHeadingButton ? (
                 <>
@@ -76,6 +78,7 @@ const SecondaryNavigation = ({
         </DropDown>
       </div>
       <div
+        id={id ? id + '-body' : undefined}
         className={classNames('secondary-navigation__body', bodyClassName, { hidden: !opened })}
         data-testid="secnav-children"
       >

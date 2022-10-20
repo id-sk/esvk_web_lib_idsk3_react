@@ -85,12 +85,23 @@ const DropDown = ({
 
   return (
     <div ref={containerRef} {...props} className={wrapperClasses}>
-      <button className={buttonClasses} onClick={() => setOpened((p) => !p)} id={buttonId}>
+      <button
+        className={buttonClasses}
+        onClick={() => setOpened((p) => !p)}
+        id={buttonId}
+        aria-expanded={opened}
+        aria-controls={buttonId + '-dropdown'}
+      >
         <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>
-      <ul className={optionClasses} data-testid="dropdown-options">
-        <div onClick={() => setOpened(false)}>{renderedChildren}</div>
+      <ul
+        id={buttonId + '-dropdown'}
+        className={optionClasses}
+        data-testid="dropdown-options"
+        onClick={() => setOpened(false)}
+      >
+        {renderedChildren}
       </ul>
     </div>
   );

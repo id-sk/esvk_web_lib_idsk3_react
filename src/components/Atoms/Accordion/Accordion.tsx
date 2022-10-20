@@ -1,6 +1,7 @@
 import React, { Children, useState, ReactNode } from 'react';
 import classNames from 'classnames';
 import { AddIcon, RemoveIcon } from '../../../svgIcons/Content';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: ReactNode;
@@ -11,6 +12,7 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   bgGray?: boolean;
   fullWidthBody?: boolean;
   size?: 'large' | 'small';
+  errorMessageId?: string;
 }
 
 const Accordion = ({
@@ -25,9 +27,12 @@ const Accordion = ({
   className,
   bgGray = false,
   fullWidthBody = false,
+  errorMessageId,
   ...props
 }: AccordionProps) => {
   const [closed, setClosed] = useState<boolean>(initiallyClosed);
+
+  const idForAria: string = errorMessageId || uuidv4();
 
   const handleOnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onClick(e);
@@ -37,6 +42,7 @@ const Accordion = ({
   const contentClasses = classNames('accordion__content', { 'accordion__content--open': !closed });
   return (
     <div
+      role={!!inGroup ? 'listitem' : ''}
       className={classNames(
         'accordion',
         {
@@ -54,7 +60,9 @@ const Accordion = ({
       )}
       <div className="accordion__button" onClick={handleOnClick} {...props}>
         <span className="accordion__title">
-          <button>{heading}</button>
+          <button aria-expanded={!closed} aria-controls={idForAria}>
+            {heading}
+          </button>
           {!closed ? (
             <RemoveIcon className="accordion__icon" />
           ) : (
@@ -63,7 +71,7 @@ const Accordion = ({
         </span>
         {!!subTitle && <span className="accordion__subtitle">{subTitle}</span>}
       </div>
-      <div className={contentClasses}>
+      <div id={idForAria} className={contentClasses}>
         <div
           className={classNames('accordion__content-body', {
             'accordion__content-body--full-width': fullWidthBody
@@ -85,7 +93,7 @@ export function AccordionListGroup({ children, ...props }: React.HTMLAttributes<
     }
   });
   return (
-    <div className="accordion--list-group" {...props}>
+    <div className="accordion--list-group" role="list" {...props}>
       {renderedChildren}
     </div>
   );

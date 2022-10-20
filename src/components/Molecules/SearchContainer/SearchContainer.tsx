@@ -12,6 +12,7 @@ export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInpu
   caption?: string;
   searchButton?: PrimaryButtonProps;
   advancedSearchButton?: TextButtonProps;
+  label?: string;
   errorMessageId?: string;
 }
 
@@ -25,6 +26,7 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       caption,
       searchButton,
       advancedSearchButton,
+      label,
       className,
       errorMessageId,
       ...props
@@ -49,11 +51,15 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       <div className={containerClasses}>
         {!!title && (
           <div className="search-container__header">
-            <span className="search-container__title">{title}</span>
+            <h3 className="search-container__title">{title}</h3>
           </div>
         )}
         <div className="search-container__input">
+          <label className="sr-only" htmlFor={idForAria + '-input'}>
+            {label}
+          </label>
           <input
+            id={idForAria + '-input'}
             aria-invalid={error}
             aria-errormessage={idForAria}
             className={inputClasses}

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
+import { WarningIcon } from '../../../svgIcons/Alert';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface TextFieldProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -7,6 +8,7 @@ export interface TextFieldProps extends React.TextareaHTMLAttributes<HTMLTextAre
   error?: boolean;
   errorMsg?: string;
   label?: string;
+  labelSrOnly?: boolean;
   caption?: string;
   subtitle?: string;
   placeholder?: string;
@@ -25,6 +27,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       error,
       errorMsg,
       label,
+      labelSrOnly = false,
       subtitle,
       caption,
       disabled,
@@ -73,8 +76,12 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
 
     return (
       <>
-        <label className={classNames({ 'w-full': fullWidth })}>
-          {!!label && <p className="input__label">{label}</p>}
+        <div className={classNames({ 'w-full': fullWidth })}>
+          {!!label && (
+            <label className={classNames('input__label', { 'sr-only': labelSrOnly })}>
+              {label}
+            </label>
+          )}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <textarea
@@ -90,9 +97,22 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
               maxLength={maxLength}
               {...props}
             />
+            {!!errorMsg && (
+              <WarningIcon
+                className={classNames(
+                  'input__icon input__icon-textarea',
+                  {
+                    'input__icon--large': inputSize === 'large',
+                    'input__icon--medium': inputSize === 'medium',
+                    'input__icon--small': inputSize === 'small'
+                  },
+                  'input__icon--right'
+                )}
+              />
+            )}
             <span className="input-textarea--counter">{actualLength}</span>
           </div>
-        </label>
+        </div>
         {(!!errorMsg || !!caption) && (
           <p
             className={classNames('input__caption', {

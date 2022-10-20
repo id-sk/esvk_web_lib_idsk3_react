@@ -12,9 +12,9 @@ export const FooterContainerSectionHeading = ({
   className,
   ...props
 }: React.AllHTMLAttributes<HTMLParagraphElement>) => (
-  <p className={classNames('footer-container__section-heading', className)} {...props}>
+  <h4 className={classNames('footer-container__section-heading', className)} {...props}>
     {children}
-  </p>
+  </h4>
 );
 
 export const FooterContainerSection = ({
@@ -40,7 +40,13 @@ const FooterContainer = ({
       <div className="footer-container__content">
         {children}
         <aside className="footer-container__aside">
-          {!!linksList.length && <div className="footer-container__links-list">{linksList}</div>}
+          {!!linksList.length && (
+            <ul className="footer-container__links-list">
+              {linksList.map((link, key) => (
+                <li key={key}>{link}</li>
+              ))}
+            </ul>
+          )}
           {bottomSection}
           {!!logo && <div className="footer-container__logo-wrapper">{logo}</div>}
         </aside>

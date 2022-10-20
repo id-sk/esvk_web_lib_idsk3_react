@@ -2,9 +2,11 @@ import React, { MouseEventHandler, ReactElement, ReactNode, SVGProps, useState }
 import classNames from 'classnames';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import BaseButton from '../../Atoms/Button/BaseButton';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface InformationBannerProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
+  ariaLabel?: string;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   type?: 'banner' | 'announcement';
   variant?: 'information' | 'alert' | 'warning' | 'success';
@@ -12,6 +14,8 @@ export interface InformationBannerProps extends React.HTMLAttributes<HTMLDivElem
   actionButton?: ReactNode;
   hideCloseButton?: boolean;
   closeButtonOnClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+  closeButtonLabel?: string;
+  errorMessageId?: string;
 }
 const defaultInformationBannerProps: InformationBannerProps = {
   type: 'banner'
@@ -21,12 +25,15 @@ const InformationBanner = ({
   id,
   icon,
   title,
+  ariaLabel,
   variant = 'information',
   children,
   actionButton,
   hideCloseButton,
   closeButtonOnClick,
+  closeButtonLabel,
   className,
+  errorMessageId,
   ...props
 }: InformationBannerProps) => {
   const [visible, setVisibility] = useState(true);
@@ -43,6 +50,7 @@ const InformationBanner = ({
         'information-banner__base-button--attention': variant == 'alert',
         'information-banner__base-button--warning': variant == 'warning'
       })}
+      ariaLabel={closeButtonLabel}
     >
       <CloseIcon className="information-banner__base-button-icon" />
     </BaseButton>
@@ -59,6 +67,7 @@ const InformationBanner = ({
       'information-announcement__wrapper': props.type == 'announcement'
     }
   );
+  const idForAria: string = errorMessageId || uuidv4();
   return visible ? (
     <div
       className={classNames(
@@ -73,7 +82,11 @@ const InformationBanner = ({
       )}
       {...props}
       role="alert"
+      aria-labelledby={idForAria + '-label'}
     >
+      <span className="sr-only" id={idForAria + '-label'}>
+        {ariaLabel}
+      </span>
       <div className={infoWrapperClasses}>
         {props.type == 'banner' && (
           <div

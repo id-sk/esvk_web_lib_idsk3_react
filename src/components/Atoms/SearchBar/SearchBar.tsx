@@ -5,6 +5,7 @@ import IconLink from '../IconLink';
 
 export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
   buttonLabel?: string | ReactNode;
+  buttonAriaLabel?: string;
   buttonDisabled?: boolean;
   buttonOnClick?: React.MouseEventHandler<HTMLButtonElement>;
   searchbarSize?: 'large' | 'medium' | 'small';
@@ -14,10 +15,12 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   wrapperClassName?: string;
   error?: boolean;
   errorMsg?: string;
+  label?: string;
 }
 
 const SearchBar = ({
   buttonLabel,
+  buttonAriaLabel,
   buttonDisabled,
   placeholder,
   searchbarSize = 'large',
@@ -31,6 +34,7 @@ const SearchBar = ({
   style,
   error,
   errorMsg,
+  label,
   ...props
 }: SearchBarProps) => {
   const [searchbarOpened, setSearchbarOpened] = useState<boolean>(false);
@@ -75,6 +79,9 @@ const SearchBar = ({
         />
       )}
       <div className={contentClasses}>
+        <label className="sr-only" htmlFor={id ? id + '-input' : undefined}>
+          {label}
+        </label>
         <input
           className={inputClasses}
           placeholder={placeholder}
@@ -87,6 +94,7 @@ const SearchBar = ({
           disabled={buttonDisabled}
           ref={buttonRef}
           id={id ? id + '-button' : undefined}
+          aria-label={buttonAriaLabel}
         >
           <SearchIcon className={iconClasses} />
           {buttonLabel}

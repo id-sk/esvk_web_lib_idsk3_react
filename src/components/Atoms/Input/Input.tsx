@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState
 } from 'react';
+import { WarningIcon } from '../../../svgIcons/Alert';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,6 +15,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   error?: boolean;
   errorMsg?: string;
   label?: string;
+  labelSrOnly?: boolean;
   caption?: string;
   subtitle?: string;
   placeholder?: string;
@@ -33,6 +35,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       error,
       errorMsg,
       label,
+      labelSrOnly = false,
       subtitle,
       caption,
       disabled,
@@ -102,7 +105,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <>
         <div className={classNames({ 'w-full': fullWidth })}>
-          {!!label && <p className="input__label">{label}</p>}
+          {!!label && (
+            <label className={classNames('input__label', { 'sr-only': labelSrOnly })}>
+              {label}
+            </label>
+          )}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <input
@@ -120,6 +127,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {...props}
             />
             {!!icon && iconElement}
+            {!!errorMsg && (
+              <WarningIcon
+                className={classNames(
+                  'input__icon',
+                  {
+                    'input__icon--large': inputSize === 'large',
+                    'input__icon--medium': inputSize === 'medium',
+                    'input__icon--small': inputSize === 'small'
+                  },
+                  'input__icon--right'
+                )}
+              />
+            )}
             {!!actionButton && (
               <button
                 disabled={disabled}
