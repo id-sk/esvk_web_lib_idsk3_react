@@ -23,7 +23,6 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   yearLabel?: string;
   inputClasses?: string;
   initialDate?: Date | null | undefined;
-  dateStringFormat?: string;
   onValueUpdate?: (value: string) => void;
 }
 
@@ -45,9 +44,9 @@ const DateInput = ({
   yearLabel,
   initialDate,
   onValueUpdate,
-  dateStringFormat = 'y-MM-dd',
   ...props
 }: DateInputProps) => {
+  const dateStringFormat = 'yyyy-MM-dd';
   const dayRef = useRef<HTMLInputElement>(null);
   const monthRef = useRef<HTMLInputElement>(null);
   const yearRef = useRef<HTMLInputElement>(null);
@@ -55,29 +54,32 @@ const DateInput = ({
   const [startDate, setStartDate] = useState(initialDate ?? new Date());
   const [day, setInputDay] = useState(initialDate ? format(initialDate, 'dd') : '');
   const [month, setInputMonth] = useState(initialDate ? format(initialDate, 'MM') : '');
-  const [year, setInputYear] = useState(initialDate ? format(initialDate, 'y') : '');
+  const [year, setInputYear] = useState(initialDate ? format(initialDate, 'yyyy') : '');
   const [open, setOpen] = useState(false);
   const dateString = `${year}-${month}-${day}`;
 
   useEffect(() => {
-    console.log('useEffect', initialDate);
     setStartDate(initialDate ?? new Date());
     setInputDay(initialDate ? format(initialDate, 'dd') : '');
     setInputMonth(initialDate ? format(initialDate, 'MM') : '');
-    setInputYear(initialDate ? format(initialDate, 'y') : '');
+    setInputYear(initialDate ? format(initialDate, 'yyyy') : '');
   }, [initialDate]);
 
-  const handleNewDate = (newDate: Date) => {
+  const handleNewDate = (newDate: Date, formattedDateString: string) => {
     setStartDate(newDate);
     if (!!onValueUpdate && !disabled) {
-      onValueUpdate(format(newDate, dateStringFormat));
+      if (formattedDateString.length == 10) {
+        onValueUpdate(format(newDate, dateStringFormat));
+      } else if (formattedDateString == '--') {
+        onValueUpdate('');
+      }
     }
   };
 
   const addDay = () => {
     if (isNaN(Number(day))) return;
     const newDate = setDate(startDate, Number(day));
-    handleNewDate(newDate);
+    handleNewDate(newDate, dateString);
   };
   const handleDayInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputDay('');
@@ -92,7 +94,7 @@ const DateInput = ({
   const addMonth = () => {
     if (isNaN(Number(month))) return;
     const newDate = setMonth(startDate, Number(month) - 1);
-    handleNewDate(newDate);
+    handleNewDate(newDate, dateString);
   };
 
   const handleMonthInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,9 +110,9 @@ const DateInput = ({
     if (isNaN(Number(year))) return;
     const newDate = setYear(startDate, Number(year));
     if (dateString == '--') {
-      handleNewDate(setYear(new Date(), Number(new Date().getFullYear())));
+      handleNewDate(setYear(new Date(), Number(new Date().getFullYear())), dateString);
     } else {
-      handleNewDate(newDate);
+      handleNewDate(newDate, dateString);
     }
   };
 
@@ -130,6 +132,13 @@ const DateInput = ({
     if (month.length == 1) {
       setInputMonth('0' + month);
     }
+  };
+
+  const handleDatepickerChange = (date: Date) => {
+    setInputDay(format(date, 'dd'));
+    setInputMonth(format(date, 'MM'));
+    setInputYear(format(date, 'yyyy'));
+    handleNewDate(date, format(date, dateStringFormat));
   };
 
   const datePickerClasses: string = classNames('date-input__date-picker', {
@@ -215,12 +224,7 @@ const DateInput = ({
               className="date-input__date-picker-input"
               onCalendarOpen={() => setOpen(true)}
               onCalendarClose={() => setOpen(false)}
-              onChange={(date: Date) => {
-                handleNewDate(date);
-                setInputDay(date.getDate().toString());
-                setInputMonth((date.getUTCMonth() + 1).toString());
-                setInputYear(date.getFullYear().toString());
-              }}
+              onChange={handleDatepickerChange}
             />
           </div>
         </span>
