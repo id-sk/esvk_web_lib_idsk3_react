@@ -101,7 +101,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <>
-        <label className={classNames({ 'w-full': fullWidth })}>
+        <div className={classNames({ 'w-full': fullWidth })}>
           {!!label && <p className="input__label">{label}</p>}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
@@ -131,7 +131,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               </button>
             )}
           </div>
-        </label>
+        </div>
         {(!!errorMsg || !!caption) && (
           <p
             className={classNames('input__caption', {

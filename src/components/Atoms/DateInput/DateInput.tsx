@@ -205,9 +205,11 @@ const DateInput = ({
             }}
           />
         )}
-        <button className={datePickerClasses}>
-          <DateRange className="date-input__date-range" />
-          <div className="-mt-6">
+        <span>
+          <button className={datePickerClasses}>
+            <DateRange className="date-input__date-range" />
+          </button>
+          <div className="date-input__position">
             <DatePicker
               selected={startDate}
               className="date-input__date-picker-input"
@@ -221,7 +223,7 @@ const DateInput = ({
               }}
             />
           </div>
-        </button>
+        </span>
       </div>
       {(!!errorMsg || !!caption) && (
         <p

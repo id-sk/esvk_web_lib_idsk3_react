@@ -373,7 +373,10 @@
         @apply w-6 h-6 mr-auto ml-auto;
     }
     .date-input__date-picker-input{
-        @apply w-6 h-6 opacity-0 cursor-pointer;
+        @apply w-16 h-12 opacity-0 cursor-pointer;
+    }
+    .date-input__position {
+        @apply -mt-14 absolute;
     }
 
     .dialog-screen {
