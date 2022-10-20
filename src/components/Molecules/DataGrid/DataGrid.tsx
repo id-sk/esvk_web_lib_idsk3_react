@@ -44,6 +44,7 @@ export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement
   checked?: boolean;
   active?: boolean;
   checkbox?: boolean;
+  activeDotVisibility?: boolean;
 }
 
 export function DataGridRow({
@@ -56,6 +57,7 @@ export function DataGridRow({
   active,
   checkbox,
   className,
+  activeDotVisibility = true,
   id,
   ...props
 }: DataGridRowProps) {
@@ -76,7 +78,7 @@ export function DataGridRow({
           id={id ? id + '-checkbox' : undefined}
         />
       )}
-      {!!active && (
+      {!!active && !!activeDotVisibility && (
         <div className="data-grid-row__dot-wrapper">
           <div
             className={classNames('data-grid-row__dot', {

@@ -109,7 +109,84 @@ DecisionList.args = {
     </DataGridRow>
   ))
 };
-
+export const WithoutActiveIndicator = Template.bind({});
+WithoutActiveIndicator.args = {
+  checkboxEverything: true,
+  headRow: (
+    <>
+      <DataGridRowValue>Odosielateľ</DataGridRowValue>
+      <DataGridRowValue className="tb2:flex hidden" align="right">
+        Štítky
+      </DataGridRowValue>
+      <DataGridRowValue className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]" align="right">
+        Dátum
+      </DataGridRowValue>
+    </>
+  ),
+  children: DecisionListMock.map((gridItem) => (
+    <DataGridRow
+      checkbox={true}
+      active={!gridItem.inactive}
+      key={gridItem.id}
+      moreOptions={[
+        <p key={1}>Exportovať</p>,
+        <p key={2}>Archivovať</p>,
+        <p key={3}>Sprievodca schránkou</p>,
+        <p key={4}>Zobraziť detail</p>
+      ]}
+      activeDotVisibility={false}
+    >
+      <DataGridRowValue>
+        <div>
+          <div className="flex gap-2.5 items-center min-h-[2.375rem]">
+            <div className={!gridItem.inactive ? 'font-bold' : ''}>{gridItem.title}</div>
+            {gridItem.titleTag}
+          </div>
+          {gridItem.text}
+        </div>
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
+        {gridItem.tags}
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
+        {gridItem.date}
+      </DataGridRowValue>
+    </DataGridRow>
+  ))
+};
+export const WithoutHeader = Template.bind({});
+WithoutHeader.args = {
+  checkboxEverything: true,
+  children: DecisionListMock.map((gridItem) => (
+    <DataGridRow
+      checkbox={true}
+      active={!gridItem.inactive}
+      key={gridItem.id}
+      moreOptions={[
+        <p key={1}>Exportovať</p>,
+        <p key={2}>Archivovať</p>,
+        <p key={3}>Sprievodca schránkou</p>,
+        <p key={4}>Zobraziť detail</p>
+      ]}
+    >
+      <DataGridRowValue>
+        <div>
+          <div className="flex gap-2.5 items-center min-h-[2.375rem]">
+            <div className={!gridItem.inactive ? 'font-bold' : ''}>{gridItem.title}</div>
+            {gridItem.titleTag}
+          </div>
+          {gridItem.text}
+        </div>
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
+        {gridItem.tags}
+      </DataGridRowValue>
+      <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
+        {gridItem.date}
+      </DataGridRowValue>
+    </DataGridRow>
+  ))
+};
 export const DecisionSharingList = Template.bind({});
 DecisionSharingList.args = {
   headRow: (
