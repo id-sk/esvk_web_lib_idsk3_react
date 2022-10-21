@@ -9,6 +9,7 @@ export {
   HorizontalNavigationGroup
 } from './HorizontalNavigation';
 export { default as InformationBanner, InformationBannerProps } from './InformationBanner';
+export { default as SkipLink, SkipLinkProps } from './SkipLink';
 export { MenuMobile, MenuMobileProps } from './MenuMobile';
 export {
   default as IdentificationCard,

@@ -1401,5 +1401,12 @@
     .pagination__button-break {
         @apply w-9 h-9 flex items-end justify-center;
     }
+    
+    .information-banner__skip-link {
+        @apply p-0 focus-within:py-2;
+    }
+    .skip-link {
+        @apply absolute focus:static overflow-hidden;
+    }
 
 }
