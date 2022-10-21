@@ -78,7 +78,10 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       <>
         <div className={classNames({ 'w-full': fullWidth })}>
           {!!label && (
-            <label className={classNames('input__label', { 'sr-only': labelSrOnly })}>
+            <label
+              className={classNames('input__label', { 'sr-only': labelSrOnly })}
+              htmlFor={props.id}
+            >
               {label}
             </label>
           )}

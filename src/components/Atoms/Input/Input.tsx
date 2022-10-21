@@ -106,7 +106,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <>
         <div className={classNames({ 'w-full': fullWidth })}>
           {!!label && (
-            <label className={classNames('input__label', { 'sr-only': labelSrOnly })}>
+            <label
+              className={classNames('input__label', { 'sr-only': labelSrOnly })}
+              htmlFor={props.id}
+            >
               {label}
             </label>
           )}
