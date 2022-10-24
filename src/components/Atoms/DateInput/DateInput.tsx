@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
-import { Input } from '../index';
+import { Input } from '../Input';
 import DateRange from '../../../svgIcons/Actions/DateRange';
 import DatePicker from 'react-datepicker';
 import { format, setDate, setMonth, setYear } from 'date-fns';

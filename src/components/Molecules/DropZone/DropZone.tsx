@@ -7,7 +7,7 @@ import { FileRejection, useDropzone } from 'react-dropzone';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import { ErrorIcon } from '../../../svgIcons/Alert';
 import { format } from 'date-fns';
-import prettyBytes from 'pretty-bytes';
+import { formatBytes } from '../../../utils';
 import {
   DocumentIcon,
   ExcelSpreadsheetIcon,
@@ -195,7 +195,7 @@ const DropZone = ({ icon, ...props }: DropZoneProps) => {
                     <div className="dropzone__file-date">
                       {`${format(f.lastModified, 'd. M. yyyy')} - `}
                     </div>
-                    {prettyBytes(f.size).toString()}
+                    {formatBytes(f.size)}
                   </div>
 
                   <div className={progressClasses}>
