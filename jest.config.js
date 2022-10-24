@@ -1,3 +1,6 @@
+const esModules = ['pretty-bytes'].join('|');
+
 module.exports = {
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
+  transformIgnorePatterns: [`/node_modules/(?!${esModules})`]
 };

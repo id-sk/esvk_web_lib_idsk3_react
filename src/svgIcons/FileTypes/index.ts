@@ -1,0 +1,10 @@
+export { default as DocumentIcon } from './Document';
+export { default as ExcelSpreadsheetIcon } from './ExcelSpreadsheet';
+export { default as FolderIcon } from './Folder';
+export { default as GenericIcon } from './Generic';
+export { default as ImageIcon } from './Image';
+export { default as PdfDocumentIcon } from './PdfDocument';
+export { default as PowerpointPresentationIcon } from './PowerpointPresentation';
+export { default as PresentationIcon } from './Presentation';
+export { default as SpreadsheetIcon } from './Spreadsheet';
+export { default as WordDocumentIcon } from './WordDocument';

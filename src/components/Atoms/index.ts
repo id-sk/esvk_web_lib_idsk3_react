@@ -52,3 +52,4 @@ export {
 export { default as TextSignpost, TextSignpostProps } from './TextSignpost';
 export { default as Tooltip, TooltipProps } from './Tooltip';
 export { default as Pagination } from './Pagination';
+export { default as Progress } from './Progress';

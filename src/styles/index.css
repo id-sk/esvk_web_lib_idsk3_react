@@ -435,6 +435,115 @@
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem];
     }
 
+    .dropzone {
+        @apply bg-white rounded-none p-7 grid gap-5 tb2:rounded-lg relative w-full page-content;
+    }
+    .dropzone__container {
+        @apply bg-neutral-90 border-dashed border-[2px] border-neutral-500 rounded-lg p-7 text-center text-primary-dark;
+    }
+    .dropzone__container--active {
+        @apply dropzone__container bg-blue-100 border-blue-400;
+    }
+    .dropzone__container--inactive {
+        @apply dropzone__container bg-neutral-90 border-neutral-300 text-neutral-600;
+    }
+    .dropzone__upload-icon {
+        @apply w-9 h-9 mb-2.5 ml-auto mr-auto;
+    }
+    .dropzone__subtitle {
+        @apply text-xl font-bold;
+    }
+    .dropzone__description {
+        @apply text-neutral-600;
+    }
+    .dropzone__primary-button {
+        @apply w-full mt-2.5;
+    }
+    .dropzone__button {
+        @apply ml-auto mr-auto;
+    }
+    .dropzone__icon {
+        @apply w-6 h-6;
+    }
+    .dropzone__error-icon{
+        @apply text-alert-warning w-6 h-6;
+    }
+    .dropzone__files {
+        @apply grid gap-2;
+    }
+    .dropzone__file {
+        @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
+    }
+    .dropzone__files-title {
+        @apply flex mb-5;
+    }
+    .dropzone__file--error {
+        @apply dropzone__file border-alert-warning;
+    }
+    .dropzone__file-icon {
+        @apply mr-2.5 mt-1; 
+    }
+    .dropzone__file-info {
+        @apply block tb2:flex items-center w-full;
+    }
+    .dropzone__file-name {
+        @apply w-fit text-body mr-2.5;
+    }
+    .dropzone__file-info-progress {
+        @apply flex justify-between w-full;
+    }
+    .dropzone__file-size-date{
+        @apply text-body-1 text-neutral-600 mr-2.5 flex;
+    }
+    .dropzone__file-size-date--hidden {
+        @apply hidden w-full tb2:dropzone__file-size-date;
+    }
+    .dropzone__file-date {
+        @apply tb2:hidden flex;
+    }
+    .dropzone__file-progress-container {
+        @apply flex items-center gap-2.5 w-full justify-end;
+    }
+    .dropzone__file-progress {
+        @apply w-full tb2:w-[13.75rem];
+    }
+    .dropzone__file-percent {
+        @apply text-body-1 text-neutral-600;
+    }
+    .dropzone__file-container {
+        @apply flex w-full;
+    }
+    .dropzone-accepted-file {
+        @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
+    }
+    .dropzone-accepted-file__close-button {
+        @apply flex gap-7 items-center;
+    }
+    .dropzone-accepted-file__close-icon {
+        @apply w-6 h-6 tb2:ml-7 ml-2.5;
+    }
+    .dropzone-rejected-file {
+        @apply dropzone__file border-alert-warning;
+    }
+    .dropzone-rejected-file__icon {
+        @apply dropzone__error-icon mr-2.5;
+    }
+    .dropzone-rejected-file__container {
+        @apply block tb2:flex gap-5 items-center w-full justify-between;
+    }
+    .dropzone-rejected-file__name {
+        @apply w-fit text-body mr-2.5;
+    }
+    .dropzone-rejected-file__error-message {
+        @apply text-alert-warning;
+    }
+    .dropzone-rejected-file__close-button {
+        @apply flex gap-7 items-center;
+    }
+    .dropzone-rejected-file__close-icon {
+        @apply text-alert-warning w-6 h-6 ml-5;
+    }
+
     .event-card {
         @apply px-4 py-5 grid grid-cols-[auto_1fr] gap-x-4;
     }
@@ -1030,6 +1139,16 @@
     }
     .primary-button--large.primary-button--icon-right {
         @apply pr-4;
+    }
+
+    .progress {
+        @apply rounded-full;
+    }
+    .progress-percent {
+        @apply rounded-l-full;
+    }
+    .progress-percent--full {
+        @apply rounded-full;
     }
 
     .icon-button {

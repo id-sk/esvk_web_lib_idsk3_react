@@ -45,3 +45,9 @@ export {
   InPageNavigationLink,
   InPageNavigationLinkProps
 } from '../Molecules/InPageNavigation';
+export {
+  default as DropZone,
+  DropZoneProps,
+  DropZoneAcceptedFile,
+  DropZoneRejectedFile
+} from '../Molecules/DropZone';
