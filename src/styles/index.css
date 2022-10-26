@@ -456,10 +456,10 @@
         @apply w-9 h-9 mb-2.5 ml-auto mr-auto;
     }
     .dropzone__subtitle {
-        @apply text-xl font-bold;
+        @apply text-body font-bold;
     }
     .dropzone__description {
-        @apply text-neutral-600;
+        @apply text-neutral-600 text-body-1;
     }
     .dropzone__primary-button {
         @apply w-full mt-2.5;
@@ -522,7 +522,7 @@
         @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
     }
     .dropzone-accepted-file__close-button {
-        @apply flex gap-7 items-center;
+        @apply flex gap-7 items-center text-neutral-600;
     }
     .dropzone-accepted-file__close-icon {
         @apply w-6 h-6 tb2:ml-7 ml-2.5;
@@ -540,7 +540,7 @@
         @apply w-fit text-body mr-2.5;
     }
     .dropzone-rejected-file__error-message {
-        @apply text-alert-warning;
+        @apply text-alert-warning text-body-1;
     }
     .dropzone-rejected-file__close-button {
         @apply flex gap-7 items-center;
