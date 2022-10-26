@@ -65,7 +65,13 @@ export function DataGridRow({
     'data-grid-row',
     { 'data-grid-row--without-head': !props.headRow },
     { 'data-grid-row--active': active },
+    { 'data-grid-row--active-no-checkbox': active && !checkbox },
     { 'data-grid-row--checked': checked },
+    className
+  );
+  const noCheckboxClasses = classNames(
+    'data-grid-row__dot-wrapper',
+    { 'data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
     className
   );
   return (
@@ -79,7 +85,7 @@ export function DataGridRow({
         />
       )}
       {!!active && !!activeDotVisibility && (
-        <div className="data-grid-row__dot-wrapper">
+        <div className={noCheckboxClasses}>
           <div
             className={classNames('data-grid-row__dot', {
               'data-grid-row__dot--active': active
