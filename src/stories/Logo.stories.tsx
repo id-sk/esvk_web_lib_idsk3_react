@@ -9,7 +9,11 @@ export default {
   component: Logo
 } as ComponentMeta<typeof Logo>;
 
-const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;
+const Template: ComponentStory<typeof Logo> = (args) => (
+  <button>
+    <Logo {...args} />
+  </button>
+);
 
 export const Default = Template.bind({});
 Default.args = {

@@ -926,7 +926,7 @@
         @apply flex gap-3;
     }
     .logo__titles {
-        @apply max-w-[10rem] tb1:max-w-none flex flex-col justify-center;
+        @apply max-w-[10rem] tb1:max-w-none flex flex-col justify-center items-start;
     }
     .logo__title {
         @apply text-2xl text-blue-500 font-bold leading-none hidden tb1:block;

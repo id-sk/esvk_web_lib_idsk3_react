@@ -123,7 +123,11 @@ const ChildrenPrivate = () => {
       </Navigation>
       <div className="flex-auto" />
       <NotificationIcon alert={true} width="1.25rem" height="1.25rem" />
-      <IconLink children={<InfoIcon width="1.25rem" height="1.25rem" />} className="mr-3" />
+      <IconLink
+        children={<InfoIcon width="1.25rem" height="1.25rem" />}
+        className="mr-3"
+        href="#"
+      />
       <AvatarCircle firstName="Janko" lastName="Hraško" />
     </>
   );
