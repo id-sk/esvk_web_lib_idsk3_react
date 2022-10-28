@@ -5,6 +5,7 @@ import { Input } from '../Input';
 import DateRange from '../../../svgIcons/Actions/DateRange';
 import DatePicker from 'react-datepicker';
 import { format, setDate, setMonth, setYear } from 'date-fns';
+import { useRifm } from 'rifm';
 
 export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   id?: string;
@@ -57,6 +58,11 @@ const DateInput = ({
   const [year, setInputYear] = useState(initialDate ? format(initialDate, 'yyyy') : '');
   const [open, setOpen] = useState(false);
   const dateString = `${year}-${month}-${day}`;
+  const idForAria: string = errorMessageId || uuidv4();
+
+  const numberFormat = (str: string) => {
+    return str.replace(/[^\d]+/gi, '');
+  };
 
   useEffect(() => {
     setStartDate(initialDate ?? new Date());
@@ -81,15 +87,12 @@ const DateInput = ({
     const newDate = setDate(startDate, Number(day));
     handleNewDate(newDate, dateString);
   };
-  const handleDayInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputDay('');
-    if (event.currentTarget.value == '') {
-      return;
-    }
-    const inputValue = Number(event.currentTarget.value);
-    setInputDay(inputValue.toString());
-  };
-  const idForAria: string = errorMessageId || uuidv4();
+
+  const dayInputMask = useRifm({
+    value: day,
+    onChange: setInputDay,
+    format: numberFormat
+  });
 
   const addMonth = () => {
     if (isNaN(Number(month))) return;
@@ -97,14 +100,11 @@ const DateInput = ({
     handleNewDate(newDate, dateString);
   };
 
-  const handleMonthInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputMonth('');
-    if (event.currentTarget.value == '') {
-      return;
-    }
-    const inputValue = Number(event.currentTarget.value);
-    setInputMonth(inputValue.toString());
-  };
+  const monthInputMask = useRifm({
+    value: month,
+    onChange: setInputMonth,
+    format: numberFormat
+  });
 
   const addYear = () => {
     if (isNaN(Number(year))) return;
@@ -116,16 +116,13 @@ const DateInput = ({
     }
   };
 
-  const handleYearInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputYear('');
-    if (event.currentTarget.value == '') {
-      return;
-    }
-    const inputValue = Number(event.currentTarget.value);
-    setInputYear(inputValue.toString());
-  };
+  const yearInputMask = useRifm({
+    value: year,
+    onChange: setInputYear,
+    format: numberFormat
+  });
 
-  const checkInput = () => {
+  const formatInputLength = () => {
     if (day.length == 1) {
       setInputDay('0' + day);
     }
@@ -143,7 +140,7 @@ const DateInput = ({
 
   const datePickerClasses: string = classNames('date-input__date-picker', {
     'date-input__date-picker': day == '' || month == '' || year == '',
-    'date-input__date-picker--open': (day != '' && month != '' && year != '') || !!open
+    'date-input__date-picker--open': (day != '' && month != '' && year != '') || open
   });
 
   const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
@@ -171,14 +168,12 @@ const DateInput = ({
             label={dayLabel}
             className={classNames(allInputClasses, 'date-input__day-n-month')}
             disabled={disabled}
-            onChange={(e) => {
-              handleDayInputChange(e);
-            }}
-            value={day}
+            onChange={dayInputMask.onChange}
+            value={dayInputMask.value}
             placeholder="DD"
             onBlur={() => {
               addDay();
-              checkInput();
+              formatInputLength();
             }}
           />
         )}
@@ -189,12 +184,12 @@ const DateInput = ({
             label={monthLabel}
             className={classNames(allInputClasses, 'date-input__day-n-month')}
             disabled={disabled}
-            onChange={(e) => handleMonthInputChange(e)}
-            value={month}
+            onChange={monthInputMask.onChange}
+            value={monthInputMask.value}
             placeholder="MM"
             onBlur={() => {
               addMonth();
-              checkInput();
+              formatInputLength();
             }}
           />
         )}
@@ -205,12 +200,12 @@ const DateInput = ({
             label={yearLabel}
             className={classNames(allInputClasses, 'date-input__year')}
             disabled={disabled}
-            onChange={(e) => handleYearInputChange(e)}
-            value={year}
+            onChange={yearInputMask.onChange}
+            value={yearInputMask.value}
             placeholder="YYYY"
             onBlur={() => {
               addYear();
-              checkInput();
+              formatInputLength();
             }}
           />
         )}
