@@ -43,13 +43,15 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
             <a className="anchor-card__heading" {...props} ref={ref}>
               {heading}
             </a>
-            <div
-              className={classNames('anchor-card__description', {
-                'anchor-card__description--with-action': renderAction
-              })}
-            >
-              {children}
-            </div>
+            {!!children && (
+              <div
+                className={classNames('anchor-card__description', {
+                  'anchor-card__description--with-action': renderAction
+                })}
+              >
+                {children}
+              </div>
+            )}
             {renderAction && <PrimaryButton {...actionButton} />}
           </div>
           {layout === 'vertical' && withArrowIcon && (
