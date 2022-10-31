@@ -71,6 +71,47 @@ Default.args = {
   )
 };
 
+export const WithoutSignatures = Template.bind({});
+WithoutSignatures.args = {
+  headRow: (
+    <>
+      <TableRowValue>Názov</TableRowValue>
+      <TableRowValue>Pridané</TableRowValue>
+      <TableRowValue align="right">Akcie</TableRowValue>
+    </>
+  ),
+  children: (
+    <>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+      <TableRow>
+        <TableRowValue>
+          <a className="link-m" href="#">
+            Príloha.pdf
+          </a>
+        </TableRowValue>
+        <TableRowValue>19.1.2022 o 15:32</TableRowValue>
+        <TableRowValue align="right">
+          <button>
+            <MoreVertIcon className="w-6 h-6" />
+          </button>
+        </TableRowValue>
+      </TableRow>
+    </>
+  )
+};
+
 export const HeadingAndAction = Template.bind({});
 HeadingAndAction.args = {
   heading: 'Prílohy',
