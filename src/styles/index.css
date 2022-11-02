@@ -486,7 +486,7 @@
         @apply dropzone__file border-alert-warning;
     }
     .dropzone__file-icon {
-        @apply mr-2.5 mt-1; 
+        @apply mr-2.5 mt-1;
     }
     .dropzone__file-info {
         @apply block tb2:flex items-center w-full;
@@ -1214,13 +1214,13 @@
         @apply flex flex-col min-h-screen;
     }
     .page-layout__main {
-        @apply pt-[1.875rem] pb-16 tb1:pt-8 bg-neutral-100 flex-auto flex flex-col;
+        @apply pt-[1.875rem] pb-16 tb1:pt-[1.875rem] bg-neutral-100 flex-auto flex flex-col;
     }
     .page-layout__breadcrumbs {
         @apply inset-x-0 pb-6 tb1:pb-8 px-5 page-content w-full z-30;
     }
     .page-layout__heading {
-        @apply inset-x-0 pb-6 tb1:pb-5 px-5 page-content w-full;
+        @apply inset-x-0 pb-6 tb1:pb-[1.875rem] px-5 page-content w-full;
     }
     .page-layout__content {
         @apply relative inset-x-0 px-0 page-content min-h-full flex-auto w-full;
@@ -1368,7 +1368,7 @@
         @apply text-blue-400 text-2xl flex items-center pb-1.5;
     }
     .signpost__arrow-icon {
-        @apply font-bold text-2xl w-6 h-6 ml-4;
+        @apply font-bold text-2xl w-6 h-6 ml-4 flex justify-center h-9 flex-col;
     }
     .signpost-group {
         @apply border border-neutral-300 rounded-lg overflow-hidden;
@@ -1399,7 +1399,7 @@
     .table-slash::after{content: "/";}
     .table-unslash::after{content: "";}
     .table-unslash--last:nth-last-child(2)::after{
-        content: ""   
+        content: ""
     }
     .table__head .table__value {
         @apply flex gap-0 items-center tb2:last:flex last:hidden table-slash table-unslash--last tb2:table-unslash;
@@ -1416,7 +1416,7 @@
     .table__value {
         @apply flex gap-5 items-center tb2:last:relative tb2:last:top-0 tb2:last:right-0 last:absolute last:top-5 last:right-4;
     }
-    
+
     .table__value--right-align {
         @apply text-right justify-end;
     }
@@ -1534,7 +1534,7 @@
     .pagination__button-break {
         @apply w-9 h-9 flex items-end justify-center;
     }
-    
+
     .information-banner__skip-link {
         @apply p-0 focus-within:py-2;
     }
