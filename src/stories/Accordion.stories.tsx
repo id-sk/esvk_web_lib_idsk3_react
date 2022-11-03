@@ -101,3 +101,15 @@ ListGroup.args = {
     </>
   )
 };
+export const ListGroupSmall = TemplateGroup.bind({});
+ListGroupSmall.args = {
+  heading: <h4 className="underline">Základné údaje</h4>,
+  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  size: 'small',
+  children: (
+    <>
+      <h4>Filtrovania</h4>
+      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
+    </>
+  )
+};

@@ -101,13 +101,22 @@
         @apply w-10 h-10 absolute -left-14 top-6 p-2 border rounded-full flex justify-center align-middle bg-white;
     }
     .accordion--list-bullet {
-        @apply w-1 h-1 p-1.5 -left-[2.655rem] top-10 bg-black;
+        @apply w-1 h-1 p-1.5 -left-[2.705rem] top-9 bg-black border-2 border-white;
     }
     .accordion__list-number {
         @apply leading-none font-bold text-xl;
     }
     .accordion--gray {
         @apply bg-neutral-90;
+    }
+    .accordion--small.accordion--in-list-group {
+        @apply before:top-9;
+    }
+    .accordion--small .accordion--list {
+        @apply top-3;
+    }
+    .accordion--small .accordion--list-bullet {
+        @apply top-6;
     }
 
     .anchor-card {
