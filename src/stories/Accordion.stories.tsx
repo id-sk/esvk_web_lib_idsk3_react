@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args
 
 export const Default = Template.bind({});
 Default.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
   children: (
     <>
@@ -31,7 +31,7 @@ Default.args = {
 };
 export const InitiallyOpen = Template.bind({});
 InitiallyOpen.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
   initiallyClosed: false,
   children: (
@@ -43,7 +43,7 @@ InitiallyOpen.args = {
 };
 export const WithoutSubTitle = Template.bind({});
 WithoutSubTitle.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   children: (
     <>
       <h4>Filtrovania</h4>
@@ -53,7 +53,7 @@ WithoutSubTitle.args = {
 };
 export const Small = Template.bind({});
 Small.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
   size: 'small',
   children: (
@@ -65,7 +65,7 @@ Small.args = {
 };
 export const SmallWithoutSubTitle = Template.bind({});
 SmallWithoutSubTitle.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   size: 'small',
   children: (
     <>
@@ -76,7 +76,7 @@ SmallWithoutSubTitle.args = {
 };
 export const GrayBackground = Template.bind({});
 GrayBackground.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
   initiallyClosed: false,
   bgGray: true,
@@ -92,7 +92,7 @@ GrayBackground.args = {
 };
 export const ListGroup = TemplateGroup.bind({});
 ListGroup.args = {
-  heading: <h4>Základné údaje</h4>,
+  heading: <h4 className="underline">Základné údaje</h4>,
   subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
   children: (
     <>

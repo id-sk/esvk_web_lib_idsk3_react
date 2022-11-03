@@ -62,7 +62,7 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .accordion__title {
-        @apply flex items-center justify-between underline;
+        @apply flex items-center justify-between;
     }
     .accordion__subtitle {
         @apply block text-body-1 text-lg pt-2.5;
