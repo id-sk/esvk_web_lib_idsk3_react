@@ -1419,6 +1419,9 @@
     .table__row {
         @apply block tb2:grid tb2:grid-flow-col tb2:auto-cols-fr gap-2 px-5 py-2 min-h-[3.125rem] items-center bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300 relative;
     }
+    .table__row .table__value {
+        @apply first:font-bold first:tb2:font-normal;
+    }
     .table__actions {
         @apply mt-5;
     }
