@@ -17,15 +17,20 @@ const ModalSideBar = ({
   heading,
   footerButton,
   children,
+  className,
   id,
   ...props
 }: ModalSideBarProps) => {
   const shadowClasses = classNames('modal-sidebar__shadow', {
     'modal-sidebar__shadow--hidden': !opened
   });
-  const sidebarClasses = classNames('modal-sidebar', {
-    'modal-sidebar--hidden': !opened
-  });
+  const sidebarClasses = classNames(
+    'modal-sidebar',
+    {
+      'modal-sidebar--hidden': !opened
+    },
+    className
+  );
 
   return (
     <>
@@ -34,7 +39,7 @@ const ModalSideBar = ({
         onClick={() => toggleOpened(false)}
         data-testid="sidebar-shadow"
       />
-      <div className={sidebarClasses} {...props}>
+      <div className={sidebarClasses} id={id} {...props}>
         <div className="modal-sidebar__top-bar" />
         <div className="modal-sidebar__header">
           <h3>{heading}</h3>
