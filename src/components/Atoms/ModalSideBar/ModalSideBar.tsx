@@ -46,9 +46,7 @@ const ModalSideBar = ({
             <CloseIcon className="modal-sidebar__close-icon" />
           </button>
         </div>
-        <div className="modal-sidebar__body">
-          <div>{children}</div>
-        </div>
+        <div className="modal-sidebar__body">{children}</div>
         <div className="flex-auto" />
         {!!footerButton && footerButton}
       </div>
