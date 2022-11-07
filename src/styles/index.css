@@ -310,7 +310,7 @@
     }
 
     .data-grid-row {
-        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4;
+        @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white rounded-none last:rounded-b-lg gap-4;
     }
     .data-grid-row--without-head {
         @apply flex justify-between text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4  first:rounded-t-lg first:border-t-0;
@@ -319,16 +319,16 @@
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-blue-100;
     }
     .data-grid-row--active-no-checkbox {
-        @apply flex justify-between text-body pr-5 py-5 pl-11 border-t border-neutral-300 bg-blue-100;
+        @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-blue-100;
     }
     .data-grid-row--checked {
         @apply flex justify-between text-body p-5 border-t border-neutral-300 bg-neutral-200;
     }
     .data-grid-row__dot-wrapper {
-        @apply flex mt-3.5 -mr-3 -ml-3.5;
+        @apply flex mt-3.5 -mr-2 -ml-3.5;
     }
     .data-grid-row__dot-wrapper--no-checkbox {
-        @apply flex mt-3.5 -mr-3 -ml-3.5;
+        @apply flex mt-3.5 -mr-2 -ml-3.5;
     }
     .data-grid-row__dot {
         @apply w-2.5 h-2.5 rounded-full;
@@ -345,7 +345,6 @@
     .data-grid-row__dropdown-space {
         @apply w-[1em];
     }
-
     .data-grid {
         @apply border border-neutral-300 rounded-lg;
     }
@@ -359,8 +358,9 @@
         @apply justify-end;
     }
     .data-grid__value:first-of-type {
-        @apply ml-6;
+        @apply mr-6;
     }
+
     .date-input__wrapper {
         @apply flex gap-3 items-end;
     }
