@@ -22,38 +22,24 @@ const Template: ComponentStory<typeof DataGrid> = (args) => <DataGrid {...args} 
 const DecisionListMock = [
   {
     id: '1',
-    titleTag: (
-      <a className={'link'} href="#">
-        <Tag label={'1 správa'} />
-      </a>
-    ),
+    titleTag: '1 správa',
     title: 'NCZI',
     text: 'Výsledok AG testu - negatívny',
     date: '15.4.2022',
     inactive: false,
-    tags: <Tag label="Dôležité" />
+    tags: [{ label: 'Dôležité', key: 1 }]
   },
   {
     id: '2',
-    titleTag: (
-      <Tag
-        label={
-          <a className={'link'} href="#">
-            3 správy
-          </a>
-        }
-      />
-    ),
+    titleTag: '3 správy',
     title: 'NCZI',
     text: 'Výsledok AG testu - pozitívny',
     date: '12.6.2022',
     inactive: true,
-    tags: (
-      <>
-        <Tag label="Dôležité" />
-        <Tag label="Potrebné vyzdvihnúť" />
-      </>
-    )
+    tags: [
+      { label: 'Dôležité', key: 2 },
+      { label: 'Potrebné vyzdvihnúť', key: 3 }
+    ]
   },
   {
     id: '3',
@@ -61,7 +47,7 @@ const DecisionListMock = [
     text: 'Potvrdenie o doručení správy',
     date: '15.6.2022',
     inactive: true,
-    tags: <Tag label="Potrebné vyzdvihnúť" />
+    tags: [{ label: 'Potrebné vyzdvihnúť', key: 4 }]
   }
 ];
 
@@ -95,13 +81,22 @@ DecisionList.args = {
         <div>
           <div className="flex gap-2.5 items-center min-h-[2.375rem]">
             <div className={!gridItem.inactive ? 'font-bold' : ''}>{gridItem.title}</div>
-            {gridItem.titleTag}
+            {gridItem.titleTag && (
+              <a className={'link'} href="#">
+                <Tag label={gridItem.titleTag} className="whitespace-nowrap" />
+              </a>
+            )}
           </div>
           {gridItem.text}
         </div>
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
-        {gridItem.tags}
+        {[
+          !!gridItem?.tags?.length &&
+            gridItem.tags.map((e) => {
+              return <Tag label={e.label} key={e.key} />;
+            })
+        ]}
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}
