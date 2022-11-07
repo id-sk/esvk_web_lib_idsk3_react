@@ -46,7 +46,7 @@ const BaseButton = (props: BaseButtonProps) => {
       {...props.buttonElementProps}
     >
       {(props.iconPosition == 'left' && icon) || (props.iconPosition == undefined && icon)}
-      {props.label && <span>{props.label}</span>}
+      {props.label && <span className="button__label">{props.label}</span>}
       {props.children && props.children}
       {props.iconPosition == 'right' && icon}
     </button>

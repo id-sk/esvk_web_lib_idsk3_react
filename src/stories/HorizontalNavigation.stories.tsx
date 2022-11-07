@@ -25,6 +25,7 @@ const Template: ComponentStory<typeof HorizontalNavigation> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  mobileView: 'grid',
   children: (
     <>
       <HorizontalNavigationItem icon={<FolderOpen />} label="Priečinky" />
@@ -36,9 +37,10 @@ Default.args = {
 
 export const Group = Template.bind({});
 Group.args = {
+  mobileView: 'grid',
   children: (
     <>
-      <HorizontalNavigationGroup>
+      <HorizontalNavigationGroup dropdownOnMobile={false} hideLabelOnMobile={true}>
         <HorizontalNavigationItem
           icon={<DeleteOutline />}
           label="Odstrániť"
@@ -53,7 +55,7 @@ Group.args = {
       <DropDown
         dropDownTitle="Viac"
         arrowIcon={<ExpandMoreIcon width="1.5rem" height="1.5rem" />}
-        className="ml-auto"
+        className="tb2:ml-auto"
         optionsSide="left"
       >
         <button>Ďalšia položka</button>
@@ -67,7 +69,7 @@ export const Tabs = Template.bind({});
 Tabs.args = {
   children: (
     <>
-      <HorizontalNavigationGroup>
+      <HorizontalNavigationGroup dropdownOnMobile={true} dropdownLabel={'Prijaté'}>
         <HorizontalNavigationItem label="Prijaté" active={true} />
         <HorizontalNavigationItem label="Odoslané" />
         <HorizontalNavigationItem label="Rozpracované" />
@@ -81,7 +83,7 @@ Tabs.args = {
       <DropDown
         dropDownTitle="Viac"
         arrowIcon={<ExpandMoreIcon width="1.5rem" height="1.5rem" />}
-        className="ml-auto"
+        className="tb2:ml-auto"
         optionsSide="left"
       >
         <button>Ďalšia položka</button>
