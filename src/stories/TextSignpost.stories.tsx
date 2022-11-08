@@ -16,3 +16,11 @@ Default.args = {
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
   href: '#'
 };
+
+export const WithSubtitle = Template.bind({});
+WithSubtitle.args = {
+  heading: 'Very long title',
+  subtitle: 'Very long subtitle',
+  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
+  href: '#'
+};

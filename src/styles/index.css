@@ -1403,6 +1403,9 @@
     .text-signpost {
         @apply border-b border-neutral-400 pb-8 max-w-3xl;
     }
+    .text-signpost__subtitle {
+        @apply text-body-1 text-neutral-600;
+    }
 
     .tab-bar {
         @apply flex items-start border-b border-neutral-300;
