@@ -189,10 +189,10 @@
     .breadcrumbs__crumb--show-on-mobile {
         @apply flex;
     }
-    .breadcrumbs .breadcrumbs__crumb a, .breadcrumbs .breadcrumbs__crumb button {
+    .breadcrumbs__crumb a, .breadcrumbs__crumb button {
         @apply link-s text-black visited:text-black;
     }
-    .breadcrumbs .breadcrumbs__crumb:last-child a, .breadcrumbs .breadcrumbs__crumb:last-child button {
+    .breadcrumbs__crumb:last-child a, .breadcrumbs__crumb:last-child button {
         @apply no-underline;
     }
     .breadcrumbs__forward-icon {
