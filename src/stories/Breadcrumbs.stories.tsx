@@ -12,10 +12,30 @@ const Template: ComponentStory<typeof Breadcrumbs> = (args) => <Breadcrumbs {...
 
 export const Default = Template.bind({});
 Default.args = {
-  children: [<a href="#">Section 1</a>, <a href="#">Section 2</a>, <a href="#">Section 3</a>]
+  children: [
+    <a href="#" key="1">
+      Section 1
+    </a>,
+    <a href="#" key="2">
+      Section 2
+    </a>,
+    <a href="#" key="3">
+      Section 3
+    </a>
+  ]
 };
 export const CustomHomeLink = Template.bind({});
 CustomHomeLink.args = {
   homeLink: <button>Home</button>,
-  children: [<a href="#">Section 1</a>, <a href="#">Section 2</a>, <a href="#">Section 3</a>]
+  children: [
+    <a href="#" key="1">
+      Section 1
+    </a>,
+    <a href="#" key="2">
+      Section 2
+    </a>,
+    <a href="#" key="3">
+      Section 3
+    </a>
+  ]
 };

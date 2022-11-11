@@ -180,11 +180,26 @@
         @apply caption text-neutral-600;
     }
 
-    .breadcrumbs {
+    .breadcrumbs, .breadcrumbs__crumb {
         @apply flex items-center gap-2;
     }
-    .breadcrumbs > a, .breadcrumbs > button {
-        @apply link-s text-black last:no-underline visited:text-black;
+    .breadcrumbs__crumb {
+        @apply hidden tb2:flex;
+    }
+    .breadcrumbs__crumb--show-on-mobile {
+        @apply flex;
+    }
+    .breadcrumbs .breadcrumbs__crumb a, .breadcrumbs .breadcrumbs__crumb button {
+        @apply link-s text-black visited:text-black;
+    }
+    .breadcrumbs .breadcrumbs__crumb:last-child a, .breadcrumbs .breadcrumbs__crumb:last-child button {
+        @apply no-underline;
+    }
+    .breadcrumbs__forward-icon {
+        @apply hidden tb2:flex;
+    }
+    .breadcrumbs__back-icon {
+        @apply tb2:hidden
     }
 
     .button__icon {
