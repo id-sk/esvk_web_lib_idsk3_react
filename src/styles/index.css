@@ -409,16 +409,20 @@
     }
 
     .dialog-screen {
-        @apply fixed z-50 inset-0 bg-neutral-500/50 duration-500 visible opacity-100 flex justify-center items-center;
+        @apply fixed w-full z-50 inset-0 bg-neutral-500/50 visible opacity-100 flex justify-center overflow-scroll;
     }
     .dialog-screen--hidden {
         @apply hidden opacity-0;
     }
     .dialog-wrapper {
-        @apply w-full h-full tb2:h-auto tb2:w-auto tb2:page-content;
+        @apply fixed z-50 w-full top-0 bottom-0 pt-[7.5rem] pb-[3rem] tb2:h-auto tb2:page-content tb2:w-auto overflow-scroll;
+        scrollbar-width: none; 
     }
+    .dialog-wrapper::-webkit-scrollbar {
+        @apply hidden;
+      }
     .dialog {
-        @apply flex flex-col h-full tb2:h-auto tb2:rounded-lg bg-white shadow-medium;
+        @apply flex flex-col h-full tb2:h-auto tb2:rounded-lg bg-white shadow-medium ;
     }
     .dialog__header {
         @apply px-7 pt-7 pb-5 border-b border-neutral-300;
