@@ -30,7 +30,7 @@ const InformationBanner = ({
   children,
   actionButton,
   hideCloseButton,
-  closeButtonOnClick,
+  closeButtonOnClick = () => {},
   closeButtonLabel,
   className,
   errorMessageId,
@@ -42,7 +42,10 @@ const InformationBanner = ({
   // define close button by variant style
   const closeButton = (
     <BaseButton
-      onClick={closeButtonOnClick || (() => setVisibility(false))}
+      onClick={(e) => {
+        setVisibility(false);
+        closeButtonOnClick(e);
+      }}
       iconPosition={'left'}
       className={classNames('information-banner__base-button', {
         'information-banner__base-button--positive': variant == 'success',
