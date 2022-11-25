@@ -24,6 +24,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   yearLabel?: string;
   inputClasses?: string;
   initialDate?: Date | null | undefined;
+  refreshDate?: boolean;
   onValueUpdate?: (value: string) => void;
 }
 
@@ -44,6 +45,7 @@ const DateInput = ({
   monthLabel,
   yearLabel,
   initialDate,
+  refreshDate = true,
   onValueUpdate,
   ...props
 }: DateInputProps) => {
@@ -137,6 +139,10 @@ const DateInput = ({
     setInputYear(format(date, 'yyyy'));
     handleNewDate(date, format(date, dateStringFormat));
   };
+  const validation =
+    (isNaN(Date.parse(dateString)) && dateString != '--') ||
+    new Date(dateString).toDateString().includes(day) == false ||
+    error;
 
   const datePickerClasses: string = classNames('date-input__date-picker', {
     'date-input__date-picker': day == '' || month == '' || year == '',
@@ -144,17 +150,27 @@ const DateInput = ({
   });
 
   const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
-    'input__wrapper--error': (isNaN(Date.parse(dateString)) && dateString != '--') || error,
+    'input__wrapper--error': validation,
     'input__wrapper--disabled': disabled
   });
 
   const allInputClasses: string = classNames(
     { input: !isNaN(Date.parse(dateString)) && dateString == '--' },
     {
-      'input--error': (isNaN(Date.parse(dateString)) && dateString != '--') || error
+      'input--error': validation
     },
     inputClasses
   );
+  useEffect(() => {
+    const handleRefresh = (refreshing: boolean) => {
+      if (!refreshing) {
+        setInputDay('');
+        setInputMonth('');
+        setInputYear('');
+      }
+    };
+    handleRefresh(refreshDate);
+  });
 
   return (
     <div className="date-input" id={id} {...props}>
