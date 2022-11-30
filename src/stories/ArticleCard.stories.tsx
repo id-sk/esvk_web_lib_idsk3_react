@@ -16,10 +16,11 @@ export const Horizontal = Template.bind({});
 Horizontal.args = {
   heading: <a href="/">Nadpis</a>,
   date: new Date().getTime(),
-  tags: ['Lorem', 'ipsum', 'consectetur'],
+  tags: ['Lorem ipsum', 'ipsum', 'consectetur'],
   featuredImg: <img src={placeholderImg} />,
   children:
-    'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom'
+    'V tejto časti nájdete všetky podtrebné informácie spojené s používaním a vytvorením občianského preukazu s čipom',
+  dateFormatString: 'dd. MM. yyyy'
 };
 
 export const Vertical = Template.bind({});

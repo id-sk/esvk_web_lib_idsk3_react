@@ -23,10 +23,10 @@ describe('ArticleCard', () => {
         heading="test title"
         dateFormatString="dd-MM-yyy"
         featuredImg={<div />}
-        tags={['Lorem', 'ipsum', 'consectetur']}
+        tags={['Lorem ipsum tag', 'ipsum', 'consectetur']}
       />
     );
-    expect(screen.getByText('— Lorem | ipsum | consectetur')).toBeDefined();
+    expect(screen.getByText('Lorem ipsum tag')).toBeDefined();
   });
   test('layout', () => {
     render(

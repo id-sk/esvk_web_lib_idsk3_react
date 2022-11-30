@@ -34,9 +34,21 @@ const ArticleCard = ({
       <>
         <time dateTime={format(dateObject, dateFormatString)}>
           {format(dateObject, dateFormatString)}
-        </time>{' '}
+        </time>
         {!!tags.length && (
-          <span>— {tags.map((item, index) => (!index ? item : ' | ' + item))}</span>
+          <>
+            <span>—</span>
+            {tags.map((item, index) =>
+              !index ? (
+                <span key={index}>{item}</span>
+              ) : (
+                <React.Fragment key={index}>
+                  <span>|</span>
+                  <span>{item}</span>
+                </React.Fragment>
+              )
+            )}
+          </>
         )}
       </>
     );
@@ -60,7 +72,9 @@ const ArticleCard = ({
       )}
       <div className="flex-1">
         {!!date && datePosition === 'top' && (
-          <p className="article-card__date-tags--top">{renderDateTags(date)}</p>
+          <p className="article-card__date-tags article-card__date-tags--top">
+            {renderDateTags(date)}
+          </p>
         )}
         <div className="anchor-card__heading">{heading}</div>
         <div className="anchor-card__description">{children}</div>

@@ -142,11 +142,10 @@
         @apply gap-y-5 max-w-3xl;
     }
     .article-card__date-tags {
-        @apply text-neutral-600 text-body-1 pt-2.5 leading-6;
-        word-spacing: 0.5rem;
+        @apply text-neutral-600 text-body-1 pt-2.5 leading-6 flex gap-2;
     }
     .article-card__date-tags--top {
-        @apply text-neutral-600 text-body-1 pb-2.5 leading-6;
+        @apply pb-2.5 pt-0;
     }
     .article-card__image-wrapper {
         @apply overflow-hidden relative aspect-[3/2];
