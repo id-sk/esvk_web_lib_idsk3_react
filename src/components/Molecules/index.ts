@@ -30,7 +30,8 @@ export {
   DataGridRowValue,
   DataGridProps,
   DataGridRowProps,
-  DataGridRowValueProps
+  DataGridRowValueProps,
+  DataGridTags
 } from './DataGrid';
 export { default as ArticleCard, ArticleCardProps } from './ArticleCard';
 export { default as Signpost, SignpostsGroup, SignpostProps } from '../Molecules/Signpost';

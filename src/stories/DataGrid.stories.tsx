@@ -9,6 +9,7 @@ import {
   IconLink,
   Input,
   PrimaryButton,
+  DataGridTags,
   Tag
 } from '../components';
 import { DeleteIcon } from '../svgIcons/Actions';
@@ -91,12 +92,7 @@ DecisionList.args = {
         </div>
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
-        {[
-          !!gridItem?.tags?.length &&
-            gridItem.tags.map((e) => {
-              return <Tag label={e.label} key={e.key} />;
-            })
-        ]}
+        <DataGridTags tags={gridItem.tags} />
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}
@@ -140,7 +136,7 @@ WithoutCheckbox.args = {
         </div>
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
-        {gridItem.tags}
+        <DataGridTags tags={gridItem.tags} />
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}
@@ -185,7 +181,7 @@ WithoutActiveIndicator.args = {
         </div>
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
-        {gridItem.tags}
+        <DataGridTags tags={gridItem.tags} />
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}
@@ -218,7 +214,7 @@ WithoutHeader.args = {
         </div>
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:flex hidden flex-wrap justify-end gap-2.5">
-        {gridItem.tags}
+        <DataGridTags tags={gridItem.tags} />
       </DataGridRowValue>
       <DataGridRowValue align="right" className="tb2:min-w-[10.375rem] tb2:max-w-[10.375rem]">
         {gridItem.date}

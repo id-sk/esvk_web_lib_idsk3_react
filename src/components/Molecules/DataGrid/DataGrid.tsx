@@ -1,8 +1,23 @@
 import React, { Children, ReactNode } from 'react';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
-import { Checkbox, DropDown } from '../../Atoms';
+import { Checkbox, DropDown, Tag } from '../../Atoms';
 import { InfoIcon } from '../../../svgIcons/Actions';
+
+interface DataGridTagsProps extends React.AllHTMLAttributes<HTMLDivElement> {
+  tags?: { label?: string; key?: number }[];
+}
+
+export const DataGridTags = ({ tags }: DataGridTagsProps) => {
+  return (
+    <>
+      {tags?.length &&
+        tags.map((tag) => {
+          return <Tag label={tag.label} key={tag.key} />;
+        })}
+    </>
+  );
+};
 
 export interface DataGridRowValueProps extends React.AllHTMLAttributes<HTMLDivElement> {
   information?: string;

@@ -4,5 +4,6 @@ export {
   DataGridRowValue,
   DataGridProps,
   DataGridRowProps,
-  DataGridRowValueProps
+  DataGridRowValueProps,
+  DataGridTags
 } from './DataGrid';
