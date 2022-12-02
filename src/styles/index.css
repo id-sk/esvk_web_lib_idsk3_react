@@ -1473,7 +1473,7 @@
     }
 
     .tag {
-        @apply inline-flex gap-2.5 rounded-md px-3.5 py-1 text-body items-center border;
+        @apply inline-flex gap-2.5 rounded-md px-3.5 py-1 text-body items-center border self-start;
     }
     .tag--small {
         @apply text-base tracking-[.5px];
