@@ -243,12 +243,10 @@ const DateInput = ({
       {(!!errorMsg || !!caption) && (
         <p
           className={classNames('input__caption', {
-            'input__caption--error':
-              (isNaN(Date.parse(dateString)) && dateString != '--' && !disabled) || error
+            'input__caption--error': (validation && !disabled) || error
           })}
         >
-          {(isNaN(Date.parse(dateString)) && dateString != '--' && !!errorMsg && !disabled) ||
-          error ? (
+          {(validation && !!errorMsg && !disabled) || error ? (
             <span id={idForAria} role="alert">
               {errorMsg}
             </span>

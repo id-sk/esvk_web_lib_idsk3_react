@@ -1,6 +1,7 @@
 import React, {
   MouseEventHandler,
   ReactElement,
+  ReactNode,
   SVGProps,
   useEffect,
   useRef,
@@ -14,7 +15,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   inputSize?: 'large' | 'medium' | 'small';
   error?: boolean;
   errorMsg?: string;
-  label?: string;
+  label?: ReactNode;
   labelSrOnly?: boolean;
   caption?: string;
   subtitle?: string;
