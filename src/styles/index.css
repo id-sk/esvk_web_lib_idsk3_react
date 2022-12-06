@@ -408,7 +408,7 @@
     }
 
     .dialog-screen {
-        @apply fixed w-full z-50 inset-0 bg-neutral-500/50 visible opacity-100 flex justify-center overflow-scroll;
+        @apply fixed w-full z-50 inset-0 bg-neutral-500/50 visible opacity-100 flex justify-center;
     }
     .dialog-screen--hidden {
         @apply hidden opacity-0;
@@ -421,7 +421,7 @@
         @apply hidden;
       }
     .dialog {
-        @apply flex flex-col h-full tb2:h-auto tb2:rounded-lg bg-white shadow-medium ;
+        @apply flex flex-col h-auto tb2:rounded-lg bg-white shadow-medium ;
     }
     .dialog__header {
         @apply px-7 pt-7 pb-5 border-b border-neutral-300;
@@ -1280,6 +1280,24 @@
     .radio-button--small {
         @apply text-body-1 gap-1;
     }
+    .radio-button__text {
+        @apply flex items-center ml-[0.625rem];
+    }
+    .radio-button__text--large {
+        @apply text-body;
+    }
+    .radio-button__text--small {
+        @apply text-body-1;
+    }
+    .radio-button__hover{
+        @apply bg-neutral-600 rounded-full absolute opacity-100;
+    }
+    .radio-button__hover--small {
+        @apply  w-7 h-7;
+    }
+    .radio-button__hover--large {
+        @apply  w-8 h-8;
+    }
     .radio-button__icon {
         @apply absolute radio-check opacity-0 ml-[0.125rem];
     }
@@ -1323,10 +1341,7 @@
         @apply opacity-100;
     }
     .radio-button-container {
-        @apply flex items-center gap-[0.625rem];
-    }
-    .radio-button__label{
-        @apply hover:bg-neutral-600 rounded-full;
+        @apply flex items-center;
     }
     .radio-button__label--disabled{
         @apply hover:bg-transparent rounded-full;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classNames from 'classnames';
 import React, { Children, ReactNode } from 'react';
 import { RadioButtonCheckedIcon, RadioButtonUncheckedIcon } from '../../../svgIcons/Toggle';
@@ -13,9 +14,14 @@ export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputEle
 
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   ({ name = 'name', inputSize = 'large', disabled = false, ...props }: RadioButtonProps, ref) => {
-    const textSizeClasses = classNames('radio-button', {
-      'radio-button--large': inputSize === 'large',
-      'radio-button--small': inputSize === 'small'
+    const [hover, setHover] = useState(false);
+    const hoverClasses = classNames('radio-button__hover', {
+      'radio-button__hover--large': inputSize === 'large' && !!hover,
+      'radio-button__hover--small': inputSize === 'small' && !!hover
+    });
+    const textSizeClasses = classNames('radio-button__text', {
+      'radio-button__text--large': inputSize === 'large',
+      'radio-button__text--small': inputSize === 'small'
     });
     const iconSizeClasses = classNames('radio-button__icon', {
       'radio-button__icon--large': inputSize === 'large',
@@ -52,10 +58,15 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
             onChange={props.onChange}
             {...props}
           />
+          <div className={hoverClasses}></div>
           <RadioButtonCheckedIcon className={iconSizeClasses} />
-          <RadioButtonUncheckedIcon className={uncheckedIconSizeClasses} />
+          <RadioButtonUncheckedIcon
+            className={uncheckedIconSizeClasses}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          />
+          <div className={textSizeClasses}>{props.label}</div>
         </label>
-        <div className={textSizeClasses}>{props.label}</div>
       </div>
     );
   }
