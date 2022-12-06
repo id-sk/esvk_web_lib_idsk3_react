@@ -415,7 +415,7 @@
     }
     .dialog-wrapper {
         @apply fixed z-50 w-full top-0 bottom-0 pt-[7.5rem] pb-[3rem] tb2:h-auto tb2:page-content tb2:w-auto overflow-scroll;
-        scrollbar-width: none; 
+        scrollbar-width: none;
     }
     .dialog-wrapper::-webkit-scrollbar {
         @apply hidden;
@@ -744,6 +744,9 @@
     }
     .header-container__wrapper--opened-mobile-menu .header-container__menu--mobile {
         @apply pb-4;
+    }
+    .header-container__wrapper--opened-mobile-menu .logo {
+        @apply hidden;
     }
 
     .icon-link {
