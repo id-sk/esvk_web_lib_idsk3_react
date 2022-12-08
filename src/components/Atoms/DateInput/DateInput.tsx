@@ -25,6 +25,8 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   inputClasses?: string;
   initialDate?: Date | null | undefined;
   refreshDate?: boolean;
+  minDateToday?: boolean;
+  maxDateToday?: boolean;
   onValueUpdate?: (value: string) => void;
 }
 
@@ -46,6 +48,8 @@ const DateInput = ({
   yearLabel,
   initialDate,
   refreshDate = true,
+  minDateToday = false,
+  maxDateToday = false,
   onValueUpdate,
   ...props
 }: DateInputProps) => {
@@ -142,6 +146,16 @@ const DateInput = ({
   const validation =
     (isNaN(Date.parse(dateString)) && dateString != '--') ||
     new Date(dateString).toDateString().includes(day) == false ||
+    !!(
+      new Date().toISOString().slice(0, 10) > dateString &&
+      dateString != '--' &&
+      !!minDateToday
+    ) ||
+    !!(
+      new Date().toISOString().slice(0, 10) < dateString &&
+      dateString != '--' &&
+      !!maxDateToday
+    ) ||
     error;
 
   const datePickerClasses: string = classNames('date-input__date-picker', {
