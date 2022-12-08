@@ -90,6 +90,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
             className={inputClasses}
             placeholder={placeholder}
             id={id ? id + '-input' : undefined}
+            ref={ref}
             {...props}
           />
           <button
