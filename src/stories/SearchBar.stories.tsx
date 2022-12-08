@@ -15,6 +15,21 @@ const Template: ComponentStory<typeof SearchBar> = (args) => <SearchBar {...args
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder',
+  searchbarSize: 'large'
+};
+
+export const ButtonLabel = Template.bind({});
+ButtonLabel.args = {
+  placeholder: 'Placeholder',
   buttonLabel: 'Search',
   searchbarSize: 'large'
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  placeholder: 'Placeholder',
+  buttonLabel: 'Search',
+  searchbarSize: 'large',
+  error: true,
+  errorMsg: 'Nesprávny vstup'
 };

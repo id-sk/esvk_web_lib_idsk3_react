@@ -49,7 +49,8 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
         'searchbar--large': searchbarSize === 'large',
         'searchbar--medium': searchbarSize === 'medium',
         'searchbar--small': searchbarSize === 'small',
-        'searchbar--w-full': fullWidth
+        'searchbar--w-full': fullWidth,
+        'searchbar--error': error
       },
       className
     );
@@ -96,7 +97,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
           <button
             onClick={buttonOnClick}
             className={buttonClasses}
-            disabled={buttonDisabled}
+            disabled={buttonDisabled || error}
             ref={buttonRef}
             id={id ? id + '-button' : undefined}
             aria-label={buttonAriaLabel}

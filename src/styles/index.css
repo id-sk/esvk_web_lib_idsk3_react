@@ -773,7 +773,7 @@
         @apply relative inline-block flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
     }
     .searchbar__button {
-        @apply bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500;
+        @apply bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500 disabled:ring-transparent;
     }
     .searchbar__button--large {
         @apply text-2xl px-4  gap-2;
@@ -799,6 +799,9 @@
     }
     .searchbar {
         @apply rounded-r-none border-r-0 hover:shadow-none;
+    }
+    .searchbar--error {
+        @apply input--error;
     }
     .input--error {
         @apply border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
