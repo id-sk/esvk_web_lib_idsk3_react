@@ -804,7 +804,7 @@
         @apply input--error;
     }
     .input--error {
-        @apply border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
+        @apply !border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
     }
     .input--large, .searchbar--large {
         @apply text-body h-12;
