@@ -7,7 +7,7 @@ export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElemen
   opened: boolean;
   toggleOpened: React.Dispatch<React.SetStateAction<boolean>>;
   heading: string;
-  footerButton?: ReactNode | undefined;
+  footer?: ReactNode | undefined;
   id?: string;
 }
 
@@ -15,7 +15,7 @@ const ModalSideBar = ({
   opened,
   toggleOpened,
   heading,
-  footerButton,
+  footer,
   children,
   className,
   id,
@@ -53,7 +53,7 @@ const ModalSideBar = ({
         </div>
         <div className="modal-sidebar__body">{children}</div>
         <div className="flex-auto" />
-        {!!footerButton && footerButton}
+        {!!footer && <div className="modal-sidebar__footer">{footer}</div>}
       </div>
     </>
   );

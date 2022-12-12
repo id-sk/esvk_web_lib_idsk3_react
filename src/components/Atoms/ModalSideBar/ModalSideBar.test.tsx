@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import ModalSideBar from './ModalSideBar';
-import ModalSideBarFooterButton from './ModalSideBarFooterButton';
+import { PrimaryButton } from '../Button';
 
 describe('ModalSideBar', () => {
   test('renders heading', () => {
@@ -21,25 +21,10 @@ describe('ModalSideBar', () => {
         heading="Test Heading"
         opened={false}
         toggleOpened={() => {}}
-        footerButton={
-          <ModalSideBarFooterButton onClick={mockButtonClick}>Test Button</ModalSideBarFooterButton>
-        }
+        footer={<PrimaryButton onClick={mockButtonClick}>Test Button</PrimaryButton>}
       />
     );
     fireEvent.click(screen.getByText('Test Button'));
     expect(mockButtonClick).toHaveBeenCalled();
-  });
-  test('renders href attribute on footerButton', () => {
-    render(
-      <ModalSideBar
-        heading="Test Heading"
-        opened={false}
-        toggleOpened={() => {}}
-        footerButton={
-          <ModalSideBarFooterButton href="testHref">Test Href</ModalSideBarFooterButton>
-        }
-      />
-    );
-    expect(screen.getByText('Test Href').getAttribute('href')).toEqual('testHref');
   });
 });

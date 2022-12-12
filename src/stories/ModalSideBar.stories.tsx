@@ -1,18 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ModalSideBar, ModalSideBarFooterButton } from '../components/Atoms';
+import { ModalSideBar } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
+import { PrimaryButton, SecondaryButton } from '../components';
+import { PlaceholderIcon } from '../svgIcons';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Atoms/ModalSideBar',
   component: ModalSideBar
 } as ComponentMeta<typeof ModalSideBar>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ModalSideBar> = (args) => (
-  <ModalSideBar {...args}></ModalSideBar>
-);
+const Template: ComponentStory<typeof ModalSideBar> = (args) => <ModalSideBar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -20,9 +18,48 @@ Default.args = {
   heading: 'Profil'
 };
 
-export const WithFooterButton = Template.bind({});
-WithFooterButton.args = {
+export const WithFooterButtons = Template.bind({});
+WithFooterButtons.args = {
   opened: true,
   heading: 'Profil',
-  footerButton: <ModalSideBarFooterButton href="#">Zobraziť všetko</ModalSideBarFooterButton>
+  footer: (
+    <>
+      <PrimaryButton size="large" icon={<PlaceholderIcon />}>
+        Action
+      </PrimaryButton>
+      <SecondaryButton size="large">Subaction</SecondaryButton>
+    </>
+  )
+};
+
+export const LongContent = Template.bind({});
+LongContent.args = {
+  opened: true,
+  heading: 'Profil',
+  footer: (
+    <>
+      <PrimaryButton size="large" icon={<PlaceholderIcon />}>
+        Action
+      </PrimaryButton>
+      <SecondaryButton size="large">Subaction</SecondaryButton>
+    </>
+  ),
+  children: (
+    <>
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+      <div className="bg-neutral-90 h-20" />
+      <div className="bg-neutral-100 h-20" />
+    </>
+  )
 };

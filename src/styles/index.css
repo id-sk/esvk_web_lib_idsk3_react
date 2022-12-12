@@ -1019,11 +1019,8 @@
     .modal-sidebar__body {
         @apply flex-initial overflow-auto;
     }
-    .modal-sidebar__footer-button {
-        @apply bg-primary text-body-1 font-bold text-white p-3 flex items-center justify-center gap-1 cursor-pointer;
-    }
-    .modal-sidebar__forward-icon {
-        @apply text-[1.25rem] w-[1.25rem] h-[1.25rem];
+    .modal-sidebar__footer {
+        @apply px-5 py-5 bg-white shadow-medium gap-2.5 flex flex-col;
     }
 
     .navigation {

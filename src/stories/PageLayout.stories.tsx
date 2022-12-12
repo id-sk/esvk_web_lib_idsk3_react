@@ -29,7 +29,6 @@ import {
   Logo
 } from '../components';
 import { LogoImage } from '../svgImages/Logos';
-import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { InfoIcon } from '../svgIcons/Actions';
 
 export default {
@@ -200,11 +199,7 @@ const Header = () => {
         opened={sideBarOpened}
         heading="Profil"
         toggleOpened={setSideBarOpened}
-        footerButton={
-          <ModalSideBarFooterButton onClick={() => setSideBarOpened(false)}>
-            Test Button
-          </ModalSideBarFooterButton>
-        }
+        footer={<PrimaryButton onClick={() => setSideBarOpened(false)}>Test Button</PrimaryButton>}
       >
         <div className="bg-neutral-90 h-20" />
         <div className="bg-neutral-100 h-20" />

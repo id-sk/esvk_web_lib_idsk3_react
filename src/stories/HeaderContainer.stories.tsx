@@ -23,7 +23,6 @@ import {
 import { LogoImage } from '../svgImages/Logos';
 import { CompareArrowsIcon, InfoIcon } from '../svgIcons/Actions';
 import '/src/styles/idsk3_theme.css';
-import ModalSideBarFooterButton from '../components/Atoms/ModalSideBar/ModalSideBarFooterButton';
 import { MenuMobile } from '../components';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -233,11 +232,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
         opened={sideBarOpened}
         heading="Profil"
         toggleOpened={setSideBarOpened}
-        footerButton={
-          <ModalSideBarFooterButton href="#" onClick={() => setSideBarOpened(false)}>
-            Test Button
-          </ModalSideBarFooterButton>
-        }
+        footer={<PrimaryButton onClick={() => setSideBarOpened(false)}>Test Button</PrimaryButton>}
       >
         <div className="bg-neutral-90 h-20" />
         <div className="bg-neutral-100 h-20" />
