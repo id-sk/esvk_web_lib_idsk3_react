@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconLink } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
-import { NotificationsAlertIcon } from '../svgIcons/Social';
+import { InfoIcon } from '../svgIcons/Actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,4 +14,4 @@ export default {
 const Template: ComponentStory<typeof IconLink> = (args) => <IconLink {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { children: <NotificationsAlertIcon />, href: '#' };
+Default.args = { children: <InfoIcon />, href: '#' };
