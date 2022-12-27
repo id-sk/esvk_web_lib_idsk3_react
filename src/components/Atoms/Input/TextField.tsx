@@ -18,6 +18,8 @@ export interface TextFieldProps extends React.TextareaHTMLAttributes<HTMLTextAre
   maxLength?: number;
   onChange?: React.ChangeEventHandler;
   errorMessageId?: string;
+  optionalText?: string;
+  mandatory?: boolean;
 }
 
 const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
@@ -38,6 +40,8 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
       onChange = () => {},
       className,
       errorMessageId,
+      optionalText,
+      mandatory = false,
       ...props
     }: TextFieldProps,
     ref
@@ -83,6 +87,8 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
               htmlFor={props.id}
             >
               {label}
+              {optionalText && <span className="input__label--optional"> {optionalText}</span>}
+              {mandatory && <span className="input__label--mandatory"> *</span>}
             </label>
           )}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}

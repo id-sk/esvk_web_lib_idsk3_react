@@ -27,6 +27,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   iconPosition?: 'left' | 'right';
   actionButton?: { label: string; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
   errorMessageId?: string;
+  optionalText?: string;
+  mandatory?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -48,6 +50,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       iconPosition = 'left',
       actionButton,
       errorMessageId,
+      optionalText,
+      mandatory = false,
       ...props
     }: InputProps,
     ref
@@ -112,6 +116,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               htmlFor={props.id}
             >
               {label}
+              {optionalText && <span className="input__label--optional"> {optionalText}</span>}
+              {mandatory && <span className="input__label--mandatory"> *</span>}
             </label>
           )}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}

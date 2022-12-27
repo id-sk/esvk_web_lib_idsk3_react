@@ -58,6 +58,24 @@ WithSubtitle.args = {
   placeholder: 'Placeholder',
   errorMsg: 'This is error message'
 };
+export const Optional = Template.bind({});
+Optional.args = {
+  label: 'This is label',
+  caption: 'This is caption',
+  subtitle: 'This is very long subtitle',
+  placeholder: 'Placeholder',
+  errorMsg: 'This is error message',
+  optionalText: '(nepovinné)'
+};
+export const Mandatory = Template.bind({});
+Mandatory.args = {
+  label: 'This is label',
+  caption: 'This is caption',
+  subtitle: 'This is very long subtitle',
+  placeholder: 'Placeholder',
+  errorMsg: 'This is error message',
+  mandatory: true
+};
 
 export const ErrorMessage = Template.bind({});
 ErrorMessage.args = {

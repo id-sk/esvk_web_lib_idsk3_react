@@ -23,6 +23,20 @@ WithLabel.args = {
   placeholder: 'Placeholder'
 };
 
+export const Optional = Template.bind({});
+Optional.args = {
+  label: 'This is label',
+  placeholder: 'Placeholder',
+  optionalText: '(nepovinné)'
+};
+
+export const Mandatory = Template.bind({});
+Mandatory.args = {
+  label: 'This is label',
+  placeholder: 'Placeholder',
+  mandatory: true
+};
+
 export const WithCaption = Template.bind({});
 WithCaption.args = {
   label: 'This is label',

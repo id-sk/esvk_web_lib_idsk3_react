@@ -881,6 +881,12 @@
     .input__label {
         @apply text-body block;
     }
+    .input__label--optional {
+        @apply text-neutral-600;
+    }
+    .input__label--mandatory {
+        @apply text-alert-warning;
+    }
     .input__subtitle {
         @apply text-body-1 text-neutral-600;
     }
