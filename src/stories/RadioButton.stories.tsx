@@ -17,6 +17,10 @@ const Template: ComponentStory<typeof RadioButton> = (args) => (
 );
 export const Default = Template.bind({});
 Default.args = {};
+export const Small = Template.bind({});
+Small.args = {
+  inputSize: 'small'
+};
 export const WithLabel = Template.bind({});
 WithLabel.args = {
   label: 'Text label'

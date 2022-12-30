@@ -30,6 +30,15 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     }: CheckboxProps,
     ref
   ) => {
+    const [hover, setHover] = React.useState(false);
+    const hoverClasses = classNames('checkbox__hover', {
+      'checkbox__hover--large': inputSize === 'large' && !!hover,
+      'checkbox__hover--small': inputSize === 'small' && !!hover
+    });
+    const backgroundClasses = classNames('checkbox__icon-background', {
+      'checkbox__icon-background--large': inputSize === 'large' && !!hover,
+      'checkbox__icon-background--small': inputSize === 'small' && !!hover
+    });
     const textSizeClasses: string = classNames('checkbox', {
       'checkbox--large': inputSize === 'large',
       'checkbox--small': inputSize === 'small'
@@ -69,12 +78,22 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             className={inputClasses}
             {...props}
           />
+          {!disabled && (
+            <>
+              <div className={hoverClasses}></div>
+              <div className={backgroundClasses}></div>
+            </>
+          )}
           {!!hasUncheckIcon ? (
             <IndeterminateCheckBoxIcon className={iconSizeClasses} />
           ) : (
             <CheckBoxIcon className={iconSizeClasses} />
           )}
-          <CheckBoxOutlineBlankIcon className={uncheckedIconSizeClasses} />
+          <CheckBoxOutlineBlankIcon
+            className={uncheckedIconSizeClasses}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          />
         </label>
         <div className={textSizeClasses}>{label}</div>
       </div>

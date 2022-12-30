@@ -237,6 +237,24 @@
     .checkbox--small {
         @apply text-body-1 gap-1;
     }
+    .checkbox__hover{
+        @apply bg-neutral-600 rounded absolute opacity-100;
+    }
+    .checkbox__hover--small {
+        @apply  w-7 h-7;
+    }
+    .checkbox__hover--large {
+        @apply  w-8 h-8;
+    }
+    .checkbox__icon-background{
+        @apply bg-white rounded ml-[0.375rem] opacity-100 absolute
+    }
+    .checkbox__icon-background--small {
+        @apply w-4 h-4 
+    }
+    .checkbox__icon-background--large {
+        @apply w-5 h-5 
+    }
     .checkbox__icon {
         @apply absolute checkbox-check opacity-0 ml-[0.125rem];
     }
@@ -276,12 +294,7 @@
     .checkbox-container {
         @apply flex items-center gap-[0.625rem];
     }
-    .checkbox__label {
-        @apply hover:bg-neutral-600 rounded;
-    }
-    .checkbox__label--disabled {
-        @apply hover:bg-transparent rounded;
-    }
+    
 
     .toggle__wrapper {
         @apply flex items-center gap-2.5;
@@ -1306,6 +1319,15 @@
     }
     .radio-button__hover--large {
         @apply  w-8 h-8;
+    }
+    .radio-button__icon-background{
+        @apply bg-white rounded-full ml-[0.375rem] opacity-100 absolute;
+    }
+    .radio-button__icon-background--small {
+        @apply w-4 h-4;
+    }
+    .radio-button__icon-background--large {
+        @apply w-5 h-5;
     }
     .radio-button__icon {
         @apply absolute radio-check opacity-0 ml-[0.125rem];
