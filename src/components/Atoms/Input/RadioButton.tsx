@@ -19,10 +19,6 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
       'radio-button__hover--large': inputSize === 'large' && !!hover,
       'radio-button__hover--small': inputSize === 'small' && !!hover
     });
-    const backgroundClasses = classNames('radio-button__icon-background', {
-      'radio-button__icon-background--large': inputSize === 'large' && !!hover,
-      'radio-button__icon-background--small': inputSize === 'small' && !!hover
-    });
     const textSizeClasses = classNames('radio-button__text', {
       'radio-button__text--large': inputSize === 'large',
       'radio-button__text--small': inputSize === 'small'
@@ -62,12 +58,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
             onChange={props.onChange}
             {...props}
           />
-          {!disabled && (
-            <>
-              <div className={hoverClasses}></div>
-              <div className={backgroundClasses}></div>
-            </>
-          )}
+          {!disabled && <div className={hoverClasses}></div>}
 
           <RadioButtonCheckedIcon className={iconSizeClasses} />
           <RadioButtonUncheckedIcon

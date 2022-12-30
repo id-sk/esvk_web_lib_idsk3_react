@@ -36,8 +36,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       'checkbox__hover--small': inputSize === 'small' && !!hover
     });
     const backgroundClasses = classNames('checkbox__icon-background', {
-      'checkbox__icon-background--large': inputSize === 'large' && !!hover,
-      'checkbox__icon-background--small': inputSize === 'small' && !!hover
+      'checkbox__icon-background--large': inputSize === 'large',
+      'checkbox__icon-background--small': inputSize === 'small'
     });
     const textSizeClasses: string = classNames('checkbox', {
       'checkbox--large': inputSize === 'large',
@@ -78,16 +78,14 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             className={inputClasses}
             {...props}
           />
-          {!disabled && (
-            <>
-              <div className={hoverClasses}></div>
-              <div className={backgroundClasses}></div>
-            </>
-          )}
+          {!disabled && <div className={hoverClasses}></div>}
           {!!hasUncheckIcon ? (
             <IndeterminateCheckBoxIcon className={iconSizeClasses} />
           ) : (
-            <CheckBoxIcon className={iconSizeClasses} />
+            <>
+              <div className={backgroundClasses}></div>
+              <CheckBoxIcon className={iconSizeClasses} />
+            </>
           )}
           <CheckBoxOutlineBlankIcon
             className={uncheckedIconSizeClasses}
