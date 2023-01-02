@@ -1625,6 +1625,30 @@
     .pagination__button-break {
         @apply w-9 h-9 flex items-end justify-center;
     }
+    .pagination__wrapper {
+        @apply flex items-center gap-2.5 text-neutral-600;
+    }
+    .pagination__caption {
+        @apply text-neutral-600 caption;
+    }
+    .pagination-drop { 
+        @apply flex gap-2.5 items-center;
+    }
+    .pagination-drop__title { 
+        @apply caption tracking-[0.025rem] items-center;
+    }
+    .pagination-drop__option { 
+        @apply dropdown__option cursor-pointer pt-2 pb-2 caption;
+    }
+    .pagination-drop__options { 
+        @apply absolute top-full rounded-md bg-white shadow-small caption text-black z-10 mt-2 py-2.5 px-[1.625rem];
+    }
+    .pagination-drop__button { 
+        @apply flex items-center justify-between bg-white border border-neutral-800 rounded py-2.5 pr-[0.313rem] pl-2.5 text-xs h-min;
+    }
+    .pagination-drop__icon { 
+        @apply w-4 h-4 text-black;
+    }
 
     .information-banner__skip-link {
         @apply p-0 focus-within:py-2;
