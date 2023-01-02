@@ -28,7 +28,7 @@
         @apply text-xs tracking-[.4px];
     }
     .text-body, .link-m {
-        @apply text-base tb2:text-main;
+        @apply text-base tb2:text-main tb2:tracking-[.5px];
     }
     .text-body-1 {
         @apply text-sm tb2:text-base tracking-[.1px] tb2:tracking-[.5px];
@@ -898,10 +898,10 @@
         @apply text-body block;
     }
     .input__label--optional {
-        @apply text-neutral-600;
+        @apply text-neutral-600 text-body;
     }
     .input__label--mandatory {
-        @apply text-alert-warning;
+        @apply text-alert-warning text-3xl leading-7 tracking-[.15px] font-normal; 
     }
     .input__subtitle {
         @apply text-body-1 text-neutral-600;
