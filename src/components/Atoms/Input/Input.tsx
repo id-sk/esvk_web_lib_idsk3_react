@@ -137,7 +137,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {...props}
             />
             {!!icon && iconElement}
-            {!!errorMsg && (
+            {!!error && (
               <WarningIcon
                 className={classNames(
                   'input__icon',
