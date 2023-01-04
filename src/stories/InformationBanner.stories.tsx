@@ -17,6 +17,8 @@ const Template: ComponentStory<typeof InformationBanner> = (args) => (
 
 export const Information = Template.bind({});
 Information.args = {
+  closeButtonLabel: 'Zatvoriť',
+  ariaLabel: 'Oznam',
   icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'information',

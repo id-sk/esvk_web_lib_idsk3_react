@@ -6,16 +6,18 @@ import { ExpandMoreIcon } from '../../../svgIcons/Navigation';
 import { NavigationLinkOptionProps } from './NavigationLinkOption';
 
 export interface NavigationLinkProps extends NavigationLinkOptionProps {
+  id?: string;
   alert?: number;
   selected?: boolean;
   children?: ReactElement<NavigationLinkOptionProps> | ReactElement<NavigationLinkOptionProps>[];
 }
 
 const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
-  ({ label, href, onClick, alert, selected, linkElement, children }, ref) => {
+  ({ id, label, href, onClick, alert, selected, linkElement, children }, ref) => {
     if (!!children) {
       return (
         <DropDown
+          id={id}
           dropDownTitle={label}
           arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
           className="navigation__dropdown"

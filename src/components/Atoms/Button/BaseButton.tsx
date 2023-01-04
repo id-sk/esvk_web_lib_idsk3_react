@@ -10,6 +10,7 @@ export interface BaseButtonProps {
   disabled?: boolean;
   ariaLabel?: string;
   ariaLabelledBy?: string;
+  ariaDescribedBy?: string;
   size?: 'medium' | 'large';
   fullWidth?: boolean;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
@@ -44,6 +45,7 @@ const BaseButton = (props: BaseButtonProps) => {
       aria-label={props.ariaLabel}
       aria-labelledby={props.ariaLabelledBy}
       aria-disabled={props.disabled}
+      aria-describedby={props.ariaDescribedBy}
       onClick={props.onClick}
       {...props.buttonElementProps}
     >

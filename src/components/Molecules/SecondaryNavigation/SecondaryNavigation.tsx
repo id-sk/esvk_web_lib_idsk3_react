@@ -48,6 +48,7 @@ const SecondaryNavigation = ({
               id={id ? id + '-heading-button' : undefined}
               aria-expanded={opened}
               aria-controls={id ? id + '-body' : undefined}
+              aria-label={heading + ' ' + headingButton}
             >
               {mobileHeadingButton ? (
                 <>
@@ -68,7 +69,7 @@ const SecondaryNavigation = ({
           )}
         </div>
         <DropDown
-          id={id ? id + '-dropdown' : undefined}
+          id={id ? id : undefined}
           dropDownTitle={dropDownTitle}
           className="secondary-navigation__dropdown"
           closeOnOptionClick={true}

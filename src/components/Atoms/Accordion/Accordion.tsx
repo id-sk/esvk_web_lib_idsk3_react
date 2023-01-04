@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: ReactNode;
+  headingAriaLabel?: string;
   subTitle?: string;
   initiallyClosed?: boolean;
   inGroup?: boolean;
@@ -18,6 +19,7 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
 const Accordion = ({
   subTitle,
   heading,
+  headingAriaLabel,
   onClick = () => {},
   children,
   initiallyClosed = true,
@@ -60,7 +62,7 @@ const Accordion = ({
       )}
       <div className="accordion__button" onClick={handleOnClick} {...props}>
         <span className="accordion__title">
-          <button aria-expanded={!closed} aria-controls={idForAria}>
+          <button aria-expanded={!closed} aria-controls={idForAria} aria-label={headingAriaLabel}>
             {heading}
           </button>
           {!closed ? (

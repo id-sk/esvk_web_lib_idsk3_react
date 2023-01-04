@@ -15,6 +15,7 @@ export const Template: ComponentStory<typeof SecondaryNavigation> = (args) => {
 };
 
 Template.args = {
+  id: 'secondary-navigation',
   heading: 'Oficiálna stránka',
   headingButton: 'verejnej správy',
   children: (

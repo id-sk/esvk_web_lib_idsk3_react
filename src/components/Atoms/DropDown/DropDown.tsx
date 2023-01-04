@@ -12,16 +12,17 @@ import classNames from 'classnames';
 import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
 
 export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
+  id?: string;
   dropDownTitle?: ReactNode;
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   optionClassName?: string;
   buttonClassName?: string;
   optionsSide?: 'left' | 'right';
-  buttonId?: string;
   closeOnOptionClick?: boolean;
 }
 
 const DropDown = ({
+  id,
   dropDownTitle,
   className = '',
   children,
@@ -29,7 +30,6 @@ const DropDown = ({
   optionClassName,
   buttonClassName,
   optionsSide = 'right',
-  buttonId,
   closeOnOptionClick = false,
   ...props
 }: DropDownProps) => {
@@ -88,15 +88,15 @@ const DropDown = ({
       <button
         className={buttonClasses}
         onClick={() => setOpened((p) => !p)}
-        id={buttonId}
+        id={id}
         aria-expanded={opened}
-        aria-controls={buttonId + '-dropdown'}
+        aria-controls={id + '-dropdown'}
       >
         <span>{dropDownTitle}</span>
         {renderedIcon}
       </button>
       <ul
-        id={buttonId + '-dropdown'}
+        id={id + '-dropdown'}
         className={optionClasses}
         data-testid="dropdown-options"
         onClick={() => setOpened(false)}

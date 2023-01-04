@@ -39,6 +39,7 @@ const InformationBanner = ({
   const [visible, setVisibility] = useState(true);
 
   props = { ...defaultInformationBannerProps, ...props };
+  const idForAria: string = errorMessageId || uuidv4();
   // define close button by variant style
   const closeButton = (
     <BaseButton
@@ -53,6 +54,7 @@ const InformationBanner = ({
         'information-banner__base-button--attention': variant == 'alert',
         'information-banner__base-button--warning': variant == 'warning'
       })}
+      ariaDescribedBy={idForAria + '-label'}
       ariaLabel={closeButtonLabel}
     >
       <CloseIcon className="information-banner__base-button-icon" />
@@ -70,7 +72,6 @@ const InformationBanner = ({
       'information-announcement__wrapper': props.type == 'announcement'
     }
   );
-  const idForAria: string = errorMessageId || uuidv4();
   return visible ? (
     <div
       className={classNames(

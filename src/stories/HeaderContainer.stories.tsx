@@ -63,7 +63,7 @@ const NavigationContent = () => {
         selected={isSelected('notifikacie')}
         onClick={(e) => handleClick(e, 'notifikacie')}
       />
-      <NavigationLink label="Ďalšie nástroje">
+      <NavigationLink label="Ďalšie nástroje" id="dalsie-nastroje">
         <NavigationLinkOption
           label="Register rozhodnutí"
           href="#"
