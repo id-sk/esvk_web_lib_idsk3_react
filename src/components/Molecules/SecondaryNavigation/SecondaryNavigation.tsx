@@ -33,40 +33,49 @@ const SecondaryNavigation = ({
     <div className={classNames('secondary-navigation', className)} {...props}>
       <div className="secondary-navigation__header">
         <div className="secondary-navigation__heading">
-          {mobileHeading ? (
-            <>
-              <span className="secondary-navigation__heading-mobile">{mobileHeading}</span>
-              <span className="secondary-navigation__heading-desktop">{heading}</span>
-            </>
-          ) : (
-            heading
-          )}{' '}
-          {!!headingButton && (
-            <button
-              className="secondary-navigation__heading-button"
-              onClick={() => setOpened((p) => !p)}
-              id={id ? id + '-heading-button' : undefined}
-              aria-expanded={opened}
-              aria-controls={id ? id + '-body' : undefined}
-              aria-label={heading + ' ' + headingButton}
-            >
-              {mobileHeadingButton ? (
-                <>
-                  <span className="secondary-navigation__heading-mobile">
-                    {mobileHeadingButton}
-                  </span>
-                  <span className="secondary-navigation__heading-desktop">{headingButton}</span>
-                </>
-              ) : (
-                headingButton
-              )}{' '}
-              <ArrowDropDownIcon
-                className={classNames('secondary-navigation__heading-button-icon', {
-                  'rotate-180': opened
-                })}
-              />
-            </button>
-          )}
+          <div className="secondary-navigation__heading-title">
+            {mobileHeading ? (
+              <>
+                <span className="secondary-navigation__heading-mobile">{mobileHeading}</span>
+                <span className="secondary-navigation__heading-desktop">{heading}</span>
+              </>
+            ) : (
+              heading
+            )}{' '}
+            {!!headingButton && (
+              <button
+                className="secondary-navigation__heading-button"
+                onClick={() => setOpened((p) => !p)}
+                id={id ? id + '-heading-button' : undefined}
+                aria-expanded={opened}
+                aria-controls={id ? id + '-body' : undefined}
+                aria-label={heading + ' ' + headingButton}
+              >
+                {mobileHeadingButton ? (
+                  <>
+                    <span className="secondary-navigation__heading-mobile">
+                      {mobileHeadingButton}
+                    </span>
+                    <span className="secondary-navigation__heading-desktop">{headingButton}</span>
+                  </>
+                ) : (
+                  headingButton
+                )}{' '}
+                <ArrowDropDownIcon
+                  className={classNames('secondary-navigation__heading-button-icon', {
+                    'rotate-180': opened
+                  })}
+                />
+              </button>
+            )}
+          </div>
+          <div
+            id={id ? id + '-body' : undefined}
+            className={classNames('secondary-navigation__body', bodyClassName, { hidden: !opened })}
+            data-testid="secnav-children"
+          >
+            {children}
+          </div>
         </div>
         <DropDown
           id={id ? id : undefined}
@@ -77,13 +86,6 @@ const SecondaryNavigation = ({
           {dropDownOptions.length &&
             dropDownOptions.map((item, index) => React.cloneElement(item, { key: index }))}
         </DropDown>
-      </div>
-      <div
-        id={id ? id + '-body' : undefined}
-        className={classNames('secondary-navigation__body', bodyClassName, { hidden: !opened })}
-        data-testid="secnav-children"
-      >
-        {children}
       </div>
     </div>
   );

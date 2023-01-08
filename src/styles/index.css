@@ -1413,13 +1413,16 @@
         @apply bg-blue-600;
     }
     .secondary-navigation__header {
-        @apply text-white h-10 px-5 page-content relative inset-x-0 flex justify-between items-center z-10;
+        @apply text-white min-h-[2.5rem] px-5 page-content relative inset-x-0 flex justify-between z-10;
     }
     .secondary-navigation__body {
-        @apply py-2.5 text-white text-body-1 px-5 page-content relative inset-x-0;
+        @apply py-2.5 text-white text-body-1 relative inset-x-0;
     }
     .secondary-navigation__heading {
-        @apply text-body-1;
+        @apply text-body-1 float-left;
+    }
+    .secondary-navigation__heading-title {
+        @apply inline-block py-2;
     }
     .secondary-navigation__heading-button {
         @apply hover:underline font-bold tracking-[.5px] inline-flex items-center;
@@ -1433,11 +1436,14 @@
     .secondary-navigation__heading-desktop {
         @apply hidden tb1:inline;
     }
+    .secondary-navigation__dropdown {
+        @apply right-4 dm1:right-8 dm2:right-40 absolute;
+    }
     .secondary-navigation__dropdown .dropdown {
-        @apply text-body-1 p-0;
+        @apply text-body-1 py-2 dm1:h-auto;
     }
     .secondary-navigation__dropdown .dropdown__options {
-        @apply right-2;
+        @apply right-2 top-auto;
     }
     .secondary-navigation__body a, .secondary-navigation__body a:visited {
         @apply text-white hover:text-white;

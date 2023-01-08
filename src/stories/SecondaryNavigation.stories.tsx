@@ -18,6 +18,8 @@ Template.args = {
   id: 'secondary-navigation',
   heading: 'Oficiálna stránka',
   headingButton: 'verejnej správy',
+  mobileHeading: 'SK',
+  mobileHeadingButton: 'e-gov',
   children: (
     <div className="grid grid-cols-1 gap-4 tb2:grid-cols-2 tb2:gap-8">
       <div>
