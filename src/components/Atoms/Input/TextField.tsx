@@ -106,7 +106,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
               maxLength={maxLength}
               {...props}
             />
-            {!!errorMsg && (
+            {!!error && (
               <WarningIcon
                 className={classNames(
                   'input__icon input__icon-textarea',
