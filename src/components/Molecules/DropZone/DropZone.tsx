@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { PrimaryButton, Progress } from '../../Atoms';
 import { CloudUploadIcon } from '../../../svgIcons/File';
 import { AddIcon } from '../../../svgIcons/Content';
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { ReactNode, useCallback, useImperativeHandle, useState } from 'react';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import { ErrorIcon } from '../../../svgIcons/Alert';
@@ -20,6 +20,10 @@ import {
   SpreadsheetIcon,
   WordDocumentIcon
 } from '../../../svgIcons/FileTypes';
+
+export interface DropZoneRefProps {
+  value: File[];
+}
 
 export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   inGroup?: boolean;
@@ -41,17 +45,12 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   progressFillingColor?: string;
 }
 
-export function DropZoneAcceptedFile({ ...props }: DropZoneProps) {
-  const [visibility, setVisibility] = useState('dropzone__file');
+export function DropZoneAcceptedFile({ ...props }) {
   return (
-    <div className={visibility} key={props.key}>
+    <div className="dropzone__file" key={props.key}>
       <div className="dropzone__file-container">{props.children}</div>
       <div className="dropzone-accepted-file__close-button">
-        <button
-          onClick={() => {
-            setVisibility('hidden');
-          }}
-        >
+        <button onClick={props.onCancel}>
           <CloseIcon className="dropzone-accepted-file__close-icon" />
         </button>
       </div>
@@ -84,15 +83,16 @@ export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
   );
 }
 
-const DropZone = ({ icon, ...props }: DropZoneProps) => {
+const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...props }, ref) => {
   const [files, setFiles] = useState<File[]>([]);
   const [filesRejected, setFilesRejected] = useState<FileRejection[]>([]);
-  const [filesTitle, setFilesTitle] = useState('hidden');
 
+  useImperativeHandle(ref, () => {
+    return { value: files };
+  });
   const onDrop = useCallback((acceptedFiles, fileRejections) => {
     setFiles((f) => [...f, ...acceptedFiles]);
     setFilesRejected((f) => [...f, ...fileRejections]);
-    setFilesTitle('dropzone__files-title');
   }, []);
   const { getRootProps, getInputProps, isDragAccept } = useDropzone({
     onDrop,
@@ -151,6 +151,8 @@ const DropZone = ({ icon, ...props }: DropZoneProps) => {
     hidden: !props.progress
   });
 
+  console.log(files);
+
   return (
     <div className="dropzone">
       <h3>{props.dropzoneTitle}</h3>
@@ -183,45 +185,52 @@ const DropZone = ({ icon, ...props }: DropZoneProps) => {
       </div>
 
       <div>
-        <h4 className={filesTitle}>{props.filesTitle}</h4>
+        {!!props.filesTitle && !!files.length && <h4>{props.filesTitle}</h4>}
         <div className="dropzone__files">
-          {files.map((f) => (
-            <DropZoneAcceptedFile key={f.name}>
-              <div className="dropzone__file-icon">{renderFileIcon(f)}</div>
-              <div className="dropzone__file-info">
-                <div className="dropzone__file-name">{f.name}</div>
-                <div className="dropzone__file-info-progress">
-                  <div className={infoClasses}>
-                    <div className="dropzone__file-date">
-                      {`${format(f.lastModified, 'd. M. yyyy')} - `}
+          {!!files.length &&
+            files.map((f, index) => (
+              <DropZoneAcceptedFile
+                key={f.name}
+                onCancel={() =>
+                  setFiles((p) => [...p.slice(0, index), ...p.slice(index + 1, p.length)])
+                }
+              >
+                <div className="dropzone__file-icon">{renderFileIcon(f)}</div>
+                <div className="dropzone__file-info">
+                  <div className="dropzone__file-name">{f.name}</div>
+                  <div className="dropzone__file-info-progress">
+                    <div className={infoClasses}>
+                      <div className="dropzone__file-date">
+                        {`${format(f.lastModified, 'd. M. yyyy')} - `}
+                      </div>
+                      {formatBytes(f.size)}
                     </div>
-                    {formatBytes(f.size)}
-                  </div>
 
-                  <div className={progressClasses}>
-                    <div className="dropzone__file-progress">
-                      <Progress
-                        percent={props.percent}
-                        height={'0.5rem'}
-                        emptyColor={props.progressEmptyColor}
-                        fillingColor={props.progressFillingColor}
-                      />
+                    <div className={progressClasses}>
+                      <div className="dropzone__file-progress">
+                        <Progress
+                          percent={props.percent}
+                          height="0.5rem"
+                          emptyColor={props.progressEmptyColor}
+                          fillingColor={props.progressFillingColor}
+                        />
+                      </div>
+                      <p className="dropzone__file-percent">{props.percent}</p>
                     </div>
-                    <p className="dropzone__file-percent">{props.percent}</p>
                   </div>
                 </div>
-              </div>
-            </DropZoneAcceptedFile>
-          ))}
+              </DropZoneAcceptedFile>
+            ))}
 
-          {filesRejected.map((f) => (
-            <DropZoneRejectedFile key={f.file.name} errorMessage={props.errorMessage}>
-              {f.file.name}
-            </DropZoneRejectedFile>
-          ))}
+          {!!filesRejected.length &&
+            filesRejected.map((f) => (
+              <DropZoneRejectedFile key={f.file.name} errorMessage={props.errorMessage}>
+                {f.file.name}
+              </DropZoneRejectedFile>
+            ))}
         </div>
       </div>
     </div>
   );
-};
+});
 export default DropZone;

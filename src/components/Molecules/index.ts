@@ -49,6 +49,7 @@ export {
 export {
   default as DropZone,
   DropZoneProps,
+  DropZoneRefProps,
   DropZoneAcceptedFile,
   DropZoneRejectedFile
 } from '../Molecules/DropZone';

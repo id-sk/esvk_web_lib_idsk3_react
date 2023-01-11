@@ -522,23 +522,20 @@
     .dropzone__file {
         @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
     }
-    .dropzone__files-title {
-        @apply flex mb-5;
-    }
     .dropzone__file--error {
         @apply dropzone__file border-alert-warning;
     }
     .dropzone__file-icon {
-        @apply mr-2.5 mt-1;
+        @apply mr-2.5 flex items-center;
     }
     .dropzone__file-info {
         @apply block tb2:flex items-center w-full;
     }
     .dropzone__file-name {
-        @apply w-fit text-body mr-2.5;
+        @apply text-body mr-2.5;
     }
     .dropzone__file-info-progress {
-        @apply flex justify-between w-full;
+        @apply flex justify-between flex-auto;
     }
     .dropzone__file-size-date{
         @apply text-body-1 text-neutral-600 mr-2.5 flex;
