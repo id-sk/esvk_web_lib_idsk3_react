@@ -785,8 +785,17 @@
     .searchbar__wrapper {
         @apply relative inline-block flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
     }
+
+    .searchbar__cancel {
+        @apply absolute right-2 top-1/2 -translate-y-1/2 text-neutral-600 hover:text-black;
+    }
+
+    .searchbar__cancel-icon--large{
+        @apply w-5 h-5;
+    }
+
     .searchbar__button {
-        @apply bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500 disabled:ring-transparent;
+        @apply relative bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500 disabled:ring-transparent;
     }
     .searchbar__button--large {
         @apply text-2xl px-4  gap-2;

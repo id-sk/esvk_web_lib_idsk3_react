@@ -23,4 +23,11 @@ describe('SearchBar', () => {
     fireEvent.click(screen.getByRole('button'));
     expect(mockActionClick).toHaveBeenCalled();
   });
+
+  test('Cancel button function is called', () => {
+    const mockActionClick = jest.fn();
+    render(<SearchBar showCancelButton onCancel={mockActionClick} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    expect(mockActionClick).toHaveBeenCalled();
+  });
 });

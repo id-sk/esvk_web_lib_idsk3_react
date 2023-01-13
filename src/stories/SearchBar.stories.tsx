@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SearchBar } from '../components/Atoms';
 import '/src/styles/idsk3_theme.css';
@@ -32,4 +32,16 @@ Error.args = {
   searchbarSize: 'large',
   error: true,
   errorMsg: 'Nesprávny vstup'
+};
+
+const ref: RefObject<HTMLInputElement> = React.createRef();
+export const WithCancelButton = Template.bind({});
+WithCancelButton.args = {
+  placeholder: 'Placeholder',
+  searchbarSize: 'large',
+  showCancelButton: true,
+  onCancel: () => {
+    console.log('Cancel button clicked');
+  },
+  ref: ref
 };

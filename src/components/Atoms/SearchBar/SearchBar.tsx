@@ -1,7 +1,8 @@
-import React, { useState, useRef, ReactNode } from 'react';
+import React, { useState, useRef, ReactNode, useEffect, ForwardedRef } from 'react';
 import classNames from 'classnames';
 import { SearchIcon } from '../../../svgIcons/Actions';
 import IconLink from '../IconLink';
+import CancelIcon from '../../../svgIcons/Navigation/Cancel';
 
 export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
   buttonLabel?: string | ReactNode;
@@ -16,7 +17,25 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   error?: boolean;
   errorMsg?: string;
   label?: string;
+  showCancelButton?: boolean;
+  onCancel?: () => void;
 }
+
+const useForwardRef = <T,>(ref: ForwardedRef<T>, initialValue: any = null) => {
+  const targetRef = useRef<T>(initialValue);
+
+  useEffect(() => {
+    if (!ref) return;
+
+    if (typeof ref === 'function') {
+      ref(targetRef.current);
+    } else {
+      ref.current = targetRef.current;
+    }
+  }, [ref]);
+
+  return targetRef;
+};
 
 const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
   (
@@ -37,6 +56,8 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
       error,
       errorMsg,
       label,
+      showCancelButton,
+      onCancel,
       ...props
     }: SearchBarProps,
     ref
@@ -64,6 +85,11 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
       'searchbar__icon--medium': searchbarSize === 'medium',
       'searchbar__icon--small': searchbarSize === 'small'
     });
+
+    const searchbarCancelIconClasses: string = classNames({
+      'searchbar__cancel-icon--large': searchbarSize === 'large'
+    });
+
     const contentClasses = classNames(
       {
         relative: fullWidth,
@@ -72,7 +98,17 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
       },
       wrapperClassName
     );
+
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const inputRef = useForwardRef<HTMLInputElement>(ref);
+
+    const handleCancel = () => {
+      if (!!inputRef.current) {
+        inputRef.current.value = '';
+      }
+
+      if (!!onCancel) onCancel();
+    };
 
     return (
       <div className={containerClassName}>
@@ -87,13 +123,21 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
           <label className="sr-only" htmlFor={id ? id + '-input' : undefined}>
             {label}
           </label>
-          <input
-            className={inputClasses}
-            placeholder={placeholder}
-            id={id ? id + '-input' : undefined}
-            ref={ref}
-            {...props}
-          />
+          <div className="relative">
+            <input
+              className={inputClasses}
+              placeholder={placeholder}
+              id={id ? `${id}-input` : undefined}
+              ref={inputRef}
+              {...props}
+            />
+
+            {!!showCancelButton && (
+              <button className="searchbar__cancel" onClick={handleCancel}>
+                <CancelIcon className={searchbarCancelIconClasses} />
+              </button>
+            )}
+          </div>
           <button
             onClick={buttonOnClick}
             className={buttonClasses}
