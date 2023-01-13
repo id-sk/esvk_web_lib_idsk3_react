@@ -43,6 +43,7 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   maxSize?: number;
   progressEmptyColor?: string;
   progressFillingColor?: string;
+  fileInputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export function DropZoneAcceptedFile({ ...props }) {
@@ -176,7 +177,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
                 icon={<AddIcon className="dropzone__icon" />}
                 disabled={false}
               >
-                <input {...getInputProps()} />
+                <input {...getInputProps({ ...props.fileInputProps })} />
                 {props.buttonText}
               </PrimaryButton>
             )}
