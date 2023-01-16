@@ -91,7 +91,11 @@ const DateInput = ({
   const addDay = () => {
     if (isNaN(Number(day))) return;
     const newDate = setDate(startDate, Number(day));
-    handleNewDate(newDate, dateString);
+    if (day == '') {
+      handleNewDate(setDate(startDate, Number(new Date().getDate())), dateString);
+    } else {
+      handleNewDate(newDate, dateString);
+    }
   };
 
   const dayInputMask = useRifm({
@@ -103,7 +107,11 @@ const DateInput = ({
   const addMonth = () => {
     if (isNaN(Number(month))) return;
     const newDate = setMonth(startDate, Number(month) - 1);
-    handleNewDate(newDate, dateString);
+    if (month == '') {
+      handleNewDate(setMonth(startDate, Number(new Date().getMonth())), dateString);
+    } else {
+      handleNewDate(newDate, dateString);
+    }
   };
 
   const monthInputMask = useRifm({
@@ -111,12 +119,14 @@ const DateInput = ({
     onChange: setInputMonth,
     format: numberFormat
   });
-
   const addYear = () => {
     if (isNaN(Number(year))) return;
     const newDate = setYear(startDate, Number(year));
-    if (dateString == '--') {
+    if (dateString == '--' || year == '') {
       handleNewDate(setYear(new Date(), Number(new Date().getFullYear())), dateString);
+    }
+    if (year == '') {
+      handleNewDate(setYear(startDate, Number(new Date().getFullYear())), dateString);
     } else {
       handleNewDate(newDate, dateString);
     }
