@@ -1187,9 +1187,11 @@
         @apply link-s font-bold;
     }
 
-    .primary-button[type='button']:enabled:not(:active), .primary-button[type='reset']:enabled:not(:active), .primary-button[type='submit']:enabled:not(:active),
-    .secondary-button[type='button']:enabled:not(:active), .secondary-button[type='reset']:enabled:not(:active), .secondary-button[type='submit']:enabled:not(:active) {
+    .primary-button[type='button']:enabled:not(:active), .primary-button[type='reset']:enabled:not(:active), .primary-button[type='submit']:enabled:not(:active) {
         @apply bg-primary;
+    }
+    .secondary-button[type='button']:enabled:not(:active), .secondary-button[type='reset']:enabled:not(:active), .secondary-button[type='submit']:enabled:not(:active) {
+        @apply bg-blue-100;
     }
     .primary-button {
         @apply flex justify-center items-center rounded-md text-button text-white hover:ring hover:ring-offset-0 disabled:ring-0;
