@@ -295,7 +295,7 @@
         @apply opacity-100;
     }
     .checkbox-container {
-        @apply flex items-center gap-[0.625rem];
+        @apply flex items-start gap-[0.625rem];
     }
     
 
