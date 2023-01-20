@@ -1663,12 +1663,25 @@
     .pagination-drop__icon { 
         @apply w-4 h-4 text-black;
     }
-
     .information-banner__skip-link {
         @apply p-0 focus-within:py-2;
     }
     .skip-link {
         @apply absolute focus:static overflow-hidden;
     }
-
+    .snackbar{
+        @apply bg-neutral-900 text-white py-[0.625rem] px-4 rounded-md shadow-medium flex items-center leading-6 w-fit tb1:min-w-[28rem] fixed bottom-8 z-50;
+    }
+    .snackbar--long-action{
+        @apply flex-col items-start underline;
+    }
+    .snackbar__actions-wrapper{
+        @apply flex ml-auto items-center;
+    }
+    .snackbar__action-button{
+        @apply font-bold hover:underline ml-auto cursor-pointer;
+    }
+    .snackbar__close-button{
+        @apply w-5 h-5 cursor-pointer ml-5 mt-[0.125rem];
+    }
 }

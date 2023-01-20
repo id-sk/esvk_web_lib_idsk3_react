@@ -54,3 +54,4 @@ export { default as Tooltip, TooltipProps } from './Tooltip';
 export { default as Pagination } from './Pagination';
 export { default as Progress } from './Progress';
 export { default as Select, SelectProps } from './Select';
+export { default as Snackbar, SnackbarProps } from './Snackbar';
