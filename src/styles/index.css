@@ -9,16 +9,16 @@
     html {
         font-family: 'Source Sans Pro', sans-serif;
     }
-    h1 {
+    h1, .headline-1 {
         @apply text-4xl tb2:text-5xl font-black leading-11 tb2:leading-12;
     }
-    h2 {
+    h2, .headline-2 {
         @apply text-2xl tb2:text-4xl font-black leading-8.5 tb2:leading-11;
     }
-    h3 {
+    h3, .headline-3 {
         @apply text-xl tb2:text-2xl font-bold leading-6.5 tb2:leading-8.5;
     }
-    h4 {
+    h4, .headline-4 {
         @apply text-main tb2:text-xl font-bold leading-6 tb2:leading-6.5 tracking-[.15px];
     }
     .subtitle, .link-l {
