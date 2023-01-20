@@ -40,9 +40,11 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
         {!!icon && <div className="signpost__icon">{icon}</div>}
         <div className="signpost__container">
           <div>
-            <a className="anchor-card__heading" {...props} ref={ref}>
-              {heading}
-            </a>
+            <h3>
+              <a className="anchor-card__heading" {...props} ref={ref}>
+                {heading}
+              </a>
+            </h3>
             {!!children && (
               <div
                 className={classNames('anchor-card__description', {

@@ -13,7 +13,7 @@ const InPageNavigation = ({ children, className, title = '', ...props }: InPageN
   return (
     <div className="in-page-navigation-desktop">
       <div className={inPageNavigationClasses} {...props}>
-        {!!title && <h3>{title}</h3>}
+        {!!title && <h2 className="headline-3">{title}</h2>}
         {children}
       </div>
     </div>

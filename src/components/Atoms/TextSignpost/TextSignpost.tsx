@@ -10,9 +10,11 @@ const TextSignpost = React.forwardRef<HTMLAnchorElement, TextSignpostProps>(
   ({ heading, subtitle, children, className, ...props }, ref) => {
     return (
       <div className={classNames('text-signpost', className)}>
-        <a className="anchor-card__heading" {...props} ref={ref}>
-          {heading}
-        </a>
+        <h3>
+          <a className="anchor-card__heading" {...props} ref={ref}>
+            {heading}
+          </a>
+        </h3>
         {!!subtitle && <p className="text-signpost__subtitle">{subtitle}</p>}
         <div className="anchor-card__description">{children}</div>
       </div>

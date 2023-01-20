@@ -12,9 +12,9 @@ export const FooterContainerSectionHeading = ({
   className,
   ...props
 }: React.AllHTMLAttributes<HTMLParagraphElement>) => (
-  <h4 className={classNames('footer-container__section-heading', className)} {...props}>
+  <h2 className={classNames('footer-container__section-heading', className)} {...props}>
     {children}
-  </h4>
+  </h2>
 );
 
 export const FooterContainerSection = ({

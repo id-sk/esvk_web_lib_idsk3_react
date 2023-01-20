@@ -114,7 +114,7 @@ const InformationBanner = ({
           })}
         <div className="information-banner__title-wrapper">
           {!!title && (
-            <div
+            <h3
               className={classNames('information-banner__title', {
                 'text-alert-positive-dark': variant == 'success',
                 'text-primary-dark': variant == 'information',
@@ -123,7 +123,7 @@ const InformationBanner = ({
               })}
             >
               {title}
-            </div>
+            </h3>
           )}
           {!!children && (
             <div

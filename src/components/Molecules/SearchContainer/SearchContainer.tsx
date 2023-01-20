@@ -51,7 +51,7 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       <div className={containerClasses}>
         {!!title && (
           <div className="search-container__header">
-            <h3 className="search-container__title">{title}</h3>
+            <h2 className="search-container__title">{title}</h2>
           </div>
         )}
         <div className="search-container__input">
