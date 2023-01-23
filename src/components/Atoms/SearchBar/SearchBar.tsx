@@ -123,7 +123,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
           <label className="sr-only" htmlFor={id ? id + '-input' : undefined}>
             {label}
           </label>
-          <div className="relative">
+          <div className="relative w-full dm1:w-auto">
             <input
               className={inputClasses}
               placeholder={placeholder}
