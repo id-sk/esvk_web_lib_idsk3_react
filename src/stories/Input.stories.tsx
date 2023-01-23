@@ -84,3 +84,18 @@ ErrorMessage.args = {
   error: true,
   errorMsg: 'This is error message'
 };
+
+export const DisabledErrorIcon = Template.bind({});
+DisabledErrorIcon.args = {
+  actionButton: {
+    label: <PlaceholderIcon width={'20px'} height={'20px'} />,
+    onClick: () => {
+      console.log('Action button clicked!');
+    }
+  },
+  label: 'This is label',
+  placeholder: 'Placeholder',
+  error: true,
+  errorMsg: 'This is error message',
+  disabledErrorIcon: true
+};

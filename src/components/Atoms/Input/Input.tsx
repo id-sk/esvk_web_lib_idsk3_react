@@ -25,10 +25,11 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
-  actionButton?: { label: string; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
+  actionButton?: { label: ReactNode; onClick: MouseEventHandler<HTMLButtonElement> | undefined };
   errorMessageId?: string;
   optionalText?: string;
   mandatory?: boolean;
+  disabledErrorIcon?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -52,6 +53,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       errorMessageId,
       optionalText,
       mandatory = false,
+      disabledErrorIcon = false,
       ...props
     }: InputProps,
     ref
@@ -137,7 +139,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {...props}
             />
             {!!icon && iconElement}
-            {!!error && (
+            {!!error && !disabledErrorIcon && (
               <WarningIcon
                 className={classNames(
                   'input__icon',
