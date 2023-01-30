@@ -37,7 +37,15 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
         className={classNames({ 'signpost--in-group': inGroup }, className)}
         layout={layout}
       >
-        {!!icon && <div className="signpost__icon">{icon}</div>}
+        {!!icon && (
+          <div
+            className={classNames('signpost__icon', {
+              'signpost__icon--vertical': layout === 'vertical'
+            })}
+          >
+            {icon}
+          </div>
+        )}
         <div className="signpost__container">
           <div>
             <h3>

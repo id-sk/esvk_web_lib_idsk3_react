@@ -1464,7 +1464,10 @@
         @apply flex flex-auto justify-between w-full;
     }
     .signpost__icon {
-        @apply text-blue-400 text-2xl flex items-center pb-1.5;
+        @apply text-blue-400 text-4xl flex items-center pb-1.5;
+    }
+    .signpost__icon--vertical {
+        @apply inline-block;
     }
     .signpost__arrow-icon {
         @apply font-bold text-2xl w-6 h-6 ml-4 flex justify-center h-9 flex-col;
