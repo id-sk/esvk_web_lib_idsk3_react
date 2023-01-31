@@ -11,7 +11,7 @@ const InPageNavigation = ({ children, className, title = '', ...props }: InPageN
   const inPageNavigationClasses = classNames('in-page-navigation', className);
 
   return (
-    <div className="in-page-navigation-desktop">
+    <div className="in-page-navigation__line">
       <div className={inPageNavigationClasses} {...props}>
         {!!title && <h2 className="headline-3">{title}</h2>}
         {children}

@@ -1140,8 +1140,8 @@
     .in-page-navigation {
         @apply gap-5;
     }
-    .in-page-navigation-desktop {
-        @apply hidden tb2:inline;
+    .in-page-navigation__line {
+        @apply pl-5 border-l-2 border-l-neutral-400;
     }
     .in-page-navigation__subtitle {
         @apply text-neutral-700 font-bold pt-3.5;
@@ -1162,7 +1162,7 @@
         @apply font-bold text-blue-500 hover:no-underline;
     }
     .in-page-navigation__list a.active > svg {
-        @apply absolute left-5 h-7;
+        @apply absolute left-10 h-7;
     }
 
     .notification-card {
