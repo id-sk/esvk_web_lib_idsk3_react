@@ -53,3 +53,5 @@ export {
   DropZoneAcceptedFile,
   DropZoneRejectedFile
 } from '../Molecules/DropZone';
+export { default as UserCard, UserCardProps } from './UserCard';
+export { default as DeviceCard, DeviceCardProps } from './DeviceCard';

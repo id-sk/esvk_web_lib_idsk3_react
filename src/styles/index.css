@@ -1687,4 +1687,39 @@
     .snackbar__close-button{
         @apply w-5 h-5 cursor-pointer ml-5 mt-[0.125rem];
     }
+
+    .user-card {
+        @apply flex align-top justify-items-start p-5;
+    }
+    .user-card__body {
+        @apply flex flex-col flex-1 gap-1 text-body;
+    }
+    .user-card__title {
+        @apply text-black opacity-70 text-base;
+    }
+    .user-card__name {
+        @apply text-black font-bold headline-3;
+    }
+
+    .device-card {
+        @apply flex flex-col items-start;
+    }
+    .device-card__header {
+        @apply flex flex-col tb1:flex-row w-full items-center p-5 gap-4 border-b border-neutral-300;
+    }
+    .device-card__body {
+        @apply flex flex-col items-start p-5 gap-1;
+    }
+    .device-card__body__data {
+        @apply flex flex-col tb1:flex-row items-start gap-1 tb1:gap-12;
+    }
+    .device-card__body__data-inner {
+        @apply w-full tb1:w-36;
+    }
+    .device-card__title {
+        @apply headline-3 flex-1;
+    }
+    .device-card__icon {
+        @apply w-10 h-10 rounded-full bg-primary-light text-primary p-2 gap-2;
+    }
 }
