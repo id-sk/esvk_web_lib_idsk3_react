@@ -14,23 +14,29 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
   return (
     <Dialog
       {...args}
-      title="Title simple"
       opened={opened}
       toggleOpened={() => {
         setOpened(false);
       }}
-      primaryButton={<PrimaryButton>Text Button</PrimaryButton>}
     ></Dialog>
   );
 };
 export const Default = Template.bind({});
+Default.args = {
+  title: 'Title simple',
+  primaryButton: <PrimaryButton>Text Button</PrimaryButton>
+};
 
 export const WithDescription = Template.bind({});
 WithDescription.args = {
-  description: 'Description'
+  title: 'Title simple',
+  description: 'Description',
+  primaryButton: <PrimaryButton>Text Button</PrimaryButton>
 };
 export const LongContent = Template.bind({});
 LongContent.args = {
+  title: 'Title simple',
+  primaryButton: <PrimaryButton>Text Button</PrimaryButton>,
   children: (
     <div>
       <h3 className="mt-5">Lorem ipsum</h3>
@@ -68,6 +74,23 @@ LongContent.args = {
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.
       </p>
+    </div>
+  )
+};
+
+export const SimpleDialog = Template.bind({});
+SimpleDialog.args = {
+  children: (
+    <div className="max-w-xs">
+      <h3 className="mt-5">Lorem ipsum</h3>
+      <p className="text-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
+        consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
+        Esse accusamus doloribus omnis quasi rem.
+      </p>
+      <PrimaryButton fullWidth={true} className="mt-5">
+        Text Button
+      </PrimaryButton>
     </div>
   )
 };

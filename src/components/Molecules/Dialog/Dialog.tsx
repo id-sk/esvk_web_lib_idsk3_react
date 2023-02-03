@@ -35,25 +35,30 @@ const Dialog = ({
     <div {...props} className={dialogClasses} id={id}>
       <div className="dialog-wrapper">
         <div className="dialog">
-          <div className="dialog__header">
-            <div className="dialog__header-title">
-              <h2>{title}</h2>
-              <button
-                onClick={toggleOpened}
-                className="dialog__close-icon"
-                id={id ? id + '-dialog-close-button' : undefined}
-              >
-                <CloseIcon />
-              </button>
+          {!!title && (
+            <div className="dialog__header">
+              <div className="dialog__header-title">
+                <h2>{title}</h2>
+                <button
+                  onClick={toggleOpened}
+                  className="dialog__close-icon"
+                  id={id ? id + '-dialog-close-button' : undefined}
+                >
+                  <CloseIcon />
+                </button>
+              </div>
+              {!!description && <p className="dialog__header-description">{description}</p>}
             </div>
-            {!!description && <p className="dialog__header-description">{description}</p>}
-          </div>
+          )}
 
           <div className="dialog__content">{children}</div>
-          <div className="dialog__buttons">
-            {secondaryButton}
-            {primaryButton}
-          </div>
+
+          {!!(secondaryButton || primaryButton) && (
+            <div className="dialog__buttons">
+              {secondaryButton}
+              {primaryButton}
+            </div>
+          )}
         </div>
       </div>
     </div>
