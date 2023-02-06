@@ -3,9 +3,9 @@ import { CloseIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 
 export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  title?: string;
   description?: string;
-  opened: boolean;
+  opened?: boolean;
   toggleOpened?: () => void;
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
