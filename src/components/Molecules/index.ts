@@ -55,3 +55,4 @@ export {
 } from '../Molecules/DropZone';
 export { default as UserCard, UserCardProps } from './UserCard';
 export { default as DeviceCard, DeviceCardProps } from './DeviceCard';
+export { default as ErrorDialog, ErrorDialogProps } from '../Molecules/ErrorDialog';

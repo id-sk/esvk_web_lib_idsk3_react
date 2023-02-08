@@ -589,6 +589,25 @@
         @apply text-alert-warning w-6 h-6 ml-5;
     }
 
+    .error-dialog {
+        @apply dialog p-[3.125rem] max-w-[29.188rem] items-center text-center;
+    }
+    .error-dialog__title {
+        @apply font-bold text-body mb-10;
+    }
+    .error-dialog__children {
+        @apply mb-[3.75rem] text-body;
+    }
+    .error-dialog__buttons {
+        @apply grid w-full gap-5;
+    }
+    .error-dialog__button {
+        @apply w-full;
+    }
+    .error-dialog__img {
+        @apply w-[7.5rem] h-[7.5rem] mb-10;
+    }
+
     .event-card {
         @apply px-4 py-5 grid grid-cols-[auto_1fr] gap-x-4;
     }
