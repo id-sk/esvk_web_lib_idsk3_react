@@ -590,22 +590,31 @@
     }
 
     .error-dialog {
-        @apply dialog p-[3.125rem] max-w-[29.188rem] items-center text-center;
+        @apply tb1:p-[1.563rem] tb2:max-w-[25.688rem] items-center text-center content-center;
+    }
+    .error-dialog__img-wrapper {
+        @apply items-center text-center flex justify-center;
+    }
+    .error-dialog__loader {
+        @apply py-9;
+    }
+    .error-dialog__text-wrapper {
+        @apply grid gap-10 pt-5 pb-[3.75rem];
     }
     .error-dialog__title {
-        @apply font-bold text-body mb-10;
+        @apply font-bold text-body leading-[1.563rem];
+    }
+    .error-dialog__subtitle {
+        @apply text-body leading-[1.563rem] opacity-70;
     }
     .error-dialog__children {
-        @apply mb-[3.75rem] text-body;
+        @apply grid gap-5 w-full;
     }
-    .error-dialog__buttons {
-        @apply grid w-full gap-5;
-    }
-    .error-dialog__button {
-        @apply w-full;
+    .error-dialog__children-loading {
+        @apply opacity-50 pointer-events-none;
     }
     .error-dialog__img {
-        @apply w-[7.5rem] h-[7.5rem] mb-10;
+        @apply w-[7.5rem] h-[7.5rem];
     }
 
     .event-card {

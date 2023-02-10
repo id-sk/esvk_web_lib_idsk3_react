@@ -1,16 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ErrorDialog from './index';
-import { PrimaryButton, SecondaryButton } from '../../Atoms';
 
 describe('ErrorDialog', () => {
   test('renders children', () => {
     render(
-      <ErrorDialog
-        title="Title simple"
-        opened={true}
-        primaryButton={<PrimaryButton>Text Button</PrimaryButton>}
-      >
+      <ErrorDialog title="Title simple" opened={true} isLoading={false}>
         Test
       </ErrorDialog>
     );
@@ -18,27 +13,18 @@ describe('ErrorDialog', () => {
   });
   test('renders title', () => {
     render(
-      <ErrorDialog
-        title="Title simple"
-        opened={true}
-        primaryButton={<PrimaryButton>Text Button</PrimaryButton>}
-      >
+      <ErrorDialog title="Title simple" opened={true} isLoading={false}>
         Test
       </ErrorDialog>
     );
     expect(screen.getByText('Title simple')).toBeDefined();
   });
-  test('renders second button', () => {
+  test('renders subtitle', () => {
     render(
-      <ErrorDialog
-        title="Title simple"
-        opened={true}
-        primaryButton={<PrimaryButton>Text Button</PrimaryButton>}
-        secondaryButton={<SecondaryButton>Text</SecondaryButton>}
-      >
+      <ErrorDialog subtitle="Subtitle" opened={true} isLoading={false}>
         Test
       </ErrorDialog>
     );
-    expect(screen.getByText('Text')).toBeDefined();
+    expect(screen.getByText('Subtitle')).toBeDefined();
   });
 });

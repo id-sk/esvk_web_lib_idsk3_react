@@ -1,12 +1,15 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import ErrorImage from '../../../svgImages/Logos/ErrorImg';
+import Dialog from '../Dialog';
+import { Loader } from '../../Atoms';
 
 export interface ErrorDialogProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  title?: string;
   opened: boolean;
-  primaryButton?: ReactNode;
-  secondaryButton?: ReactNode;
+  img?: ReactNode;
+  isLoading?: boolean;
+  subtitle?: ReactNode;
 }
 
 const ErrorDialog = ({
@@ -14,32 +17,29 @@ const ErrorDialog = ({
   id,
   className,
   title,
+  subtitle,
   children,
-  primaryButton,
-  secondaryButton
+  isLoading = false,
+  img = <ErrorImage className="error-dialog__img" />
 }: ErrorDialogProps) => {
-  const dialogClasses = classNames(
-    'dialog-screen',
-    {
-      'dialog-screen--hidden': !opened
-    },
-    className
-  );
-
+  const childrenClasses = classNames('error-dialog__children', {
+    'error-dialog__children-loading': isLoading
+  });
   return (
-    <div className={dialogClasses} id={id}>
-      <div className="dialog-wrapper">
-        <div className="error-dialog">
-          <ErrorImage className="error-dialog__img"></ErrorImage>
-          <div className="error-dialog__title">{title}</div>
-          <div className="error-dialog__children">{children}</div>
-          <div className="error-dialog__buttons">
-            {primaryButton}
-            {secondaryButton}
+    <Dialog opened={opened} id={id} className={className}>
+      <div className="error-dialog">
+        <div className="error-dialog__img-wrapper">{img}</div>
+        {!!isLoading ? (
+          <Loader className="error-dialog__loader" />
+        ) : (
+          <div className="error-dialog__text-wrapper ">
+            {title && <h2 className="error-dialog__title">{title}</h2>}
+            {subtitle && <p className="error-dialog__subtitle">{subtitle}</p>}
           </div>
-        </div>
+        )}
+        <div className={childrenClasses}>{children}</div>
       </div>
-    </div>
+    </Dialog>
   );
 };
 
