@@ -23,11 +23,11 @@ const Template: ComponentStory<typeof ErrorDialog> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'This is the title',
-  subtitle: 'Subtitle Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta atque.',
+  title: 'Naozaj si želáte deaktivovať zariadenie "Martinov iPhone 12"?',
+  subtitle: 'Po potvrdení bude vybrané zariadenie nenávratne vymazané.',
   children: (
     <PrimaryButton fullWidth size="large" type="button" variant="warning" onClick={() => {}}>
-      Action
+      Deaktivovať
     </PrimaryButton>
   )
 };

@@ -590,7 +590,7 @@
     }
 
     .error-dialog {
-        @apply tb1:p-[1.563rem] tb2:max-w-[25.688rem] items-center text-center content-center;
+        @apply py-5 tb1:py-10 tb1:px-8 gap-10 justify-center text-center items-center flex flex-col w-[25.25rem] max-w-full;
     }
     .error-dialog__img-wrapper {
         @apply items-center text-center flex justify-center;
@@ -599,13 +599,13 @@
         @apply py-9;
     }
     .error-dialog__text-wrapper {
-        @apply grid gap-10 pt-5 pb-[3.75rem];
+        @apply flex flex-col gap-5;
     }
     .error-dialog__title {
-        @apply font-bold text-body leading-[1.563rem];
+        @apply headline-4;
     }
     .error-dialog__subtitle {
-        @apply text-body leading-[1.563rem] opacity-70;
+        @apply text-body opacity-70;
     }
     .error-dialog__children {
         @apply grid gap-5 w-full;
