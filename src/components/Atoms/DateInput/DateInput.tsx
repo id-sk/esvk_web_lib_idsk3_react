@@ -170,7 +170,7 @@ const DateInput = ({
 
   const datePickerClasses: string = classNames('date-input__date-picker', {
     'date-input__date-picker': day == '' || month == '' || year == '',
-    'date-input__date-picker--open': (day != '' && month != '' && year != '') || open
+    'date-input__date-picker--open': ((day != '' && month != '' && year != '') || open) && !disabled
   });
 
   const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
@@ -260,6 +260,7 @@ const DateInput = ({
               onCalendarOpen={() => setOpen(true)}
               onCalendarClose={() => setOpen(false)}
               onChange={handleDatepickerChange}
+              disabled={disabled}
             />
           </div>
         </span>
