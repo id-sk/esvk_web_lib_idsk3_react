@@ -22,6 +22,7 @@ export {
   RadioButton,
   RadioButtonGroup,
   RadioButtonProps,
+  RadioButtonGroupProps,
   TextField,
   TextFieldProps
 } from './Input';

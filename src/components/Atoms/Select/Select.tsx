@@ -17,6 +17,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   errorMessageId?: string;
+  mandatory?: boolean;
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -37,6 +38,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       arrowIcon = <ExpandMoreIcon width="1.5rem" height="1.5rem" />,
       icon,
       errorMessageId,
+      mandatory = false,
       ...props
     }: SelectProps,
     ref
@@ -83,7 +85,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <>
         <label className={classNames({ 'w-full': fullWidth })}>
-          {!!label && <p className="input__label">{label}</p>}
+          {!!label && (
+            <p className="input__label">
+              {label} {mandatory && <span className="input__label--mandatory"> *</span>}
+            </p>
+          )}
           {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
           <div className={selectWrapperClasses}>
             <select

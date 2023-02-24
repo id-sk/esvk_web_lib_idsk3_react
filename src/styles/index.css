@@ -1339,13 +1339,13 @@
     }
 
     .radio-button {
-        @apply flex items-center h-fit;
+        @apply flex items-center h-fit hover:after:bg-neutral-600 hover:after:rounded-full hover:after:absolute hover:after:-z-10;
     }
     .radio-button--large {
-        @apply text-body gap-2;
+        @apply text-body gap-2 hover:after:w-8 hover:after:h-8;
     }
     .radio-button--small {
-        @apply text-body-1 gap-1;
+        @apply text-body-1 gap-1 hover:after:w-7 hover:after:h-7;
     }
     .radio-button__text {
         @apply flex items-center ml-[0.625rem];
@@ -1356,17 +1356,11 @@
     .radio-button__text--small {
         @apply text-body-1;
     }
-    .radio-button__hover{
-        @apply bg-neutral-600 rounded-full absolute opacity-100;
-    }
-    .radio-button__hover--small {
-        @apply  w-7 h-7;
-    }
-    .radio-button__hover--large {
-        @apply  w-8 h-8;
-    }
     .radio-button__icon {
         @apply absolute radio-check opacity-0 ml-[0.125rem];
+    }
+    .radio-button__icon--error {
+        @apply text-alert-warning;
     }
     .radio-button__icon--large {
         @apply w-7 h-7;
@@ -1411,7 +1405,10 @@
         @apply flex items-center;
     }
     .radio-button__label--disabled{
-        @apply hover:bg-transparent rounded-full;
+        @apply hover:bg-transparent rounded-full hover:after:hidden;
+    }
+    .radio-button-group-body {
+        @apply mt-2
     }
 
     .secondary-button {
@@ -1757,6 +1754,6 @@
         @apply headline-3 flex-1;
     }
     .device-card__icon {
-        @apply w-10 h-10 rounded-full bg-primary-light text-primary p-2 gap-2;
+        @apply w-10 h-10 rounded-full bg-primary-medium text-primary p-2 gap-2;
     }
 }
