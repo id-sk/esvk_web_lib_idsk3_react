@@ -13,7 +13,8 @@ export default [
       format: 'cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
-      sourcemap: false
+      sourcemap: false,
+      exports: 'auto'
     },
     plugins: [
       peerDepsExternal(),
