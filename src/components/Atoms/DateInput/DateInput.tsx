@@ -194,7 +194,7 @@ const DateInput = ({
       }
     };
     handleRefresh(refreshDate);
-  }, []);
+  }, [refreshDate]);
 
   return (
     <div className="date-input" id={id} {...props}>
