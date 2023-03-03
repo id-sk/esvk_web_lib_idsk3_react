@@ -120,13 +120,19 @@
     }
 
     .anchor-card {
-        @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600;
+        @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg;
+    }
+    .anchor-card--focusable {
+        @apply focusable hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600 rounded-lg;
     }
     .anchor-card--vertical {
         @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]
     }
     .anchor-card__heading {
-        @apply link-l font-bold cursor-pointer;
+        @apply font-bold;
+    }
+    .anchor-card__link {
+        @apply link-l cursor-pointer;
     }
     .anchor-card__description {
         @apply text-body text-ellipsis overflow-hidden mt-2.5;
@@ -1488,9 +1494,6 @@
         @apply text-white hover:text-white;
     }
 
-    .signpost--in-group {
-        @apply border-0 border-b rounded-none last:border-none hover:ring-0 hover:border-neutral-300;
-    }
     .signpost__container {
         @apply flex flex-auto justify-between w-full;
     }
@@ -1503,8 +1506,27 @@
     .signpost__arrow-icon {
         @apply font-bold text-2xl w-6 h-6 ml-4 flex justify-center h-9 flex-col;
     }
+    .sign-post__link{
+        @apply text-primary underline;
+    }
+
     .signpost-group {
-        @apply border border-neutral-300 rounded-lg overflow-hidden;
+        @apply border border-neutral-300 rounded-lg;
+    }
+    .signpost, .signpost-group a {
+        @apply block relative;
+    }
+    .signpost-group a:not(:last-child) .signpost--in-group {
+        @apply border-solid;
+    }
+    .signpost--in-group {
+        @apply border-0 border-b rounded-none last:border-none hover:z-10 relative;
+    }
+    .signpost-group > .signpost:last-child .anchor-card, .signpost-group > .anchor-card:last-child {
+        @apply rounded-br-lg rounded-bl-lg;
+    }
+    .signpost-group > .signpost:first-child .anchor-card, .signpost-group > .anchor-card:first-child {
+        @apply rounded-tr-lg rounded-tl-lg;
     }
     .text-signpost {
         @apply border-b border-neutral-400 pb-8 max-w-3xl;

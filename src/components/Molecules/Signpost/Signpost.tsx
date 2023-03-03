@@ -26,49 +26,61 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
       layout = 'horizontal',
       actionButton,
       withArrowIcon = true,
+      href,
       ...props
     },
     ref
   ) => {
     const renderAction = !!actionButton && layout === 'horizontal';
 
-    return (
-      <AnchorCard
-        className={classNames({ 'signpost--in-group': inGroup }, className)}
-        layout={layout}
-      >
-        {!!icon && (
-          <div
-            className={classNames('signpost__icon', {
-              'signpost__icon--vertical': layout === 'vertical'
-            })}
-          >
-            {icon}
-          </div>
-        )}
-        <div className="signpost__container">
-          <div>
-            <h3>
-              <a className="anchor-card__heading" {...props} ref={ref}>
-                {heading}
-              </a>
-            </h3>
-            {!!children && (
-              <div
-                className={classNames('anchor-card__description', {
-                  'anchor-card__description--with-action': renderAction
-                })}
-              >
-                {children}
-              </div>
-            )}
-            {renderAction && <PrimaryButton {...actionButton} />}
-          </div>
-          {layout === 'vertical' && withArrowIcon && (
-            <div className="signpost__arrow-icon">{arrowIcon}</div>
+    const CardComponent = () => {
+      return (
+        <AnchorCard
+          className={classNames(
+            { 'signpost--in-group': inGroup, 'anchor-card--focusable': href },
+            className
           )}
-        </div>
-      </AnchorCard>
+          layout={layout}
+        >
+          {!!icon && (
+            <div
+              className={classNames('signpost__icon', {
+                'signpost__icon--vertical': layout === 'vertical'
+              })}
+            >
+              {icon}
+            </div>
+          )}
+          <div className="signpost__container">
+            <div>
+              <h3 className={classNames('anchor-card__heading', { 'sign-post__link': href })}>
+                {heading}
+              </h3>
+              {!!children && (
+                <div
+                  className={classNames('anchor-card__description', {
+                    'anchor-card__description--with-action': renderAction
+                  })}
+                >
+                  {children}
+                </div>
+              )}
+              {renderAction && <PrimaryButton {...actionButton} />}
+            </div>
+            {layout === 'vertical' && withArrowIcon && (
+              <div className="signpost__arrow-icon">{arrowIcon}</div>
+            )}
+          </div>
+        </AnchorCard>
+      );
+    };
+
+    return href ? (
+      <a href={href} ref={ref} {...props} className="signpost">
+        <CardComponent />
+      </a>
+    ) : (
+      <CardComponent />
     );
   }
 );

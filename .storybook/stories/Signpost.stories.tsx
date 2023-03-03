@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Signpost } from '../../src/components/Molecules';
 import { ArrowForwardIosIcon } from '../../src/svgIcons/Navigation';
 import { HomeIcon } from '../../src/svgIcons/Actions';
-import { SignpostsGroup } from '../../src/components/Molecules/Signpost/Signpost';
+import { SignpostsGroup } from '../../src';
 import '/src/styles/idsk3_theme.css';
 
 export default {
@@ -27,7 +27,7 @@ Horizontal.args = {
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
   layout: 'horizontal',
-  href: '/'
+  href: '#'
 };
 
 export const Vertical = Template.bind({});
@@ -36,7 +36,7 @@ Vertical.args = {
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
   layout: 'vertical',
-  href: '/'
+  href: '#'
 };
 
 export const WithoutIcon = Template.bind({});
@@ -44,7 +44,7 @@ WithoutIcon.args = {
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
   layout: 'vertical',
-  href: '/'
+  href: '#'
 };
 
 export const WithActionButton = Template.bind({});
@@ -54,13 +54,22 @@ WithActionButton.args = {
   children:
     'Všetky informácie o vašom sociálnom poistení na jednom mieste. Všetky informácie o vašom sociálnom poistení na jednom mieste.',
   layout: 'horizontal',
-  href: '/',
   actionButton: { label: 'Action' }
 };
 
 export const Group = TemplateGroup.bind({});
 Group.args = {
-  heading: 'Very long title',
+  heading: 'Very long title in group',
   arrowIcon: <ArrowForwardIosIcon />,
-  layout: 'vertical'
+  layout: 'vertical',
+  href: '#'
+};
+
+export const GroupWithButtons = TemplateGroup.bind({});
+GroupWithButtons.args = {
+  heading: 'Very long title in group',
+  arrowIcon: <ArrowForwardIosIcon />,
+  children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste.',
+  layout: 'horizontal',
+  actionButton: { label: 'Action' }
 };
