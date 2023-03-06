@@ -27,6 +27,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   refreshDate?: boolean;
   minDateToday?: boolean;
   maxDateToday?: boolean;
+  inclusive?: boolean;
   onValueUpdate?: (value: string) => void;
 }
 
@@ -50,6 +51,7 @@ const DateInput = ({
   refreshDate = true,
   minDateToday = false,
   maxDateToday = false,
+  inclusive = false,
   onValueUpdate,
   ...props
 }: DateInputProps) => {
@@ -157,12 +159,16 @@ const DateInput = ({
     (isNaN(Date.parse(dateString)) && dateString != '--') ||
     new Date(dateString).toDateString().includes(day) == false ||
     !!(
-      new Date().toISOString().slice(0, 10) > dateString &&
+      (inclusive
+        ? new Date().toISOString().slice(0, 10) >= dateString
+        : new Date().toISOString().slice(0, 10) > dateString) &&
       dateString != '--' &&
       !!minDateToday
     ) ||
     !!(
-      new Date().toISOString().slice(0, 10) < dateString &&
+      (inclusive
+        ? new Date().toISOString().slice(0, 10) <= dateString
+        : new Date().toISOString().slice(0, 10) < dateString) &&
       dateString != '--' &&
       !!maxDateToday
     ) ||
@@ -211,6 +217,7 @@ const DateInput = ({
             onChange={dayInputMask.onChange}
             value={dayInputMask.value}
             placeholder="DD"
+            maxLength={2}
             onBlur={() => {
               addDay();
               formatInputLength();
@@ -227,6 +234,7 @@ const DateInput = ({
             onChange={monthInputMask.onChange}
             value={monthInputMask.value}
             placeholder="MM"
+            maxLength={2}
             onBlur={() => {
               addMonth();
               formatInputLength();
@@ -243,6 +251,7 @@ const DateInput = ({
             onChange={yearInputMask.onChange}
             value={yearInputMask.value}
             placeholder="YYYY"
+            maxLength={4}
             onBlur={() => {
               addYear();
               formatInputLength();
