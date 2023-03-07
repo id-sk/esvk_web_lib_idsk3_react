@@ -1776,6 +1776,6 @@
         @apply headline-3 flex-1;
     }
     .device-card__icon {
-        @apply w-10 h-10 rounded-full bg-primary-medium text-primary p-2 gap-2;
+        @apply w-10 h-10 rounded-full bg-primary-light text-primary p-2 gap-2;
     }
 }
