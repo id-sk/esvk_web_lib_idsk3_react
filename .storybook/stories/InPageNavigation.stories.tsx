@@ -7,7 +7,7 @@ import {
   InPageNavigationLink
 } from '../../src/components/Molecules';
 import classNames from 'classnames';
-import { ArrowRightIcon } from '../../src/svgIcons';
+import { PlayArrowIcon } from '../../src/svgIcons';
 
 export default {
   title: 'Molecules/InPageNavigation',
@@ -32,7 +32,7 @@ const Template: ComponentStory<typeof InPageNavigation> = (args) => {
               className={classNames({ active: selectedLink === 'subsection1' })}
               onClick={(e) => handleClick(e, 'subsection1')}
             >
-              <ArrowRightIcon />
+              <PlayArrowIcon />
               Subsection text
             </a>
           }
@@ -72,7 +72,7 @@ const TemplateWithSubtitle: ComponentStory<typeof InPageNavigation> = (args) => 
               className={classNames({ active: selectedLink === 'subsection1' })}
               onClick={(e) => handleClick(e, 'subsection1')}
             >
-              <ArrowRightIcon />
+              <PlayArrowIcon />
               Subsection text
             </a>
           }
@@ -98,7 +98,7 @@ const TemplateWithSubtitle: ComponentStory<typeof InPageNavigation> = (args) => 
               className={classNames({ active: selectedLink === 'subsection4' })}
               onClick={(e) => handleClick(e, 'subsection4')}
             >
-              <ArrowRightIcon />
+              <PlayArrowIcon />
               Subsection text
             </a>
           }

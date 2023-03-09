@@ -1196,7 +1196,7 @@
         @apply font-bold text-blue-500 hover:no-underline;
     }
     .in-page-navigation__list a.active > svg {
-        @apply absolute left-5 text-[2.5em] -mt-[.18em];
+        @apply absolute left-[2.2rem] h-[1.55em];
     }
 
     .notification-card {

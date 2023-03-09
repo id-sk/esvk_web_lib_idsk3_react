@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { ArrowRightIcon } from '../../../svgIcons';
+import { PlayArrowIcon } from '../../../svgIcons';
 
 export interface InPageNavigationLinkProps {
   label?: ReactNode;
@@ -17,7 +17,7 @@ const InPageNavigationLink = React.forwardRef<HTMLAnchorElement, InPageNavigatio
           linkElement
         ) : (
           <a href={href} onClick={onClick} ref={ref} className={className}>
-            <ArrowRightIcon /> {label}
+            <PlayArrowIcon /> {label}
           </a>
         )}
       </>
