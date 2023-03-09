@@ -92,8 +92,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           />
+          <div className={textSizeClasses}>{label}</div>
         </label>
-        <div className={textSizeClasses}>{label}</div>
       </div>
     );
   }

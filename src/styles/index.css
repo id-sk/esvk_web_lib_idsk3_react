@@ -235,7 +235,7 @@
     }
 
     .checkbox {
-        @apply flex items-center h-fit;
+        @apply flex items-center h-fit gap-[0.625rem];
     }
     .checkbox--large {
         @apply text-body gap-2;
@@ -1196,7 +1196,7 @@
         @apply font-bold text-blue-500 hover:no-underline;
     }
     .in-page-navigation__list a.active > svg {
-        @apply absolute left-10 h-7;
+        @apply absolute left-5 text-[2.5em] -mt-[.18em];
     }
 
     .notification-card {
@@ -1301,6 +1301,12 @@
 
     .secondary-icon-button {
         @apply icon-button border-2 active:ring-1 active:ring-offset-0 hover:ring-1 disabled:ring-0 disabled:bg-neutral-100 disabled:text-neutral-600;
+    }
+    .secondary-icon-button--medium .button__icon {
+        @apply m-1.5;
+    }
+    .secondary-icon-button--large .button__icon {
+        @apply m-2.5;
     }
     .secondary-icon-button--basic {
         @apply secondary-icon-button text-primary-dark bg-blue-100 border-blue-400 hover:ring-blue-400 active:border-primary-dark active:ring-primary-dark disabled:border-neutral-500;
@@ -1436,7 +1442,7 @@
         @apply text-white bg-black/10 border-white/70 h-10 hover:ring-blue-400 active:text-blue-300 active:border-blue-300 active:ring-blue-300 disabled:bg-transparent disabled:text-neutral-600 disabled:border-white/10 disabled:ring-0;
     }
     .secondary-button--medium {
-        @apply py-2 px-4;
+        @apply py-1.5 px-3.5;
     }
     .secondary-button--medium.secondary-button--icon-left {
         @apply pl-3.5;
@@ -1445,7 +1451,7 @@
         @apply pr-3.5;
     }
     .secondary-button--large {
-        @apply py-3 px-5;
+        @apply py-2.5 px-[1.12rem];
     }
     .secondary-button--large.secondary-button--icon-left {
         @apply pl-4;

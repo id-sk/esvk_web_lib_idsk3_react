@@ -72,7 +72,7 @@ export function DataGridRow({
   active,
   checkbox,
   className,
-  activeDotVisibility = true,
+  activeDotVisibility = false,
   id,
   ...props
 }: DataGridRowProps) {

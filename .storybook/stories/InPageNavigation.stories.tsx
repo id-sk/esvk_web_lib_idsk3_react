@@ -7,7 +7,7 @@ import {
   InPageNavigationLink
 } from '../../src/components/Molecules';
 import classNames from 'classnames';
-import { ArrowRightIcon } from '../../src/svgIcons/InPageNavigation';
+import { ArrowRightIcon } from '../../src/svgIcons';
 
 export default {
   title: 'Molecules/InPageNavigation',

@@ -24,8 +24,8 @@ const SecondaryIconButton = ({
           'secondary-icon-button--success': variant == 'success',
           'secondary-icon-button--warning': variant == 'warning',
           'secondary-icon-button--contrast': variant == 'contrast',
-          'icon-button--medium': size == 'medium',
-          'icon-button--large': size == 'large'
+          'secondary-icon-button--medium': size == 'medium',
+          'secondary-icon-button--large': size == 'large'
         },
         className
       )}

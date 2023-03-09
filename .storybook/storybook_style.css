@@ -1,0 +1,28 @@
+.icons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.icon-preview {
+    height: 150px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
+    padding: 20px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.icon-preview svg {
+    width: 64px;
+    height: 64px;
+    color: #1a1a1a;
+}
+
+.icon-preview .icon-preview__name {
+    overflow-wrap: anywhere;
+}

@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { ArrowRightIcon } from '../../../svgIcons/InPageNavigation';
+import { ArrowRightIcon } from '../../../svgIcons';
 
 export interface InPageNavigationLinkProps {
   label?: ReactNode;

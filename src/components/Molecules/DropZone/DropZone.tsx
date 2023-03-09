@@ -11,9 +11,9 @@ import { formatBytes } from '../../../utils';
 import {
   DocumentIcon,
   ExcelSpreadsheetIcon,
-  FolderIcon,
+  FolderTypeIcon,
   GenericIcon,
-  ImageIcon,
+  ImageTypeIcon,
   PdfDocumentIcon,
   PowerpointPresentationIcon,
   PresentationIcon,
@@ -121,9 +121,9 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
     } else if (excelExtensions.includes(getExtension(f.name))) {
       return <ExcelSpreadsheetIcon className="dropzone__icon" />;
     } else if (folderExtensions.includes(getExtension(f.name))) {
-      return <FolderIcon className="dropzone__icon" />;
+      return <FolderTypeIcon className="dropzone__icon" />;
     } else if (imageExtensions.includes(getExtension(f.name))) {
-      return <ImageIcon className="dropzone__icon" />;
+      return <ImageTypeIcon className="dropzone__icon" />;
     } else if (pdfExtensions.includes(getExtension(f.name))) {
       return <PdfDocumentIcon className="dropzone__icon" />;
     } else if (powerpointPresentationExtensions.includes(getExtension(f.name))) {
