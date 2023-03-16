@@ -14,7 +14,7 @@ const MenuMobile = ({
   ...props
 }: MenuMobileProps) => {
   const menuClasses = classNames(
-    'menu--mobile',
+    'idsk-menu--mobile',
     {
       hidden: !opened
     },
@@ -24,7 +24,7 @@ const MenuMobile = ({
   return (
     <div className={menuClasses} {...props}>
       {!!heading && (
-        <div className="menu--mobile__heading">
+        <div className="idsk-menu--mobile__heading">
           {typeof heading === 'string' ? <h2>{heading}</h2> : heading}
         </div>
       )}

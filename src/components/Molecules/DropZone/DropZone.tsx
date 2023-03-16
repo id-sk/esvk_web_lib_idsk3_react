@@ -48,11 +48,11 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
 
 export function DropZoneAcceptedFile({ ...props }) {
   return (
-    <div className="dropzone__file" key={props.key}>
-      <div className="dropzone__file-container">{props.children}</div>
-      <div className="dropzone-accepted-file__close-button">
+    <div className="idsk-dropzone__file" key={props.key}>
+      <div className="idsk-dropzone__file-container">{props.children}</div>
+      <div className="idsk-dropzone-accepted-file__close-button">
         <button onClick={props.onCancel}>
-          <CloseIcon className="dropzone-accepted-file__close-icon" />
+          <CloseIcon className="idsk-dropzone-accepted-file__close-icon" />
         </button>
       </div>
     </div>
@@ -60,24 +60,24 @@ export function DropZoneAcceptedFile({ ...props }) {
 }
 
 export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
-  const [visibility, setVisibility] = useState('dropzone-rejected-file');
+  const [visibility, setVisibility] = useState('idsk-dropzone-rejected-file');
   return (
     <div className={visibility} key={props.key}>
-      <div className="dropzone__file-container">
-        <ErrorIcon className="dropzone-rejected-file__icon" />
-        <div className="dropzone-rejected-file__container">
-          <div className="dropzone-rejected-file__name">{props.children}</div>
-          <p className="dropzone-rejected-file__error-message">{props.errorMessage}</p>
+      <div className="idsk-dropzone__file-container">
+        <ErrorIcon className="idsk-dropzone-rejected-file__icon" />
+        <div className="idsk-dropzone-rejected-file__container">
+          <div className="idsk-dropzone-rejected-file__name">{props.children}</div>
+          <p className="idsk-dropzone-rejected-file__error-message">{props.errorMessage}</p>
         </div>
       </div>
 
-      <div className="dropzone-rejected-file__close-button">
+      <div className="idsk-dropzone-rejected-file__close-button">
         <button
           onClick={() => {
             setVisibility('hidden');
           }}
         >
-          <CloseIcon className="dropzone-rejected-file__close-icon" />
+          <CloseIcon className="idsk-dropzone-rejected-file__close-icon" />
         </button>
       </div>
     </div>
@@ -91,7 +91,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
   useImperativeHandle(ref, () => {
     return { value: files };
   });
-  const onDrop = useCallback((acceptedFiles, fileRejections) => {
+  const onDrop = useCallback((acceptedFiles: File[], fileRejections: FileRejection[]) => {
     setFiles((f) => [...f, ...acceptedFiles]);
     setFilesRejected((f) => [...f, ...fileRejections]);
   }, []);
@@ -117,64 +117,64 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
   const wordExtensions = ['doc', 'docx'];
   const renderFileIcon = (f: File) => {
     if (documentExtensions.includes(getExtension(f.name))) {
-      return <DocumentIcon className="dropzone__icon" />;
+      return <DocumentIcon className="idsk-dropzone__icon" />;
     } else if (excelExtensions.includes(getExtension(f.name))) {
-      return <ExcelSpreadsheetIcon className="dropzone__icon" />;
+      return <ExcelSpreadsheetIcon className="idsk-dropzone__icon" />;
     } else if (folderExtensions.includes(getExtension(f.name))) {
-      return <FolderTypeIcon className="dropzone__icon" />;
+      return <FolderTypeIcon className="idsk-dropzone__icon" />;
     } else if (imageExtensions.includes(getExtension(f.name))) {
-      return <ImageTypeIcon className="dropzone__icon" />;
+      return <ImageTypeIcon className="idsk-dropzone__icon" />;
     } else if (pdfExtensions.includes(getExtension(f.name))) {
-      return <PdfDocumentIcon className="dropzone__icon" />;
+      return <PdfDocumentIcon className="idsk-dropzone__icon" />;
     } else if (powerpointPresentationExtensions.includes(getExtension(f.name))) {
-      return <PowerpointPresentationIcon className="dropzone__icon" />;
+      return <PowerpointPresentationIcon className="idsk-dropzone__icon" />;
     } else if (presentationExtensions.includes(getExtension(f.name))) {
-      return <PresentationIcon className="dropzone__icon" />;
+      return <PresentationIcon className="idsk-dropzone__icon" />;
     } else if (spreadsheetExtensions.includes(getExtension(f.name))) {
-      return <SpreadsheetIcon className="dropzone__icon" />;
+      return <SpreadsheetIcon className="idsk-dropzone__icon" />;
     } else if (wordExtensions.includes(getExtension(f.name))) {
-      return <WordDocumentIcon className="dropzone__icon" />;
+      return <WordDocumentIcon className="idsk-dropzone__icon" />;
     } else {
-      return <GenericIcon className="dropzone__icon" />;
+      return <GenericIcon className="idsk-dropzone__icon" />;
     }
   };
 
   const dropzoneClasses = classNames({
-    dropzone__container: !isDragAccept,
-    'dropzone__container--active': isDragAccept,
-    'dropzone__container--inactive': props.variant == 'inactive'
+    'idsk-dropzone__container': !isDragAccept,
+    'idsk-dropzone__container--active': isDragAccept,
+    'idsk-dropzone__container--inactive': props.variant == 'inactive'
   });
   const infoClasses = classNames({
-    'dropzone__file-size-date': !props.progress,
-    'dropzone__file-size-date--hidden': props.progress
+    'idsk-dropzone__file-size-date': !props.progress,
+    'idsk-dropzone__file-size-date--hidden': props.progress
   });
-  const progressClasses = classNames('dropzone__file-progress-container', {
+  const progressClasses = classNames('idsk-dropzone__file-progress-container', {
     hidden: !props.progress
   });
 
   console.log(files);
 
   return (
-    <div className="dropzone">
+    <div className="idsk-dropzone">
       <h3>{props.dropzoneTitle}</h3>
       <div className={dropzoneClasses} {...getRootProps()}>
-        <CloudUploadIcon className="dropzone__upload-icon" />
-        <p className="dropzone__subtitle">{props.subtitle}</p>
-        <p className="dropzone__description">{props.description}</p>
+        <CloudUploadIcon className="idsk-dropzone__upload-icon" />
+        <p className="idsk-dropzone__subtitle">{props.subtitle}</p>
+        <p className="idsk-dropzone__description">{props.description}</p>
         {
-          <div className="dropzone__primary-button">
+          <div className="idsk-dropzone__primary-button">
             {props.variant == 'inactive' ? (
               <PrimaryButton
-                className="dropzone__button"
-                icon={<AddIcon className="dropzone__icon" />}
+                className="idsk-dropzone__button"
+                icon={<AddIcon className="idsk-dropzone__icon" />}
                 disabled={true}
               >
                 {props.buttonText}
               </PrimaryButton>
             ) : (
               <PrimaryButton
-                className="dropzone__button"
-                icon={<AddIcon className="dropzone__icon" />}
+                className="idsk-dropzone__button"
+                icon={<AddIcon className="idsk-dropzone__icon" />}
                 disabled={false}
               >
                 <input {...getInputProps({ ...props.fileInputProps })} />
@@ -187,7 +187,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
 
       <div>
         {!!props.filesTitle && !!files.length && <h4>{props.filesTitle}</h4>}
-        <div className="dropzone__files">
+        <div className="idsk-dropzone__files">
           {!!files.length &&
             files.map((f, index) => (
               <DropZoneAcceptedFile
@@ -196,19 +196,19 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
                   setFiles((p) => [...p.slice(0, index), ...p.slice(index + 1, p.length)])
                 }
               >
-                <div className="dropzone__file-icon">{renderFileIcon(f)}</div>
-                <div className="dropzone__file-info">
-                  <div className="dropzone__file-name">{f.name}</div>
-                  <div className="dropzone__file-info-progress">
+                <div className="idsk-dropzone__file-icon">{renderFileIcon(f)}</div>
+                <div className="idsk-dropzone__file-info">
+                  <div className="idsk-dropzone__file-name">{f.name}</div>
+                  <div className="idsk-dropzone__file-info-progress">
                     <div className={infoClasses}>
-                      <div className="dropzone__file-date">
+                      <div className="idsk-dropzone__file-date">
                         {`${format(f.lastModified, 'd. M. yyyy')} - `}
                       </div>
                       {formatBytes(f.size)}
                     </div>
 
                     <div className={progressClasses}>
-                      <div className="dropzone__file-progress">
+                      <div className="idsk-dropzone__file-progress">
                         <Progress
                           percent={props.percent}
                           height="0.5rem"
@@ -216,7 +216,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(({ icon, ...p
                           fillingColor={props.progressFillingColor}
                         />
                       </div>
-                      <p className="dropzone__file-percent">{props.percent}</p>
+                      <p className="idsk-dropzone__file-percent">{props.percent}</p>
                     </div>
                   </div>
                 </div>

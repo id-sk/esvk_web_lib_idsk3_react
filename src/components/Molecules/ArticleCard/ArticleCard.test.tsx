@@ -39,6 +39,6 @@ describe('ArticleCard', () => {
         layout="vertical"
       />
     );
-    expect(screen.getByTestId('anchor-card')).toHaveClass('anchor-card--vertical');
+    expect(screen.getByTestId('anchor-card')).toHaveClass('idsk-anchor-card--vertical');
   });
 });

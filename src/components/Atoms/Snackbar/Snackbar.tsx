@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import CloseIcon from '../../../svgIcons/Navigation/Close';
 
@@ -31,14 +31,14 @@ const Snackbar: React.FC<SnackbarProps> = ({
   actionClassName
 }) => {
   const snackbarClasses = classNames(
-    'snackbar',
-    { 'snackbar--long-action': !!longAction },
+    'idsk-snackbar',
+    { 'idsk-snackbar--long-action': !!longAction },
     className
   );
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (onClose) onClose();
-  };
+  }, []);
 
   useEffect(() => {
     if (!!autoHideDuration) {
@@ -50,24 +50,24 @@ const Snackbar: React.FC<SnackbarProps> = ({
         clearInterval(timer);
       };
     }
-  }, [open, autoHideDuration]);
+  }, [open, autoHideDuration, handleClose]);
 
   if (!!open) {
     return (
       <div className={snackbarClasses}>
-        <div className="pr-[6.25rem]">
+        <div className="idsk-snackbar__message">
           {!!message && <div>{message}</div>}
           {!!secondLineMessage && <div>{secondLineMessage}</div>}
         </div>
 
         <div
-          className={classNames('snackbar__actions-wrapper', {
-            'mt-4': !!longAction
+          className={classNames('idsk-snackbar__actions-wrapper', {
+            'idsk-snackbar__actions-wrapper--long-action': !!longAction
           })}
         >
           {!!action && (
             <div
-              className={classNames('snackbar__action-button', actionClassName)}
+              className={classNames('idsk-snackbar__action-button', actionClassName)}
               onClick={onActionCall}
             >
               {action}
@@ -76,8 +76,8 @@ const Snackbar: React.FC<SnackbarProps> = ({
           {!!closeButton && (
             <button onClick={handleClose}>
               <CloseIcon
-                className={classNames('snackbar__close-button', {
-                  'ml-auto': !action
+                className={classNames('idsk-snackbar__close-button', {
+                  'idsk-snackbar__close-button--no-action-button': !action
                 })}
               />
             </button>

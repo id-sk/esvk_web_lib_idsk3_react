@@ -19,14 +19,14 @@ const Logo = ({
   ...props
 }: LogoProps) => {
   return (
-    <div className={classNames('logo', className)} {...props}>
-      {image && <div className="logo__image">{image}</div>}
+    <div className={classNames('idsk-logo', className)} {...props}>
+      {image && <div className="idsk-logo__image">{image}</div>}
       {title && (
-        <div className="logo__titles">
-          <div className="logo__title">{title}</div>
-          <div className="logo__short-title">{shortTitle}</div>
-          <div className="logo__subtitle">{subtitle}</div>
-          {shortSubtitle && <div className="logo__short-subtitle">{shortSubtitle}</div>}
+        <div className="idsk-logo__titles">
+          <div className="idsk-logo__title">{title}</div>
+          <div className="idsk-logo__short-title">{shortTitle}</div>
+          <div className="idsk-logo__subtitle">{subtitle}</div>
+          {shortSubtitle && <div className="idsk-logo__short-subtitle">{shortSubtitle}</div>}
         </div>
       )}
     </div>

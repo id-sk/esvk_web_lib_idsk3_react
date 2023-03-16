@@ -21,13 +21,13 @@ const ModalSideBar = ({
   id,
   ...props
 }: ModalSideBarProps) => {
-  const shadowClasses = classNames('modal-sidebar__shadow', {
-    'modal-sidebar__shadow--hidden': !opened
+  const shadowClasses = classNames('idsk-modal-sidebar__shadow', {
+    'idsk-modal-sidebar__shadow--hidden': !opened
   });
   const sidebarClasses = classNames(
-    'modal-sidebar',
+    'idsk-modal-sidebar',
     {
-      'modal-sidebar--hidden': !opened
+      'idsk-modal-sidebar--hidden': !opened
     },
     className
   );
@@ -40,20 +40,20 @@ const ModalSideBar = ({
         data-testid="sidebar-shadow"
       />
       <div className={sidebarClasses} id={id} {...props}>
-        <div className="modal-sidebar__top-bar" />
-        <div className="modal-sidebar__header">
+        <div className="idsk-modal-sidebar__top-bar" />
+        <div className="idsk-modal-sidebar__header">
           <h3>{heading}</h3>
           <button
-            className="modal-sidebar__close-button"
+            className="idsk-modal-sidebar__close-button"
             onClick={() => toggleOpened(false)}
             id={id ? id + '-close-button' : undefined}
           >
-            <CloseIcon className="modal-sidebar__close-icon" />
+            <CloseIcon className="idsk-modal-sidebar__close-icon" />
           </button>
         </div>
-        <div className="modal-sidebar__body">{children}</div>
+        <div className="idsk-modal-sidebar__body">{children}</div>
         <div className="flex-auto" />
-        {!!footer && <div className="modal-sidebar__footer">{footer}</div>}
+        {!!footer && <div className="idsk-modal-sidebar__footer">{footer}</div>}
       </div>
     </>
   );

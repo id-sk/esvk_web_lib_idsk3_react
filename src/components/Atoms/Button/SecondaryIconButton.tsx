@@ -20,12 +20,12 @@ const SecondaryIconButton = ({
       icon={icon}
       className={classNames(
         {
-          'secondary-icon-button--basic': variant == 'basic',
-          'secondary-icon-button--success': variant == 'success',
-          'secondary-icon-button--warning': variant == 'warning',
-          'secondary-icon-button--contrast': variant == 'contrast',
-          'secondary-icon-button--medium': size == 'medium',
-          'secondary-icon-button--large': size == 'large'
+          'idsk-secondary-icon-button--basic': variant == 'basic',
+          'idsk-secondary-icon-button--success': variant == 'success',
+          'idsk-secondary-icon-button--warning': variant == 'warning',
+          'idsk-secondary-icon-button--contrast': variant == 'contrast',
+          'idsk-secondary-icon-button--medium': size == 'medium',
+          'idsk-secondary-icon-button--large': size == 'large'
         },
         className
       )}

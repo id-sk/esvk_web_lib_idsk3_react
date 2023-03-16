@@ -27,17 +27,17 @@ const Tag = ({
   return (
     <div
       className={classNames(
-        'tag',
+        'idsk-tag',
         {
-          'tag--disabled': disabled,
-          'tag--with-interactions': interaction && !disabled,
-          'tag--default': variant === 'default' && !disabled,
-          'tag--basic': variant === 'basic' && !disabled && !interaction,
-          'tag--warning': variant === 'warning' && !disabled && !interaction,
-          'tag--success': variant === 'success' && !disabled && !interaction,
-          'tag--attention': variant === 'attention' && !disabled && !interaction,
-          'tag--selected': !disabled && selected,
-          'tag--small': size == 'small'
+          'idsk-tag--disabled': disabled,
+          'idsk-tag--with-interactions': interaction && !disabled,
+          'idsk-tag--default': variant === 'default' && !disabled,
+          'idsk-tag--basic': variant === 'basic' && !disabled && !interaction,
+          'idsk-tag--warning': variant === 'warning' && !disabled && !interaction,
+          'idsk-tag--success': variant === 'success' && !disabled && !interaction,
+          'idsk-tag--attention': variant === 'attention' && !disabled && !interaction,
+          'idsk-tag--selected': !disabled && selected,
+          'idsk-tag--small': size == 'small'
         },
         className
       )}

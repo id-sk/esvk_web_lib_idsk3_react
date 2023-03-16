@@ -11,9 +11,13 @@ const SkipLink = ({ href = '#', children, ...props }: SkipLinkProps) => {
       variant="information"
       type="announcement"
       hideCloseButton={true}
-      className="information-banner__skip-link"
+      className="idsk-information-banner__skip-link"
     >
-      <a href={href} className="link-s text-primary-medium font-bold skip-link" {...props}>
+      <a
+        href={href}
+        className="idsk-link-s idsk-text-primary-medium idsk-skip-link font-bold"
+        {...props}
+      >
         {children}
       </a>
     </InformationBanner>

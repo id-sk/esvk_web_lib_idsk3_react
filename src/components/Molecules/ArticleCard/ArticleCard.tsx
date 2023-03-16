@@ -57,8 +57,8 @@ const ArticleCard = ({
   return (
     <AnchorCard
       className={classNames(
-        'article_card',
-        { 'article-card--vertical': layout === 'vertical' && !!featuredImg },
+        'idsk-article_card',
+        { 'idsk-article-card--vertical': layout === 'vertical' && !!featuredImg },
         className
       )}
       layout={layout}
@@ -66,20 +66,20 @@ const ArticleCard = ({
       {...props}
     >
       {featuredImg && (
-        <div className={classNames('article-card__image-wrapper', imageWrapperClasses)}>
+        <div className={classNames('idsk-article-card__image-wrapper', imageWrapperClasses)}>
           {featuredImg}
         </div>
       )}
-      <div className="flex-1">
+      <div className="idsk-article_card__content">
         {!!date && datePosition === 'top' && (
-          <p className="article-card__date-tags article-card__date-tags--top">
+          <p className="idsk-article-card__date-tags idsk-article-card__date-tags--top">
             {renderDateTags(date)}
           </p>
         )}
-        <div className="anchor-card__heading">{heading}</div>
-        <div className="anchor-card__description">{children}</div>
+        <div className="idsk-anchor-card__heading">{heading}</div>
+        <div className="idsk-anchor-card__description">{children}</div>
         {!!date && datePosition === 'bottom' && (
-          <p className="article-card__date-tags">{renderDateTags(date)}</p>
+          <p className="idsk-article-card__date-tags">{renderDateTags(date)}</p>
         )}
       </div>
     </AnchorCard>

@@ -9,7 +9,7 @@ export interface TabBarProps extends React.AllHTMLAttributes<HTMLElement> {
 
 const TabBar = ({ children, className, ...props }: TabBarProps) => {
   return (
-    <nav className={classNames('tab-bar', className)} {...props}>
+    <nav className={classNames('idsk-tab-bar', className)} {...props}>
       {children}
     </nav>
   );

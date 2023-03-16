@@ -52,22 +52,22 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     };
 
     const selectClasses: string = classNames(
-      'select',
+      'idsk-select',
       {
-        'input--large': inputSize === 'large',
-        'input--medium': inputSize === 'medium',
-        'input--small': inputSize === 'small',
-        'input--icon-left': !!icon,
-        'input--error': error,
-        'input--w-full': fullWidth,
-        'select--not-selected': activePlaceholder
+        'idsk-input--large': inputSize === 'large',
+        'idsk-input--medium': inputSize === 'medium',
+        'idsk-input--small': inputSize === 'small',
+        'idsk-input--icon-left': !!icon,
+        'idsk-input--error': error,
+        'idsk-input--w-full': fullWidth,
+        'idsk-select--not-selected': activePlaceholder
       },
       className
     );
 
-    const selectWrapperClasses: string = classNames('input__wrapper', {
-      'input__wrapper--error': error,
-      'input__wrapper--disabled': disabled,
+    const selectWrapperClasses: string = classNames('idsk-input__wrapper', {
+      'idsk-input__wrapper--error': error,
+      'idsk-input__wrapper--disabled': disabled,
       'w-full': fullWidth
     });
 
@@ -75,10 +75,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     const iconElement = !!icon
       ? React.cloneElement(icon, {
-          className: classNames('input__icon input__icon--left', {
-            'input__icon--large': inputSize === 'large',
-            'input__icon--medium': inputSize === 'medium',
-            'input__icon--small': inputSize === 'small'
+          className: classNames('idsk-input__icon idsk-input__icon--left', {
+            'idsk-input__icon--large': inputSize === 'large',
+            'idsk-input__icon--medium': inputSize === 'medium',
+            'idsk-input__icon--small': inputSize === 'small'
           })
         })
       : undefined;
@@ -86,11 +86,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       <>
         <label className={classNames({ 'w-full': fullWidth })}>
           {!!label && (
-            <p className="input__label">
-              {label} {mandatory && <span className="input__label--mandatory"> *</span>}
+            <p className="idsk-input__label">
+              {label} {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
             </p>
           )}
-          {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
+          {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
           <div className={selectWrapperClasses}>
             <select
               ref={ref}
@@ -110,14 +110,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               )}
               {children}
             </select>
-            {!!arrowIcon && <div className="select__arrow">{arrowIcon}</div>}
+            {!!arrowIcon && <div className="idsk-select__arrow">{arrowIcon}</div>}
             {!!icon && iconElement}
           </div>
         </label>
         {(!!errorMsg || !!caption) && (
           <p
-            className={classNames('input__caption', {
-              'input__caption--error': error && !disabled
+            className={classNames('idsk-input__caption', {
+              'idsk-input__caption--error': error && !disabled
             })}
           >
             {error && !!errorMsg && !disabled ? (

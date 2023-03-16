@@ -25,7 +25,7 @@ describe('Table', () => {
             <TableRowValue>Martin Mucha</TableRowValue>
             <TableRowValue>19.1.2022 o 15:32</TableRowValue>
             <TableRowValue>
-              <a href="#" className="link-m font-bold">
+              <a href="#" className="idsk-link-m font-bold">
                 Detail podpisu
               </a>
             </TableRowValue>
@@ -39,7 +39,7 @@ describe('Table', () => {
             <TableRowValue>Ján Novák</TableRowValue>
             <TableRowValue>19.1.2022 o 15:32</TableRowValue>
             <TableRowValue>
-              <a href="#" className="link-m font-bold">
+              <a href="#" className="idsk-link-m font-bold">
                 Detail podpisu
               </a>
             </TableRowValue>

@@ -24,37 +24,37 @@ const Dialog = ({
   ...props
 }: DialogProps) => {
   const dialogClasses = classNames(
-    'dialog-screen',
+    'idsk-dialog-screen',
     {
-      'dialog-screen--hidden': !opened
+      'idsk-dialog-screen--hidden': !opened
     },
     className
   );
 
   return (
     <div {...props} className={dialogClasses} id={id}>
-      <div className="dialog-wrapper">
-        <div className="dialog">
+      <div className="idsk-dialog-wrapper">
+        <div className="idsk-dialog">
           {!!title && (
-            <div className="dialog__header">
-              <div className="dialog__header-title">
+            <div className="idsk-dialog__header">
+              <div className="idsk-dialog__header-title">
                 <h2>{title}</h2>
                 <button
                   onClick={toggleOpened}
-                  className="dialog__close-icon"
+                  className="idsk-dialog__close-icon"
                   id={id ? id + '-dialog-close-button' : undefined}
                 >
                   <CloseIcon />
                 </button>
               </div>
-              {!!description && <p className="dialog__header-description">{description}</p>}
+              {!!description && <p className="idsk-dialog__header-description">{description}</p>}
             </div>
           )}
 
-          <div className="dialog__content">{children}</div>
+          <div className="idsk-dialog__content">{children}</div>
 
           {!!(secondaryButton || primaryButton) && (
-            <div className="dialog__buttons">
+            <div className="idsk-dialog__buttons">
               {secondaryButton}
               {primaryButton}
             </div>

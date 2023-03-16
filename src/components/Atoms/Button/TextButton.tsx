@@ -15,16 +15,16 @@ const defaultButtonProps: TextButtonProps = {
 const TextButton = (props: TextButtonProps) => {
   props = { ...defaultButtonProps, ...props };
   const className = classNames(
-    'link-button',
+    'idsk-link-button',
     {
-      'link-button--basic': props.variant == 'basic',
-      'link-button--success': props.variant == 'success',
-      'link-button--warning': props.variant == 'warning',
-      'link-button--contrast': props.variant == 'contrast',
-      'link-button--medium': props.size == 'medium',
-      'link-button--large': props.size == 'large',
-      'link-button--icon-left': props.icon && props.iconPosition == 'left',
-      'link-button--icon-right': props.icon && props.iconPosition == 'right'
+      'idsk-link-button--basic': props.variant == 'basic',
+      'idsk-link-button--success': props.variant == 'success',
+      'idsk-link-button--warning': props.variant == 'warning',
+      'idsk-link-button--contrast': props.variant == 'contrast',
+      'idsk-link-button--medium': props.size == 'medium',
+      'idsk-link-button--large': props.size == 'large',
+      'idsk-link-button--icon-left': props.icon && props.iconPosition == 'left',
+      'idsk-link-button--icon-right': props.icon && props.iconPosition == 'right'
     },
     props.className
   );

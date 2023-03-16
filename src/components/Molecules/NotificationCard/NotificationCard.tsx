@@ -27,24 +27,27 @@ const NotificationCard = ({
   const dateObject = new Date(date);
 
   return (
-    <CardWrapper innerClassNames="notification-card" {...props}>
-      <div className="notification-card__header">
-        <span className="notification-card__title">
+    <CardWrapper innerClassNames="idsk-notification-card" {...props}>
+      <div className="idsk-notification-card__header">
+        <span className="idsk-notification-card__title">
           {highlighted && (
-            <span data-testid="unread-alert" className="notification-card__highlight" />
+            <span data-testid="unread-alert" className="idsk-notification-card__highlight" />
           )}
           {title}
         </span>
-        <time dateTime={format(dateObject, dateFormatString)} className="notification-card__date">
+        <time
+          dateTime={format(dateObject, dateFormatString)}
+          className="idsk-notification-card__date"
+        >
           {format(dateObject, dateFormatString)}
         </time>
       </div>
       {children}
       {!!actions.length && (
-        <div className="notification-card__footer">
+        <div className="idsk-notification-card__footer">
           {actions.map((item, index) => (
             <a
-              className="notification-card__link"
+              className="idsk-notification-card__link"
               key={index}
               href={!!item.href ? item.href : undefined}
               onClick={!!item.onClick ? item.onClick : undefined}

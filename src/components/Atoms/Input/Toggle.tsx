@@ -28,11 +28,11 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
   ) => {
     const [checkedState, setCheckedState] = useState(checked);
     const switchClasses: string = classNames(
-      'toggle',
+      'idsk-toggle',
       {
-        'toggle--checked': checkedState === true,
-        'toggle--small': inputSize === 'small',
-        'toggle--disabled': disabled === true
+        'idsk-toggle--checked': checkedState === true,
+        'idsk-toggle--small': inputSize === 'small',
+        'idsk-toggle--disabled': disabled === true
       },
       className
     );
@@ -44,7 +44,7 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
 
     return (
       <Switch.Group>
-        <div className="toggle__wrapper">
+        <div className="idsk-toggle__wrapper">
           <Switch
             ref={ref}
             checked={checkedState}
@@ -54,11 +54,11 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
             id={id}
             {...props}
           >
-            <span className="toggle__dot" />
+            <span className="idsk-toggle__dot" />
           </Switch>
           <Switch.Label
-            className={classNames('toggle__label', {
-              'toggle__label--large': inputSize == 'large'
+            className={classNames('idsk-toggle__label', {
+              'idsk-toggle__label--large': inputSize == 'large'
             })}
           >
             {label}

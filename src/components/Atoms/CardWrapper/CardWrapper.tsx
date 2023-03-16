@@ -14,14 +14,16 @@ const CardWrapper = ({
   ...props
 }: CardWrapperProps) => {
   const cssClasses: string = classNames(
-    'card-wrapper',
-    { 'card-wrapper--with-color': !!color },
+    'idsk-card-wrapper',
+    { 'idsk-card-wrapper--with-color': !!color },
     className
   );
 
   return (
     <div className={cssClasses} {...props}>
-      {!!color && <div style={{ backgroundColor: color }} className="card-wrapper__color-strip" />}
+      {!!color && (
+        <div style={{ backgroundColor: color }} className="idsk-card-wrapper__color-strip" />
+      )}
       <div className={innerClassNames}>{children}</div>
     </div>
   );

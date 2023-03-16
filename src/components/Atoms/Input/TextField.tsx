@@ -58,21 +58,21 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
     }
 
     const inputClasses: string = classNames(
-      'input',
+      'idsk-input',
       {
-        'input--large': inputSize === 'large',
-        'input--medium': inputSize === 'medium',
-        'input--small': inputSize === 'small',
-        'input--error': error,
-        'input--w-full': fullWidth
+        'idsk-input--large': inputSize === 'large',
+        'idsk-input--medium': inputSize === 'medium',
+        'idsk-input--small': inputSize === 'small',
+        'idsk-input--error': error,
+        'idsk-input--w-full': fullWidth
       },
-      'input-textarea',
+      'idsk-input-textarea',
       className
     );
 
-    const inputWrapperClasses: string = classNames('input__wrapper', {
-      'input__wrapper--error': error,
-      'input__wrapper--disabled': disabled,
+    const inputWrapperClasses: string = classNames('idsk-input__wrapper', {
+      'idsk-input__wrapper--error': error,
+      'idsk-input__wrapper--disabled': disabled,
       'w-full': fullWidth
     });
 
@@ -83,15 +83,15 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
         <div className={classNames({ 'w-full': fullWidth })}>
           {!!label && (
             <label
-              className={classNames('input__label', { 'sr-only': labelSrOnly })}
+              className={classNames('idsk-input__label', { 'sr-only': labelSrOnly })}
               htmlFor={props.id}
             >
               {label}
-              {optionalText && <span className="input__label--optional"> {optionalText}</span>}
-              {mandatory && <span className="input__label--mandatory"> *</span>}
+              {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+              {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
             </label>
           )}
-          {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
+          {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <textarea
               ref={ref}
@@ -109,23 +109,23 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
             {!!error && (
               <WarningIcon
                 className={classNames(
-                  'input__icon input__icon-textarea',
+                  'idsk-input__icon input__icon-textarea',
                   {
-                    'input__icon--large': inputSize === 'large',
-                    'input__icon--medium': inputSize === 'medium',
-                    'input__icon--small': inputSize === 'small'
+                    'idsk-input__icon--large': inputSize === 'large',
+                    'idsk-input__icon--medium': inputSize === 'medium',
+                    'idsk-input__icon--small': inputSize === 'small'
                   },
-                  'input__icon--right'
+                  'idsk-input__icon--right'
                 )}
               />
             )}
-            <span className="input-textarea--counter">{actualLength}</span>
+            <span className="idsk-input-textarea--counter">{actualLength}</span>
           </div>
         </div>
         {(!!errorMsg || !!caption) && (
           <p
-            className={classNames('input__caption', {
-              'input__caption--error': error && !disabled
+            className={classNames('idsk-input__caption', {
+              'idsk-input__caption--error': error && !disabled
             })}
           >
             {error && !!errorMsg && !disabled ? (

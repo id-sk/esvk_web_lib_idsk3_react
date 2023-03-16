@@ -16,7 +16,7 @@ describe('Feedback', () => {
       ></Feedback>
     );
     fireEvent.click(screen.getByTestId('closeButton'));
-    expect(mockButtonClick).toBeCalledTimes(1);
+    expect(mockButtonClick).toHaveBeenCalledTimes(1);
   });
   test('text', () => {
     render(

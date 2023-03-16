@@ -9,9 +9,9 @@ export interface TooltipProps {
 }
 
 const Tooltip = ({ tooltip, children, ...props }: TooltipProps) => {
-  const tooltipClasses = classNames('tooltip', {
-    'tooltip--left': !!props.alignLeft,
-    'tooltip--up': !!props.positionUp
+  const tooltipClasses = classNames('idsk-tooltip', {
+    'idsk-tooltip--left': !!props.alignLeft,
+    'idsk-tooltip--up': !!props.positionUp
   });
   return (
     <span data-tooltip={tooltip} className={tooltipClasses}>

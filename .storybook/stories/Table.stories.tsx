@@ -29,7 +29,7 @@ Default.args = {
         <TableRowValue>Martin Mucha</TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Detail podpisu
           </a>
         </TableRowValue>
@@ -43,7 +43,7 @@ Default.args = {
         <TableRowValue>Martin Mucha</TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Detail podpisu
           </a>
         </TableRowValue>
@@ -70,13 +70,13 @@ Attachments.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>
@@ -91,13 +91,13 @@ Attachments.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>
@@ -127,7 +127,7 @@ WithoutSignatures.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
@@ -140,7 +140,7 @@ WithoutSignatures.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
@@ -171,13 +171,13 @@ HeadingAndAction.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>
@@ -192,13 +192,13 @@ HeadingAndAction.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>
@@ -221,13 +221,13 @@ OnlyRows.args = {
     <>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>
@@ -242,13 +242,13 @@ OnlyRows.args = {
       </TableRow>
       <TableRow>
         <TableRowValue>
-          <a className="link-m" href="#">
+          <a className="idsk-link-m" href="#">
             Príloha.pdf
           </a>
         </TableRowValue>
         <TableRowValue>19.1.2022 o 15:32</TableRowValue>
         <TableRowValue>
-          <a href="#" className="link-m font-bold">
+          <a href="#" className="idsk-link-m font-bold">
             Podpísať
           </a>
         </TableRowValue>

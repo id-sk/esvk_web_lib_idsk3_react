@@ -61,42 +61,42 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     if (!!actionButton && iconPosition === 'right') iconPosition = 'left';
 
     const inputClasses: string = classNames(
-      'input',
+      'idsk-input',
       {
-        'input--large': inputSize === 'large',
-        'input--medium': inputSize === 'medium',
-        'input--small': inputSize === 'small',
-        'input--icon-left': !!icon && iconPosition === 'left',
-        'input--icon-right': !!icon && iconPosition === 'right',
-        'input--error': error,
-        'input--w-full': fullWidth
+        'idsk-input--large': inputSize === 'large',
+        'idsk-input--medium': inputSize === 'medium',
+        'idsk-input--small': inputSize === 'small',
+        'idsk-input--icon-left': !!icon && iconPosition === 'left',
+        'idsk-input--icon-right': !!icon && iconPosition === 'right',
+        'idsk-input--error': error,
+        'idsk-input--w-full': fullWidth
       },
       className
     );
 
-    const inputWrapperClasses: string = classNames('input__wrapper', {
-      'input__wrapper--error': error,
-      'input__wrapper--disabled': disabled,
-      'w-full': fullWidth
+    const inputWrapperClasses: string = classNames('idsk-input__wrapper', {
+      'idsk-input__wrapper--error': error,
+      'idsk-input__wrapper--disabled': disabled,
+      'idsk-w-full': fullWidth
     });
 
-    const actionButtonClasses: string = classNames('input__action', {
-      'input__action--large': inputSize === 'large',
-      'input__action--medium': inputSize === 'medium',
-      'input__action--small': inputSize === 'small',
-      'input__action--error': error
+    const actionButtonClasses: string = classNames('idsk-input__action', {
+      'idsk-input__action--large': inputSize === 'large',
+      'idsk-input__action--medium': inputSize === 'medium',
+      'idsk-input__action--small': inputSize === 'small',
+      'idsk-input__action--error': error
     });
 
     const idForAria: string = errorMessageId || uuidv4();
 
     const iconElement = !!icon
       ? React.cloneElement(icon, {
-          className: classNames('input__icon', {
-            'input__icon--large': inputSize === 'large',
-            'input__icon--medium': inputSize === 'medium',
-            'input__icon--small': inputSize === 'small',
-            'input__icon--left': iconPosition === 'left',
-            'input__icon--right': iconPosition === 'right'
+          className: classNames('idsk-input__icon', {
+            'idsk-input__icon--large': inputSize === 'large',
+            'idsk-input__icon--medium': inputSize === 'medium',
+            'idsk-input__icon--small': inputSize === 'small',
+            'idsk-input__icon--left': iconPosition === 'left',
+            'idsk-input__icon--right': iconPosition === 'right'
           })
         })
       : undefined;
@@ -114,15 +114,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <div className={classNames({ 'w-full': fullWidth })}>
           {!!label && (
             <label
-              className={classNames('input__label', { 'sr-only': labelSrOnly })}
+              className={classNames('idsk-input__label', { 'sr-only': labelSrOnly })}
               htmlFor={props.id}
             >
               {label}
-              {optionalText && <span className="input__label--optional"> {optionalText}</span>}
-              {mandatory && <span className="input__label--mandatory"> *</span>}
+              {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+              {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
             </label>
           )}
-          {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
+          {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <input
               ref={ref}
@@ -142,13 +142,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {!!error && !disabledErrorIcon && (
               <WarningIcon
                 className={classNames(
-                  'input__icon',
+                  'idsk-input__icon',
                   {
-                    'input__icon--large': inputSize === 'large',
-                    'input__icon--medium': inputSize === 'medium',
-                    'input__icon--small': inputSize === 'small'
+                    'idsk-input__icon--large': inputSize === 'large',
+                    'idsk-input__icon--medium': inputSize === 'medium',
+                    'idsk-input__icon--small': inputSize === 'small'
                   },
-                  'input__icon--right'
+                  'idsk-input__icon--right'
                 )}
               />
             )}
@@ -166,8 +166,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
         {(!!errorMsg || !!caption) && (
           <p
-            className={classNames('input__caption', {
-              'input__caption--error': error && !disabled
+            className={classNames('idsk-input__caption', {
+              'idsk-input__caption--error': error && !disabled
             })}
           >
             {error && !!errorMsg && !disabled ? (

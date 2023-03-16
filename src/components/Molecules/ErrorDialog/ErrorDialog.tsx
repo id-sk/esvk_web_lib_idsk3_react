@@ -20,21 +20,21 @@ const ErrorDialog = ({
   subtitle,
   children,
   isLoading = false,
-  img = <ErrorImage className="error-dialog__img" />
+  img = <ErrorImage className="idsk-error-dialog__img" />
 }: ErrorDialogProps) => {
-  const childrenClasses = classNames('error-dialog__children', {
-    'error-dialog__children-loading': isLoading
+  const childrenClasses = classNames('idsk-error-dialog__children', {
+    'idsk-error-dialog__children-loading': isLoading
   });
   return (
     <Dialog opened={opened} id={id} className={className}>
-      <div className="error-dialog">
-        <div className="error-dialog__img-wrapper">{img}</div>
+      <div className="idsk-error-dialog">
+        <div className="idsk-error-dialog__img-wrapper">{img}</div>
         {!!isLoading ? (
-          <Loader className="error-dialog__loader" />
+          <Loader className="idsk-error-dialog__loader" />
         ) : (
-          <div className="error-dialog__text-wrapper ">
-            {title && <h2 className="error-dialog__title">{title}</h2>}
-            {subtitle && <p className="error-dialog__subtitle">{subtitle}</p>}
+          <div className="idsk-error-dialog__text-wrapper ">
+            {title && <h2 className="idsk-error-dialog__title">{title}</h2>}
+            {subtitle && <p className="idsk-error-dialog__subtitle">{subtitle}</p>}
           </div>
         )}
         <div className={childrenClasses}>{children}</div>

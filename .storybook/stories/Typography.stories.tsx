@@ -49,7 +49,7 @@ export const Headline4 = Headline4Template.bind({});
 
 const SubtitleTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="subtitle">{sampleText}</p>
+    <p className="idsk-subtitle">{sampleText}</p>
   </PageLayout>
 );
 
@@ -57,7 +57,7 @@ export const Subtitle = SubtitleTemplate.bind({});
 
 const SubtitleBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="subtitle font-bold">{sampleText}</p>
+    <p className="idsk-subtitle font-bold">{sampleText}</p>
   </PageLayout>
 );
 
@@ -65,7 +65,7 @@ export const SubtitleBold = SubtitleBoldTemplate.bind({});
 
 const BodyTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="text-body">{sampleText}</p>
+    <p className="idsk-text-body">{sampleText}</p>
   </PageLayout>
 );
 
@@ -73,7 +73,7 @@ export const Body = BodyTemplate.bind({});
 
 const BodyBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="text-body font-bold">{sampleText}</p>
+    <p className="idsk-text-body font-bold">{sampleText}</p>
   </PageLayout>
 );
 
@@ -81,7 +81,7 @@ export const BodyBold = BodyBoldTemplate.bind({});
 
 const Body1Template: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="text-body-1">{sampleText}</p>
+    <p className="idsk-text-body-1">{sampleText}</p>
   </PageLayout>
 );
 
@@ -89,7 +89,7 @@ export const Body1 = Body1Template.bind({});
 
 const Body1BoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <p className="text-body-1 font-bold">{sampleText}</p>
+    <p className="idsk-text-body-1 font-bold">{sampleText}</p>
   </PageLayout>
 );
 
@@ -97,7 +97,7 @@ export const Body1Bold = Body1BoldTemplate.bind({});
 
 const CaptionTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <span className="caption">{sampleText}</span>
+    <span className="idsk-caption">{sampleText}</span>
   </PageLayout>
 );
 
@@ -105,7 +105,7 @@ export const Caption = CaptionTemplate.bind({});
 
 const CaptionBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <span className="caption font-bold">{sampleText}</span>
+    <span className="idsk-caption font-bold">{sampleText}</span>
   </PageLayout>
 );
 
@@ -113,7 +113,7 @@ export const CaptionBold = CaptionBoldTemplate.bind({});
 
 const ButtonTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <button className="text-button">{sampleText}</button>
+    <button className="idsk-text-button">{sampleText}</button>
   </PageLayout>
 );
 
@@ -121,7 +121,7 @@ export const Button = ButtonTemplate.bind({});
 
 const LinkLTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-l">{sampleText}</a>
+    <a className="idsk-link-l">{sampleText}</a>
   </PageLayout>
 );
 
@@ -129,7 +129,7 @@ export const LinkL = LinkLTemplate.bind({});
 
 const LinkLBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-l font-bold">{sampleText}</a>
+    <a className="idsk-link-l font-bold">{sampleText}</a>
   </PageLayout>
 );
 
@@ -137,7 +137,7 @@ export const LinkLBold = LinkLBoldTemplate.bind({});
 
 const LinkMTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-m">{sampleText}</a>
+    <a className="idsk-link-m">{sampleText}</a>
   </PageLayout>
 );
 
@@ -145,7 +145,7 @@ export const LinkM = LinkMTemplate.bind({});
 
 const LinkMBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-m font-bold">{sampleText}</a>
+    <a className="idsk-link-m font-bold">{sampleText}</a>
   </PageLayout>
 );
 
@@ -153,7 +153,7 @@ export const LinkMBold = LinkMBoldTemplate.bind({});
 
 const LinkSTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-s">{sampleText}</a>
+    <a className="idsk-link-s">{sampleText}</a>
   </PageLayout>
 );
 
@@ -161,7 +161,7 @@ export const LinkS = LinkSTemplate.bind({});
 
 const LinkSBoldTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-s font-bold">{sampleText}</a>
+    <a className="idsk-link-s font-bold">{sampleText}</a>
   </PageLayout>
 );
 
@@ -169,7 +169,7 @@ export const LinkSBold = LinkSBoldTemplate.bind({});
 
 const LinkCaptionTemplate: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args}>
-    <a className="link-caption">{sampleText}</a>
+    <a className="idsk-link-caption">{sampleText}</a>
   </PageLayout>
 );
 

@@ -12,8 +12,8 @@ const AnchorCard = ({ children, className, layout = 'horizontal', grid }: Anchor
   return (
     <div
       className={classNames(
-        'anchor-card',
-        { 'anchor-card--vertical': layout === 'vertical', 'anchor-card--grid': grid },
+        'idsk-anchor-card',
+        { 'idsk-anchor-card--vertical': layout === 'vertical', 'idsk-anchor-card--grid': grid },
         className
       )}
       data-testid="anchor-card"

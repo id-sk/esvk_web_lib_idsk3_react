@@ -14,8 +14,8 @@ const InPageNavigationList = ({
   ...props
 }: InPageNavigationListProps) => {
   return (
-    <nav className={classNames('in-page-navigation__list', className)} {...props}>
-      {!!subtitle && <span className="in-page-navigation__subtitle">{subtitle}</span>}
+    <nav className={classNames('idsk-in-page-navigation__list', className)} {...props}>
+      {!!subtitle && <span className="idsk-in-page-navigation__subtitle">{subtitle}</span>}
       {children}
     </nav>
   );

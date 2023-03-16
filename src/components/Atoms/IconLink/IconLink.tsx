@@ -8,9 +8,9 @@ export interface IconLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
 const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
   ({ children, active, className, href, ...props }, ref) => {
     const linkClasses = classNames(
-      'icon-link',
+      'idsk-icon-link',
       {
-        'icon-link--active': active
+        'idsk-icon-link--active': active
       },
       className
     );

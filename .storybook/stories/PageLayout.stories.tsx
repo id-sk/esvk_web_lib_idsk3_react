@@ -43,7 +43,7 @@ const informationBanner = (
   <InformationBanner icon={<InfoIcon />} title="Oznam" variant="warning" type="announcement">
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      <a href="#" className="link-s block">
+      <a href="#" className="idsk-link-s block">
         Viac informácií
       </a>
     </p>
@@ -147,21 +147,21 @@ const Header = () => {
           >
             <div className="grid grid-cols-1 gap-4 tb2:grid-cols-2 tb2:gap-8">
               <div>
-                <h3 className="text-body-1">Doména gov.sk je oficiálna</h3>
+                <h3 className="idsk-text-body-1">Doména gov.sk je oficiálna</h3>
                 <p className="py-2.5">
                   Toto je oficiálna webová stránka orgánu verejnej moci Slovenskej republiky.
                   Oficiálne stránky využívajú najmä doménu gov.sk.{' '}
                   <a
                     href="https://www.slovensko.sk/sk/agendy/agenda/_organy-verejnej-moci"
                     target="_blank"
-                    className="link-s text-white"
+                    className="idsk-link-s text-white"
                   >
                     Odkazy na jednotlivé webové sídla orgánov verejnej moci nájdete na tomto odkaze.
                   </a>
                 </p>
               </div>
               <div>
-                <h3 className="text-body-1">Táto stránka je zabezpečená</h3>
+                <h3 className="idsk-text-body-1">Táto stránka je zabezpečená</h3>
                 <p className="py-2.5">
                   Buďte pozorní a vždy sa uistite, že zdieľate informácie iba cez zabezpečenú webovú
                   stránku verejnej správy SR. Zabezpečená stránka vždy začína https:// pred názvom

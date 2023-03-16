@@ -65,29 +65,29 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
     const [searchbarOpened, setSearchbarOpened] = useState<boolean>(false);
 
     const inputClasses: string = classNames(
-      'searchbar',
+      'idsk-searchbar',
       {
-        'searchbar--large': searchbarSize === 'large',
-        'searchbar--medium': searchbarSize === 'medium',
-        'searchbar--small': searchbarSize === 'small',
-        'searchbar--w-full': fullWidth,
-        'searchbar--error': error
+        'idsk-searchbar--large': searchbarSize === 'large',
+        'idsk-searchbar--medium': searchbarSize === 'medium',
+        'idsk-searchbar--small': searchbarSize === 'small',
+        'idsk-searchbar--w-full': fullWidth,
+        'idsk-searchbar--error': error
       },
       className
     );
-    const buttonClasses: string = classNames('searchbar__button', {
-      'searchbar__button--large': searchbarSize === 'large',
-      'searchbar__button--medium': searchbarSize === 'medium',
-      'searchbar__button--small': searchbarSize === 'small'
+    const buttonClasses: string = classNames('idsk-searchbar__button', {
+      'idsk-searchbar__button--large': searchbarSize === 'large',
+      'idsk-searchbar__button--medium': searchbarSize === 'medium',
+      'idsk-searchbar__button--small': searchbarSize === 'small'
     });
     const iconClasses: string = classNames({
-      'searchbar__icon--large': searchbarSize === 'large',
-      'searchbar__icon--medium': searchbarSize === 'medium',
-      'searchbar__icon--small': searchbarSize === 'small'
+      'idsk-searchbar__icon--large': searchbarSize === 'large',
+      'idsk-searchbar__icon--medium': searchbarSize === 'medium',
+      'idsk-searchbar__icon--small': searchbarSize === 'small'
     });
 
     const searchbarCancelIconClasses: string = classNames({
-      'searchbar__cancel-icon--large': searchbarSize === 'large'
+      'idsk-searchbar__cancel-icon--large': searchbarSize === 'large'
     });
 
     const contentClasses = classNames(
@@ -123,7 +123,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
           <label className="sr-only" htmlFor={id ? id + '-input' : undefined}>
             {label}
           </label>
-          <div className="relative w-full dm1:w-auto">
+          <div className="idsk-searchbar__input-wrapper">
             <input
               className={inputClasses}
               placeholder={placeholder}
@@ -133,7 +133,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
             />
 
             {!!showCancelButton && (
-              <button className="searchbar__cancel" onClick={handleCancel}>
+              <button className="idsk-searchbar__cancel" onClick={handleCancel}>
                 <CancelIcon className={searchbarCancelIconClasses} />
               </button>
             )}
@@ -150,7 +150,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
             {buttonLabel}
           </button>
         </div>
-        {error && !!errorMsg && <p className="input__caption--error">{errorMsg}</p>}
+        {error && !!errorMsg && <p className="idsk-input__caption--error">{errorMsg}</p>}
       </div>
     );
   }

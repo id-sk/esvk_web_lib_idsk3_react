@@ -174,20 +174,21 @@ const DateInput = ({
     ) ||
     error;
 
-  const datePickerClasses: string = classNames('date-input__date-picker', {
-    'date-input__date-picker': day == '' || month == '' || year == '',
-    'date-input__date-picker--open': ((day != '' && month != '' && year != '') || open) && !disabled
+  const datePickerClasses: string = classNames('idsk-date-input__date-picker', {
+    'idsk-date-input__date-picker': day == '' || month == '' || year == '',
+    'idsk-date-input__date-picker--open':
+      ((day != '' && month != '' && year != '') || open) && !disabled
   });
 
-  const dateInputWrapperClasses: string = classNames('date-input__wrapper', {
-    'input__wrapper--error': validation,
-    'input__wrapper--disabled': disabled
+  const dateInputWrapperClasses: string = classNames('idsk-date-input__wrapper', {
+    'idsk-input__wrapper--error': validation,
+    'idsk-input__wrapper--disabled': disabled
   });
 
   const allInputClasses: string = classNames(
     { input: !isNaN(Date.parse(dateString)) && dateString == '--' },
     {
-      'input--error': validation
+      'idsk-input--error': validation
     },
     inputClasses
   );
@@ -203,16 +204,16 @@ const DateInput = ({
   }, [refreshDate]);
 
   return (
-    <div className="date-input" id={id} {...props}>
-      <p className="input__label">{label}</p>
-      {!!subtitle && <p className="input__subtitle">{subtitle}</p>}
+    <div className="idsk-date-input" id={id} {...props}>
+      <p className="idsk-input__label">{label}</p>
+      {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
       <div className={dateInputWrapperClasses}>
         {!hideDay && (
           <Input
             ref={dayRef}
             id={id ? id + '-day' : undefined}
             label={dayLabel}
-            className={classNames(allInputClasses, 'date-input__day-n-month')}
+            className={classNames(allInputClasses, 'idsk-date-input__day-n-month')}
             disabled={disabled}
             onChange={dayInputMask.onChange}
             value={dayInputMask.value}
@@ -229,7 +230,7 @@ const DateInput = ({
             ref={monthRef}
             id={id ? id + '-month' : undefined}
             label={monthLabel}
-            className={classNames(allInputClasses, 'date-input__day-n-month')}
+            className={classNames(allInputClasses, 'idsk-date-input__day-n-month')}
             disabled={disabled}
             onChange={monthInputMask.onChange}
             value={monthInputMask.value}
@@ -246,7 +247,7 @@ const DateInput = ({
             ref={yearRef}
             id={id ? id + '-year' : undefined}
             label={yearLabel}
-            className={classNames(allInputClasses, 'date-input__year')}
+            className={classNames(allInputClasses, 'idsk-date-input__year')}
             disabled={disabled}
             onChange={yearInputMask.onChange}
             value={yearInputMask.value}
@@ -260,12 +261,12 @@ const DateInput = ({
         )}
         <span>
           <button className={datePickerClasses}>
-            <DateRange className="date-input__date-range" />
+            <DateRange className="idsk-date-input__date-range" />
           </button>
-          <div className="date-input__position">
+          <div className="idsk-date-input__position">
             <DatePicker
               selected={startDate}
-              className="date-input__date-picker-input"
+              className="idsk-date-input__date-picker-input"
               onCalendarOpen={() => setOpen(true)}
               onCalendarClose={() => setOpen(false)}
               onChange={handleDatepickerChange}
@@ -276,8 +277,8 @@ const DateInput = ({
       </div>
       {(!!errorMsg || !!caption) && (
         <p
-          className={classNames('input__caption', {
-            'input__caption--error': (validation && !disabled) || error
+          className={classNames('idsk-input__caption', {
+            'idsk-input__caption--error': (validation && !disabled) || error
           })}
         >
           {(validation && !!errorMsg && !disabled) || error ? (

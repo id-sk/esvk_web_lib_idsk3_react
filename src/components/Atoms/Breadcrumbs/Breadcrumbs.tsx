@@ -15,18 +15,18 @@ const Breadcrumbs = ({
   className,
   ...props
 }: BreadcrumbsProps) => {
-  const breadcrumbsClasses = classNames('breadcrumbs', className);
+  const breadcrumbsClasses = classNames('idsk-breadcrumbs', className);
   const renderedChildren = Children.map(children, (child, i) => {
     if (React.isValidElement(child)) {
       const isOneBeforeLast = i === Children.count(children) - 2;
       return (
         <div
-          className={classNames('breadcrumbs__crumb', {
-            'breadcrumbs__crumb--show-on-mobile': isOneBeforeLast
+          className={classNames('idsk-breadcrumbs__crumb', {
+            'idsk-breadcrumbs__crumb--show-on-mobile': isOneBeforeLast
           })}
         >
-          <ArrowForwardIosIcon className="breadcrumbs__forward-icon" />
-          {isOneBeforeLast && <ArrowBackIosIcon className="breadcrumbs__back-icon" />}
+          <ArrowForwardIosIcon className="idsk-breadcrumbs__forward-icon" />
+          {isOneBeforeLast && <ArrowBackIosIcon className="idsk-breadcrumbs__back-icon" />}
           {child}
         </div>
       );
@@ -35,8 +35,8 @@ const Breadcrumbs = ({
   return (
     <div className={breadcrumbsClasses} {...props}>
       <div
-        className={classNames('breadcrumbs__crumb', {
-          'breadcrumbs__crumb--show-on-mobile': Children.count(children) < 2
+        className={classNames('idsk-breadcrumbs__crumb', {
+          'idsk-breadcrumbs__crumb--show-on-mobile': Children.count(children) < 2
         })}
       >
         <HomeIcon />

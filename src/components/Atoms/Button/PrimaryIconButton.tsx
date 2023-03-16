@@ -20,11 +20,11 @@ const PrimaryIconButton = ({
       icon={icon}
       className={classNames(
         {
-          'primary-icon-button--basic': variant == 'basic',
-          'primary-icon-button--success': variant == 'success',
-          'primary-icon-button--warning': variant == 'warning',
-          'icon-button--medium': size == 'medium',
-          'icon-button--large': size == 'large'
+          'idsk-primary-icon-button--basic': variant == 'basic',
+          'idsk-primary-icon-button--success': variant == 'success',
+          'idsk-primary-icon-button--warning': variant == 'warning',
+          'idsk-icon-button--medium': size == 'medium',
+          'idsk-icon-button--large': size == 'large'
         },
         className
       )}

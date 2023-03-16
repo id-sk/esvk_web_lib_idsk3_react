@@ -9,14 +9,14 @@ export interface TextSignpostProps extends React.AnchorHTMLAttributes<HTMLAnchor
 const TextSignpost = React.forwardRef<HTMLAnchorElement, TextSignpostProps>(
   ({ heading, subtitle, children, className, ...props }, ref) => {
     return (
-      <div className={classNames('text-signpost', className)}>
+      <div className={classNames('idsk-text-signpost', className)}>
         <h3>
-          <a className="anchor-card__heading" {...props} ref={ref}>
+          <a className="idsk-anchor-card__heading" {...props} ref={ref}>
             {heading}
           </a>
         </h3>
-        {!!subtitle && <p className="text-signpost__subtitle">{subtitle}</p>}
-        <div className="anchor-card__description">{children}</div>
+        {!!subtitle && <p className="idsk-text-signpost__subtitle">{subtitle}</p>}
+        <div className="idsk-anchor-card__description">{children}</div>
       </div>
     );
   }

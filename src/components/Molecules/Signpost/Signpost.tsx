@@ -37,29 +37,33 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
       return (
         <AnchorCard
           className={classNames(
-            { 'signpost--in-group': inGroup, 'anchor-card--focusable': href },
+            { 'idsk-signpost--in-group': inGroup, 'idsk-anchor-card--focusable': href },
             className
           )}
           layout={layout}
         >
           {!!icon && (
             <div
-              className={classNames('signpost__icon', {
-                'signpost__icon--vertical': layout === 'vertical'
+              className={classNames('idsk-signpost__icon', {
+                'idsk-signpost__icon--vertical': layout === 'vertical'
               })}
             >
               {icon}
             </div>
           )}
-          <div className="signpost__container">
+          <div className="idsk-signpost__container">
             <div>
-              <h3 className={classNames('anchor-card__heading', { 'sign-post__link': href })}>
+              <h3
+                className={classNames('idsk-anchor-card__heading', {
+                  'idsk-sign-post__link': href
+                })}
+              >
                 {heading}
               </h3>
               {!!children && (
                 <div
-                  className={classNames('anchor-card__description', {
-                    'anchor-card__description--with-action': renderAction
+                  className={classNames('idsk-anchor-card__description', {
+                    'idsk-anchor-card__description--with-action': renderAction
                   })}
                 >
                   {children}
@@ -68,7 +72,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
               {renderAction && <PrimaryButton {...actionButton} />}
             </div>
             {layout === 'vertical' && withArrowIcon && (
-              <div className="signpost__arrow-icon">{arrowIcon}</div>
+              <div className="idsk-signpost__arrow-icon">{arrowIcon}</div>
             )}
           </div>
         </AnchorCard>
@@ -76,7 +80,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
     };
 
     return href ? (
-      <a href={href} ref={ref} {...props} className="signpost">
+      <a href={href} ref={ref} {...props} className="idsk-signpost">
         <CardComponent />
       </a>
     ) : (
@@ -90,11 +94,11 @@ export function SignpostsGroup({ children, ...props }: React.HTMLAttributes<HTML
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
         inGroup: true
-      });
+      } as SignpostProps);
     }
   });
   return (
-    <div className="signpost-group" {...props}>
+    <div className="idsk-signpost-group" {...props}>
       {renderedChildren}
     </div>
   );

@@ -19,19 +19,19 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
         <DropDown
           id={id}
           dropDownTitle={label}
-          arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
-          className="navigation__dropdown"
-          optionClassName="navigation__dropdown-options"
-          buttonClassName="dm1:px-3"
+          arrowIcon={<ExpandMoreIcon className="idsk-navigation__arrow-icon" />}
+          className="idsk-navigation__dropdown"
+          optionClassName="idsk-navigation__dropdown-options"
+          buttonClassName="idsk-navigation__dropdown-button"
         >
           {children}
         </DropDown>
       );
     }
 
-    const linkClasses = classNames('navigation__link', {
-      'navigation__link--clicked': selected,
-      'navigation__link--alerted': alert
+    const linkClasses = classNames('idsk-navigation__link', {
+      'idsk-navigation__link--clicked': selected,
+      'idsk-navigation__link--alerted': alert
     });
 
     return (
@@ -43,7 +43,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
             {label}
           </a>
         )}
-        {!!alert && <span className="navigation__link-alert">{alert}</span>}
+        {!!alert && <span className="idsk-navigation__link-alert">{alert}</span>}
       </span>
     );
   }

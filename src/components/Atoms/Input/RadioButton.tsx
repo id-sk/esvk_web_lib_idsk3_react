@@ -23,38 +23,38 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
     }: RadioButtonProps,
     ref
   ) => {
-    const textSizeClasses = classNames('radio-button__text', {
-      'radio-button__text--large': inputSize === 'large',
-      'radio-button__text--small': inputSize === 'small'
+    const textSizeClasses = classNames('idsk-radio-button__text', {
+      'idsk-radio-button__text--large': inputSize === 'large',
+      'idsk-radio-button__text--small': inputSize === 'small'
     });
-    const iconSizeClasses = classNames('radio-button__icon', {
-      'radio-button__icon--large': inputSize === 'large',
-      'radio-button__icon--small': inputSize === 'small',
-      'radio-button__icon--large-disabled': inputSize === 'large' && disabled,
-      'radio-button__icon--small-disabled': inputSize === 'small' && disabled,
-      'radio-button__icon--error': error
+    const iconSizeClasses = classNames('idsk-radio-button__icon', {
+      'idsk-radio-button__icon--large': inputSize === 'large',
+      'idsk-radio-button__icon--small': inputSize === 'small',
+      'idsk-radio-button__icon--large-disabled': inputSize === 'large' && disabled,
+      'idsk-radio-button__icon--small-disabled': inputSize === 'small' && disabled,
+      'idsk-radio-button__icon--error': error
     });
-    const uncheckedIconSizeClasses = classNames('radio-button__unchecked-icon', {
-      'radio-button__icon--large': inputSize === 'large',
-      'radio-button__icon--small': inputSize === 'small',
-      'radio-button__unchecked-icon--large-disabled': inputSize === 'large' && disabled,
-      'radio-button__unchecked-icon--small-disabled': inputSize === 'small' && disabled,
-      'radio-button__icon--error': error
+    const uncheckedIconSizeClasses = classNames('idsk-radio-button__unchecked-icon', {
+      'idsk-radio-button__icon--large': inputSize === 'large',
+      'idsk-radio-button__icon--small': inputSize === 'small',
+      'idsk-radio-button__unchecked-icon--large-disabled': inputSize === 'large' && disabled,
+      'idsk-radio-button__unchecked-icon--small-disabled': inputSize === 'small' && disabled,
+      'idsk-radio-button__icon--error': error
     });
-    const inputClasses = classNames('radio-button__input', {
-      'radio-button__input--large': inputSize === 'large',
-      'radio-button__input--small': inputSize === 'small',
-      'radio-button__input--large hover:bg-transparent': inputSize === 'large' && disabled,
-      'radio-button__input--small hover:bg-transparent': inputSize === 'small' && disabled
+    const inputClasses = classNames('idsk-radio-button__input', {
+      'idsk-radio-button__input--large': inputSize === 'large',
+      'idsk-radio-button__input--small': inputSize === 'small',
+      'idsk-radio-button__input--large hover:bg-transparent': inputSize === 'large' && disabled,
+      'idsk-radio-button__input--small hover:bg-transparent': inputSize === 'small' && disabled
     });
-    const labelClasses: string = classNames('radio-button', {
-      'radio-button__label': !disabled,
-      'radio-button__label--disabled': disabled,
-      'radio-button--large': inputSize === 'large',
-      'radio-button--small': inputSize === 'small'
+    const labelClasses: string = classNames('idsk-radio-button', {
+      'idsk-radio-button__label': !disabled,
+      'idsk-radio-button__label--disabled': disabled,
+      'idsk-radio-button--large': inputSize === 'large',
+      'idsk-radio-button--small': inputSize === 'small'
     });
     return (
-      <div className="radio-button-container">
+      <div className="idsk-radio-button-container">
         <label className={labelClasses}>
           <input
             type="radio"
@@ -106,13 +106,15 @@ export function RadioButtonGroup({
   return (
     <div {...props}>
       {!!label && (
-        <p className="input__label">
-          {label} {mandatory && <span className="input__label--mandatory"> *</span>}
+        <p className="idsk-input__label">
+          {label} {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
         </p>
       )}
-      <div className={classNames({ 'radio-button-group-body': !!label })}>{renderedChildren}</div>
+      <div className={classNames({ 'idsk-radio-button-group-body': !!label })}>
+        {renderedChildren}
+      </div>
       {error && !!errorMsg && !disabled && (
-        <p className="input__caption input__caption--error">
+        <p className="idsk-input__caption input__caption--error">
           <span role="alert">{errorMsg}</span>
         </p>
       )}

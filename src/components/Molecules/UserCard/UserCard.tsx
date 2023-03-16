@@ -10,13 +10,13 @@ export interface UserCardProps extends Omit<CardWrapperProps, 'innerClassNames'>
 
 const UserCard = ({ title = '', name, button, children, ...props }: UserCardProps) => {
   return (
-    <CardWrapper innerClassNames="user-card" {...props}>
-      <div className="user-card__body">
-        <span className="user-card__title">{title}</span>
-        <span className="user-card__name">{name}</span>
+    <CardWrapper innerClassNames="idsk-user-card" {...props}>
+      <div className="idsk-user-card__body">
+        <span className="idsk-user-card__title">{title}</span>
+        <span className="idsk-user-card__name">{name}</span>
         {children}
       </div>
-      {!!button && <div className="user-card__button">{button}</div>}
+      {!!button && <div className="idsk-user-card__button">{button}</div>}
     </CardWrapper>
   );
 };

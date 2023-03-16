@@ -23,22 +23,22 @@ const DeviceCard = ({
 }: DeviceCardProps) => {
   const iconElement = icon
     ? React.cloneElement(icon, {
-        className: classNames('device-card__icon')
+        className: classNames('idsk-device-card__icon')
       })
     : undefined;
 
   return (
-    <CardWrapper innerClassNames="device-card" {...props}>
-      <div className="device-card__header">
+    <CardWrapper innerClassNames="idsk-device-card" {...props}>
+      <div className="idsk-device-card__header">
         {!!iconElement && iconElement}
-        <span className="device-card__title">{title}</span>
-        {!!button && <div className="user-card__button">{button}</div>}
+        <span className="idsk-device-card__title">{title}</span>
+        {!!button && <div className="idsk-user-card__button">{button}</div>}
       </div>
-      <div className="device-card__body">
+      <div className="idsk-device-card__body">
         {!!deviceData?.length &&
           deviceData.map((data, index) => (
-            <div className="device-card__body__data" key={index}>
-              <span className="device-card__body__data-inner">{data?.label}</span>
+            <div className="idsk-device-card__body__data" key={index}>
+              <span className="idsk-device-card__body__data-inner">{data?.label}</span>
               <strong>{data?.description}</strong>
             </div>
           ))}

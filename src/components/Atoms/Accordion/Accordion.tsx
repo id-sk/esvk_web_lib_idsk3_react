@@ -41,42 +41,46 @@ const Accordion = ({
     setClosed((p) => !p);
   };
 
-  const contentClasses = classNames('accordion__content', { 'accordion__content--open': !closed });
+  const contentClasses = classNames('idsk-accordion__content', {
+    'idsk-accordion__content--open': !closed
+  });
   return (
     <div
       role={!!inGroup ? 'listitem' : ''}
       className={classNames(
-        'accordion',
+        'idsk-accordion',
         {
-          'accordion--in-list-group': inGroup,
-          'accordion--gray': bgGray,
-          'accordion--small': size == 'small'
+          'idsk-accordion--in-list-group': inGroup,
+          'idsk-accordion--gray': bgGray,
+          'idsk-accordion--small': size == 'small'
         },
         className
       )}
     >
       {!!inGroup && (
-        <div className={classNames('accordion--list', { 'accordion--list-bullet': !index })}>
-          <span className="accordion__list-number">{!!index && index}</span>
+        <div
+          className={classNames('idsk-accordion--list', { 'idsk-accordion--list-bullet': !index })}
+        >
+          <span className="idsk-accordion__list-number">{!!index && index}</span>
         </div>
       )}
-      <div className="accordion__button" onClick={handleOnClick} {...props}>
-        <span className="accordion__title">
+      <div className="idsk-accordion__button" onClick={handleOnClick} {...props}>
+        <span className="idsk-accordion__title">
           <button aria-expanded={!closed} aria-controls={idForAria} aria-label={headingAriaLabel}>
             {heading}
           </button>
           {!closed ? (
-            <RemoveIcon className="accordion__icon" />
+            <RemoveIcon className="idsk-accordion__icon" />
           ) : (
-            <AddIcon className="accordion__icon" />
+            <AddIcon className="idsk-accordion__icon" />
           )}
         </span>
-        {!!subTitle && <span className="accordion__subtitle">{subTitle}</span>}
+        {!!subTitle && <span className="idsk-accordion__subtitle">{subTitle}</span>}
       </div>
       <div id={idForAria} className={contentClasses}>
         <div
-          className={classNames('accordion__content-body', {
-            'accordion__content-body--full-width': fullWidthBody
+          className={classNames('idsk-accordion__content-body', {
+            'idsk-accordion__content-body--full-width': fullWidthBody
           })}
         >
           {children}
@@ -91,11 +95,11 @@ export function AccordionListGroup({ children, ...props }: React.HTMLAttributes<
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
         inGroup: true
-      });
+      } as AccordionProps);
     }
   });
   return (
-    <div className="accordion--list-group" role="list" {...props}>
+    <div className="idsk-accordion--list-group" role="list" {...props}>
       {renderedChildren}
     </div>
   );

@@ -33,14 +33,14 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
     },
     ref
   ) => {
-    const containerClasses: string = classNames('search-container', containerClassName);
+    const containerClasses: string = classNames('idsk-search-container', containerClassName);
 
     const inputClasses: string = classNames(
-      'input',
-      'input--medium',
-      'input--w-full',
+      'idsk-input',
+      'idsk-input--medium',
+      'idsk-input--w-full',
       {
-        'input--error': error
+        'idsk-input--error': error
       },
       className
     );
@@ -50,11 +50,11 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
     return (
       <div className={containerClasses}>
         {!!title && (
-          <div className="search-container__header">
-            <h2 className="search-container__title">{title}</h2>
+          <div className="idsk-search-container__header">
+            <h2 className="idsk-search-container__title">{title}</h2>
           </div>
         )}
-        <div className="search-container__input">
+        <div className="idsk-search-container__input">
           <label className="sr-only" htmlFor={idForAria + '-input'}>
             {label}
           </label>
@@ -68,8 +68,8 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
           />
           {(!!errorMsg || !!caption) && (
             <p
-              className={classNames('input__caption', {
-                'input__caption--error': error
+              className={classNames('idsk-input__caption', {
+                'idsk-input__caption--error': error
               })}
             >
               {error && !!errorMsg ? (
@@ -82,7 +82,7 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
             </p>
           )}
         </div>
-        <div className="search-container__buttons">
+        <div className="idsk-search-container__buttons">
           <PrimaryButton {...searchButton} iconPosition="left" icon={<SearchIcon />} />
           <TextButton {...advancedSearchButton} />
         </div>

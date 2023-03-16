@@ -12,7 +12,7 @@ describe('ModalSideBar', () => {
   });
   test('opening', () => {
     render(<ModalSideBar heading="Test Heading" opened={false} toggleOpened={() => {}} />);
-    expect(screen.getByTestId('sidebar-shadow')).toHaveClass('modal-sidebar__shadow--hidden');
+    expect(screen.getByTestId('sidebar-shadow')).toHaveClass('idsk-modal-sidebar__shadow--hidden');
   });
   test('calls the onClick function when footerButton clicked', () => {
     const mockButtonClick = jest.fn();

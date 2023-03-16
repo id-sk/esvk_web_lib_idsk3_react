@@ -18,12 +18,12 @@ const MenuButton = ({
   ...props
 }: MenuButtonProps) => {
   return (
-    <button className={`menu-button ${className}`} onClick={toggleOpened} {...props}>
+    <button className={`idsk-menu-button ${className}`} onClick={toggleOpened} {...props}>
       <span>{opened ? openedTitle : closedTitle}</span>{' '}
       {opened ? (
-        <CloseIcon className="menu-button__icon" />
+        <CloseIcon className="idsk-menu-button__icon" />
       ) : (
-        <MenuIcon className="menu-button__icon" />
+        <MenuIcon className="idsk-menu-button__icon" />
       )}
     </button>
   );

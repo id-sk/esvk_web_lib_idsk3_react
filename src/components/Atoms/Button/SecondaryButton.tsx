@@ -15,17 +15,17 @@ const defaultButtonProps: SecondaryButtonProps = {
 const SecondaryButton = (props: SecondaryButtonProps) => {
   props = { ...defaultButtonProps, ...props };
   const className = classNames(
-    'secondary-button',
+    'idsk-secondary-button',
     {
-      'secondary-button--basic': props.variant == 'basic',
-      'secondary-button--success': props.variant == 'success',
-      'secondary-button--warning': props.variant == 'warning',
-      'secondary-button--contrast': props.variant == 'contrast',
-      'secondary-button--transparent': props.variant == 'transparent',
-      'secondary-button--medium': props.size == 'medium',
-      'secondary-button--large': props.size == 'large',
-      'secondary-button--icon-left': props.icon && props.iconPosition == 'left',
-      'secondary-button--icon-right': props.icon && props.iconPosition == 'right'
+      'idsk-secondary-button--basic': props.variant == 'basic',
+      'idsk-secondary-button--success': props.variant == 'success',
+      'idsk-secondary-button--warning': props.variant == 'warning',
+      'idsk-secondary-button--contrast': props.variant == 'contrast',
+      'idsk-secondary-button--transparent': props.variant == 'transparent',
+      'idsk-secondary-button--medium': props.size == 'medium',
+      'idsk-secondary-button--large': props.size == 'large',
+      'idsk-secondary-button--icon-left': props.icon && props.iconPosition == 'left',
+      'idsk-secondary-button--icon-right': props.icon && props.iconPosition == 'right'
     },
     props.className
   );

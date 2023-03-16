@@ -11,11 +11,11 @@ describe('HeaderContainer', () => {
         <nav>test child</nav>
       </HeaderContainer>
     );
-    expect(container.getElementsByClassName('header-container').length).toBe(1);
+    expect(container.getElementsByClassName('idsk-header-container').length).toBe(1);
     expect(screen.getByText('test child')).toBeInTheDocument();
   });
   test('does not render header-container when children empty', () => {
     const { container } = render(<HeaderContainer />);
-    expect(container.getElementsByClassName('header-container').length).toBe(0);
+    expect(container.getElementsByClassName('idsk-header-container').length).toBe(0);
   });
 });

@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { PlayArrowIcon } from '../../../svgIcons';
+import { PlayArrowIcon } from '../../../svgIcons/Audio&Video';
 
 export interface InPageNavigationLinkProps {
   label?: ReactNode;

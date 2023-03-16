@@ -35,9 +35,9 @@ export const DataGridRowValue = ({
   return (
     <div
       className={classNames(
-        'data-grid__value',
+        'idsk-data-grid__value',
         {
-          'data-grid__value--right-align': align == 'right'
+          'idsk-data-grid__value--right-align': align == 'right'
         },
         className
       )}
@@ -77,16 +77,16 @@ export function DataGridRow({
   ...props
 }: DataGridRowProps) {
   const dataGridClasses = classNames(
-    'data-grid-row',
-    { 'data-grid-row--without-head': !props.headRow },
-    { 'data-grid-row--active': active },
-    { 'data-grid-row--active-no-checkbox': active && !checkbox },
-    { 'data-grid-row--checked': checked },
+    'idsk-data-grid-row',
+    { 'idsk-data-grid-row--without-head': !props.headRow },
+    { 'idsk-data-grid-row--active': active },
+    { 'idsk-data-grid-row--active-no-checkbox': active && !checkbox },
+    { 'idsk-data-grid-row--checked': checked },
     className
   );
   const noCheckboxClasses = classNames(
-    'data-grid-row__dot-wrapper',
-    { 'data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
+    'idsk-data-grid-row__dot-wrapper',
+    { 'idsk-data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
     className
   );
   return (
@@ -102,8 +102,8 @@ export function DataGridRow({
       {!!active && !!activeDotVisibility && (
         <div className={noCheckboxClasses}>
           <div
-            className={classNames('data-grid-row__dot', {
-              'data-grid-row__dot--active': active
+            className={classNames('idsk-data-grid-row__dot', {
+              'idsk-data-grid-row__dot--active': active
             })}
           />
         </div>
@@ -121,7 +121,7 @@ export function DataGridRow({
       ) : customMoreButton ? (
         customMoreButton
       ) : (
-        <div className="data-grid-row__dropdown-space" />
+        <div className="idsk-data-grid-row__dropdown-space" />
       )}
     </div>
   );
@@ -155,9 +155,9 @@ function DataGrid({
     onSelectAllCheck?.(e.currentTarget.checked);
   };
   return (
-    <div className={classNames('data-grid', className)} id={id} {...props}>
+    <div className={classNames('idsk-data-grid', className)} id={id} {...props}>
       {headRow && (
-        <div className="data-grid__head">
+        <div className="idsk-data-grid__head">
           {checkboxEverything && (
             <Checkbox
               name="checkbox"

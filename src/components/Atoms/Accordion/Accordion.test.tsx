@@ -12,7 +12,9 @@ describe('Accordion', () => {
       </Accordion>
     );
     fireEvent.click(screen.getByText('test button'));
-    expect(container.querySelector('.accordion__content')).toHaveClass('accordion__content--open');
+    expect(container.querySelector('.idsk-accordion__content')).toHaveClass(
+      'idsk-accordion__content--open'
+    );
   });
 
   test('renders initially open', () => {
@@ -21,7 +23,9 @@ describe('Accordion', () => {
         <a href="testHref1">Test Option 1</a>
       </Accordion>
     );
-    expect(container.querySelector('.accordion__content')).toHaveClass('accordion__content--open');
+    expect(container.querySelector('.idsk-accordion__content')).toHaveClass(
+      'idsk-accordion__content--open'
+    );
   });
 
   test('custom onClick function', () => {

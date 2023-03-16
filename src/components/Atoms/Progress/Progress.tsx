@@ -15,11 +15,11 @@ const Progress = ({
   fillingColor = '#126DFF',
   ...props
 }: ProgressProps) => {
-  const progressClasses = classNames('progress-percent', {
-    'progress-percent-full': props.percent == '100%'
+  const progressClasses = classNames('idsk-progress-percent', {
+    'idsk-progress-percent-full': props.percent == '100%'
   });
   return (
-    <div className="progress" style={{ background: emptyColor }}>
+    <div className="idsk-progress" style={{ background: emptyColor }}>
       <div
         className={progressClasses}
         style={{ width: props.percent, height: props.height, background: fillingColor }}

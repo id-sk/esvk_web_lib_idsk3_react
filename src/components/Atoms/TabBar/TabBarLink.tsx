@@ -10,8 +10,8 @@ export interface TabBarLinkProps {
 
 const TabBarLink = React.forwardRef<HTMLAnchorElement, TabBarLinkProps>(
   ({ href, onClick, children, selected }, ref) => {
-    const linkClasses = classNames('tab-bar__link', {
-      'tab-bar__link--clicked': selected
+    const linkClasses = classNames('idsk-tab-bar__link', {
+      'idsk-tab-bar__link--clicked': selected
     });
     return (
       <a ref={ref} href={href} onClick={onClick} className={linkClasses}>

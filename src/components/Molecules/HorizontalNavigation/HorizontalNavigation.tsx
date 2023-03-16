@@ -15,10 +15,10 @@ export const HorizontalNavigationItem = ({
   ...props
 }: HorizontalNavigationItemProps) => {
   const elementClasses = classNames(
-    'horizontal-navigation-item',
+    'idsk-horizontal-navigation-item',
     {
-      'horizontal-navigation--hide-label-on-mobile': hideLabelOnMobile,
-      'horizontal-navigation-item--active': active
+      'idsk-horizontal-navigation--hide-label-on-mobile': hideLabelOnMobile,
+      'idsk-horizontal-navigation-item--active': active
     },
     className
   );
@@ -43,15 +43,15 @@ export const HorizontalNavigationGroup = ({
   return (
     <div
       {...props}
-      className={classNames('horizontal-navigation-group', {
-        'horizontal-navigation-group--hide-on-mobile': dropdownOnMobile,
-        'horizontal-navigation--hide-label-on-mobile': hideLabelOnMobile
+      className={classNames('idsk-horizontal-navigation-group', {
+        'idsk-horizontal-navigation-group--hide-on-mobile': dropdownOnMobile,
+        'idsk-horizontal-navigation--hide-label-on-mobile': hideLabelOnMobile
       })}
     >
       {dropdownOnMobile && (
         <DropDown
           dropDownTitle={dropdownLabel}
-          arrowIcon={<ExpandMoreIcon className="navigation__arrow-icon" />}
+          arrowIcon={<ExpandMoreIcon className="idsk-navigation__arrow-icon" />}
         >
           {children}
         </DropDown>
@@ -76,10 +76,10 @@ export const HorizontalNavigation = ({
     <div
       {...props}
       className={classNames(
-        'horizontal-navigation',
+        'idsk-horizontal-navigation',
         {
-          'horizontal-navigation--list-view': mobileView == 'list',
-          'horizontal-navigation--grid-view': mobileView == 'grid'
+          'idsk-horizontal-navigation--list-view': mobileView == 'list',
+          'idsk-horizontal-navigation--grid-view': mobileView == 'grid'
         },
         className
       )}

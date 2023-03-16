@@ -19,15 +19,15 @@ const IdentificationCard = ({
   ...props
 }: IdentificationCardProps) => {
   return (
-    <div className={`identification-card ${className}`} {...props}>
+    <div className={`idsk-identification-card ${className}`} {...props}>
       <AvatarCircle
         firstName={firstName}
         lastName={lastName}
-        buttonClasses="identification-card__avatar"
+        buttonClasses="idsk-identification-card__avatar"
         disabled={true}
       />
-      <div className="identification-card__full-name">{fullName}</div>
-      <div className="identification-card__identification">{identification}</div>
+      <div className="idsk-identification-card__full-name">{fullName}</div>
+      <div className="idsk-identification-card__identification">{identification}</div>
       {children}
     </div>
   );

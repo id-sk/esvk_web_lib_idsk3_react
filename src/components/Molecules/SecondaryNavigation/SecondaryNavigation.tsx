@@ -30,21 +30,21 @@ const SecondaryNavigation = ({
   const [opened, setOpened] = useState<boolean>(false);
 
   return (
-    <div className={classNames('secondary-navigation', className)} {...props}>
-      <div className="secondary-navigation__header">
-        <div className="secondary-navigation__heading">
-          <div className="secondary-navigation__heading-title">
+    <div className={classNames('idsk-secondary-navigation', className)} {...props}>
+      <div className="idsk-secondary-navigation__header">
+        <div className="idsk-secondary-navigation__heading">
+          <div className="idsk-secondary-navigation__heading-title">
             {mobileHeading ? (
               <>
-                <span className="secondary-navigation__heading-mobile">{mobileHeading}</span>
-                <span className="secondary-navigation__heading-desktop">{heading}</span>
+                <span className="idsk-secondary-navigation__heading-mobile">{mobileHeading}</span>
+                <span className="idsk-secondary-navigation__heading-desktop">{heading}</span>
               </>
             ) : (
               heading
             )}{' '}
             {!!headingButton && (
               <button
-                className="secondary-navigation__heading-button"
+                className="idsk-secondary-navigation__heading-button"
                 onClick={() => setOpened((p) => !p)}
                 id={id ? id + '-heading-button' : undefined}
                 aria-expanded={opened}
@@ -53,16 +53,18 @@ const SecondaryNavigation = ({
               >
                 {mobileHeadingButton ? (
                   <>
-                    <span className="secondary-navigation__heading-mobile">
+                    <span className="idsk-secondary-navigation__heading-mobile">
                       {mobileHeadingButton}
                     </span>
-                    <span className="secondary-navigation__heading-desktop">{headingButton}</span>
+                    <span className="idsk-secondary-navigation__heading-desktop">
+                      {headingButton}
+                    </span>
                   </>
                 ) : (
                   headingButton
                 )}{' '}
                 <ArrowDropDownIcon
-                  className={classNames('secondary-navigation__heading-button-icon', {
+                  className={classNames('idsk-secondary-navigation__heading-button-icon', {
                     'rotate-180': opened
                   })}
                 />
@@ -71,7 +73,9 @@ const SecondaryNavigation = ({
           </div>
           <div
             id={id ? id + '-body' : undefined}
-            className={classNames('secondary-navigation__body', bodyClassName, { hidden: !opened })}
+            className={classNames('idsk-secondary-navigation__body', bodyClassName, {
+              hidden: !opened
+            })}
             data-testid="secnav-children"
           >
             {children}
@@ -80,7 +84,7 @@ const SecondaryNavigation = ({
         <DropDown
           id={id ? id : undefined}
           dropDownTitle={dropDownTitle}
-          className="secondary-navigation__dropdown"
+          className="idsk-secondary-navigation__dropdown"
           closeOnOptionClick={true}
         >
           {dropDownOptions.length &&

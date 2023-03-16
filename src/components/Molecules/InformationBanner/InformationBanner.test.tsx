@@ -13,7 +13,7 @@ describe('InformationBanner', () => {
   test('renders without title correctly', () => {
     render(<InformationBanner>test content</InformationBanner>);
     expect(screen.getByText('test content')).toHaveClass(
-      'information-banner__description--without-title'
+      'idsk-information-banner__description--without-title'
     );
   });
 

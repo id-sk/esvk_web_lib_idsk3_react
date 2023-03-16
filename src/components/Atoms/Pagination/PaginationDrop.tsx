@@ -50,35 +50,35 @@ const PaginationDrop = ({
   }, [containerRef]);
 
   const optionClasses = classNames(
-    'pagination-drop__options',
+    'idsk-pagination-drop__options',
     {
       hidden: !opened
     },
     optionClassName
   );
-  const wrapperClasses = classNames('dropdown__wrapper');
-  const buttonClasses = classNames('pagination-drop__button', buttonClassName);
+  const wrapperClasses = classNames('idsk-dropdown__wrapper');
+  const buttonClasses = classNames('idsk-pagination-drop__button', buttonClassName);
   const renderedIcon = React.cloneElement(arrowIcon, {
-    className: classNames('pagination-drop__icon', { 'rotate-180': opened })
+    className: classNames('idsk-pagination-drop__icon', { 'rotate-180': opened })
   });
   return (
-    <div className="pagination-drop">
-      {!!caption && <p className="pagination__caption">{caption}</p>}
+    <div className="idsk-pagination-drop">
+      {!!caption && <p className="idsk-pagination__caption">{caption}</p>}
       <div ref={containerRef} className={wrapperClasses} id={id}>
         <button
           id={id ? id + '-button' : undefined}
           className={buttonClasses}
           onClick={() => setOpened((p) => !p)}
         >
-          <span className="pagination-drop__title">{dropTitle}</span>
+          <span className="idsk-pagination-drop__title">{dropTitle}</span>
           {renderedIcon}
         </button>
-        <ul className={optionClasses} data-testid="pagination-drop__options">
+        <ul className={optionClasses} data-testid="idsk-pagination-drop__options">
           {props.items.map((item) => (
             <li
               key={item.key}
               id={id ? id + '-option-' + item.key : undefined}
-              className={'pagination-drop__option'}
+              className={'idsk-pagination-drop__option'}
               onClick={() => {
                 props.onClick(item);
                 setOpened(false);

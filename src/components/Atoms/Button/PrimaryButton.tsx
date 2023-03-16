@@ -15,15 +15,15 @@ const defaultButtonProps: PrimaryButtonProps = {
 const PrimaryButton = (props: PrimaryButtonProps) => {
   props = { ...defaultButtonProps, ...props };
   const className = classNames(
-    'primary-button',
+    'idsk-primary-button',
     {
-      'primary-button--basic': props.variant == 'basic',
-      'primary-button--success': props.variant == 'success',
-      'primary-button--warning': props.variant == 'warning',
-      'primary-button--medium': props.size == 'medium',
-      'primary-button--large': props.size == 'large',
-      'primary-button--icon-left': props.icon && props.iconPosition == 'left',
-      'primary-button--icon-right': props.icon && props.iconPosition == 'right'
+      'idsk-primary-button--basic': props.variant == 'basic',
+      'idsk-primary-button--success': props.variant == 'success',
+      'idsk-primary-button--warning': props.variant == 'warning',
+      'idsk-primary-button--medium': props.size == 'medium',
+      'idsk-primary-button--large': props.size == 'large',
+      'idsk-primary-button--icon-left': props.icon && props.iconPosition == 'left',
+      'idsk-primary-button--icon-right': props.icon && props.iconPosition == 'right'
     },
     props.className
   );

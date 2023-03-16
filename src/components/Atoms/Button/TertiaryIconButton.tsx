@@ -20,11 +20,11 @@ const TertiaryIconButton = ({
       icon={icon}
       className={classNames(
         {
-          'tertiary-icon-button--basic': variant == 'basic',
-          'tertiary-icon-button--success': variant == 'success',
-          'tertiary-icon-button--warning': variant == 'warning',
-          'icon-button--medium': size == 'medium',
-          'icon-button--large': size == 'large'
+          'idsk-tertiary-icon-button--basic': variant == 'basic',
+          'idsk-tertiary-icon-button--success': variant == 'success',
+          'idsk-tertiary-icon-button--warning': variant == 'warning',
+          'idsk-icon-button--medium': size == 'medium',
+          'idsk-icon-button--large': size == 'large'
         },
         className
       )}

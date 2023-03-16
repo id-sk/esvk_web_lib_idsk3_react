@@ -25,7 +25,7 @@ Information.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -40,7 +40,7 @@ Warning.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -55,7 +55,7 @@ Alert.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -70,7 +70,7 @@ Success.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -85,7 +85,7 @@ InformationActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -101,7 +101,7 @@ WarningActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -117,7 +117,7 @@ AlertActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -133,7 +133,7 @@ SuccessActionButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -168,7 +168,7 @@ WithoutCloseButton.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -182,7 +182,7 @@ WithoutIcon.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -199,7 +199,7 @@ InformationAnnouncementInformation.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -214,7 +214,7 @@ WarningInformationAnnouncement.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -229,7 +229,7 @@ AlertInformationAnnouncement.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>
@@ -243,7 +243,7 @@ InformationAnnouncementWithoutTitle.args = {
   children: (
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
-      <a href="#" className="link-s">
+      <a href="#" className="idsk-link-s">
         Viac informácií
       </a>
     </p>

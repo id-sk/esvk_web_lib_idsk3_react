@@ -12,7 +12,7 @@ export const FooterContainerSectionHeading = ({
   className,
   ...props
 }: React.AllHTMLAttributes<HTMLParagraphElement>) => (
-  <h2 className={classNames('footer-container__section-heading', className)} {...props}>
+  <h2 className={classNames('idsk-footer-container__section-heading', className)} {...props}>
     {children}
   </h2>
 );
@@ -22,7 +22,7 @@ export const FooterContainerSection = ({
   className,
   ...props
 }: React.AllHTMLAttributes<HTMLDivElement>) => (
-  <div className={classNames('footer-container__section', className)} {...props}>
+  <div className={classNames('idsk-footer-container__section', className)} {...props}>
     {children}
   </div>
 );
@@ -36,19 +36,19 @@ const FooterContainer = ({
   ...props
 }: FooterContainerProps) => {
   return (
-    <footer className="footer-container" {...props}>
-      <div className="footer-container__content">
+    <footer className="idsk-footer-container" {...props}>
+      <div className="idsk-footer-container__content">
         {children}
-        <aside className="footer-container__aside">
+        <aside className="idsk-footer-container__aside">
           {!!linksList.length && (
-            <ul className="footer-container__links-list">
+            <ul className="idsk-footer-container__links-list">
               {linksList.map((link, key) => (
                 <li key={key}>{link}</li>
               ))}
             </ul>
           )}
           {bottomSection}
-          {!!logo && <div className="footer-container__logo-wrapper">{logo}</div>}
+          {!!logo && <div className="idsk-footer-container__logo-wrapper">{logo}</div>}
         </aside>
       </div>
     </footer>

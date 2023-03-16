@@ -17,20 +17,20 @@ const Feedback = ({ children, closeButton = <CloseIcon />, id, ...props }: Feedb
   const [visible, setVisibility] = useState(true);
 
   return visible ? (
-    <div className="feedback">
-      <div className="feedback__container">
-        <div className="feedback__text-and-buttons">
-          <div className="feedback__text">{children}</div>
+    <div className="idsk-feedback">
+      <div className="idsk-feedback__container">
+        <div className="idsk-feedback__text-and-buttons">
+          <div className="idsk-feedback__text">{children}</div>
 
           <PrimaryButton
             onClick={props.yesButtonOnClick}
-            className="feedback__button"
+            className="idsk-feedback__button"
             id={id ? id + '-yes-button' : undefined}
           >
             {props.yesButton}
           </PrimaryButton>
           <SecondaryButton
-            className="feedback__button"
+            className="idsk-feedback__button"
             onClick={props.noButtonOnClick}
             variant="transparent"
             id={id ? id + '-no-button' : undefined}
@@ -38,10 +38,10 @@ const Feedback = ({ children, closeButton = <CloseIcon />, id, ...props }: Feedb
             {props.noButton}
           </SecondaryButton>
         </div>
-        <div className="feedback__close-and-report">
+        <div className="idsk-feedback__close-and-report">
           {!!props.reportButton && (
             <SecondaryButton
-              className="feedback__report-button"
+              className="idsk-feedback__report-button"
               onClick={props.reportButtonOnClick}
               variant="transparent"
               id={id ? id + '-report-button' : undefined}
@@ -50,7 +50,7 @@ const Feedback = ({ children, closeButton = <CloseIcon />, id, ...props }: Feedb
             </SecondaryButton>
           )}
           <button
-            className="feedback__close-button"
+            className="idsk-feedback__close-button"
             onClick={props.closeButtonOnClick || (() => setVisibility(false))}
             id={id ? id + '-close-button' : undefined}
             data-testid="closeButton"

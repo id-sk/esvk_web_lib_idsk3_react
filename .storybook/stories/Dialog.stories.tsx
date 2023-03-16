@@ -40,31 +40,31 @@ LongContent.args = {
   children: (
     <div>
       <h3 className="mt-5">Lorem ipsum</h3>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.
       </p>
       <h3 className="mt-5">Lorem ipsum</h3>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.
       </p>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.
       </p>
 
       <h3 className="mt-5">Lorem ipsum</h3>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.
       </p>
       <h3 className="mt-5">Lorem ipsum</h3>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem. Lorem ipsum dolor sit amet consectetur adipisicing
@@ -83,7 +83,7 @@ SimpleDialog.args = {
   children: (
     <div className="max-w-xs">
       <h3 className="mt-5">Lorem ipsum</h3>
-      <p className="text-body">
+      <p className="idsk-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iure ab quasi perspiciatis
         consequuntur suscipit illum nulla voluptates assumenda id ipsum quibusdam possimus vero!
         Esse accusamus doloribus omnis quasi rem.

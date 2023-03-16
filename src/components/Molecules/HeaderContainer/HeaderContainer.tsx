@@ -28,7 +28,7 @@ const HeaderContainer = ({
 }: HeaderProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
 
-  const headerClasses = classNames('header-container__wrapper', className);
+  const headerClasses = classNames('idsk-header-container__wrapper', className);
 
   useEffect(() => {
     function handleWindowResize() {
@@ -48,20 +48,20 @@ const HeaderContainer = ({
     <FocusLock
       disabled={!!isDesktop ? true : !focusLock}
       className={classNames({
-        'header-container__wrapper--sticky': fixed
+        'idsk-header-container__wrapper--sticky': fixed
       })}
       {...focusLockProps}
     >
       <header className={headerClasses} {...props}>
         {!!secondaryNavigation && secondaryNavigation}
         {!!children && (
-          <div className="header-container">
+          <div className="idsk-header-container">
             {logo}
             {children}
           </div>
         )}
-        {!!largeMenu && <div className="header-container__menu">{largeMenu}</div>}
-        {!!mobileMenu && <div className="header-container__menu--mobile">{mobileMenu}</div>}
+        {!!largeMenu && <div className="idsk-header-container__menu">{largeMenu}</div>}
+        {!!mobileMenu && <div className="idsk-header-container__menu--mobile">{mobileMenu}</div>}
       </header>
     </FocusLock>
   );

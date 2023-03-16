@@ -54,33 +54,33 @@ const DropDown = ({
   }, [containerRef]);
 
   const optionClasses = classNames(
-    'dropdown__options',
+    'idsk-dropdown__options',
     {
       hidden: !opened,
-      'dropdown__options--left': optionsSide === 'left'
+      'idsk-dropdown__options--left': optionsSide === 'left'
     },
     optionClassName
   );
-  const wrapperClasses = classNames('dropdown__wrapper', className);
-  const buttonClasses = classNames('dropdown', buttonClassName);
+  const wrapperClasses = classNames('idsk-dropdown__wrapper', className);
+  const buttonClasses = classNames('idsk-dropdown', buttonClassName);
 
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return (
-        <li className="dropdown__option">
+        <li className="idsk-dropdown__option">
           {React.cloneElement(child, {
             onClick: (e: React.MouseEvent) => {
               if (child?.props?.onClick) child.props.onClick(e);
               if (closeOnOptionClick) setOpened(false);
             }
-          })}
+          } as any)}
         </li>
       );
     }
   });
 
   const renderedIcon = React.cloneElement(arrowIcon, {
-    className: classNames('dropdown__icon', { 'rotate-180': opened })
+    className: classNames('idsk-dropdown__icon', { 'rotate-180': opened })
   });
 
   return (

@@ -16,7 +16,7 @@ describe('Snackbar', () => {
 
     render(<Snackbar open={true} message="Snackbar" closeButton={true} onClose={onClose} />);
     fireEvent.click(await closeButton);
-    expect(onClose).toBeCalled();
+    expect(onClose).toHaveBeenCalled();
   });
 
   test('calls the onActionCall function', async () => {
@@ -26,6 +26,6 @@ describe('Snackbar', () => {
     render(<Snackbar open={true} message="Snackbar" action="ACTION" onActionCall={onActionCall} />);
 
     fireEvent.click(await actionButton);
-    expect(onActionCall).toBeCalled();
+    expect(onActionCall).toHaveBeenCalled();
   });
 });

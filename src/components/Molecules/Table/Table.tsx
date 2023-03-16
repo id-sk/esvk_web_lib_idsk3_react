@@ -18,18 +18,18 @@ export function Table({
   ...props
 }: TableProps) {
   return (
-    <div {...props} className={classNames('table', className)}>
-      {heading && <h3 className="table__heading">{heading}</h3>}
-      {headRow && <div className="table__head">{headRow}</div>}
-      <div className="table__rows">{children}</div>
-      {actions && <div className="table__actions">{actions}</div>}
+    <div {...props} className={classNames('idsk-table', className)}>
+      {heading && <h3 className="idsk-table__heading">{heading}</h3>}
+      {headRow && <div className="idsk-table__head">{headRow}</div>}
+      <div className="idsk-table__rows">{children}</div>
+      {actions && <div className="idsk-table__actions">{actions}</div>}
     </div>
   );
 }
 
 export const TableRow = ({ children, className, ...props }: TableProps) => {
   return (
-    <div {...props} className={classNames('table__row', className)}>
+    <div {...props} className={classNames('idsk-table__row', className)}>
       {children}
     </div>
   );
@@ -40,9 +40,9 @@ export const TableRowValue = ({ align, className, children, ...props }: TablePro
     <div
       {...props}
       className={classNames(
-        'table__value',
+        'idsk-table__value',
         {
-          'table__value--right-align': align == 'right'
+          'idsk-table__value--right-align': align == 'right'
         },
         className
       )}

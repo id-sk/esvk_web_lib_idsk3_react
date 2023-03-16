@@ -7,6 +7,6 @@ import AnchorCard from './AnchorCard';
 describe('AnchorCard', () => {
   test('layout', () => {
     render(<AnchorCard layout="vertical" />);
-    expect(screen.getByTestId('anchor-card')).toHaveClass('anchor-card--vertical');
+    expect(screen.getByTestId('anchor-card')).toHaveClass('idsk-anchor-card--vertical');
   });
 });

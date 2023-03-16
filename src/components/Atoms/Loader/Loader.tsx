@@ -8,12 +8,12 @@ export interface LoaderProps extends React.AllHTMLAttributes<HTMLDivElement> {
 }
 
 const Loader = ({ label, spinnerClassName, ...props }: LoaderProps) => {
-  const spinnerClass = classNames('loader__icon', spinnerClassName);
+  const spinnerClass = classNames('idsk-loader__icon', spinnerClassName);
 
   return (
-    <div className="loader" {...props}>
+    <div className="idsk-loader" {...props}>
       <SpinnerIcon className={spinnerClass} />
-      {label && <span className="loader__label">{label}</span>}
+      {label && <span className="idsk-loader__label">{label}</span>}
     </div>
   );
 };

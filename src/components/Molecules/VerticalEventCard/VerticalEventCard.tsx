@@ -37,23 +37,23 @@ const VerticalEventCard = ({
   const dateObject = new Date(date);
 
   return (
-    <CardWrapper innerClassNames="vertical-event-card" {...props}>
+    <CardWrapper innerClassNames="idsk-vertical-event-card" {...props}>
       {!!color && (
-        <div style={{ backgroundColor: color }} className="vertical-event-card__color-strip" />
+        <div style={{ backgroundColor: color }} className="idsk-vertical-event-card__color-strip" />
       )}
-      <div className="vertical-event-card__header">
-        <div className="vertical-event-card__date">
-          <time dateTime={dateObject.toISOString()} className="vertical-event-card__day">
+      <div className="idsk-vertical-event-card__header">
+        <div className="idsk-vertical-event-card__date">
+          <time dateTime={dateObject.toISOString()} className="idsk-vertical-event-card__day">
             {dateObject.getDate()}
           </time>
-          <p className="vertical-event-card__month">{months[dateObject.getMonth()]}</p>
+          <p className="idsk-vertical-event-card__month">{months[dateObject.getMonth()]}</p>
         </div>
-        <span style={{ color: color }} className="vertical-event-card__alert-icon">
+        <span style={{ color: color }} className="idsk-vertical-event-card__alert-icon">
           {!!alert ? <NotificationsActiveIcon /> : <NotificationsNoneIcon />}
         </span>
       </div>
-      <div className="vertical-event-card__body">
-        <div className="vertical-event-card__title">{title}</div>
+      <div className="idsk-vertical-event-card__body">
+        <div className="idsk-vertical-event-card__title">{title}</div>
         {children}
       </div>
     </CardWrapper>

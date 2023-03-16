@@ -17,16 +17,16 @@ const Navigation = ({
   ...props
 }: NavigationProps) => {
   const navigationClasses = classNames(
-    'navigation',
+    'idsk-navigation',
     {
-      'navigation--full': fullNav
+      'idsk-navigation--full': fullNav
     },
     className
   );
 
   return (
     <nav className={navigationClasses} {...props}>
-      {!!label && <span className="navigation__label">{label}</span>}
+      {!!label && <span className="idsk-navigation__label">{label}</span>}
       {children}
     </nav>
   );

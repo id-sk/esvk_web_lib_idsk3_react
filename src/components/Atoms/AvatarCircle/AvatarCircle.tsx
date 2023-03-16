@@ -24,12 +24,12 @@ const AvatarCircle = ({
   ...props
 }: AvatarCircleProps) => {
   return (
-    <div className={classNames('avatar-circle', className)}>
+    <div className={classNames('idsk-avatar-circle', className)}>
       <button
         className={classNames(
-          'avatar-circle__circle',
+          'idsk-avatar-circle__circle',
           {
-            'avatar-circle--custom-content': circleContent
+            'idsk-avatar-circle--custom-content': circleContent
           },
           buttonClasses
         )}
@@ -45,11 +45,11 @@ const AvatarCircle = ({
         )}
       </button>
       {(!!showName || !!caption) && (
-        <div className="avatar-circle__text">
-          <div className="avatar-circle__text__name">
+        <div className="idsk-avatar-circle__text">
+          <div className="idsk-avatar-circle__text__name">
             {firstName} {lastName}
           </div>
-          {!!caption && <div className="avatar-circle__text__caption">{caption}</div>}
+          {!!caption && <div className="idsk-avatar-circle__text__caption">{caption}</div>}
         </div>
       )}
     </div>

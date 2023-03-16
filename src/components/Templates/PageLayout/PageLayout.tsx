@@ -22,13 +22,13 @@ const PageLayout = ({
   ...props
 }: PageLayoutProps) => {
   return (
-    <div className="page-layout">
+    <div className="idsk-page-layout">
       {!!informationBanner && <div>{informationBanner}</div>}
       {header}
-      <main className={classNames('page-layout__main', className)} {...props}>
-        {!!breadcrumbs && <div className="page-layout__breadcrumbs">{breadcrumbs}</div>}
-        {!!heading && <div className="page-layout__heading">{heading}</div>}
-        <div className={classNames('page-layout__content', contentClassName)}>{children}</div>
+      <main className={classNames('idsk-page-layout__main', className)} {...props}>
+        {!!breadcrumbs && <div className="idsk-page-layout__breadcrumbs">{breadcrumbs}</div>}
+        {!!heading && <div className="idsk-page-layout__heading">{heading}</div>}
+        <div className={classNames('idsk-page-layout__content', contentClassName)}>{children}</div>
       </main>
       {footer}
     </div>

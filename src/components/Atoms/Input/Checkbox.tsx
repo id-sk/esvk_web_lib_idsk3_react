@@ -31,42 +31,42 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     ref
   ) => {
     const [hover, setHover] = React.useState(false);
-    const hoverClasses = classNames('checkbox__hover', {
-      'checkbox__hover--large': inputSize === 'large' && !!hover,
-      'checkbox__hover--small': inputSize === 'small' && !!hover
+    const hoverClasses = classNames('idsk-checkbox__hover', {
+      'idsk-checkbox__hover--large': inputSize === 'large' && !!hover,
+      'idsk-checkbox__hover--small': inputSize === 'small' && !!hover
     });
-    const backgroundClasses = classNames('checkbox__icon-background', {
-      'checkbox__icon-background--large': inputSize === 'large',
-      'checkbox__icon-background--small': inputSize === 'small'
+    const backgroundClasses = classNames('idsk-checkbox__icon-background', {
+      'idsk-checkbox__icon-background--large': inputSize === 'large',
+      'idsk-checkbox__icon-background--small': inputSize === 'small'
     });
-    const textSizeClasses: string = classNames('checkbox', {
-      'checkbox--large': inputSize === 'large',
-      'checkbox--small': inputSize === 'small'
+    const textSizeClasses: string = classNames('idsk-checkbox', {
+      'idsk-checkbox--large': inputSize === 'large',
+      'idsk-checkbox--small': inputSize === 'small'
     });
-    const iconSizeClasses: string = classNames('checkbox__icon', {
-      'checkbox__icon--large': inputSize === 'large',
-      'checkbox__icon--small': inputSize === 'small',
-      'checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
-      'checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
+    const iconSizeClasses: string = classNames('idsk-checkbox__icon', {
+      'idsk-checkbox__icon--large': inputSize === 'large',
+      'idsk-checkbox__icon--small': inputSize === 'small',
+      'idsk-checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
+      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
     });
-    const uncheckedIconSizeClasses: string = classNames('checkbox__unchecked-icon', {
-      'checkbox__icon--large': inputSize === 'large',
-      'checkbox__icon--small': inputSize === 'small',
-      'checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
-      'checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
+    const uncheckedIconSizeClasses: string = classNames('idsk-checkbox__unchecked-icon', {
+      'idsk-checkbox__icon--large': inputSize === 'large',
+      'idsk-checkbox__icon--small': inputSize === 'small',
+      'idsk-checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
+      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
     });
-    const inputClasses: string = classNames('checkbox__input', {
-      'checkbox__input--large': inputSize === 'large',
-      'checkbox__input--small': inputSize === 'small',
-      'checkbox__input--large-disabled': inputSize === 'large' && disabled === true,
-      'checkbox__input--small-disabled': inputSize === 'small' && disabled === true
+    const inputClasses: string = classNames('idsk-checkbox__input', {
+      'idsk-checkbox__input--large': inputSize === 'large',
+      'idsk-checkbox__input--small': inputSize === 'small',
+      'idsk-checkbox__input--large-disabled': inputSize === 'large' && disabled === true,
+      'idsk-checkbox__input--small-disabled': inputSize === 'small' && disabled === true
     });
-    const labelClasses: string = classNames('checkbox', {
-      checkbox__label: !disabled,
-      'checkbox__label--disabled': disabled === true
+    const labelClasses: string = classNames('idsk-checkbox', {
+      'idsk-checkbox__label': !disabled,
+      'idsk-checkbox__label--disabled': disabled === true
     });
     return (
-      <div className="checkbox-container">
+      <div className="idsk-checkbox-container">
         <label className={labelClasses}>
           <input
             ref={ref}

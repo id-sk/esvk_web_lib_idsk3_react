@@ -17,7 +17,7 @@ describe('Input', () => {
 
   test('passes the fullWidth property to the input element', () => {
     render(<Input fullWidth />);
-    expect(screen.getByRole('textbox')).toHaveClass('input--w-full');
+    expect(screen.getByRole('textbox')).toHaveClass('idsk-input--w-full');
   });
 
   test('onChange function on the input element', () => {
