@@ -643,7 +643,7 @@
         @apply pl-4 pr-2 tb1:px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
     }
     .information-banner__wrapper {
-        @apply flex items-center justify-between w-full flex-wrap gap-4;
+        @apply flex items-center justify-between w-full flex-wrap tb2:flex-nowrap gap-4;
     }
     .information-banner__close-button {
         @apply hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
