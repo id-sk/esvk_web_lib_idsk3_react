@@ -48,30 +48,27 @@ const InformationBanner = ({
         closeButtonOnClick(e);
       }}
       iconPosition={'left'}
-      className={classNames('information-banner__base-button', {
-        'information-banner__base-button--positive': variant == 'success',
-        'information-banner__base-button--primary': variant == 'information',
-        'information-banner__base-button--attention': variant == 'alert',
-        'information-banner__base-button--warning': variant == 'warning'
+      className={classNames('information-banner__close-button', {
+        'information-banner__close-button--positive': variant == 'success',
+        'information-banner__close-button--primary': variant == 'information',
+        'information-banner__close-button--attention': variant == 'alert',
+        'information-banner__close-button--warning': variant == 'warning'
       })}
       ariaDescribedBy={idForAria + '-label'}
       ariaLabel={closeButtonLabel}
     >
-      <CloseIcon className="information-banner__base-button-icon" />
+      <CloseIcon className="information-banner__close-button-icon" />
     </BaseButton>
   );
-  const infoClasses = classNames(
-    { 'information-banner': props.type == 'banner' },
-    {
-      'information-announcement': props.type == 'announcement'
-    }
-  );
-  const infoWrapperClasses = classNames(
-    { 'information-banner__wrapper': props.type == 'banner' },
-    {
-      'information-announcement__wrapper': props.type == 'announcement'
-    }
-  );
+  const infoClasses = classNames({
+    'information-banner': props.type == 'banner',
+    'information-announcement': props.type == 'announcement'
+  });
+  const infoWrapperClasses = classNames({
+    'information-banner__wrapper': props.type == 'banner',
+    'information-announcement__wrapper': props.type == 'announcement',
+    'information-banner__wrapper--with-close-button': !actionButton && !hideCloseButton
+  });
   return visible ? (
     <div
       className={classNames(
@@ -135,9 +132,7 @@ const InformationBanner = ({
             </div>
           )}
         </div>
-        <div className="information-banner__close-button">
-          {actionButton || (!hideCloseButton && closeButton)}
-        </div>
+        {actionButton || (!hideCloseButton && closeButton) || null}
       </div>
     </div>
   ) : null;

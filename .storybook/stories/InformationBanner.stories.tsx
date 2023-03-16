@@ -141,12 +141,55 @@ SuccessActionButton.args = {
   actionButton: <TextButton label="Action" variant="success" />
 };
 
+export const Short = Template.bind({});
+Short.args = {
+  icon: <CheckCircleIcon />,
+  title: 'Oznam',
+  variant: 'success',
+  children: (
+    <p>
+      Krátky oznam <br />
+    </p>
+  ),
+  actionButton: <TextButton label="Action" variant="success" />
+};
+
 export const WithoutTitle = Template.bind({});
 WithoutTitle.args = {
   icon: <InfoIcon />,
   variant: 'alert',
   children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
 };
+
+export const WithoutCloseButton = Template.bind({});
+WithoutCloseButton.args = {
+  icon: <InfoIcon />,
+  title: 'Oznam',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
+        Viac informácií
+      </a>
+    </p>
+  ),
+  hideCloseButton: true
+};
+
+export const WithoutIcon = Template.bind({});
+WithoutIcon.args = {
+  title: 'Oznam',
+  children: (
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry <br />
+      <a href="#" className="link-s">
+        Viac informácií
+      </a>
+    </p>
+  ),
+  hideCloseButton: true
+};
+
 export const InformationAnnouncementInformation = Template.bind({});
 InformationAnnouncementInformation.args = {
   icon: <InfoIcon />,

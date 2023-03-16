@@ -643,22 +643,25 @@
         @apply pl-4 pr-2 tb1:px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
     }
     .information-banner__wrapper {
-        @apply flex items-center justify-between w-full;
+        @apply flex items-center justify-between w-full flex-wrap gap-4;
     }
-    .information-banner__base-button {
+    .information-banner__close-button {
         @apply hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
     }
-    .information-banner__base-button-icon {
+    .information-banner__close-button-icon {
         @apply w-6 h-6;
+    }
+    .information-banner__wrapper button:not(.information-banner__close-button), .information-announcement button:not(.information-banner__close-button) {
+        @apply w-full tb1:w-auto;
     }
     .information-announcement {
         @apply pr-2 py-5 items-center relative overflow-hidden rounded;
     }
     .information-announcement__wrapper {
-        @apply flex items-center page-content;
+        @apply flex items-center page-content justify-between flex-wrap gap-4;
     }
     .information-banner__icon {
-        @apply text-center mr-4 text-2xl flex-none;
+        @apply text-center text-2xl flex-none;
     }
     .information-banner__icon--primary {
         @apply text-primary;
@@ -674,6 +677,9 @@
     }
     .information-banner__title-wrapper {
         @apply flex-grow-[2];
+    }
+    .information-banner__wrapper--with-close-button .information-banner__title-wrapper {
+        @apply order-2 tb2:order-none w-full tb2:w-auto;
     }
     .information-banner__title {
         @apply font-bold text-body-1;
@@ -702,20 +708,16 @@
     .information-banner--warning {
         @apply text-alert-warning-dark bg-alert-warning-light border-alert-warning;
     }
-    .information-banner__close-button {
-        @apply ml-4 flex justify-center;
-    }
-    .information-banner__base-button--positive {
+    .information-banner__close-button--positive {
         @apply text-alert-positive;
     }
-    .information-banner__base-button--primary {
+    .information-banner__close-button--primary {
         @apply text-blue-400;
     }
-    .information-banner__base-button--attention {
+    .information-banner__close-button--attention {
         @apply text-alert-attention;
     }
-
-    .information-banner__base-button--warning {
+    .information-banner__close-button--warning {
         @apply text-alert-warning;
     }
     .feedback {
