@@ -114,7 +114,7 @@ export function RadioButtonGroup({
         {renderedChildren}
       </div>
       {error && !!errorMsg && !disabled && (
-        <p className="idsk-input__caption input__caption--error">
+        <p className="idsk-input__caption idsk-input__caption--error">
           <span role="alert">{errorMsg}</span>
         </p>
       )}
