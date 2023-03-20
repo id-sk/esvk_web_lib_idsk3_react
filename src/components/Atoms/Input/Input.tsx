@@ -77,7 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputWrapperClasses: string = classNames('idsk-input__wrapper', {
       'idsk-input__wrapper--error': error,
       'idsk-input__wrapper--disabled': disabled,
-      'idsk-w-full': fullWidth
+      'w-full': fullWidth
     });
 
     const actionButtonClasses: string = classNames('idsk-input__action', {
