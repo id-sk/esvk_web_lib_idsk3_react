@@ -46,7 +46,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
     }: TextFieldProps,
     ref
   ) => {
-    const [value, setValue] = useState<string>('');
+    const [value, setValue] = useState<string>(String(props.value ?? ''));
 
     const actualLength = useMemo(() => {
       return `${value.length}/${maxLength}`;
@@ -109,7 +109,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
             {!!error && (
               <WarningIcon
                 className={classNames(
-                  'idsk-input__icon input__icon-textarea',
+                  'idsk-input__icon idsk-input__icon-textarea',
                   {
                     'idsk-input__icon--large': inputSize === 'large',
                     'idsk-input__icon--medium': inputSize === 'medium',
