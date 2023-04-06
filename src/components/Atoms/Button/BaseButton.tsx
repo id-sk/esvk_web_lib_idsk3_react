@@ -33,7 +33,7 @@ const BaseButton = (props: BaseButtonProps) => {
       })
     : undefined;
 
-  const buttonClasses: string = classNames(props.className, {
+  const buttonClasses: string = classNames('idsk-button', props.className, {
     'idsk-button--w-full': props.fullWidth
   });
 

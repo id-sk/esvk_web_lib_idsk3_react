@@ -255,6 +255,9 @@
         @apply tb2:hidden;
     }
 
+    .idsk-button {
+        @apply whitespace-nowrap;
+    }
     .idsk-button__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
     }
