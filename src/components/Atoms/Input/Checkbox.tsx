@@ -9,6 +9,7 @@ import {
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'large' | 'small';
   disabled?: boolean;
+  error?: boolean;
   name?: string;
   label?: ReactNode;
   checked?: boolean;
@@ -26,6 +27,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       checked,
       onChange,
       hasUncheckIcon,
+      error,
       ...props
     }: CheckboxProps,
     ref
@@ -47,13 +49,15 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       'idsk-checkbox__icon--large': inputSize === 'large',
       'idsk-checkbox__icon--small': inputSize === 'small',
       'idsk-checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
-      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
+      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true,
+      'idsk-checkbox__icon--error': error
     });
     const uncheckedIconSizeClasses: string = classNames('idsk-checkbox__unchecked-icon', {
       'idsk-checkbox__icon--large': inputSize === 'large',
       'idsk-checkbox__icon--small': inputSize === 'small',
       'idsk-checkbox__icon--small-disabled': inputSize === 'small' && disabled === true,
-      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true
+      'idsk-checkbox__icon--large-disabled': inputSize === 'large' && disabled === true,
+      'idsk-checkbox__icon--error': error
     });
     const inputClasses: string = classNames('idsk-checkbox__input', {
       'idsk-checkbox__input--large': inputSize === 'large',

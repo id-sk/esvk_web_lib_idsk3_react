@@ -303,6 +303,9 @@
     .idsk-checkbox__hover--large {
         @apply w-8 h-8;
     }
+    .idsk-checkbox__icon--error {
+        @apply text-alert-warning;
+    }
     .idsk-checkbox__icon-background {
         @apply bg-white rounded ml-[0.375rem] opacity-0 absolute idsk-check-bg;
     }
