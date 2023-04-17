@@ -91,6 +91,7 @@ const DropDown = ({
         id={id}
         aria-expanded={opened}
         aria-controls={id + '-dropdown'}
+        type="button"
       >
         <span>{dropDownTitle}</span>
         {renderedIcon}
