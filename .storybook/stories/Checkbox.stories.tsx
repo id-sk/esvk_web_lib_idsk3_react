@@ -26,6 +26,10 @@ export const WithLabel = Template.bind({});
 WithLabel.args = {
   label: 'Text label'
 };
+export const WithLongLabel = Template.bind({});
+WithLongLabel.args = {
+  label: 'Text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label text label'
+};
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true

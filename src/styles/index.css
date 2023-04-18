@@ -334,7 +334,7 @@
         @apply absolute ml-[0.125rem];
     }
     .idsk-checkbox__input {
-        @apply appearance-none rounded focus-visible:outline-offset-[-3px] focus-visible:rounded-lg;
+        @apply flex-none appearance-none rounded focus-visible:outline-offset-[-3px] focus-visible:rounded-lg;
     }
     .idsk-checkbox__input--large {
         @apply w-8 h-8;
