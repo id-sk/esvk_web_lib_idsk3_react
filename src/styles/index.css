@@ -836,7 +836,7 @@
     }
 
     .idsk-header-container {
-        @apply pb-[1.875rem] pt-[1.875rem] relative inset-x-0 flex items-center idsk-page-content w-full;
+        @apply h-[6.25rem] relative inset-x-0 flex items-center idsk-page-content w-full flex-grow-0 flex-shrink-0 basis-[6.25rem];
     }
     .idsk-header-container__wrapper {
         @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white relative flex flex-col max-h-screen;
@@ -851,7 +851,7 @@
         @apply h-16 hidden dm1:flex before:border-t before:border-neutral-300 before:absolute before:inset-x-0 idsk-page-content w-full;
     }
     .idsk-header-container__menu--mobile {
-        @apply flex grow idsk-page-content dm1:hidden w-full overflow-y-auto;
+        @apply grow idsk-page-content dm1:hidden w-full overflow-y-auto;
     }
     .idsk-header-container__wrapper--opened-mobile-menu .idsk-header-container__menu--mobile {
         @apply pb-4;

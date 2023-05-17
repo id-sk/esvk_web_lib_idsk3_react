@@ -54,7 +54,7 @@ const HeaderContainer = ({
     >
       <header className={headerClasses} {...props}>
         {!!secondaryNavigation && secondaryNavigation}
-        {!!children && (
+        {(!!children || !!logo) && (
           <div className="idsk-header-container">
             {logo}
             {children}
