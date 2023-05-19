@@ -1589,7 +1589,7 @@
         @apply right-4 dm1:right-8 dm2:right-40 absolute;
     }
     .idsk-secondary-navigation__dropdown .idsk-dropdown {
-        @apply idsk-text-body-1 py-2 dm1:h-auto;
+        @apply idsk-text-body-1 py-2 dm1:h-auto outline-offset-[-4px] pl-1.5;
     }
     .idsk-secondary-navigation__dropdown .idsk-dropdown__options {
         @apply right-2 top-auto;
