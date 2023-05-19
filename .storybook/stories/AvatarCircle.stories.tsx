@@ -14,7 +14,16 @@ const Template: ComponentStory<typeof AvatarCircle> = (args) => <AvatarCircle {.
 export const Initials = Template.bind({});
 Initials.args = {
   firstName: 'Janko',
-  lastName: 'Hraško'
+  lastName: 'Hraško',
+  fullName: 'Ing. Janko Hraško'
+};
+
+export const Fullname = Template.bind({});
+Initials.args = {
+  firstName: 'Janko',
+  lastName: 'Hraško',
+  fullName: 'Ing. Janko Hraško',
+  showFullName: true
 };
 
 export const DefaultIcon = Template.bind({});

@@ -23,6 +23,7 @@ const IdentificationCard = ({
       <AvatarCircle
         firstName={firstName}
         lastName={lastName}
+        fullName={fullName}
         buttonClasses="idsk-identification-card__avatar"
         disabled={true}
       />
