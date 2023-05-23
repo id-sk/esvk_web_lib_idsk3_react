@@ -1442,7 +1442,7 @@
         @apply inset-x-0 pb-6 tb1:pb-8 px-5 idsk-page-content w-full z-30;
     }
     .idsk-page-layout__heading {
-        @apply inset-x-0 pb-6 tb1:pb-[1.875rem] px-5 idsk-page-content w-full;
+        @apply inset-x-0 pb-6 tb1:pb-[1.875rem] px-5 idsk-page-content w-full z-30;
     }
     .idsk-page-layout__content {
         @apply relative inset-x-0 px-0 idsk-page-content min-h-full flex-auto w-full;
