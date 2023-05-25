@@ -432,7 +432,7 @@
         @apply bg-blue-400;
     }
     .idsk-data-grid .idsk-dropdown__wrapper {
-        @apply flex;
+        @apply flex h-full;
     }
     .idsk-data-grid .idsk-dropdown__wrapper .idsk-dropdown {
         @apply p-0;
@@ -441,7 +441,7 @@
         @apply w-[1em];
     }
     .idsk-data-grid {
-        @apply border border-neutral-300 rounded-lg;
+        @apply border border-neutral-300 rounded-lg border-separate border-spacing-0;
     }
     .idsk-data-grid__head {
         @apply flex justify-between idsk-text-body py-5 pl-5 pr-[3.438rem] bg-neutral-90 rounded-t-lg gap-4 font-bold;

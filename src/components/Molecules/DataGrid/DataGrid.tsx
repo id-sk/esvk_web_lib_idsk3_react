@@ -33,7 +33,7 @@ export const DataGridRowValue = ({
   ...props
 }: DataGridRowValueProps) => {
   return (
-    <div
+    <td
       className={classNames(
         'idsk-data-grid__value',
         {
@@ -45,7 +45,7 @@ export const DataGridRowValue = ({
     >
       {children}
       {information && <InfoIcon className="w-6 h-6" />}
-    </div>
+    </td>
   );
 };
 
@@ -90,40 +90,44 @@ export function DataGridRow({
     className
   );
   return (
-    <div className={dataGridClasses} id={id} {...props}>
+    <tr className={dataGridClasses} id={id} {...props}>
       {checkbox && (
-        <Checkbox
-          name="checkbox"
-          checked={checked}
-          onChange={onChange}
-          id={id ? id + '-checkbox' : undefined}
-        />
+        <td>
+          <Checkbox
+            name="checkbox"
+            checked={checked}
+            onChange={onChange}
+            id={id ? id + '-checkbox' : undefined}
+          />
+        </td>
       )}
       {!!active && !!activeDotVisibility && (
-        <div className={noCheckboxClasses}>
+        <td className={noCheckboxClasses}>
           <div
             className={classNames('idsk-data-grid-row__dot', {
               'idsk-data-grid-row__dot--active': active
             })}
           />
-        </div>
+        </td>
       )}
       {children}
-      {moreOptions ? (
-        <DropDown
-          dropDownTitle={moreIcon}
-          optionsSide="left"
-          arrowIcon={<></>}
-          id={id ? id + '-more-options' : undefined}
-        >
-          {moreOptions}
-        </DropDown>
-      ) : customMoreButton ? (
-        customMoreButton
-      ) : (
-        <div className="idsk-data-grid-row__dropdown-space" />
-      )}
-    </div>
+      <td>
+        {moreOptions ? (
+          <DropDown
+            dropDownTitle={moreIcon}
+            optionsSide="left"
+            arrowIcon={<></>}
+            id={id ? id + '-more-options' : undefined}
+          >
+            {moreOptions}
+          </DropDown>
+        ) : customMoreButton ? (
+          customMoreButton
+        ) : (
+          <div className="idsk-data-grid-row__dropdown-space" />
+        )}
+      </td>
+    </tr>
   );
 }
 
@@ -155,23 +159,25 @@ function DataGrid({
     onSelectAllCheck?.(e.currentTarget.checked);
   };
   return (
-    <div className={classNames('idsk-data-grid', className)} id={id} {...props}>
+    <table className={classNames('idsk-data-grid', className)} id={id} {...props}>
       {headRow && (
-        <div className="idsk-data-grid__head">
+        <th className="idsk-data-grid__head">
           {checkboxEverything && (
-            <Checkbox
-              name="checkbox"
-              checked={checked}
-              onChange={handleSelectAllChange}
-              hasUncheckIcon={hasUncheckIcon}
-              id={id ? id + '-checkbox-all' : undefined}
-            />
+            <td>
+              <Checkbox
+                name="checkbox"
+                checked={checked}
+                onChange={handleSelectAllChange}
+                hasUncheckIcon={hasUncheckIcon}
+                id={id ? id + '-checkbox-all' : undefined}
+              />
+            </td>
           )}
           {headRow}
-        </div>
+        </th>
       )}
       {renderedChildren}
-    </div>
+    </table>
   );
 }
 
