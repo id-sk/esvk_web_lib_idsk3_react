@@ -1439,7 +1439,7 @@
         @apply pt-[1.875rem] pb-16 tb1:pt-[1.875rem] bg-neutral-100 flex-auto flex flex-col;
     }
     .idsk-page-layout__breadcrumbs {
-        @apply inset-x-0 pb-6 tb1:pb-8 px-5 idsk-page-content w-full z-30;
+        @apply inset-x-0 pb-6 tb1:pb-8 px-5 idsk-page-content w-full z-40;
     }
     .idsk-page-layout__heading {
         @apply inset-x-0 pb-6 tb1:pb-[1.875rem] px-5 idsk-page-content w-full z-30;
