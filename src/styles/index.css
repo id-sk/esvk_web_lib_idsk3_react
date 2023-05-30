@@ -91,6 +91,25 @@
     textarea {
         @apply rounded focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus-state focus-visible:z-10;
     }
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: theme('colors.blue.200') theme('colors.blue.100');
+    }
+    ::-webkit-scrollbar {
+        @apply w-3;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-neutral-100;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-blue-200;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-blue-300;
+    }
+    ::-webkit-scrollbar-thumb:active {
+        @apply bg-blue-400;
+    }
 }
 
 @layer utilities {
@@ -1031,7 +1050,7 @@
         @apply pt-2 pb-5 h-auto min-h-[4rem];
     }
     .idsk-input-textarea--counter {
-        @apply text-neutral-600 absolute right-5 bottom-2 idsk-text-body-1;
+        @apply text-neutral-600 absolute right-0 -bottom-6 idsk-text-body-1;
     }
 
     .idsk-select {
