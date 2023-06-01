@@ -23,7 +23,7 @@ export const HorizontalNavigationItem = ({
     className
   );
 
-  return <BaseButton {...props} className={elementClasses} />;
+  return <BaseButton buttonElementProps={{ role: 'tab' }} {...props} className={elementClasses} />;
 };
 
 export interface HorizontalNavigationGroupProps extends AllHTMLAttributes<HTMLDivElement> {
@@ -42,6 +42,7 @@ export const HorizontalNavigationGroup = ({
 }: HorizontalNavigationGroupProps) => {
   return (
     <div
+      role="tablist"
       {...props}
       className={classNames('idsk-horizontal-navigation-group', {
         'idsk-horizontal-navigation-group--hide-on-mobile': dropdownOnMobile,

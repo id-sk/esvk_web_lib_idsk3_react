@@ -105,14 +105,14 @@ export function RadioButtonGroup({
   });
   return (
     <div {...props}>
-      {!!label && (
-        <p className="idsk-input__label">
-          {label} {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
-        </p>
-      )}
-      <div className={classNames({ 'idsk-radio-button-group-body': !!label })}>
+      <fieldset className={classNames({ 'idsk-radio-button-group-body': !!label })}>
+        {!!label && (
+          <legend className="idsk-input__label">
+            {label} {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
+          </legend>
+        )}
         {renderedChildren}
-      </div>
+      </fieldset>
       {error && !!errorMsg && !disabled && (
         <p className="idsk-input__caption idsk-input__caption--error">
           <span role="alert">{errorMsg}</span>

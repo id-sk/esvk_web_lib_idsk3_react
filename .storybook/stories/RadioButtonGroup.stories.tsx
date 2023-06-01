@@ -9,10 +9,10 @@ export default {
 } as ComponentMeta<typeof RadioButtonGroup>;
 const Template: ComponentStory<typeof RadioButtonGroup> = (args) => (
   <RadioButtonGroup {...args}>
-    <RadioButton label="Text label" />
-    <RadioButton label="Text label" />
-    <RadioButton label="Text label" />
-    <RadioButton label="Text label" />
+    <RadioButton label="Text label 1" />
+    <RadioButton label="Text label 2" />
+    <RadioButton label="Text label 3" />
+    <RadioButton label="Text label 4" />
   </RadioButtonGroup>
 );
 

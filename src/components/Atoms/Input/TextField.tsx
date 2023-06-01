@@ -119,7 +119,9 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
                 )}
               />
             )}
-            <span className="idsk-input-textarea--counter">{actualLength}</span>
+            <span className="idsk-input-textarea--counter" aria-live="polite">
+              {actualLength}
+            </span>
           </div>
         </div>
         {(!!errorMsg || !!caption) && (

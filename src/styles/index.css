@@ -501,10 +501,13 @@
         @apply w-6 h-6 mr-auto ml-auto;
     }
     .idsk-date-input__date-picker-input {
-        @apply w-16 h-12 opacity-0 cursor-pointer;
+        @apply w-16 h-12 cursor-pointer;
     }
-    .idsk-date-input__position {
-        @apply -mt-14 absolute;
+    .idsk-date-input__wrapper .react-datepicker-wrapper {
+        @apply w-auto;
+    }
+    .idsk-date-input__wrapper .react-datepicker__navigation-icon::before {
+        @apply border-neutral-700;
     }
 
     .idsk-dialog-screen {
@@ -1726,7 +1729,7 @@
         @apply border-neutral-300 bg-white/70;
     }
     .idsk-tag--basic {
-        @apply text-primary bg-blue-100 border-blue-200;
+        @apply text-primary-medium bg-blue-100 border-blue-200;
     }
     .idsk-tag--warning {
         @apply text-alert-warning bg-alert-warning-light border-alert-warning-medium;

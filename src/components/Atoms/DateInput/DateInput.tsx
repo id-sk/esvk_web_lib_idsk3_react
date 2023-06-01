@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { HTMLProps, forwardRef, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { Input } from '../Input';
 import DateRange from '../../../svgIcons/Actions/DateRange';
-import DatePicker from 'react-datepicker';
+import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import { format, setDate, setMonth, setYear } from 'date-fns';
 import { useRifm } from 'rifm';
 
-export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement> {
   id?: string;
   error?: boolean;
   errorMsg?: string;
@@ -22,6 +22,12 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLDivElement> {
   dayLabel?: string;
   monthLabel?: string;
   yearLabel?: string;
+  dayPlaceholder?: string;
+  monthPlaceholder?: string;
+  yearPlaceholder?: string;
+  datePickerLabel?: string;
+  datePickerProps?: ReactDatePickerProps;
+  inputLabelsSrOnly?: boolean;
   inputClasses?: string;
   initialDate?: Date | null | undefined;
   refreshDate?: boolean;
@@ -40,6 +46,7 @@ const DateInput = ({
   subtitle,
   caption,
   disabled,
+  inputLabelsSrOnly = false,
   inputClasses,
   hideDay = false,
   hideMonth = false,
@@ -47,6 +54,11 @@ const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  dayPlaceholder,
+  monthPlaceholder,
+  yearPlaceholder,
+  datePickerLabel,
+  datePickerProps,
   initialDate,
   refreshDate = true,
   minDateToday = false,
@@ -203,9 +215,22 @@ const DateInput = ({
     handleRefresh(refreshDate);
   }, [refreshDate]);
 
+  const DatePickerCustomInput = forwardRef<HTMLButtonElement, HTMLProps<HTMLButtonElement>>(
+    ({ onClick }, ref) => (
+      <button
+        className={datePickerClasses}
+        aria-label={datePickerLabel}
+        onClick={onClick}
+        ref={ref}
+      >
+        <DateRange className="idsk-date-input__date-range" />
+      </button>
+    )
+  );
+
   return (
-    <div className="idsk-date-input" id={id} {...props}>
-      <p className="idsk-input__label">{label}</p>
+    <fieldset className="idsk-date-input" id={id} {...props}>
+      <legend className="idsk-input__label">{label}</legend>
       {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
       <div className={dateInputWrapperClasses}>
         {!hideDay && (
@@ -213,11 +238,12 @@ const DateInput = ({
             ref={dayRef}
             id={id ? id + '-day' : undefined}
             label={dayLabel}
+            labelSrOnly={inputLabelsSrOnly}
             className={classNames(allInputClasses, 'idsk-date-input__day-n-month')}
             disabled={disabled}
             onChange={dayInputMask.onChange}
             value={dayInputMask.value}
-            placeholder="DD"
+            placeholder={dayPlaceholder}
             maxLength={2}
             onBlur={() => {
               addDay();
@@ -230,11 +256,12 @@ const DateInput = ({
             ref={monthRef}
             id={id ? id + '-month' : undefined}
             label={monthLabel}
+            labelSrOnly={inputLabelsSrOnly}
             className={classNames(allInputClasses, 'idsk-date-input__day-n-month')}
             disabled={disabled}
             onChange={monthInputMask.onChange}
             value={monthInputMask.value}
-            placeholder="MM"
+            placeholder={monthPlaceholder}
             maxLength={2}
             onBlur={() => {
               addMonth();
@@ -247,11 +274,12 @@ const DateInput = ({
             ref={yearRef}
             id={id ? id + '-year' : undefined}
             label={yearLabel}
+            labelSrOnly={inputLabelsSrOnly}
             className={classNames(allInputClasses, 'idsk-date-input__year')}
             disabled={disabled}
             onChange={yearInputMask.onChange}
             value={yearInputMask.value}
-            placeholder="YYYY"
+            placeholder={yearPlaceholder}
             maxLength={4}
             onBlur={() => {
               addYear();
@@ -259,21 +287,19 @@ const DateInput = ({
             }}
           />
         )}
-        <span>
-          <button className={datePickerClasses}>
-            <DateRange className="idsk-date-input__date-range" />
-          </button>
-          <div className="idsk-date-input__position">
-            <DatePicker
-              selected={startDate}
-              className="idsk-date-input__date-picker-input"
-              onCalendarOpen={() => setOpen(true)}
-              onCalendarClose={() => setOpen(false)}
-              onChange={handleDatepickerChange}
-              disabled={disabled}
-            />
-          </div>
-        </span>
+        <DatePicker
+          {...datePickerProps}
+          locale={datePickerProps?.locale}
+          selected={startDate}
+          className="idsk-date-input__date-picker-input"
+          onCalendarOpen={() => setOpen(true)}
+          onCalendarClose={() => setOpen(false)}
+          onChange={handleDatepickerChange}
+          disabled={disabled}
+          customInput={<DatePickerCustomInput />}
+          previousMonthAriaLabel={datePickerProps?.previousMonthAriaLabel}
+          nextMonthAriaLabel={datePickerProps?.nextMonthAriaLabel}
+        />
       </div>
       {(!!errorMsg || !!caption) && (
         <p
@@ -290,7 +316,7 @@ const DateInput = ({
           )}
         </p>
       )}
-    </div>
+    </fieldset>
   );
 };
 
