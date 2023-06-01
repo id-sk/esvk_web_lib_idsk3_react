@@ -1860,7 +1860,22 @@
         @apply absolute focus:static overflow-hidden;
     }
     .idsk-snackbar {
-        @apply bg-neutral-900 text-white py-[0.625rem] px-4 rounded-md shadow-medium flex items-center leading-6 w-fit tb1:min-w-[28rem] fixed bottom-8 z-50;
+        @apply bg-neutral-900 text-white py-[0.625rem] px-4 rounded-md shadow-medium flex items-center leading-6 w-fit tb1:min-w-[28rem] relative;
+    }
+    .idsk-snackbar--fixed {
+        @apply fixed bottom-8 z-50;
+    }
+    .idsk-snackbar-info {
+        @apply bg-alert-basic;
+    }
+    .idsk-snackbar-success {
+        @apply bg-alert-positive;
+    }
+    .idsk-snackbar-warning {
+        @apply bg-alert-warning;
+    }
+    .idsk-snackbar-attention {
+        @apply bg-alert-attention;
     }
     .idsk-snackbar--long-action {
         @apply flex-col items-start underline;
@@ -1883,7 +1898,9 @@
     .idsk-snackbar__message {
         @apply pr-[6.25rem];
     }
-
+    .idsk-snackbar__stack {
+        @apply fixed bottom-8 left-0 z-50 flex flex-col gap-2 px-4;
+    }
     .idsk-user-card {
         @apply flex flex-col tb1:flex-row align-top justify-items-start p-5;
     }

@@ -34,14 +34,38 @@ const Template: ComponentStory<typeof Snackbar> = (args) => {
   );
 };
 
-export const SingleLine = Template.bind({});
-SingleLine.args = {
-  message: 'Single line snackbar',
+export const Default = Template.bind({});
+Default.args = {
+  message: 'Default single line snackbar',
   autoHideDuration: 6000
 };
 
-export const SingleLineWithAction = Template.bind({});
-SingleLineWithAction.args = {
+export const Success = Template.bind({});
+Success.args = {
+  message: 'This action was performed successfully',
+  variant: 'success'
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  message: 'Warning! An error has occurred',
+  variant: 'warning'
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  message: 'This is important information',
+  variant: 'info'
+};
+
+export const Attention = Template.bind({});
+Attention.args = {
+  message: 'This message requires yout attention',
+  variant: 'attention'
+};
+
+export const WithAction = Template.bind({});
+WithAction.args = {
   message: 'Single line snackbar with action',
   action: 'Back',
   closeButton: true

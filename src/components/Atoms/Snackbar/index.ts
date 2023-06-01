@@ -1,1 +1,1 @@
-export { default, SnackbarProps } from './Snackbar';
+export { default, SnackbarProps, SnackbarStack, SnackbarStackProps } from './Snackbar';
