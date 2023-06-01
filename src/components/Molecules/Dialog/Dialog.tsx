@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import FocusLock from 'react-focus-lock';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 
@@ -9,6 +10,7 @@ export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   toggleOpened?: () => void;
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
+  closeButtonAriaLabel?: string;
 }
 
 const Dialog = ({
@@ -21,6 +23,7 @@ const Dialog = ({
   children,
   primaryButton,
   secondaryButton,
+  closeButtonAriaLabel,
   ...props
 }: DialogProps) => {
   const dialogClasses = classNames(
@@ -33,34 +36,37 @@ const Dialog = ({
 
   return (
     <div {...props} className={dialogClasses} id={id}>
-      <div className="idsk-dialog-wrapper">
-        <div className="idsk-dialog">
-          {!!title && (
-            <div className="idsk-dialog__header">
-              <div className="idsk-dialog__header-title">
-                <h2>{title}</h2>
-                <button
-                  onClick={toggleOpened}
-                  className="idsk-dialog__close-icon"
-                  id={id ? id + '-dialog-close-button' : undefined}
-                >
-                  <CloseIcon />
-                </button>
+      <FocusLock>
+        <div className="idsk-dialog-wrapper">
+          <div className="idsk-dialog">
+            {!!title && (
+              <div className="idsk-dialog__header">
+                <div className="idsk-dialog__header-title">
+                  <h2>{title}</h2>
+                  <button
+                    onClick={toggleOpened}
+                    className="idsk-dialog__close-icon"
+                    id={id ? id + '-dialog-close-button' : undefined}
+                    aria-label={closeButtonAriaLabel}
+                  >
+                    <CloseIcon />
+                  </button>
+                </div>
+                {!!description && <p className="idsk-dialog__header-description">{description}</p>}
               </div>
-              {!!description && <p className="idsk-dialog__header-description">{description}</p>}
-            </div>
-          )}
+            )}
 
-          <div className="idsk-dialog__content">{children}</div>
+            <div className="idsk-dialog__content">{children}</div>
 
-          {!!(secondaryButton || primaryButton) && (
-            <div className="idsk-dialog__buttons">
-              {secondaryButton}
-              {primaryButton}
-            </div>
-          )}
+            {!!(secondaryButton || primaryButton) && (
+              <div className="idsk-dialog__buttons">
+                {secondaryButton}
+                {primaryButton}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </FocusLock>
     </div>
   );
 };

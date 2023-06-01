@@ -24,19 +24,22 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   title: 'Title simple',
-  primaryButton: <PrimaryButton>Text Button</PrimaryButton>
+  primaryButton: <PrimaryButton>Text Button</PrimaryButton>,
+  closeButtonAriaLabel: 'Zavrieť'
 };
 
 export const WithDescription = Template.bind({});
 WithDescription.args = {
   title: 'Title simple',
   description: 'Description',
-  primaryButton: <PrimaryButton>Text Button</PrimaryButton>
+  primaryButton: <PrimaryButton>Text Button</PrimaryButton>,
+  closeButtonAriaLabel: 'Zavrieť'
 };
 export const LongContent = Template.bind({});
 LongContent.args = {
   title: 'Title simple',
   primaryButton: <PrimaryButton>Text Button</PrimaryButton>,
+  closeButtonAriaLabel: 'Zavrieť',
   children: (
     <div>
       <h3 className="mt-5">Lorem ipsum</h3>

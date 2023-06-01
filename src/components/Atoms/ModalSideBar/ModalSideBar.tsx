@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import FocusLock from 'react-focus-lock';
 import classNames from 'classnames';
 
 import { CloseIcon } from '../../../svgIcons/Navigation';
@@ -9,6 +10,7 @@ export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElemen
   heading: string;
   footer?: ReactNode | undefined;
   id?: string;
+  closeButtonAriaLabel?: string;
 }
 
 const ModalSideBar = ({
@@ -19,6 +21,7 @@ const ModalSideBar = ({
   children,
   className,
   id,
+  closeButtonAriaLabel,
   ...props
 }: ModalSideBarProps) => {
   const shadowClasses = classNames('idsk-modal-sidebar__shadow', {
@@ -33,7 +36,7 @@ const ModalSideBar = ({
   );
 
   return (
-    <>
+    <FocusLock>
       <div
         className={shadowClasses}
         onClick={() => toggleOpened(false)}
@@ -47,6 +50,7 @@ const ModalSideBar = ({
             className="idsk-modal-sidebar__close-button"
             onClick={() => toggleOpened(false)}
             id={id ? id + '-close-button' : undefined}
+            aria-label={closeButtonAriaLabel}
           >
             <CloseIcon className="idsk-modal-sidebar__close-icon" />
           </button>
@@ -55,7 +59,7 @@ const ModalSideBar = ({
         <div className="flex-auto" />
         {!!footer && <div className="idsk-modal-sidebar__footer">{footer}</div>}
       </div>
-    </>
+    </FocusLock>
   );
 };
 

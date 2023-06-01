@@ -15,13 +15,15 @@ const Template: ComponentStory<typeof ModalSideBar> = (args) => <ModalSideBar {.
 export const Default = Template.bind({});
 Default.args = {
   opened: true,
-  heading: 'Profil'
+  heading: 'Profil',
+  closeButtonAriaLabel: 'Zavrieť'
 };
 
 export const WithFooterButtons = Template.bind({});
 WithFooterButtons.args = {
   opened: true,
   heading: 'Profil',
+  closeButtonAriaLabel: 'Zavrieť',
   footer: (
     <>
       <PrimaryButton size="large" icon={<PlaceholderIcon />}>
@@ -36,6 +38,7 @@ export const LongContent = Template.bind({});
 LongContent.args = {
   opened: true,
   heading: 'Profil',
+  closeButtonAriaLabel: 'Zavrieť',
   footer: (
     <>
       <PrimaryButton size="large" icon={<PlaceholderIcon />}>
