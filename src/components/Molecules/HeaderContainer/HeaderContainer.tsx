@@ -3,7 +3,7 @@ import FocusLock from 'react-focus-lock';
 import { ReactFocusLockProps } from 'react-focus-lock/interfaces';
 import classNames from 'classnames';
 
-export interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {
+export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   fixed?: boolean;
   children?: ReactNode;
   logo?: ReactNode;
@@ -50,9 +50,10 @@ const HeaderContainer = ({
       className={classNames({
         'idsk-header-container__wrapper--sticky': fixed
       })}
+      as="header"
       {...focusLockProps}
     >
-      <header className={headerClasses} {...props}>
+      <div className={headerClasses} {...props}>
         {!!secondaryNavigation && secondaryNavigation}
         {(!!children || !!logo) && (
           <div className="idsk-header-container">
@@ -62,7 +63,7 @@ const HeaderContainer = ({
         )}
         {!!largeMenu && <div className="idsk-header-container__menu">{largeMenu}</div>}
         {!!mobileMenu && <div className="idsk-header-container__menu--mobile">{mobileMenu}</div>}
-      </header>
+      </div>
     </FocusLock>
   );
 };
