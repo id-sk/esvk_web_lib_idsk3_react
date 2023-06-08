@@ -762,7 +762,7 @@
         @apply flex-grow-[2];
     }
     .idsk-information-banner__wrapper--with-close-button .idsk-information-banner__title-wrapper {
-        @apply order-2 tb2:order-none w-full tb2:w-auto;
+        @apply order-2 tb2:flex-1 tb2:order-none w-full tb2:w-auto;
     }
     .idsk-information-banner__title {
         @apply font-bold idsk-text-body-1;
