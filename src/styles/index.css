@@ -861,10 +861,10 @@
         @apply h-[6.25rem] relative inset-x-0 flex items-center idsk-page-content w-full flex-grow-0 flex-shrink-0 basis-[6.25rem];
     }
     .idsk-header-container__wrapper {
-        @apply w-full top-0 z-40 inset-x-0 shadow-divider bg-white relative flex flex-col max-h-screen;
+        @apply w-full top-0 z-[41] inset-x-0 shadow-divider bg-white relative flex flex-col max-h-screen;
     }
     .idsk-header-container__wrapper--sticky {
-        @apply sticky top-0 z-40;
+        @apply sticky top-0 z-[41];
     }
     .idsk-header-container__wrapper--opened-mobile-menu {
         @apply h-screen bg-neutral-90 dm1:bg-white dm1:h-auto overflow-y-auto;
