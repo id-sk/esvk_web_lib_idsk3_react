@@ -14,13 +14,13 @@ const Template: ComponentStory<typeof Feedback> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  yesButton: 'Áno',
-  noButton: 'Nie'
+  yesButtonProps: { children: 'Áno' },
+  noButtonProps: { children: 'Nie' }
 };
 
 export const WithReportButton = Template.bind({});
 WithReportButton.args = {
-  yesButton: 'Áno',
-  noButton: 'Nie',
-  reportButton: 'Nahlásiť chybu'
+  yesButtonProps: { children: 'Áno' },
+  noButtonProps: { children: 'Nie' },
+  reportButtonProps: { children: 'Nahlásiť chybu' }
 };

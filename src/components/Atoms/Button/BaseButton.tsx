@@ -42,7 +42,7 @@ const BaseButton = (props: BaseButtonProps) => {
       className={buttonClasses}
       disabled={props.disabled}
       id={props.id}
-      type={props.type ?? 'button'}
+      type={props.type}
       aria-label={props.ariaLabel}
       aria-labelledby={props.ariaLabelledBy}
       aria-disabled={props.disabled}

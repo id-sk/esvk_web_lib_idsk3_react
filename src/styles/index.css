@@ -805,19 +805,16 @@
     }
 
     .idsk-feedback {
-        @apply bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold;
+        @apply bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden; 
     }
     .idsk-feedback__container {
-        @apply flex items-center idsk-page-content justify-between;
+        @apply flex items-center;
     }
     .idsk-feedback__text-and-buttons {
         @apply flex items-center;
     }
     .idsk-feedback__button {
-        @apply mr-4;
-    }
-    .idsk-feedback__close-and-report {
-        @apply flex items-center;
+        @apply mr-4 last:mr-0;
     }
     .idsk-feedback__text {
         @apply mr-10;
