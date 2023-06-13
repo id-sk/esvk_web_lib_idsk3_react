@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DateInput from '../../src/components/Atoms/DateInput';
 import '/src/styles/idsk3_theme.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
-import sk from 'date-fns/locale/sk'
+import sk from 'date-fns/locale/sk';
 
 registerLocale('sk', sk);
 setDefaultLocale('sk');
@@ -60,6 +60,23 @@ export const WithCaption = Template.bind({});
 WithCaption.args = {
   id: 'date-input',
   label: 'This is label',
+  caption: 'This is caption',
+  errorMsg: 'Bad format of date',
+  dayLabel: 'Deň',
+  monthLabel: 'Mesiac',
+  yearLabel: 'Rok',
+  dayPlaceholder: 'DD',
+  monthPlaceholder: 'MM',
+  yearPlaceholder: 'RRRR',
+  datePickerLabel: 'Otvoriť kalendár',
+  onValueUpdate: (value: string) => console.log('date update', value)
+};
+
+export const Optional = Template.bind({});
+Optional.args = {
+  id: 'date-input',
+  label: 'This is label',
+  optionalText: '(Optional)',
   caption: 'This is caption',
   errorMsg: 'Bad format of date',
   dayLabel: 'Deň',

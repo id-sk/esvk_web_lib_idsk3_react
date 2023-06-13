@@ -13,6 +13,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement
   errorMsg?: string;
   errorMessageId?: string;
   label?: string;
+  optionalText?: string;
   caption?: string;
   subtitle?: string;
   disabled?: boolean;
@@ -43,6 +44,7 @@ const DateInput = ({
   errorMsg,
   errorMessageId,
   label,
+  optionalText,
   subtitle,
   caption,
   disabled,
@@ -230,7 +232,10 @@ const DateInput = ({
 
   return (
     <fieldset className="idsk-date-input" id={id} {...props}>
-      <legend className="idsk-input__label">{label}</legend>
+      <legend className="idsk-input__label">
+        {label}
+        {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+      </legend>
       {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
       <div className={dateInputWrapperClasses}>
         {!hideDay && (
