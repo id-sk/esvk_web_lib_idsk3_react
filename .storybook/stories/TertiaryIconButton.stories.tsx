@@ -50,3 +50,11 @@ WarningVariant.args = {
   icon: <ReportProblemIcon />,
   onClick: () => console.log('button clicked!')
 };
+
+export const NeutralVariant = Template.bind({});
+NeutralVariant.args = {
+  variant: 'neutral',
+  size: 'large',
+  icon: <PlaceholderIcon />,
+  onClick: () => console.log('button clicked!')
+};

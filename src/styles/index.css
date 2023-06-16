@@ -1442,15 +1442,17 @@
         @apply idsk-icon-button hover:ring-0;
     }
     .idsk-tertiary-icon-button--basic {
-        @apply idsk-tertiary-icon-button text-blue-400 hover:bg-blue-100 active:bg-blue-200 disabled:bg-transparent disabled:text-neutral-600;
+        @apply text-blue-400 hover:bg-blue-100 active:bg-blue-200 disabled:bg-transparent disabled:text-neutral-600;
     }
     .idsk-tertiary-icon-button--success {
-        @apply idsk-tertiary-icon-button text-alert-positive hover:bg-alert-positive-light active:bg-alert-positive-medium disabled:bg-transparent disabled:text-neutral-600;
+        @apply text-alert-positive hover:bg-alert-positive-light active:bg-alert-positive-medium disabled:bg-transparent disabled:text-neutral-600;
     }
     .idsk-tertiary-icon-button--warning {
-        @apply idsk-tertiary-icon-button text-alert-warning hover:bg-alert-warning-light active:bg-alert-warning-medium disabled:bg-transparent disabled:text-neutral-600;
+        @apply text-alert-warning hover:bg-alert-warning-light active:bg-alert-warning-medium disabled:bg-transparent disabled:text-neutral-600;
     }
-
+    .idsk-tertiary-icon-button--neutral {
+        @apply text-black hover:bg-neutral-90 active:bg-neutral-200 disabled:bg-transparent disabled:text-neutral-600;
+    }
     .idsk-page-layout {
         @apply flex flex-col min-h-screen;
     }
