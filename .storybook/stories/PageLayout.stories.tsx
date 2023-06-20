@@ -154,7 +154,6 @@ const Header = () => {
                   <a
                     href="https://www.slovensko.sk/sk/agendy/agenda/_organy-verejnej-moci"
                     target="_blank"
-                    className="idsk-link-s text-white"
                   >
                     Odkazy na jednotlivé webové sídla orgánov verejnej moci nájdete na tomto odkaze.
                   </a>

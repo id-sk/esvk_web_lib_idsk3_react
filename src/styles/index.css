@@ -1617,7 +1617,7 @@
     }
     .idsk-secondary-navigation__body a,
     .idsk-secondary-navigation__body a:visited {
-        @apply text-white hover:text-white;
+        @apply idsk-link-s text-white hover:text-white visited:text-white;
     }
 
     .idsk-signpost__container {
