@@ -92,7 +92,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
 
     const contentClasses = classNames(
       {
-        relative: fullWidth,
+        'idsk-searchbar__wrapper--full-width': fullWidth,
         'idsk-searchbar__wrapper': !fullWidth,
         hidden: openable && !searchbarOpened
       },

@@ -900,17 +900,17 @@
     }
 
     .idsk-searchbar__wrapper {
-        @apply relative inline-block flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
+        @apply relative flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
     }
-
+    .idsk-searchbar__wrapper--full-width {
+        @apply relative flex;
+    }
     .idsk-searchbar__cancel {
         @apply absolute right-2 top-1/2 -translate-y-1/2 text-neutral-600 hover:text-black;
     }
-
     .idsk-searchbar__cancel-icon--large {
         @apply w-5 h-5;
     }
-
     .idsk-searchbar__button {
         @apply relative bg-primary rounded-r-lg rounded-l-none text-white flex items-center hover:ring hover:ring-offset-0 hover:ring-primary-dark active:bg-primary-dark disabled:bg-neutral-500 disabled:ring-transparent;
     }
@@ -944,7 +944,7 @@
         @apply idsk-input--error;
     }
     .idsk-searchbar__input-wrapper {
-        @apply relative w-full dm1:w-auto;
+        @apply relative w-full;
     }
     .idsk-input--error {
         @apply !border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
