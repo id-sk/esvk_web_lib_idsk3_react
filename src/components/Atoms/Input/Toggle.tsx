@@ -15,6 +15,7 @@ export interface ToggleProps {
   className?: string;
   passive?: boolean;
   disabled?: boolean;
+  id?: string;
 }
 
 const Toggle: React.FC<ToggleProps> = ({
