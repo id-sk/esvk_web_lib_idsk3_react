@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '/src/styles/idsk3_theme.css';
 import { Toggle } from '../../src/components';
@@ -8,7 +8,20 @@ export default {
   component: Toggle
 } as ComponentMeta<typeof Toggle>;
 
-const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;
+const Template: ComponentStory<typeof Toggle> = (args) => {
+  const [enabled, setEnabled] = useState(args.checked);
+  return (
+    <>
+      <Toggle
+        {...args}
+        checked={enabled}
+        onChange={(checked) => {
+          setEnabled(checked);
+        }}
+      />
+    </>
+  );
+};
 export const Large = Template.bind({});
 Large.args = {};
 export const LargeWithLabel = Template.bind({});
