@@ -353,7 +353,7 @@
         @apply absolute ml-[0.125rem];
     }
     .idsk-checkbox__input {
-        @apply flex-none appearance-none rounded focus-visible:outline-offset-[-3px] focus-visible:rounded-lg;
+        @apply flex-none appearance-none rounded focus-visible:outline-offset-[-3px] focus-visible:rounded-lg hover:bg-neutral-600;
     }
     .idsk-checkbox__input--large {
         @apply w-8 h-8;
@@ -377,7 +377,7 @@
         @apply flex items-start gap-[0.625rem];
     }
     .idsk-checkbox__label {
-        @apply hover:bg-neutral-600 rounded;
+        @apply rounded;
     }
     .idsk-checkbox__label--disabled {
         @apply hover:bg-transparent rounded;
