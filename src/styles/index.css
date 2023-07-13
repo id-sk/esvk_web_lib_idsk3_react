@@ -738,7 +738,7 @@
     }
 
     .idsk-information-announcement {
-        @apply pr-2 py-5 items-center relative overflow-hidden rounded;
+        @apply pr-2 py-5 items-center relative overflow-hidden;
     }
     .idsk-information-announcement__wrapper {
         @apply flex items-center idsk-page-content justify-between flex-wrap gap-4;

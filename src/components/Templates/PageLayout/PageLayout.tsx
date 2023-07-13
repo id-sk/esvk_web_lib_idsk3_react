@@ -8,6 +8,7 @@ export interface PageLayoutProps extends React.AllHTMLAttributes<HTMLElement> {
   breadcrumbs?: ReactNode;
   contentClassName?: string;
   informationBanner?: ReactNode;
+  informationBannerPosition?: 'top' | 'bottom';
   heroImage?: ReactNode;
 }
 
@@ -15,6 +16,7 @@ const PageLayout = ({
   header,
   breadcrumbs,
   informationBanner,
+  informationBannerPosition = 'top',
   heading,
   children,
   footer,
@@ -41,8 +43,9 @@ const PageLayout = ({
 
   return (
     <div className="idsk-page-layout">
-      {!!informationBanner && <div>{informationBanner}</div>}
+      {!!informationBanner && informationBannerPosition === 'top' && informationBanner}
       {header}
+      {!!informationBanner && informationBannerPosition === 'bottom' && informationBanner}
       <main className={classNames('idsk-page-layout__main', className)} ref={mainRef} {...props}>
         {!!heroImage && (
           <div className="relative h-0 top-[-1.875rem]">
