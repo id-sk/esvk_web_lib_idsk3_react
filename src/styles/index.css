@@ -903,7 +903,7 @@
         @apply relative flex w-fit hover:shadow-border hover:shadow-neutral-600 rounded-lg;
     }
     .idsk-searchbar__wrapper--full-width {
-        @apply relative flex;
+        @apply w-auto;
     }
     .idsk-searchbar__cancel {
         @apply absolute right-2 top-1/2 -translate-y-1/2 text-neutral-600 hover:text-black;
@@ -944,7 +944,7 @@
         @apply idsk-input--error;
     }
     .idsk-searchbar__input-wrapper {
-        @apply relative w-full;
+        @apply relative flex-grow;
     }
     .idsk-input--error {
         @apply !border-alert-warning outline-alert-warning disabled:border-neutral-400 disabled:outline-transparent placeholder-shown:border-alert-warning placeholder-shown:outline-alert-warning;
