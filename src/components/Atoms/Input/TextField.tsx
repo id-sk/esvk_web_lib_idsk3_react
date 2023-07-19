@@ -123,22 +123,22 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
               {actualLength}
             </span>
           </div>
+          {(!!errorMsg || !!caption) && (
+            <p
+              className={classNames('idsk-input__caption', {
+                'idsk-input__caption--error': error && !disabled
+              })}
+            >
+              {error && !!errorMsg && !disabled ? (
+                <span id={idForAria} role="alert">
+                  {errorMsg}
+                </span>
+              ) : (
+                <span>{caption}</span>
+              )}
+            </p>
+          )}
         </div>
-        {(!!errorMsg || !!caption) && (
-          <p
-            className={classNames('idsk-input__caption', {
-              'idsk-input__caption--error': error && !disabled
-            })}
-          >
-            {error && !!errorMsg && !disabled ? (
-              <span id={idForAria} role="alert">
-                {errorMsg}
-              </span>
-            ) : (
-              <span>{caption}</span>
-            )}
-          </p>
-        )}
       </>
     );
   }
