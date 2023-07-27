@@ -36,7 +36,7 @@ const FooterContainer = ({
   ...props
 }: FooterContainerProps) => {
   return (
-    <footer className="idsk-footer-container" {...props}>
+    <footer className={classNames('idsk-footer-container', className)} {...props}>
       <div className="idsk-footer-container__content">
         {children}
         <aside className="idsk-footer-container__aside">
