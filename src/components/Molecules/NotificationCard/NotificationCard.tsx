@@ -10,6 +10,7 @@ export interface NotificationCardProps extends Omit<CardWrapperProps, 'innerClas
   actions?: {
     label: string;
     href?: string;
+    target?: string;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   }[];
   dateFormatString?: string;
@@ -51,6 +52,7 @@ const NotificationCard = ({
               key={index}
               href={!!item.href ? item.href : undefined}
               onClick={!!item.onClick ? item.onClick : undefined}
+              target={item.target}
             >
               {item.label}
             </a>
