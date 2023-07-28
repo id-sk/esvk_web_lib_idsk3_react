@@ -18,6 +18,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   errorMessageId?: string;
   mandatory?: boolean;
+  defaultSelectValue?: string;
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -39,16 +40,18 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       icon,
       errorMessageId,
       mandatory = false,
+      defaultSelectValue = 'default',
       ...props
     }: SelectProps,
     ref
   ) => {
-    const defaultSelectValue = 'default'; // to have selected item on default
-    const [activePlaceholder, setActivePlaceholder] = useState(placeholder != null);
+    const [placeholderIsActive, setPlaceholderIsActive] = useState(!!placeholder);
 
     const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-      setActivePlaceholder(e.target.value == defaultSelectValue);
-      if (onChange != undefined) onChange(e);
+      if (!!placeholder) {
+        setPlaceholderIsActive(e.target.value === defaultSelectValue);
+      }
+      if (!!onChange) onChange(e);
     };
 
     const selectClasses: string = classNames(
@@ -60,7 +63,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         'idsk-input--icon-left': !!icon,
         'idsk-input--error': error,
         'idsk-input--w-full': fullWidth,
-        'idsk-select--not-selected': activePlaceholder
+        'idsk-select--not-selected': placeholderIsActive
       },
       className
     );
@@ -103,7 +106,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               defaultValue={defaultSelectValue}
               {...props}
             >
-              {placeholder && (
+              {!!placeholder && (
                 <option value={defaultSelectValue} disabled hidden>
                   {placeholder}
                 </option>
