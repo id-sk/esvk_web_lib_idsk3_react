@@ -805,7 +805,7 @@
     }
 
     .idsk-feedback {
-        @apply bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden; 
+        @apply relative bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden; 
     }
     .idsk-feedback__container {
         @apply flex items-center;
@@ -824,6 +824,9 @@
     }
     .idsk-feedback__report-button {
         @apply truncate;
+    }
+    .idsk-feedback__captcha-text {
+        @apply absolute top-full text-neutral-700 font-normal;
     }
 
     .idsk-footer-container {

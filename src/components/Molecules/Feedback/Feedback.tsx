@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { PrimaryButton, SecondaryButton } from '../../Atoms';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
@@ -9,9 +9,10 @@ export interface FeedbackProps extends React.AllHTMLAttributes<HTMLDivElement> {
   noButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
   closeButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
   reportButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  captchaText?: ReactNode;
 }
 
-const Feedback = ({ children, closeButton, id, ...props }: FeedbackProps) => {
+const Feedback = ({ children, closeButton, id, captchaText, ...props }: FeedbackProps) => {
   const [visible, setVisibility] = useState(true);
 
   return visible ? (
@@ -64,6 +65,11 @@ const Feedback = ({ children, closeButton, id, ...props }: FeedbackProps) => {
           </button>
         )}
       </div>
+      {!!captchaText && (
+        <div className="idsk-feedback__captcha-text idsk-caption">
+          <div className="idsk-page-content">{captchaText}</div>
+        </div>
+      )}
     </div>
   ) : null;
 };
