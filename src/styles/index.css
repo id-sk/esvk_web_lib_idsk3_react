@@ -826,7 +826,7 @@
         @apply truncate;
     }
     .idsk-feedback__captcha-text {
-        @apply absolute top-full text-neutral-700 font-normal;
+        @apply absolute top-full text-neutral-700 font-normal w-full;
     }
 
     .idsk-footer-container {
