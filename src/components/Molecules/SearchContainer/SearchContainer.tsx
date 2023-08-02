@@ -45,6 +45,16 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       className
     );
 
+    const primaryButtonClasses: string = classNames(
+      'idsk-search-container__button',
+      searchButton?.className
+    );
+
+    const advancedSearchButtonClasses: string = classNames(
+      'idsk-search-container__button',
+      advancedSearchButton?.className
+    );
+
     const idForAria: string = errorMessageId || uuidv4();
 
     return (
@@ -83,8 +93,13 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
           )}
         </div>
         <div className="idsk-search-container__buttons">
-          <PrimaryButton {...searchButton} iconPosition="left" icon={<SearchIcon />} />
-          <TextButton {...advancedSearchButton} />
+          <PrimaryButton
+            {...searchButton}
+            className={primaryButtonClasses}
+            iconPosition="left"
+            icon={<SearchIcon />}
+          />
+          <TextButton {...advancedSearchButton} className={advancedSearchButtonClasses} />
         </div>
       </div>
     );

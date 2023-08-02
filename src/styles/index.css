@@ -123,7 +123,7 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .idsk-accordion__title {
-        @apply flex items-center justify-between;
+        @apply flex tb2:items-center justify-between;
     }
     .idsk-accordion__subtitle {
         @apply block idsk-text-body-1 text-lg pt-2.5;
@@ -805,7 +805,7 @@
     }
 
     .idsk-feedback {
-        @apply relative bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden; 
+        @apply relative bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden;
     }
     .idsk-feedback__container {
         @apply flex items-center;
@@ -1810,10 +1810,10 @@
         @apply pb-5 pt-1;
     }
     .idsk-search-container__buttons {
-        @apply flex;
+        @apply flex flex-col tb1:flex-row gap-2;
     }
-    .idsk-search-container__buttons > .idsk-link-button {
-        @apply ml-2;
+    .idsk-search-container__button {
+        @apply flex-1 tb1:flex-initial;
     }
 
     .idsk-pagination {
