@@ -54,35 +54,48 @@ const ArticleCard = ({
     );
   };
 
-  return (
-    <AnchorCard
-      className={classNames(
-        'idsk-article_card',
-        { 'idsk-article-card--vertical': layout === 'vertical' && !!featuredImg },
-        className
-      )}
-      layout={layout}
-      grid={true}
-      {...props}
-    >
-      {featuredImg && (
-        <div className={classNames('idsk-article-card__image-wrapper', imageWrapperClasses)}>
-          {featuredImg}
+  const AnchorCardComponent = () => {
+    return (
+      <AnchorCard
+        className={classNames(
+          'idsk-article_card',
+          'idsk-anchor-card--focusable',
+          { 'idsk-article-card--vertical': layout === 'vertical' && !!featuredImg },
+          className
+        )}
+        layout={layout}
+        grid={true}
+        {...props}
+      >
+        {featuredImg && (
+          <div className={classNames('idsk-article-card__image-wrapper', imageWrapperClasses)}>
+            {featuredImg}
+          </div>
+        )}
+        <div className="idsk-article_card__content">
+          {!!date && datePosition === 'top' && (
+            <p className="idsk-article-card__date-tags idsk-article-card__date-tags--top">
+              {renderDateTags(date)}
+            </p>
+          )}
+          <div className="idsk-anchor-card__heading">
+            {React.isValidElement(heading) && heading.props?.children}
+          </div>
+          <div className="idsk-anchor-card__description">{children}</div>
+          {!!date && datePosition === 'bottom' && (
+            <p className="idsk-article-card__date-tags">{renderDateTags(date)}</p>
+          )}
         </div>
-      )}
-      <div className="idsk-article_card__content">
-        {!!date && datePosition === 'top' && (
-          <p className="idsk-article-card__date-tags idsk-article-card__date-tags--top">
-            {renderDateTags(date)}
-          </p>
-        )}
-        <div className="idsk-anchor-card__heading">{heading}</div>
-        <div className="idsk-anchor-card__description">{children}</div>
-        {!!date && datePosition === 'bottom' && (
-          <p className="idsk-article-card__date-tags">{renderDateTags(date)}</p>
-        )}
-      </div>
-    </AnchorCard>
+      </AnchorCard>
+    );
+  };
+
+  return React.isValidElement(heading) ? (
+    <a href={heading.props.href} {...heading.props}>
+      <AnchorCardComponent />
+    </a>
+  ) : (
+    <AnchorCardComponent />
   );
 };
 
