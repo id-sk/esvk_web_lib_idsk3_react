@@ -6,5 +6,5 @@ export {
   RadioButtonProps,
   RadioButtonGroupProps
 } from './RadioButton';
-export { default as TextField, TextFieldProps } from './TextField';
+export { default as TextField, TextFieldProps, TextFieldRef } from './TextField';
 export { default as Toggle, ToggleProps } from './Toggle';

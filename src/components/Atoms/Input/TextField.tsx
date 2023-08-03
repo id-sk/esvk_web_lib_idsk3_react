@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useImperativeHandle, useRef } from 'react';
 import classNames from 'classnames';
 import { WarningIcon } from '../../../svgIcons/Alert';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,7 +22,11 @@ export interface TextFieldProps extends React.TextareaHTMLAttributes<HTMLTextAre
   mandatory?: boolean;
 }
 
-const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
+export interface TextFieldRef extends HTMLTextAreaElement {
+  reset: () => void;
+}
+
+const TextField = React.forwardRef<TextFieldRef, TextFieldProps>(
   (
     {
       inputSize = 'large',
@@ -46,14 +50,20 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
     }: TextFieldProps,
     ref
   ) => {
-    const [value, setValue] = useState<string>(String(props.value ?? ''));
+    const [currentLength, setCurrentLength] = useState(String(props.defaultValue).length);
 
-    const actualLength = useMemo(() => {
-      return `${value.length}/${maxLength}`;
-    }, [value, maxLength]);
+    const innerRef = useRef<HTMLTextAreaElement>(null);
+
+    useImperativeHandle(ref, () => ({
+      ...(innerRef.current as HTMLTextAreaElement),
+      reset: () => {
+        setCurrentLength(0);
+        if (!!innerRef.current?.value) innerRef.current.value = '';
+      }
+    }));
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
-      setValue(event.target.value);
+      setCurrentLength(event.target?.value?.length);
       onChange(event);
     }
 
@@ -94,7 +104,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
           {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
           <div className={inputWrapperClasses}>
             <textarea
-              ref={ref}
+              ref={innerRef}
               className={inputClasses}
               disabled={disabled}
               aria-disabled={disabled}
@@ -119,9 +129,11 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(
                 )}
               />
             )}
-            <span className="idsk-input-textarea--counter" aria-live="polite">
-              {actualLength}
-            </span>
+            {!!maxLength && (
+              <span className="idsk-input-textarea--counter" aria-live="polite">
+                {currentLength} / {maxLength}
+              </span>
+            )}
           </div>
           {(!!errorMsg || !!caption) && (
             <p

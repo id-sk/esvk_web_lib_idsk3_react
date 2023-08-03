@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { Checkbox, Input, RadioButton, Toggle } from './index';
+import { Checkbox, Input, RadioButton, TextField, TextFieldRef, Toggle } from './index';
 
 describe('Input', () => {
   test('renders the Input component', () => {
@@ -45,5 +45,26 @@ describe('Input', () => {
   test('renders the toggle component', () => {
     render(<Toggle label="Text label" />);
     expect(screen.getByText('Text label')).toBeDefined();
+  });
+});
+
+describe('TextField', () => {
+  test('checks counter for defaultValue', () => {
+    render(<TextField maxLength={200} defaultValue="0123456789" />);
+    expect(screen.getByText('10 / 200')).toBeDefined();
+  });
+  test('checks counter after firing reset', () => {
+    const TestTextFieldReset = () => {
+      const ref = React.useRef<TextFieldRef>(null);
+      return (
+        <>
+          <TextField ref={ref} maxLength={200} defaultValue="0123456789" />
+          <button onClick={() => ref.current?.reset()}>Reset</button>
+        </>
+      );
+    };
+    render(<TestTextFieldReset />);
+    fireEvent.click(screen.getByText('Reset'));
+    expect(screen.getByText('0 / 200')).toBeDefined();
   });
 });

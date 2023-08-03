@@ -24,7 +24,8 @@ export {
   RadioButtonProps,
   RadioButtonGroupProps,
   TextField,
-  TextFieldProps
+  TextFieldProps,
+  TextFieldRef
 } from './Input';
 export { default as DateInput, DateInputProps } from './DateInput';
 export { default as CardWrapper, CardWrapperProps } from './CardWrapper';
