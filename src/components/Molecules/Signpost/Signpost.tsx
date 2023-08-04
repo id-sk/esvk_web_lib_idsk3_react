@@ -37,7 +37,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
       return (
         <AnchorCard
           className={classNames(
-            { 'idsk-signpost--in-group': inGroup, 'idsk-anchor-card--focusable': href },
+            { 'idsk-signpost--in-group': inGroup, 'idsk-anchor-card--focusable': !!href },
             className
           )}
           layout={layout}
@@ -55,7 +55,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
             <div>
               <h3
                 className={classNames('idsk-anchor-card__heading', {
-                  'idsk-sign-post__link': href
+                  'idsk-sign-post__link': !!href
                 })}
               >
                 {heading}
@@ -79,7 +79,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
       );
     };
 
-    return href ? (
+    return !!href ? (
       <a href={href} ref={ref} {...props} className="idsk-signpost">
         <CardComponent />
       </a>

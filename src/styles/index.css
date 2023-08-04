@@ -229,6 +229,9 @@
     .idsk-article-card--vertical {
         @apply grid gap-x-8;
     }
+    .idsk-article-card--linked {
+        @apply h-full;
+    }
 
     .idsk-avatar-circle {
         @apply flex items-center gap-2.5;
