@@ -52,15 +52,17 @@ const TextField = React.forwardRef<TextFieldRef, TextFieldProps>(
   ) => {
     const [currentLength, setCurrentLength] = useState(String(props.defaultValue).length);
 
-    const innerRef = useRef<HTMLTextAreaElement>(null);
+    const innerRef = useRef<TextFieldRef>(null);
 
-    useImperativeHandle(ref, () => ({
-      ...(innerRef.current as HTMLTextAreaElement),
-      reset: () => {
-        setCurrentLength(0);
-        if (!!innerRef.current?.value) innerRef.current.value = '';
+    useImperativeHandle(ref, () => {
+      if (!!innerRef.current) {
+        innerRef.current.reset = () => {
+          setCurrentLength(0);
+          if (!!innerRef.current?.value) innerRef.current.value = '';
+        };
       }
-    }));
+      return innerRef.current as TextFieldRef;
+    });
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
       setCurrentLength(event.target?.value?.length);
