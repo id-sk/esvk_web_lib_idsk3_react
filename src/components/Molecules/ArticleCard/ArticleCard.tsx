@@ -17,6 +17,7 @@ export interface ArticleCardProps
 
 const ArticleCard = ({
   heading,
+  href,
   featuredImg,
   children,
   date,
@@ -79,7 +80,13 @@ const ArticleCard = ({
             </p>
           )}
           <div className="idsk-anchor-card__heading">
-            {React.isValidElement(heading) && heading.props?.children}
+            <h3
+              className={classNames({
+                'idsk-sign-post__link': href
+              })}
+            >
+              {heading}
+            </h3>
           </div>
           <div className="idsk-anchor-card__description">{children}</div>
           {!!date && datePosition === 'bottom' && (
@@ -90,8 +97,8 @@ const ArticleCard = ({
     );
   };
 
-  return React.isValidElement(heading) ? (
-    <a href={heading.props.href} {...heading.props}>
+  return href ? (
+    <a href={href} {...props}>
       <AnchorCardComponent />
     </a>
   ) : (
