@@ -50,7 +50,7 @@ const TextField = React.forwardRef<TextFieldRef, TextFieldProps>(
     }: TextFieldProps,
     ref
   ) => {
-    const [currentLength, setCurrentLength] = useState(String(props.defaultValue).length);
+    const [currentLength, setCurrentLength] = useState(String(props.defaultValue ?? '').length);
 
     const innerRef = useRef<TextFieldRef>(null);
 
