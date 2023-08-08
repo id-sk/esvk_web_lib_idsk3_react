@@ -808,7 +808,7 @@
     }
 
     .idsk-feedback {
-        @apply relative bg-neutral-200 text-white items-center py-2.5 font-bold print:hidden;
+        @apply relative bg-neutral-200 items-center py-2.5 font-bold print:hidden;
     }
     .idsk-feedback__container {
         @apply flex items-center;
