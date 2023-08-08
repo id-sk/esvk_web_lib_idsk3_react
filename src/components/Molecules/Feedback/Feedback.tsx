@@ -18,21 +18,28 @@ const Feedback = ({ children, closeButton, id, captchaText, ...props }: Feedback
   return visible ? (
     <div className="idsk-feedback">
       <div className="idsk-feedback__container idsk-page-content">
-        <div className="flex flex-wrap gap-4 flex-auto justify-between">
+        <div className="flex flex-wrap gap-4 flex-auto justify-between w-full">
           <div className="idsk-feedback__text-and-buttons">
             <div className="idsk-feedback__text">{children}</div>
             <PrimaryButton
               type="button"
               {...props.yesButtonProps}
-              className={classNames('idsk-feedback__button', props.yesButtonProps?.className)}
+              className={classNames(
+                'idsk-feedback__button',
+                'idsk-feedback__button--answer',
+                props.yesButtonProps?.className
+              )}
               id={id ? id + '-yes-button' : undefined}
             >
               {props.yesButtonProps?.children}
             </PrimaryButton>
             <SecondaryButton
               {...props.noButtonProps}
-              className={classNames('idsk-feedback__button', props.noButtonProps?.className)}
-              variant="transparent"
+              className={classNames(
+                'idsk-feedback__button',
+                'idsk-feedback__button--answer',
+                props.noButtonProps?.className
+              )}
               id={id ? id + '-no-button' : undefined}
             >
               {props.noButtonProps?.children}
@@ -42,13 +49,15 @@ const Feedback = ({ children, closeButton, id, captchaText, ...props }: Feedback
             <SecondaryButton
               {...props.reportButtonProps}
               className={classNames(
-                'idsk-feedback__report-button',
+                'idsk-feedback__button',
+                'idsk-feedback__button--report',
                 props.reportButtonProps?.className
               )}
-              variant="transparent"
               id={id ? id + '-report-button' : undefined}
             >
-              {props.reportButtonProps?.children}
+              <span className="idsk-feedback__button__inner">
+                {props.reportButtonProps?.children}
+              </span>
             </SecondaryButton>
           )}
         </div>

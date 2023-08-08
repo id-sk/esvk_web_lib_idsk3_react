@@ -808,24 +808,30 @@
     }
 
     .idsk-feedback {
-        @apply relative bg-blue-600 text-white items-center py-2.5 idsk-text-body-1 font-bold print:hidden;
+        @apply relative bg-neutral-200 text-white items-center py-2.5 font-bold print:hidden;
     }
     .idsk-feedback__container {
         @apply flex items-center;
     }
     .idsk-feedback__text-and-buttons {
-        @apply flex items-center;
+        @apply flex flex-col tb1:flex-row tb1:items-center gap-y-4 w-full tb1:w-auto;
     }
     .idsk-feedback__button {
-        @apply mr-4 last:mr-0;
+        @apply w-full;
+    }
+    .idsk-feedback__button--answer {
+        @apply tb1:w-24 tb1:mr-4 last:mr-0;
     }
     .idsk-feedback__text {
-        @apply mr-10;
+        @apply tb1:mr-10 text-black;
     }
     .idsk-feedback__close-button {
-        @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] ml-10 cursor-pointer;
+        @apply absolute tb1:relative top-3 tb1:top-auto right-3 tb1:right-auto pr-5 text-[1.5rem] w-[1.5rem] h-[1.5rem] tb1:ml-10 text-black cursor-pointer;
     }
-    .idsk-feedback__report-button {
+    .idsk-feedback__button--report {
+        @apply tb1:w-auto;
+    }
+    .idsk-feedback__button__inner {
         @apply truncate;
     }
     .idsk-feedback__captcha-text {
