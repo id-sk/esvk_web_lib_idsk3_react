@@ -53,7 +53,7 @@ export {
 } from '../Molecules/FooterContainer';
 export { default as TextSignpost, TextSignpostProps } from './TextSignpost';
 export { default as Tooltip, TooltipProps } from './Tooltip';
-export { default as Pagination } from './Pagination';
+export { default as Pagination, PaginationDrop, PaginationProps } from './Pagination';
 export { default as Progress } from './Progress';
 export { default as Select, SelectProps } from './Select';
 export { default as Snackbar, SnackbarProps, SnackbarStack, SnackbarStackProps } from './Snackbar';
