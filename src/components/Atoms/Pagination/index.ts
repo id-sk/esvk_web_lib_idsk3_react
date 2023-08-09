@@ -1,2 +1,2 @@
 export { default, PaginationProps } from './Pagination';
-export { PaginationDropProps as DropDownButtonProps } from './PaginationDrop';
+export { PaginationDrop, PaginationDropProps as DropDownButtonProps } from './PaginationDrop';

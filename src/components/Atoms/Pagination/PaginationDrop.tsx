@@ -20,7 +20,7 @@ export interface PaginationDropProps {
   selected?: boolean;
 }
 
-const PaginationDrop = ({
+export const PaginationDrop = ({
   title: dropDownTitle,
   arrowIcon = <KeyBoardArrowDownIcon />,
   optionClassName,
@@ -93,5 +93,3 @@ const PaginationDrop = ({
     </div>
   );
 };
-
-export default PaginationDrop;
