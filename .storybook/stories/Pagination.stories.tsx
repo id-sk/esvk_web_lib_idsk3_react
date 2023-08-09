@@ -33,15 +33,35 @@ const Template: ComponentStory<typeof Pagination> = (args) => (
 
 export const PaginationDefault = Template.bind({});
 PaginationDefault.args = {
-  pageRangeDisplayed: 5,
-  pageCount: 150,
+  siblingsCount: 1,
+  pageCount: 15,
   previousAriaLabel: 'Predchádzajúca stránka',
   nextAriaLabel: 'Nasledujúca stránka',
   ariaLabelBuilder: (page) => `Stránka ${page}`
 };
+
+export const PaginationLarge = Template.bind({});
+PaginationLarge.args = {
+  siblingsCount: 3,
+  pageCount: 150,
+  boundaryPagesCount: 3,
+  previousAriaLabel: 'Predchádzajúca stránka',
+  nextAriaLabel: 'Nasledujúca stránka',
+  ariaLabelBuilder: (page) => `Stránka ${page}`
+};
+
+export const PaginationInitialPage = Template.bind({});
+PaginationInitialPage.args = {
+  initialPage: 7,
+  siblingsCount: 1,
+  pageCount: 15,
+  previousAriaLabel: 'Predchádzajúca stránka',
+  nextAriaLabel: 'Nasledujúca stránka',
+  ariaLabelBuilder: (page) => `Stránka ${page}`
+};
+
 export const PaginationWithCaption = Template.bind({});
 PaginationWithCaption.args = {
-  pageRangeDisplayed: 5,
   pageCount: 150,
   caption: 'Zobrazené 1-5 zo 59 výsledkov',
   previousAriaLabel: 'Predchádzajúca stránka',
