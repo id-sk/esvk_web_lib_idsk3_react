@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Pagination } from '../../src/components/Atoms';
 import '/src/styles/idsk3_theme.css';
-import PaginationDrop from '../../src/components/Atoms/Pagination/PaginationDrop';
+import { PaginationDrop } from '../../src/components/Atoms/Pagination/PaginationDrop';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

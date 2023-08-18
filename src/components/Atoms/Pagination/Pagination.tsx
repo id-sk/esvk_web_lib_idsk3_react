@@ -192,17 +192,18 @@ const Pagination: React.FC<PaginationProps> = ({
           </BaseButton>
         )}
 
-        {endMargins.map((page) => (
-          <BaseButton
-            key={page}
-            className={getLinkClassName(page === currentPage)}
-            ariaLabel={handleAriaLabelBuilder(page)}
-            label={`${page}`}
-            onClick={() => {
-              handlePageChange(page);
-            }}
-          />
-        ))}
+        {pagesArray.length > 1 &&
+          endMargins.map((page) => (
+            <BaseButton
+              key={page}
+              className={getLinkClassName(page === currentPage)}
+              ariaLabel={handleAriaLabelBuilder(page)}
+              label={`${page}`}
+              onClick={() => {
+                handlePageChange(page);
+              }}
+            />
+          ))}
         <BaseButton
           key={'nextPage'}
           className={classNames('idsk-pagination__button', nextClassName)}
