@@ -1132,10 +1132,10 @@
         @apply max-w-[10rem] tb1:max-w-none flex flex-col justify-center items-start;
     }
     .idsk-logo__title {
-        @apply text-2xl text-blue-500 font-bold leading-none hidden tb1:block;
+        @apply text-2xl text-blue-500 font-bold leading-none tracking-normal hidden tb1:block;
     }
     .idsk-logo__short-title {
-        @apply idsk-text-body text-blue-500 font-bold leading-none block tb1:hidden idsk-text-body;
+        @apply idsk-text-body text-blue-500 font-bold leading-none tracking-normal block tb1:hidden idsk-text-body;
     }
     .idsk-logo__subtitle {
         @apply tb1:block hidden text-xs tracking-wide;
