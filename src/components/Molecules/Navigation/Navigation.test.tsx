@@ -21,6 +21,15 @@ describe('Navigation', () => {
     expect(screen.getByText('Test Link').getAttribute('href')).toEqual('testHref');
   });
 
+  test('renders link title correctly', () => {
+    render(
+      <Navigation>
+        <NavigationLink label="Test Link" href="testHref" title="Test Link Title" />
+      </Navigation>
+    );
+    expect(screen.getByText('Test Link').getAttribute('title')).toEqual('Test Link Title');
+  });
+
   test('calls the onClick function when clicked', () => {
     const mockLinkClick = jest.fn();
     render(

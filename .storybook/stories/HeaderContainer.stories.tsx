@@ -59,6 +59,7 @@ const NavigationContent = () => {
       />
       <NavigationLink
         label="Notifikácie"
+        title="Zobrazenie zoznamu notifikácií"
         href="#"
         selected={isSelected('notifikacie')}
         onClick={(e) => handleClick(e, 'notifikacie')}

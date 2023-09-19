@@ -13,7 +13,7 @@ export interface NavigationLinkProps extends NavigationLinkOptionProps {
 }
 
 const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
-  ({ id, label, href, onClick, alert, selected, linkElement, children }, ref) => {
+  ({ id, label, href, onClick, alert, selected, linkElement, children, title }, ref) => {
     if (!!children) {
       return (
         <DropDown
@@ -39,7 +39,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
         {!!linkElement ? (
           linkElement
         ) : (
-          <a ref={ref} href={href} onClick={onClick}>
+          <a ref={ref} href={href} onClick={onClick} title={title}>
             {label}
           </a>
         )}

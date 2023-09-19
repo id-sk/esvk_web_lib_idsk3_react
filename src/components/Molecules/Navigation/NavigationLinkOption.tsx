@@ -5,16 +5,17 @@ export interface NavigationLinkOptionProps {
   href?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   linkElement?: ReactElement;
+  title?: string;
 }
 
 const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkOptionProps>(
-  ({ label, href, onClick, linkElement }, ref) => {
+  ({ label, href, onClick, linkElement, title }, ref) => {
     return (
       <>
         {!!linkElement ? (
           linkElement
         ) : (
-          <a href={href} onClick={onClick} ref={ref}>
+          <a href={href} onClick={onClick} ref={ref} title={title}>
             {label}
           </a>
         )}
