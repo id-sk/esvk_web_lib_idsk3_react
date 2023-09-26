@@ -30,6 +30,7 @@
 ### ⭐ New Features
 
 - _[WEB2-5098]_: Added optional title attribute to NavigationLink
+- _[WEB2-4499]_: Added success list items for Accordion
 
 * **Property changes**
     - No changes.

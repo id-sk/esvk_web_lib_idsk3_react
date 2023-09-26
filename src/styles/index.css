@@ -167,6 +167,12 @@
     .idsk-accordion__list-number {
         @apply leading-none font-bold text-xl;
     }
+    .idsk-accordion__list-icon {
+        @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
+    }
+    .idsk-accordion--list--success {
+        @apply flex justify-center items-center rounded-md text-base font-bold tracking-[.5px] text-white bg-alert-positive rounded-full border-black;
+    }
     .idsk-accordion--gray {
         @apply bg-neutral-90;
     }
@@ -178,6 +184,9 @@
     }
     .idsk-accordion--small .idsk-accordion--list-bullet {
         @apply top-6;
+    }
+    .idsk-accordion--success {
+        @apply bg-neutral-100;
     }
 
     .idsk-anchor-card {

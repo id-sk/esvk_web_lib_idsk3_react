@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Accordion, AccordionListGroup, Input } from '../../src/components/Atoms';
+import { CheckCircleOutlineIcon } from "../../src/svgIcons";
 import '/src/styles/idsk3_theme.css';
 
 export default {
@@ -16,68 +17,68 @@ const TemplateGroup: ComponentStory<typeof Accordion> = (args) => (
   </AccordionListGroup>
 );
 
+const TemplateGroupSuccess: ComponentStory<typeof Accordion> = (args) => (
+  <AccordionListGroup>
+    <Accordion index={1} {...args} listItemVariant="success" />
+    <Accordion {...args} />
+    <Accordion index={2} {...args} listItemVariant="success" />
+  </AccordionListGroup>
+);
+
+const TemplateGroupOnClick: ComponentStory<typeof Accordion> = (args) => (
+  <AccordionListGroup>
+    <Accordion index={1} {...args} listItemVariant="success" listItemIcon={<CheckCircleOutlineIcon />} />
+    <Accordion {...args} />
+    <Accordion index={2} {...args} />
+  </AccordionListGroup>
+);
+
 const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
+
+const Heading = <h4 className="underline">Základné údaje</h4>;
+const Subtitle = 'V tejto časti môžete meniť svoje základné údaje.'
+const Content = (
+  <>
+    <h4>Filtrovania</h4>
+    <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
+  </>
+);
 
 export const Default = Template.bind({});
 Default.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  heading: Heading,
+  subTitle: Subtitle,
+  children: Content
 };
 export const InitiallyOpen = Template.bind({});
 InitiallyOpen.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  heading: Heading,
+  subTitle: Subtitle,
   initiallyClosed: false,
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  children: Content
 };
 export const WithoutSubTitle = Template.bind({});
 WithoutSubTitle.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  heading: Heading,
+  children: Content
 };
 export const Small = Template.bind({});
 Small.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  heading: Heading,
+  subTitle: Subtitle,
   size: 'small',
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  children: Content
 };
 export const SmallWithoutSubTitle = Template.bind({});
 SmallWithoutSubTitle.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
+  heading: Heading,
   size: 'small',
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  children: Content
 };
 export const GrayBackground = Template.bind({});
 GrayBackground.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  heading: Heading,
+  subTitle: Subtitle,
   initiallyClosed: false,
   bgGray: true,
   children: (
@@ -90,26 +91,36 @@ GrayBackground.args = {
     </p>
   )
 };
+
 export const ListGroup = TemplateGroup.bind({});
 ListGroup.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  heading: Heading,
+  subTitle: Subtitle,
+  children: Content
 };
 export const ListGroupSmall = TemplateGroup.bind({});
 ListGroupSmall.args = {
-  heading: <h4 className="underline">Základné údaje</h4>,
-  subTitle: 'V tejto časti môžete meniť svoje základné údaje.',
+  heading: Heading,
+  subTitle: Subtitle,
   size: 'small',
-  children: (
-    <>
-      <h4>Filtrovania</h4>
-      <Input placeholder="Zadajte meno a priezvisko" label="Meno Priezvisko" />
-    </>
-  )
+  children: Content
+};
+export const ListGroupSuccess = TemplateGroupSuccess.bind({});
+ListGroupSuccess.args = {
+  heading: Heading,
+  subTitle: Subtitle,
+  size: 'small',
+  children: Content
+};
+export const ListGroupOnClick = TemplateGroupOnClick.bind({});
+ListGroupOnClick.args = {
+  heading: Heading,
+  subTitle: Subtitle,
+  listItemButtonProps: {
+    onClick: () => {
+      console.log('button clicked!');
+    }
+  },
+  size: 'small',
+  children: Content
 };

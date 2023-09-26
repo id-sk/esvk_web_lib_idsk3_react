@@ -1,7 +1,9 @@
-import React, { Children, useState, ReactNode } from 'react';
+import React, { Children, useState, ReactNode, ReactElement, SVGProps } from 'react';
 import classNames from 'classnames';
 import { AddIcon, RemoveIcon } from '../../../svgIcons/Content';
 import { v4 as uuidv4 } from 'uuid';
+import { PrimaryIconButton, TextButton } from '../Button';
+import SvgCheck from '../../../svgIcons/Navigation/Check';
 
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: ReactNode;
@@ -9,6 +11,10 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   subTitle?: string;
   initiallyClosed?: boolean;
   inGroup?: boolean;
+  listItemVariant?: 'basic' | 'success';
+  listItemIcon?: ReactElement<SVGProps<SVGSVGElement>>;
+  listItemOnClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  listItemButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement> | undefined;
   index?: number | 0;
   bgGray?: boolean;
   fullWidthBody?: boolean;
@@ -24,6 +30,9 @@ const Accordion = ({
   children,
   initiallyClosed = true,
   inGroup = false,
+  listItemVariant = 'basic',
+  listItemIcon,
+  listItemButtonProps = undefined,
   index = 0,
   size = 'large',
   className,
@@ -44,6 +53,15 @@ const Accordion = ({
   const contentClasses = classNames('idsk-accordion__content', {
     'idsk-accordion__content--open': !closed
   });
+
+  if (!!listItemIcon || listItemVariant == 'success') {
+    listItemIcon = React.cloneElement(listItemIcon ?? <SvgCheck />, {
+      className: 'idsk-accordion__list-icon'
+    });
+  }
+
+  const roundedClassNames = 'idsk-accordion--list rounded-full border-black';
+
   return (
     <div
       role={!!inGroup ? 'listitem' : ''}
@@ -58,11 +76,50 @@ const Accordion = ({
       )}
     >
       {!!inGroup && (
-        <div
-          className={classNames('idsk-accordion--list', { 'idsk-accordion--list-bullet': !index })}
-        >
-          <span className="idsk-accordion__list-number">{!!index && index}</span>
-        </div>
+        <>
+          {!!listItemIcon && !!index ? (
+            !!listItemButtonProps ? (
+              <PrimaryIconButton
+                variant={listItemVariant}
+                icon={listItemIcon}
+                {...listItemButtonProps}
+                className={classNames(roundedClassNames, listItemButtonProps?.className)}
+              />
+            ) : (
+              <div
+                className={classNames(roundedClassNames, {
+                  'idsk-accordion--list--success': listItemVariant == 'success'
+                })}
+              >
+                {listItemIcon}
+              </div>
+            )
+          ) : (
+            <>
+              {!!listItemButtonProps && !!index ? (
+                <TextButton
+                  variant={listItemVariant}
+                  {...listItemButtonProps}
+                  className={classNames(
+                    roundedClassNames,
+                    'pt-1.5',
+                    listItemButtonProps?.className
+                  )}
+                >
+                  <span className="idsk-accordion__list-number">{index}</span>
+                </TextButton>
+              ) : (
+                <div
+                  className={classNames('idsk-accordion--list', {
+                    'idsk-accordion--list-bullet': !index
+                  })}
+                >
+                  <span className="idsk-accordion__list-number">{!!index && index}</span>
+                </div>
+              )}
+            </>
+          )}
+        </>
       )}
       <div className="idsk-accordion__button" onClick={handleOnClick} {...props}>
         <span className="idsk-accordion__title">
