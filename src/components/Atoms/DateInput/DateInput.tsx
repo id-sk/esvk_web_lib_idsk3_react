@@ -36,6 +36,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement
   maxDateToday?: boolean;
   inclusive?: boolean;
   onValueUpdate?: (value: string) => void;
+  onRevalidation?: (hasError: boolean) => void;
 }
 
 const DateInput = ({
@@ -67,6 +68,7 @@ const DateInput = ({
   maxDateToday = false,
   inclusive = false,
   onValueUpdate,
+  onRevalidation,
   ...props
 }: DateInputProps) => {
   const dateStringFormat = 'yyyy-MM-dd';
@@ -169,24 +171,26 @@ const DateInput = ({
     setInputYear(format(date, 'yyyy'));
     handleNewDate(date, format(date, dateStringFormat));
   };
-  const validation =
-    (isNaN(Date.parse(dateString)) && dateString != '--') ||
-    new Date(dateString).toDateString().includes(day) == false ||
-    !!(
-      (inclusive
-        ? new Date().toISOString().slice(0, 10) >= dateString
-        : new Date().toISOString().slice(0, 10) > dateString) &&
-      dateString != '--' &&
-      !!minDateToday
-    ) ||
-    !!(
-      (inclusive
-        ? new Date().toISOString().slice(0, 10) <= dateString
-        : new Date().toISOString().slice(0, 10) < dateString) &&
-      dateString != '--' &&
-      !!maxDateToday
-    ) ||
-    error;
+  const validation: boolean =
+    (isNaN(Date.parse(dateString)) && dateString !== '--') ||
+    new Date(dateString).toDateString().includes(day) === false ||
+    ((inclusive
+      ? new Date().toISOString().slice(0, 10) >= dateString
+      : new Date().toISOString().slice(0, 10) > dateString) &&
+      dateString !== '--' &&
+      minDateToday) ||
+    ((inclusive
+      ? new Date().toISOString().slice(0, 10) <= dateString
+      : new Date().toISOString().slice(0, 10) < dateString) &&
+      dateString !== '--' &&
+      maxDateToday) ||
+    !!error;
+
+  useEffect(() => {
+    if (!!onRevalidation) {
+      onRevalidation(validation);
+    }
+  }, [onRevalidation, validation]);
 
   const datePickerClasses: string = classNames('idsk-date-input__date-picker', {
     'idsk-date-input__date-picker': day == '' || month == '' || year == '',

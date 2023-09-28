@@ -33,7 +33,8 @@ Default.args = {
     nextMonthAriaLabel: 'Nasledujúci mesiac',
     previousMonthAriaLabel: 'Predchádzajúci mesiac'
   },
-  onValueUpdate: (value: string) => console.log('date update', value)
+  onValueUpdate: (value: string) => console.log('date update', value),
+  onRevalidation: (hasError: boolean) => console.log(`Has internal error: ${hasError}`)
 };
 
 export const WithLabel = Template.bind({});
