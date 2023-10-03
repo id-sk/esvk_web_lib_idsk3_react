@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import { PrimaryButton, PrimaryButtonProps, TextButton, TextButtonProps } from '../../Atoms';
 import { SearchIcon } from '../../../svgIcons/Actions';
 import { v4 as uuidv4 } from 'uuid';
+import { CancelIcon } from '../../../svgIcons/Navigation';
+import { useForwardRef } from '../../../utils';
+import BaseButton from '../../Atoms/Button/BaseButton';
 
 export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   title?: string;
@@ -14,6 +17,8 @@ export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInpu
   advancedSearchButton?: TextButtonProps;
   label?: string;
   errorMessageId?: string;
+  showCancelButton?: boolean;
+  onCancel?: () => void;
 }
 
 const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>(
@@ -29,6 +34,8 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       label,
       className,
       errorMessageId,
+      showCancelButton,
+      onCancel,
       ...props
     },
     ref
@@ -57,6 +64,16 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
 
     const idForAria: string = errorMessageId || uuidv4();
 
+    const inputRef = useForwardRef<HTMLInputElement>(ref);
+
+    const handleCancel = () => {
+      if (!!inputRef.current) {
+        inputRef.current.value = '';
+      }
+
+      if (!!onCancel) onCancel();
+    };
+
     return (
       <div className={containerClasses}>
         {!!title && (
@@ -68,14 +85,21 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
           <label className="sr-only" htmlFor={idForAria + '-input'}>
             {label}
           </label>
-          <input
-            id={idForAria + '-input'}
-            aria-invalid={error}
-            aria-errormessage={idForAria}
-            className={inputClasses}
-            {...props}
-            ref={ref}
-          />
+          <div className="idsk-searchbar__input-wrapper">
+            <input
+              id={idForAria + '-input'}
+              aria-invalid={error}
+              aria-errormessage={idForAria}
+              className={inputClasses}
+              {...props}
+              ref={inputRef}
+            />
+            {!!showCancelButton && (
+              <BaseButton className="idsk-searchbar__cancel" onClick={handleCancel}>
+                <CancelIcon className="idsk-searchbar__cancel-icon--large" />
+              </BaseButton>
+            )}
+          </div>
           {(!!errorMsg || !!caption) && (
             <p
               className={classNames('idsk-input__caption', {

@@ -1,8 +1,10 @@
-import React, { useState, useRef, ReactNode, useEffect, ForwardedRef } from 'react';
+import React, { useState, useRef, ReactNode } from 'react';
 import classNames from 'classnames';
-import { SearchIcon } from '../../../svgIcons/Actions';
+import BaseButton from '../Button/BaseButton';
 import IconLink from '../IconLink';
-import CancelIcon from '../../../svgIcons/Navigation/Cancel';
+import { SearchIcon } from '../../../svgIcons/Actions';
+import { CancelIcon } from '../../../svgIcons/Navigation';
+import { useForwardRef } from '../../../utils';
 
 export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
   buttonLabel?: string | ReactNode;
@@ -20,22 +22,6 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   showCancelButton?: boolean;
   onCancel?: () => void;
 }
-
-const useForwardRef = <T,>(ref: ForwardedRef<T>, initialValue: any = null) => {
-  const targetRef = useRef<T>(initialValue);
-
-  useEffect(() => {
-    if (!ref) return;
-
-    if (typeof ref === 'function') {
-      ref(targetRef.current);
-    } else {
-      ref.current = targetRef.current;
-    }
-  }, [ref]);
-
-  return targetRef;
-};
 
 const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
   (
@@ -133,9 +119,9 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
             />
 
             {!!showCancelButton && (
-              <button className="idsk-searchbar__cancel" onClick={handleCancel}>
+              <BaseButton className="idsk-searchbar__cancel" onClick={handleCancel}>
                 <CancelIcon className={searchbarCancelIconClasses} />
-              </button>
+              </BaseButton>
             )}
           </div>
           <button
