@@ -9,6 +9,25 @@ workflow:
   rules:
     - if: $CI_COMMIT_BRANCH # Only commit or merge
 
+###      PRE       ###
+"Version":
+  stage: .pre
+  tags:
+    - "init"
+  environment: DEV
+  image: "bash:5.2"
+  before_script:
+    - apk add curl jq
+  script:
+    - source ci/lib-release.sh
+    - set -x # Activate debug.
+    - create_build_number_version_env
+  artifacts:
+    reports:
+      dotenv: "variables.env"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^devops\/.*$/
 
 npm-install:
   stage: .pre
@@ -24,7 +43,6 @@ npm-install:
     policy: pull-push
     paths:
       - ".npm"
-
 
 lint-job:
   stage: test
@@ -75,7 +93,6 @@ build-job:
     paths:
       - "dist"
 
-
 "Build Storybook":
   stage: compile
   environment: DEV
@@ -93,44 +110,28 @@ build-job:
     when: always
     paths:
       - "storybook-static"
-  only:
-    - develop
-    - /^devops\/.*$/
-
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^devops\/.*$/
 
 ###     BUILD       ###
-"Increment Build number":
+"Build Image":
   stage: build
   tags:
-    - "init"
-  environment: DEV
-  image: "bash:5.1"
-  before_script:
-    - apk add curl jq
-  script:
-    - source ./ci/lib-build.sh
-    - set -x # Activate debug.
-    - increment_build_number
-  only:
-    - develop
-    - /^devops\/.*$/
-
-"Build Docker image":
-  stage: build
+    - "build"
   environment: DEV
   image: "docker:stable"
   needs:
-    - "Increment Build number"
+    - "Version"
     - "Build Storybook"
   before_script:
     - apk add --update bash curl jq
   script:
     - bash -xc "source ./ci/lib-build.sh; docker_build_image"
     - bash -xc "source ./ci/lib-build.sh; docker_push_image"
-  only:
-    - develop
-    - /^devops\/.*$/
-
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^devops\/.*$/
 
 ###     DEPLOY      ###
 "Publish package":
@@ -144,8 +145,8 @@ build-job:
     - echo "@eslovensko:registry=https://gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
     - echo "//gitlab.slovenskoit.sk/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc
     - npm publish
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
 
 "Deploy":
   stage: deploy
@@ -162,6 +163,6 @@ build-job:
     - set -x # Activate debug.
     - deploy_docker_login
     - deploy_docker_compose
-  only:
-    - develop
-    - /^devops\/.*$/
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^devops\/.*$/

@@ -1,10 +1,10 @@
 #!/bin/bash
-# version 1.1.4
+# version 1.5.0
 
 REQUIRED_SET_SSH=true
 
 
-# Error output.
+# error output
 error() {
   echo -e "\033[0;31mERROR: $1\033[0m" >&2
 
@@ -12,13 +12,87 @@ error() {
 }
 
 
-# Setting SSH requirements.
+# check if the Gitlab CI variables are defined
+check_ci_variables() {
+  # arguments is not empty
+  if [[ "$#" -gt 0 ]]; then
+    local OUTPUT=""
+
+    # check if variables are defined
+    for VARIABLE in "$@"; do
+      if [[ -z "${!VARIABLE}" ]]; then
+        if [[ -z "${OUTPUT}" ]]; then
+          OUTPUT="'${VARIABLE}'"
+
+        else
+          OUTPUT="${OUTPUT}, '${VARIABLE}'"
+        fi
+      fi
+    done
+
+    if [[ -n "${OUTPUT}" ]]; then  
+      error "Gitlab CI Variables not defined: ${OUTPUT}!"
+    fi
+
+  else
+    error "Arguments is empty!"
+  fi
+}
+
+
+# replace CI variables in file on runner (file is temporary)
+replace_ci_variables() {
+  # check requerments
+  check_ci_variables "CI_ENVIRONMENT_NAME"
+
+  local FILE_PATH="$1"
+
+  if [[ -z "${FILE_PATH}" ]]; then
+    error "Empty required input arguments: 'FILE_PATH'!"
+  fi
+
+  if [[ ! -f "${FILE_PATH}" ]]; then
+    error "File '${FILE_PATH}' not found in Gitlab Project!"
+  fi
+
+  local CI_ENVIRONMENT_NAME_LOWER=`echo "${CI_ENVIRONMENT_NAME,,}"`
+
+  # process Gitlab CI variables for file
+  for GITLAB_VARIABLE in "CI_ENVIRONMENT_NAME" "CI_ENVIRONMENT_NAME_LOWER"; do
+    sed -ie "s#\${${GITLAB_VARIABLE}}#${!GITLAB_VARIABLE}#g" "${FILE_PATH}"
+  done
+}
+
+
+# replace variables in file on runner (file is temporary)
+replace_variables() {
+  local FILE_PATH="$1"
+
+  if [[ -z "${FILE_PATH}" ]]; then
+    error "Empty required input arguments: 'FILE_PATH'!"
+  fi
+
+  if [[ ! -f "${FILE_PATH}" ]]; then
+    error "File '${FILE_PATH}' not found in Gitlab Project!"
+  fi
+
+  # process Gitlab CI variables for file
+  for GITLAB_VARIABLE in `printenv | awk -F "=" '/^DC_/ {print $1}'`; do
+    # only variable with value
+    if [[ ! -f "${!GITLAB_VARIABLE}" ]]; then
+      sed -ie "s#\${${GITLAB_VARIABLE}}#${!GITLAB_VARIABLE}#" "${FILE_PATH}"
+    fi
+  done
+}
+
+
+# setting SSH requirements
 set_ssh() {
   if [[ -z "${SSH_CONNECT}" ]]; then
     error "SSH connection is not defined in variable 'SSH_CONNECT'!"
   fi
 
-  # If global SSH Key not set.
+  # if global SSH Key not set
   if [[ -z "${SSH_KEY}" || ! -f "${SSH_KEY}" ]]; then
     if [[ -z "${SSH_KEY_NAME}" || ! -f "${!SSH_KEY_NAME}" ]]; then
       error "Failed to find ssh identifies key file from Gitlab variable 'SSH_KEY_NAME'!"
@@ -31,14 +105,14 @@ set_ssh() {
     error "Failed to find ssh identifies key file from Gitlab variable 'SSH_KEY'!"
   fi
 
-  # Set required permissions.
+  # set required permissions
   chmod 0600 "${SSH_KEY}"
 
   REQUIRED_SET_SSH=false
 }
 
 
-# SSH Run remote command.
+# SSH Run remote command
 ssh_run_command() {
   if ${REQUIRED_SET_SSH}; then
     error "SSH settings is not inicialized! Run beafor 'set_ssh'!"
@@ -48,37 +122,27 @@ ssh_run_command() {
     error "Empty required input arguments: 'COMMAND'!"
   fi
 
-  # Run remote command.
+  # run remote command
   if ! ssh -q -i "${SSH_KEY}" -o "StrictHostKeyChecking=no" -o "IdentitiesOnly=yes" "${SSH_CONNECT}" "$@"; then
     error "Remote command exited with error: '$@'!"
   fi
 }
 
 
-# Get Gitlab Tag.
-get_gitlab_tag() {
-  # Check Gitlab CI Variables.
-  if [[ -z "${CI_SERVER_URL}" || -z "${CI_PROJECT_ID}"  ]]; then
-    error "Gitlab CI Variables not defined: 'CI_SERVER_URL', 'CI_PROJECT_ID'!"
-  fi
-
-  if [[ -z "${CI_API_TOKEN}" ]]; then
-    error "Gitlab CI variable 'CI_API_TOKEN' not set!"
-  fi
-
-  # Show last commit tag name.
-  curl -sfg -H PRIVATE-TOKEN:${CI_API_TOKEN} "${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/repository/tags" | jq -r ".[0] | .name // empty"
-
-  if [[ "$?" -ne 0 ]]; then
-    error "Failed read Gitlab Repository Tags!"
-  fi
-}
-
-
-# Generate string "BRANCH-[ TAG ]-BUILD_NUMBER-COMMIT".
+# get docker image tag configuration
 get_docker_image_tag() {
-  # Run local.
-  if [[ -z "${CI_PIPELINE_ID}" ]]; then
+  # defined version
+  if [[ -n "${VERSION}" ]]; then
+    # add IMAGE_TAG_SUFFIX
+    if [[ -n "${IMAGE_TAG_SUFFIX}" ]]; then
+      echo "${VERSION}-${IMAGE_TAG_SUFFIX}"
+
+    else
+      echo "${VERSION}"
+    fi
+
+  # run local
+  elif [[ -z "${CI_PIPELINE_ID}" ]]; then
     local BRANCH
     BRANCH="$(git branch --show-current)"
     BRANCH=${BRANCH##*/}
@@ -87,37 +151,27 @@ get_docker_image_tag() {
       error "Failed to read local git branch!"
     fi
 
-    # Tag not exists - only commit.
+    # tag not exists - only commit
     if [[ -z "$(git tag )" ]]; then
       echo "${BRANCH}-$(git rev-parse --short HEAD)"
 
-    # Tag with Number and commit.
+    # tag with Number and commit
     else
       echo "${BRANCH}-$(git describe --tags)"
     fi
 
-  # Run in Gitlab CI/CD.
+  # run in Gitlab CI/CD
   else
-    # Check Gitlab CI Variables.
-    if [[ -z "${CI_COMMIT_BRANCH}" || -z "${CI_COMMIT_SHORT_SHA}" || -z "${BUILD_NUMBER}" ]]; then
-      error "Gitlab CI Variables not defined: 'CI_COMMIT_BRANCH', 'CI_COMMIT_SHORT_SHA', 'BUILD_NUMBER'!"
+    # check requerments
+    check_ci_variables "CI_COMMIT_BRANCH" "CI_COMMIT_SHORT_SHA" "BUILD_NUMBER"
+
+    # generate string "BRANCH-BUILD_NUMBER-COMMIT-IMAGE_TAG_SUFFIX"
+    if [[ -n "${IMAGE_TAG_SUFFIX}" ]]; then
+      echo "${CI_COMMIT_BRANCH##*/}-${BUILD_NUMBER}-${CI_COMMIT_SHORT_SHA}-${IMAGE_TAG_SUFFIX}"
+
+    # generate string "BRANCH-BUILD_NUMBER-COMMIT"
+    else
+      echo "${CI_COMMIT_BRANCH##*/}-${BUILD_NUMBER}-${CI_COMMIT_SHORT_SHA}"
     fi
-
-    local IMAGE_TAG="${CI_COMMIT_BRANCH}"
-    IMAGE_TAG=${IMAGE_TAG##*/}
-
-    # Gitlab Repository Tags.
-    # local GIT_TAG
-    # GIT_TAG="$(get_gitlab_tag)"
-    #
-    # if [[ "$?" -ne 0 ]]; then
-    #   error "Failed read git tag!" "get_gitlab_tag" "${GIT_TAG}"
-    # fi
-    #
-    # if [[ ! -z "$GIT_TAG" ]]; then
-    #   IMAGE_TAG="${IMAGE_TAG}-${GIT_TAG}"
-    # fi
-
-    echo "${IMAGE_TAG}-${BUILD_NUMBER}-${CI_COMMIT_SHORT_SHA}"
   fi
 }
