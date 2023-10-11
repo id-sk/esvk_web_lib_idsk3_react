@@ -42,7 +42,7 @@
 
 ### 🐞 Bug Fixes
 
-- No changes.
+- _[WEB2-4462]_: Fix class name for the active link in Storybook
 
 ### 🔨 Dependency Upgrades
 
