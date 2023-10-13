@@ -161,7 +161,6 @@ build-job:
   script:
     - source ./ci/lib-deploy.sh
     - set -x # Activate debug.
-    - deploy_docker_login
     - deploy_docker_compose
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
