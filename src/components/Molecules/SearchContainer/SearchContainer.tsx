@@ -19,6 +19,8 @@ export interface SearchContainerProps extends React.InputHTMLAttributes<HTMLInpu
   errorMessageId?: string;
   showCancelButton?: boolean;
   onCancel?: () => void;
+  suggestions?: string[];
+  suggestionOnClick?: (suggestion: string) => void;
 }
 
 const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>(
@@ -36,6 +38,8 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
       errorMessageId,
       showCancelButton,
       onCancel,
+      suggestions,
+      suggestionOnClick,
       ...props
     },
     ref
@@ -98,6 +102,23 @@ const SearchContainer = React.forwardRef<HTMLInputElement, SearchContainerProps>
               <BaseButton className="idsk-searchbar__cancel" onClick={handleCancel}>
                 <CancelIcon className="idsk-searchbar__cancel-icon--large" />
               </BaseButton>
+            )}
+            {!!suggestions?.length && (
+              <ul className="idsk-dropdown__options w-full" data-testid="dropdown-options">
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    className="idsk-dropdown__option cursor-pointer"
+                    key={index}
+                    onClick={() => {
+                      inputRef.current.value = suggestion;
+                      inputRef.current.focus();
+                      suggestionOnClick?.(suggestion);
+                    }}
+                  >
+                    <span>{suggestion}</span>
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
           {(!!errorMsg || !!caption) && (

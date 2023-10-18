@@ -21,6 +21,8 @@ export interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputEleme
   label?: string;
   showCancelButton?: boolean;
   onCancel?: () => void;
+  suggestions?: string[];
+  suggestionOnClick?: (suggestion: string) => void;
 }
 
 const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
@@ -44,6 +46,8 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
       label,
       showCancelButton,
       onCancel,
+      suggestions,
+      suggestionOnClick,
       ...props
     }: SearchBarProps,
     ref
@@ -122,6 +126,23 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
               <BaseButton className="idsk-searchbar__cancel" onClick={handleCancel}>
                 <CancelIcon className={searchbarCancelIconClasses} />
               </BaseButton>
+            )}
+            {!!suggestions?.length && (
+              <ul className="idsk-dropdown__options w-full" data-testid="dropdown-options">
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    className="idsk-dropdown__option cursor-pointer"
+                    key={index}
+                    onClick={() => {
+                      inputRef.current.value = suggestion;
+                      inputRef.current.focus();
+                      suggestionOnClick?.(suggestion);
+                    }}
+                  >
+                    <span>{suggestion}</span>
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
           <button

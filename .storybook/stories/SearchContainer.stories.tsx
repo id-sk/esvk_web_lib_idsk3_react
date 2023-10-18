@@ -35,3 +35,19 @@ ErrorMessage.args = {
     label: 'Advanced search'
   }
 };
+
+export const WithSuggestions = Template.bind({});
+Default.args = {
+  title: 'Search',
+  placeholder: 'Placeholder',
+  searchButton: {
+    label: 'Search'
+  },
+  advancedSearchButton: {
+    label: 'Advanced search'
+  },
+  suggestions: ['suggestion 1', 'suggestion 2', 'suggestion 3'],
+  suggestionOnClick: (suggestion: string) => {
+    console.log(suggestion);
+  }
+};
