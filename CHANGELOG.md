@@ -32,6 +32,7 @@
 - _[WEB2-5098]_: Added optional title attribute to NavigationLink
 - _[WEB2-4499]_: Added success list items for Accordion
 - _[OZO-36]_: Added validation callback to DateInput for catching internal errors
+- _[OZO-47]_: Pagination dropdown focusable
 
 * **Property changes**
   - No changes.

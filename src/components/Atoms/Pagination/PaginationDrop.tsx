@@ -21,16 +21,17 @@ export interface PaginationDropProps {
 }
 
 export const PaginationDrop = ({
-  title: dropDownTitle,
+  title,
   arrowIcon = <KeyBoardArrowDownIcon />,
   optionClassName,
   buttonClassName,
   caption,
   id,
-  ...props
+  onClick,
+  items
 }: PaginationDropProps) => {
   const [opened, setOpened] = useState<boolean>(false);
-  const [dropTitle, setDropTitle] = useState(dropDownTitle);
+  const [dropTitle, setDropTitle] = useState(title);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,12 +62,19 @@ export const PaginationDrop = ({
   const renderedIcon = React.cloneElement(arrowIcon, {
     className: classNames('idsk-pagination-drop__icon', { 'rotate-180': opened })
   });
+
+  const dropdownButtonId = id ? id + '-button' : 'pagination-dropdown-button';
+
   return (
     <div className="idsk-pagination-drop">
-      {!!caption && <p className="idsk-pagination__caption">{caption}</p>}
+      {!!caption && (
+        <label className="idsk-pagination__caption" htmlFor={dropdownButtonId}>
+          {caption}
+        </label>
+      )}
       <div ref={containerRef} className={wrapperClasses} id={id}>
         <button
-          id={id ? id + '-button' : undefined}
+          id={dropdownButtonId}
           className={buttonClasses}
           onClick={() => setOpened((p) => !p)}
         >
@@ -74,18 +82,19 @@ export const PaginationDrop = ({
           {renderedIcon}
         </button>
         <ul className={optionClasses} data-testid="idsk-pagination-drop__options">
-          {props.items.map((item) => (
-            <li
-              key={item.key}
-              id={id ? id + '-option-' + item.key : undefined}
-              className={'idsk-pagination-drop__option'}
-              onClick={() => {
-                props.onClick(item);
-                setOpened(false);
-                setDropTitle(item.label);
-              }}
-            >
-              {item.label}
+          {items.map((item, index) => (
+            <li key={item.key}>
+              <button
+                id={id ? id + '-option-' + item.key : `pagination-dropdown-option-${index + 1}}`}
+                className={'idsk-pagination-drop__option'}
+                onClick={() => {
+                  onClick(item);
+                  setOpened(false);
+                  setDropTitle(item.label);
+                }}
+              >
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>
