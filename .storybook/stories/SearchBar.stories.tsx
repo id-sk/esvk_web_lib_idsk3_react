@@ -34,6 +34,19 @@ Error.args = {
   errorMsg: 'Nesprávny vstup'
 };
 
+export const WithSuggestions = Template.bind({});
+WithSuggestions.args = {
+  placeholder: 'Placeholder',
+  buttonLabel: 'Search',
+  searchbarSize: 'large',
+  error: true,
+  errorMsg: 'Nesprávny vstup',
+  suggestions: ['suggestion 1', 'suggestion 2', 'suggestion 3'],
+  suggestionOnClick: (suggestion: string) => {
+    console.log(suggestion);
+  }
+};
+
 const ref: RefObject<HTMLInputElement> = React.createRef();
 export const WithCancelButton = Template.bind({});
 WithCancelButton.args = {
