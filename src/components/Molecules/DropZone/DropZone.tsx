@@ -44,6 +44,7 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   progressEmptyColor?: string;
   progressFillingColor?: string;
   fileInputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  defaultValueFiles?: File[];
   onChangeFiles?: (files: File[]) => void;
 }
 
@@ -86,8 +87,8 @@ export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
 }
 
 const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
-  ({ icon, className, onChangeFiles, ...props }, ref) => {
-    const [files, setFiles] = useState<File[]>([]);
+  ({ icon, className, onChangeFiles, defaultValueFiles, ...props }, ref) => {
+    const [files, setFiles] = useState<File[]>(defaultValueFiles ?? []);
     const [filesRejected, setFilesRejected] = useState<FileRejection[]>([]);
 
     useImperativeHandle(ref, () => {
