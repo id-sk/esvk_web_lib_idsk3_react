@@ -33,6 +33,7 @@
 - _[WEB2-4499]_: Added success list items for Accordion
 - _[OZO-36]_: Added validation callback to DateInput for catching internal errors
 - _[OZO-47]_: Pagination dropdown focusable
+- _[OZO-411]_: Added tooltips to components
 
 * **Property changes**
   - No changes.

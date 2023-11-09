@@ -6,6 +6,7 @@ import DateRange from '../../../svgIcons/Actions/DateRange';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import { format, setDate, setMonth, setYear } from 'date-fns';
 import { useRifm } from 'rifm';
+import Tooltip from '../Tooltip';
 
 export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement> {
   id?: string;
@@ -28,6 +29,7 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement
   yearPlaceholder?: string;
   datePickerLabel?: string;
   datePickerProps?: ReactDatePickerProps;
+  datePickerTooltip?: string;
   inputLabelsSrOnly?: boolean;
   inputClasses?: string;
   initialDate?: Date | null | undefined;
@@ -62,6 +64,7 @@ const DateInput = ({
   yearPlaceholder,
   datePickerLabel,
   datePickerProps,
+  datePickerTooltip,
   initialDate,
   refreshDate = true,
   minDateToday = false,
@@ -305,7 +308,15 @@ const DateInput = ({
           onCalendarClose={() => setOpen(false)}
           onChange={handleDatepickerChange}
           disabled={disabled}
-          customInput={<DatePickerCustomInput />}
+          customInput={
+            !!datePickerTooltip ? (
+              <Tooltip tooltip={datePickerTooltip}>
+                <DatePickerCustomInput />
+              </Tooltip>
+            ) : (
+              <DatePickerCustomInput />
+            )
+          }
           previousMonthAriaLabel={datePickerProps?.previousMonthAriaLabel}
           nextMonthAriaLabel={datePickerProps?.nextMonthAriaLabel}
         />

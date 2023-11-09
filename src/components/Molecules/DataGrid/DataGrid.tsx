@@ -1,7 +1,7 @@
 import React, { Children, ReactNode } from 'react';
 import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
-import { Checkbox, DropDown, Tag } from '../../Atoms';
+import { Checkbox, DropDown, Tag, Tooltip } from '../../Atoms';
 import { InfoIcon } from '../../../svgIcons/Actions';
 
 interface DataGridTagsProps extends React.AllHTMLAttributes<HTMLDivElement> {
@@ -52,6 +52,7 @@ export const DataGridRowValue = ({
 export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement>, DataGridProps {
   moreIcon?: ReactNode;
   moreOptions?: ReactNode;
+  moreOptionsTooltip?: string;
   customMoreButton?: ReactNode;
   id?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -66,11 +67,13 @@ export function DataGridRow({
   children,
   moreIcon = <MoreVertIcon />,
   moreOptions,
+  moreOptionsTooltip,
   customMoreButton,
   checked,
   onChange,
   active,
   checkbox,
+  checkboxTooltip,
   className,
   activeDotVisibility = false,
   id,
@@ -89,16 +92,35 @@ export function DataGridRow({
     { 'idsk-data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
     className
   );
+  const DropDownOptions = () => (
+    <DropDown
+      dropDownTitle={moreIcon}
+      optionsSide="left"
+      arrowIcon={<></>}
+      id={id ? id + '-more-options' : undefined}
+    >
+      {moreOptions}
+    </DropDown>
+  );
+  const Check = () => (
+    <Checkbox
+      name="checkbox"
+      checked={checked}
+      onChange={onChange}
+      id={id ? id + '-checkbox' : undefined}
+    />
+  );
   return (
     <tr className={dataGridClasses} id={id} {...props}>
       {checkbox && (
         <td>
-          <Checkbox
-            name="checkbox"
-            checked={checked}
-            onChange={onChange}
-            id={id ? id + '-checkbox' : undefined}
-          />
+          {!!checkboxTooltip ? (
+            <Tooltip tooltip={checkboxTooltip}>
+              <Check />
+            </Tooltip>
+          ) : (
+            <Check />
+          )}
         </td>
       )}
       {!!active && !!activeDotVisibility && (
@@ -113,14 +135,13 @@ export function DataGridRow({
       {children}
       <td>
         {moreOptions ? (
-          <DropDown
-            dropDownTitle={moreIcon}
-            optionsSide="left"
-            arrowIcon={<></>}
-            id={id ? id + '-more-options' : undefined}
-          >
-            {moreOptions}
-          </DropDown>
+          !!moreOptionsTooltip ? (
+            <Tooltip tooltip={moreOptionsTooltip}>
+              <DropDownOptions />
+            </Tooltip>
+          ) : (
+            <DropDownOptions />
+          )
         ) : customMoreButton ? (
           customMoreButton
         ) : (
@@ -133,6 +154,7 @@ export function DataGridRow({
 
 export interface DataGridProps extends React.AllHTMLAttributes<HTMLDivElement> {
   checkboxEverything?: boolean;
+  checkboxTooltip?: string;
   onSelectAllCheck?: (checked: boolean) => void;
   headRow?: ReactNode;
   hasUncheckIcon?: boolean;
@@ -146,6 +168,7 @@ function DataGrid({
   headRow,
   className,
   checkboxEverything,
+  checkboxTooltip,
   hasUncheckIcon,
   id,
   ...props
@@ -158,19 +181,28 @@ function DataGrid({
   const handleSelectAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSelectAllCheck?.(e.currentTarget.checked);
   };
+  const CheckAll = () => (
+    <Checkbox
+      name="checkbox"
+      checked={checked}
+      onChange={handleSelectAllChange}
+      hasUncheckIcon={hasUncheckIcon}
+      id={id ? id + '-checkbox-all' : undefined}
+    />
+  );
   return (
     <table className={classNames('idsk-data-grid', className)} id={id} {...props}>
       {headRow && (
         <th className="idsk-data-grid__head">
           {checkboxEverything && (
             <td>
-              <Checkbox
-                name="checkbox"
-                checked={checked}
-                onChange={handleSelectAllChange}
-                hasUncheckIcon={hasUncheckIcon}
-                id={id ? id + '-checkbox-all' : undefined}
-              />
+              {!!checkboxTooltip ? (
+                <Tooltip tooltip={checkboxTooltip}>
+                  <CheckAll />
+                </Tooltip>
+              ) : (
+                <CheckAll />
+              )}
             </td>
           )}
           {headRow}

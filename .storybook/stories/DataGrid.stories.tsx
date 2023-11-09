@@ -55,6 +55,7 @@ const DecisionListMock = [
 export const DecisionList = Template.bind({});
 DecisionList.args = {
   checkboxEverything: true,
+  checkboxTooltip: 'Označiť všetko',
   headRow: (
     <>
       <DataGridRowValue>Odosielateľ</DataGridRowValue>
@@ -69,6 +70,7 @@ DecisionList.args = {
   children: DecisionListMock.map((gridItem) => (
     <DataGridRow
       checkbox={true}
+      checkboxTooltip='Označiť'
       active={!gridItem.inactive}
       key={gridItem.id}
       moreOptions={[
@@ -77,6 +79,7 @@ DecisionList.args = {
         <p key={3}>Sprievodca schránkou</p>,
         <p key={4}>Zobraziť detail</p>
       ]}
+      moreOptionsTooltip='Možnosti'
     >
       <DataGridRowValue>
         <div>

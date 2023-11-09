@@ -33,6 +33,7 @@ Default.args = {
     nextMonthAriaLabel: 'Nasledujúci mesiac',
     previousMonthAriaLabel: 'Predchádzajúci mesiac'
   },
+  datePickerTooltip: 'Vybrať dátum',
   onValueUpdate: (value: string) => console.log('date update', value),
   onRevalidation: (hasError: boolean) => console.log(`Has internal error: ${hasError}`)
 };
