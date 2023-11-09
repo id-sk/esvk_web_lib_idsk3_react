@@ -92,16 +92,6 @@ export function DataGridRow({
     { 'idsk-data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
     className
   );
-  const DropDownOptions = () => (
-    <DropDown
-      dropDownTitle={moreIcon}
-      optionsSide="left"
-      arrowIcon={<></>}
-      id={id ? id + '-more-options' : undefined}
-    >
-      {moreOptions}
-    </DropDown>
-  );
   const Check = () => (
     <Checkbox
       name="checkbox"
@@ -135,13 +125,22 @@ export function DataGridRow({
       {children}
       <td>
         {moreOptions ? (
-          !!moreOptionsTooltip ? (
-            <Tooltip tooltip={moreOptionsTooltip}>
-              <DropDownOptions />
-            </Tooltip>
-          ) : (
-            <DropDownOptions />
-          )
+          <DropDown
+            dropDownTitle={
+              !!moreOptionsTooltip ? (
+                <Tooltip tooltip={moreOptionsTooltip} alignLeft>
+                  {moreIcon}
+                </Tooltip>
+              ) : (
+                moreIcon
+              )
+            }
+            optionsSide="left"
+            arrowIcon={<></>}
+            id={id ? id + '-more-options' : undefined}
+          >
+            {moreOptions}
+          </DropDown>
         ) : customMoreButton ? (
           customMoreButton
         ) : (

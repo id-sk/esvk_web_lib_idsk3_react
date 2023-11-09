@@ -310,7 +310,7 @@ const DateInput = ({
           disabled={disabled}
           customInput={
             !!datePickerTooltip ? (
-              <Tooltip tooltip={datePickerTooltip}>
+              <Tooltip tooltip={datePickerTooltip} alignLeft>
                 <DatePickerCustomInput />
               </Tooltip>
             ) : (
