@@ -13,6 +13,7 @@ export interface ArticleCardProps
   tags?: string[];
   dateFormatString?: string;
   imageWrapperClasses?: string;
+  anchorTagClasses?: string;
 }
 
 const ArticleCard = React.forwardRef<HTMLAnchorElement, ArticleCardProps>(
@@ -27,6 +28,7 @@ const ArticleCard = React.forwardRef<HTMLAnchorElement, ArticleCardProps>(
       dateFormatString = 'dd.MM.yyyy',
       className,
       imageWrapperClasses,
+      anchorTagClasses,
       layout,
       href,
       ...props
@@ -104,7 +106,7 @@ const ArticleCard = React.forwardRef<HTMLAnchorElement, ArticleCardProps>(
     };
 
     return !!href ? (
-      <a href={href} ref={ref} {...props}>
+      <a href={href} ref={ref} className={anchorTagClasses} {...props}>
         <AnchorCardComponent />
       </a>
     ) : (
