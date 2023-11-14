@@ -105,7 +105,7 @@ export function DataGridRow({
       {checkbox && (
         <td>
           {!!checkboxTooltip ? (
-            <Tooltip tooltip={checkboxTooltip}>
+            <Tooltip tooltip={checkboxTooltip} isInstructive>
               <Check />
             </Tooltip>
           ) : (
@@ -128,7 +128,7 @@ export function DataGridRow({
           <DropDown
             dropDownTitle={
               !!moreOptionsTooltip ? (
-                <Tooltip tooltip={moreOptionsTooltip} alignLeft>
+                <Tooltip tooltip={moreOptionsTooltip} isInstructive>
                   {moreIcon}
                 </Tooltip>
               ) : (
@@ -196,7 +196,7 @@ function DataGrid({
           {checkboxEverything && (
             <td>
               {!!checkboxTooltip ? (
-                <Tooltip tooltip={checkboxTooltip}>
+                <Tooltip tooltip={checkboxTooltip} isInstructive>
                   <CheckAll />
                 </Tooltip>
               ) : (

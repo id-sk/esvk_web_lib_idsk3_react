@@ -29,6 +29,13 @@ PositionUp.args = {
   children: <InfoIcon className="w-6 h-6" />,
   positionUp: true
 };
+export const Instructive = Template.bind({});
+Instructive.args = {
+  tooltip:
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium incidunt adipisci voluptates magni pariatur ad nisi, temporibus nihil. Quisquam, hic? Est harum dignissimos praesentium nemo deleniti nobis magnam, repellendus assumenda?',
+  children: <InfoIcon className="w-6 h-6" />,
+  isInstructive: true
+};
 export const AlignLeft = Template.bind({});
 AlignLeft.args = {
   tooltip:
