@@ -16,9 +16,9 @@ const Tooltip = ({ tooltip, children, ...props }: TooltipProps) => {
     'idsk-tooltip--instructive': !!props.isInstructive
   });
   return (
-    <span data-tooltip={tooltip} className={tooltipClasses}>
+    <div role="tooltip" title={tooltip} data-tooltip={tooltip} className={tooltipClasses}>
       {children}
-    </span>
+    </div>
   );
 };
 
