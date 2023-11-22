@@ -2,6 +2,7 @@ import React, { Children, ReactNode } from 'react';
 import classNames from 'classnames';
 import { AnchorCard, AnchorCardProps, PrimaryButton, PrimaryButtonProps } from '../../Atoms';
 import { ArrowForwardIcon } from '../../../svgIcons/Navigation';
+import OpenInNewIcon from '../../../svgIcons/Actions/OpenInNew';
 
 export interface SignpostProps
   extends Omit<AnchorCardProps, 'grid'>,
@@ -33,7 +34,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
   ) => {
     const renderAction = !!actionButton && layout === 'horizontal';
 
-    const CardComponent = () => {
+    const CardComponent = ({ openInNew }: { openInNew?: boolean }) => {
       return (
         <AnchorCard
           className={classNames(
@@ -59,6 +60,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
                 })}
               >
                 {heading}
+                {openInNew && <OpenInNewIcon className="w-5" />}
               </h3>
               {!!children && (
                 <div
@@ -81,7 +83,7 @@ const Signpost = React.forwardRef<HTMLAnchorElement, SignpostProps>(
 
     return !!href ? (
       <a href={href} ref={ref} {...props} className="idsk-signpost">
-        <CardComponent />
+        <CardComponent openInNew={props.target === '_blank'} />
       </a>
     ) : (
       <CardComponent />

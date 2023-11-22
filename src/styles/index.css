@@ -193,7 +193,7 @@
         @apply flex flex-col gap-x-5 p-5 bg-white border-neutral-300 border rounded-lg;
     }
     .idsk-anchor-card--focusable {
-        @apply idsk-focusable hover:border-neutral-600 hover:ring-2 hover:ring-neutral-600 rounded-lg;
+        @apply idsk-focusable hover:ring-2 hover:ring-neutral-600 rounded-lg;
     }
     .idsk-anchor-card--vertical {
         @apply flex-row tb2:grid-cols-[minmax(0,20rem)_minmax(0,1fr)];
@@ -1651,10 +1651,10 @@
         @apply inline-block;
     }
     .idsk-signpost__arrow-icon {
-        @apply font-bold text-2xl w-6 h-6 ml-4 flex justify-center h-9 flex-col;
+        @apply font-bold text-2xl w-6 h-6 ml-4 flex justify-center flex-col;
     }
     .idsk-sign-post__link {
-        @apply text-primary underline;
+        @apply text-primary underline flex gap-2 items-center;
     }
 
     .idsk-signpost-group {

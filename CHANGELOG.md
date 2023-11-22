@@ -34,6 +34,7 @@
 - _[OZO-36]_: Added validation callback to DateInput for catching internal errors
 - _[OZO-47]_: Pagination dropdown focusable
 - _[OZO-411]_: Added tooltips to components
+- _[OZO-454]_: Added "open in new" icon to signpost, removed hover border in focusable anchor card
 
 * **Property changes**
   - No changes.

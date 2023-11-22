@@ -44,7 +44,8 @@ WithoutIcon.args = {
   heading: 'Very long title',
   children: 'Všetky informácie o vašom sociálnom poistení na jednom mieste',
   layout: 'vertical',
-  href: '#'
+  href: '#',
+  target: '_blank'
 };
 
 export const WithActionButton = Template.bind({});
