@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import React, { MouseEventHandler, SVGProps } from 'react';
 import { NotificationsIcon, NotificationsAlertIcon } from '../../../svgIcons/Social';
 import IconLink from '../IconLink';
 
@@ -13,7 +13,7 @@ const NotificationIcon = ({ alert, id, href, onClick, ...props }: NotificationIc
     <IconLink
       id={id}
       href={href}
-      onClick={() => onClick}
+      onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
       children={alert ? <NotificationsAlertIcon {...props} /> : <NotificationsIcon {...props} />}
     />
   );
