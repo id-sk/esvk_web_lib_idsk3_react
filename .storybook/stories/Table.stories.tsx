@@ -5,6 +5,7 @@ import { Table, TableRow, TableRowValue, TextButton } from '../../src/components
 import { MoreVertIcon } from '../../src/svgIcons/Navigation';
 import { DownloadIcon } from '../../src/svgIcons/File';
 import { AddIcon } from '../../src/svgIcons/Content';
+import { TableHeadValue } from '../../src/components/Molecules/Table';
 
 export default {
   title: 'Molecules/Table',
@@ -17,10 +18,10 @@ export const Default = Template.bind({});
 Default.args = {
   headRow: (
     <>
-      <TableRowValue>Názov</TableRowValue>
-      <TableRowValue>Podpísané</TableRowValue>
-      <TableRowValue>Podpis</TableRowValue>
-      <TableRowValue align="right">Akcie</TableRowValue>
+      <TableHeadValue>Názov</TableHeadValue>
+      <TableHeadValue>Podpísané</TableHeadValue>
+      <TableHeadValue>Podpis</TableHeadValue>
+      <TableHeadValue align="right">Akcie</TableHeadValue>
     </>
   ),
   children: (
@@ -60,10 +61,10 @@ export const Attachments = Template.bind({});
 Attachments.args = {
   headRow: (
     <>
-      <TableRowValue>Názov</TableRowValue>
-      <TableRowValue>Pridané</TableRowValue>
-      <TableRowValue>Podpis</TableRowValue>
-      <TableRowValue align="right">Akcie</TableRowValue>
+      <TableHeadValue>Názov</TableHeadValue>
+      <TableHeadValue>Pridané</TableHeadValue>
+      <TableHeadValue>Podpis</TableHeadValue>
+      <TableHeadValue align="right">Akcie</TableHeadValue>
     </>
   ),
   children: (
@@ -118,9 +119,9 @@ export const WithoutSignatures = Template.bind({});
 WithoutSignatures.args = {
   headRow: (
     <>
-      <TableRowValue>Názov</TableRowValue>
-      <TableRowValue>Pridané</TableRowValue>
-      <TableRowValue align="right">Akcie</TableRowValue>
+      <TableHeadValue>Názov</TableHeadValue>
+      <TableHeadValue>Pridané</TableHeadValue>
+      <TableHeadValue align="right">Akcie</TableHeadValue>
     </>
   ),
   children: (
@@ -160,10 +161,10 @@ HeadingAndAction.args = {
   heading: 'Prílohy',
   headRow: (
     <>
-      <TableRowValue>Názov</TableRowValue>
-      <TableRowValue>Pridané</TableRowValue>
-      <TableRowValue>Podpis</TableRowValue>
-      <TableRowValue align="right">Akcie</TableRowValue>
+      <TableHeadValue>Názov</TableHeadValue>
+      <TableHeadValue>Pridané</TableHeadValue>
+      <TableHeadValue>Podpis</TableHeadValue>
+      <TableHeadValue align="right">Akcie</TableHeadValue>
     </>
   ),
   actions: <TextButton label="Pridať prílohu" icon={<AddIcon />} />,

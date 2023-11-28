@@ -35,6 +35,7 @@
 - _[OZO-47]_: Pagination dropdown focusable
 - _[OZO-411]_: Added tooltips to components
 - _[OZO-454]_: Added "open in new" icon to signpost, removed hover border in focusable anchor card
+- _[OZO-392]_: Accessibility updates
 
 * **Property changes**
   - No changes.

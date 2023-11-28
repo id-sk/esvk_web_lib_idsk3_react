@@ -37,37 +37,43 @@ const Dialog = ({
   );
 
   return (
-    <FocusLock {...props} className={dialogClasses} lockProps={{ id: id }}>
-      <div className="idsk-dialog-wrapper">
-        <div className="idsk-dialog">
-          {!!title && (
-            <div className="idsk-dialog__header">
-              <div className="idsk-dialog__header-title">
-                <h2>{title}</h2>
-                <button
-                  onClick={toggleOpened}
-                  className="idsk-dialog__close-icon"
-                  id={id ? id + '-dialog-close-button' : undefined}
-                  aria-label={closeButtonAriaLabel}
-                >
-                  <CloseIcon />
-                </button>
-              </div>
-              {!!description && <p className="idsk-dialog__header-description">{description}</p>}
-            </div>
-          )}
+    <>
+      {opened && (
+        <FocusLock {...props} className={dialogClasses} lockProps={{ id: id }}>
+          <div className="idsk-dialog-wrapper">
+            <div className="idsk-dialog">
+              {!!title && (
+                <div className="idsk-dialog__header">
+                  <div className="idsk-dialog__header-title">
+                    <h2>{title}</h2>
+                    <button
+                      onClick={toggleOpened}
+                      className="idsk-dialog__close-icon"
+                      id={id ? id + '-dialog-close-button' : undefined}
+                      aria-label={closeButtonAriaLabel}
+                    >
+                      <CloseIcon />
+                    </button>
+                  </div>
+                  {!!description && (
+                    <p className="idsk-dialog__header-description">{description}</p>
+                  )}
+                </div>
+              )}
 
-          <div className="idsk-dialog__content">{children}</div>
+              <div className="idsk-dialog__content">{children}</div>
 
-          {!!(secondaryButton || primaryButton) && (
-            <div className="idsk-dialog__buttons">
-              {secondaryButton}
-              {primaryButton}
+              {!!(secondaryButton || primaryButton) && (
+                <div className="idsk-dialog__buttons">
+                  {secondaryButton}
+                  {primaryButton}
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      </div>
-    </FocusLock>
+          </div>
+        </FocusLock>
+      )}
+    </>
   );
 };
 

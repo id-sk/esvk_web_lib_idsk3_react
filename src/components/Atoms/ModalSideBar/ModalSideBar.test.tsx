@@ -11,15 +11,15 @@ describe('ModalSideBar', () => {
     expect(screen.getByText('Test Heading')).toBeDefined();
   });
   test('opening', () => {
-    render(<ModalSideBar heading="Test Heading" opened={false} toggleOpened={() => {}} />);
-    expect(screen.getByTestId('sidebar-shadow')).toHaveClass('idsk-modal-sidebar__shadow--hidden');
+    render(<ModalSideBar heading="Test Heading" opened={true} toggleOpened={() => {}} />);
+    expect(screen.getByTestId('sidebar-shadow')).toHaveClass('idsk-modal-sidebar__shadow');
   });
   test('calls the onClick function when footerButton clicked', () => {
     const mockButtonClick = jest.fn();
     render(
       <ModalSideBar
         heading="Test Heading"
-        opened={false}
+        opened={true}
         toggleOpened={() => {}}
         footer={<PrimaryButton onClick={mockButtonClick}>Test Button</PrimaryButton>}
       />

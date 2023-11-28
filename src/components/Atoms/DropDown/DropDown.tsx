@@ -17,6 +17,7 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   optionClassName?: string;
   buttonClassName?: string;
+  buttonAriaLabel?: string;
   optionsSide?: 'left' | 'right';
   closeOnOptionClick?: boolean;
 }
@@ -29,6 +30,7 @@ const DropDown = ({
   arrowIcon = <ArrowDropDownIcon />,
   optionClassName,
   buttonClassName,
+  buttonAriaLabel,
   optionsSide = 'right',
   closeOnOptionClick = false,
   ...props
@@ -86,6 +88,7 @@ const DropDown = ({
   return (
     <div ref={containerRef} {...props} className={wrapperClasses}>
       <button
+        aria-label={buttonAriaLabel}
         className={buttonClasses}
         onClick={() => setOpened((p) => !p)}
         id={id}

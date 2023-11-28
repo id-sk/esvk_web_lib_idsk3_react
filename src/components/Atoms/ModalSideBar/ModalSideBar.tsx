@@ -39,30 +39,34 @@ const ModalSideBar = ({
   );
 
   return (
-    <FocusLock {...focusLockProps}>
-      <div
-        className={shadowClasses}
-        onClick={() => toggleOpened(false)}
-        data-testid="sidebar-shadow"
-      />
-      <div className={sidebarClasses} id={id} {...props}>
-        <div className="idsk-modal-sidebar__top-bar" />
-        <div className="idsk-modal-sidebar__header">
-          <h3>{heading}</h3>
-          <button
-            className="idsk-modal-sidebar__close-button"
+    <>
+      {opened && (
+        <FocusLock {...focusLockProps}>
+          <div
+            className={shadowClasses}
             onClick={() => toggleOpened(false)}
-            id={id ? id + '-close-button' : undefined}
-            aria-label={closeButtonAriaLabel}
-          >
-            <CloseIcon className="idsk-modal-sidebar__close-icon" />
-          </button>
-        </div>
-        <div className="idsk-modal-sidebar__body">{children}</div>
-        <div className="flex-auto" />
-        {!!footer && <div className="idsk-modal-sidebar__footer">{footer}</div>}
-      </div>
-    </FocusLock>
+            data-testid="sidebar-shadow"
+          />
+          <div className={sidebarClasses} id={id} {...props}>
+            <div className="idsk-modal-sidebar__top-bar" />
+            <div className="idsk-modal-sidebar__header">
+              <h3>{heading}</h3>
+              <button
+                className="idsk-modal-sidebar__close-button"
+                onClick={() => toggleOpened(false)}
+                id={id ? id + '-close-button' : undefined}
+                aria-label={closeButtonAriaLabel}
+              >
+                <CloseIcon className="idsk-modal-sidebar__close-icon" />
+              </button>
+            </div>
+            <div className="idsk-modal-sidebar__body">{children}</div>
+            <div className="flex-auto" />
+            {!!footer && <div className="idsk-modal-sidebar__footer">{footer}</div>}
+          </div>
+        </FocusLock>
+      )}
+    </>
   );
 };
 

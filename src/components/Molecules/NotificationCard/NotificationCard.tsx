@@ -11,6 +11,7 @@ export interface NotificationCardProps extends Omit<CardWrapperProps, 'innerClas
     label: string;
     href?: string;
     target?: string;
+    ariaLabel?: string;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   }[];
   dateFormatString?: string;
@@ -53,6 +54,7 @@ const NotificationCard = ({
               href={!!item.href ? item.href : undefined}
               onClick={!!item.onClick ? item.onClick : undefined}
               target={item.target}
+              aria-label={item.ariaLabel}
             >
               {item.label}
             </a>
