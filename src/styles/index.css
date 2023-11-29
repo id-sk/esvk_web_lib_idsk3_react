@@ -1704,6 +1704,9 @@
     .idsk-table__head {
         @apply flex tb2:grid tb2:grid-flow-col tb2:auto-cols-fr tb2:gap-2 px-5 font-bold mb-[0.375rem] idsk-text-body-1;
     }
+    .idsk-table__head--bordered {
+        @apply bg-neutral-100 rounded-t shadow-[0_0_0_1px] shadow-neutral-300 mb-0 py-2;
+    }
     .idsk-table-slash::after {
         content: '/';
     }
@@ -1718,6 +1721,9 @@
     }
     .idsk-table__rows {
         @apply rounded shadow-[0_0_0_1px] shadow-neutral-300;
+    }
+    .idsk-table__rows--bordered-head {
+        @apply rounded-t-none;
     }
     .idsk-table__row {
         @apply block tb2:grid tb2:grid-flow-col tb2:auto-cols-fr gap-2 px-5 py-2 min-h-[3.125rem] items-center bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300 relative;

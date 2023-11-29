@@ -121,6 +121,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
               placeholder={placeholder}
               id={id ? `${id}-input` : undefined}
               ref={inputRef}
+              aria-describedby={id ? `${id}-error` : undefined}
               {...props}
             />
 
@@ -163,7 +164,11 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
             {buttonLabel}
           </button>
         </div>
-        {error && !!errorMsg && <p className="idsk-input__caption--error">{errorMsg}</p>}
+        {error && !!errorMsg && (
+          <p id={id ? `${id}-error` : undefined} className="idsk-input__caption--error">
+            {errorMsg}
+          </p>
+        )}
       </div>
     );
   }

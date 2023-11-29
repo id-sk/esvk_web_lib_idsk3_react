@@ -59,6 +59,7 @@ Default.args = {
 };
 export const Attachments = Template.bind({});
 Attachments.args = {
+  headRowBordered: true,
   headRow: (
     <>
       <TableHeadValue>Názov</TableHeadValue>

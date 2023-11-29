@@ -50,7 +50,7 @@ const ModalSideBar = ({
           <div className={sidebarClasses} id={id} {...props}>
             <div className="idsk-modal-sidebar__top-bar" />
             <div className="idsk-modal-sidebar__header">
-              <h3>{heading}</h3>
+              <h2 className="idsk-headline-3">{heading}</h2>
               <button
                 className="idsk-modal-sidebar__close-button"
                 onClick={() => toggleOpened(false)}

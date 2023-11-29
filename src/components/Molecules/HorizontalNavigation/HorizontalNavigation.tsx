@@ -23,7 +23,13 @@ export const HorizontalNavigationItem = ({
     className
   );
 
-  return <BaseButton buttonElementProps={{ role: 'tab' }} {...props} className={elementClasses} />;
+  return (
+    <BaseButton
+      buttonElementProps={{ role: 'tab', 'aria-selected': active }}
+      {...props}
+      className={elementClasses}
+    />
+  );
 };
 
 export interface HorizontalNavigationGroupProps extends AllHTMLAttributes<HTMLDivElement> {

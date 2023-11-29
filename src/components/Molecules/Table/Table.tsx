@@ -4,6 +4,7 @@ import classNames from 'classnames';
 export interface TableProps extends React.AllHTMLAttributes<HTMLDivElement> {
   heading?: ReactNode;
   headRow?: ReactNode;
+  headRowBordered?: boolean;
   children?: ReactNode;
   actions?: ReactNode;
   align?: 'left' | 'right';
@@ -12,6 +13,7 @@ export function Table({
   children,
   heading,
   headRow,
+  headRowBordered,
   actions,
   id,
   className,
@@ -23,10 +25,22 @@ export function Table({
       <table {...props} className={classNames('idsk-table', className)}>
         {headRow && (
           <thead>
-            <tr className="idsk-table__head">{headRow}</tr>
+            <tr
+              className={classNames('idsk-table__head', {
+                'idsk-table__head--bordered': headRowBordered
+              })}
+            >
+              {headRow}
+            </tr>
           </thead>
         )}
-        <tbody className="idsk-table__rows">{children}</tbody>
+        <tbody
+          className={classNames('idsk-table__rows', {
+            'idsk-table__rows--bordered-head': headRowBordered
+          })}
+        >
+          {children}
+        </tbody>
       </table>
       {actions && <div className="idsk-table__actions">{actions}</div>}
     </>

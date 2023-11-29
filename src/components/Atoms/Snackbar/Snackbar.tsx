@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { useCallback, useEffect } from 'react';
 import CloseIcon from '../../../svgIcons/Navigation/Close';
 export interface SnackbarProps {
+  id?: string;
   open?: boolean;
   message?: string | JSX.Element;
   secondLineMessage?: string | JSX.Element;
@@ -26,6 +27,7 @@ export interface SnackbarStackProps {
 }
 
 const Snackbar: React.FC<SnackbarProps> = ({
+  id,
   message,
   secondLineMessage,
   action,
@@ -69,7 +71,7 @@ const Snackbar: React.FC<SnackbarProps> = ({
 
   if (!!open) {
     return (
-      <div className={snackbarClasses}>
+      <div id={id} className={snackbarClasses}>
         <div className="idsk-snackbar__message">
           {!!message && <div>{message}</div>}
           {!!secondLineMessage && <div>{secondLineMessage}</div>}
