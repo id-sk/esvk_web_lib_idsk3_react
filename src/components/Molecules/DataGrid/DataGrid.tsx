@@ -192,22 +192,24 @@ function DataGrid({
   return (
     <table className={classNames('idsk-data-grid', className)} id={id} {...props}>
       {headRow && (
-        <th className="idsk-data-grid__head">
-          {checkboxEverything && (
-            <td>
-              {!!checkboxTooltip ? (
-                <Tooltip tooltip={checkboxTooltip} isInstructive>
+        <thead>
+          <th className="idsk-data-grid__head">
+            {checkboxEverything && (
+              <td>
+                {!!checkboxTooltip ? (
+                  <Tooltip tooltip={checkboxTooltip} isInstructive>
+                    <CheckAll />
+                  </Tooltip>
+                ) : (
                   <CheckAll />
-                </Tooltip>
-              ) : (
-                <CheckAll />
-              )}
-            </td>
-          )}
-          {headRow}
-        </th>
+                )}
+              </td>
+            )}
+            {headRow}
+          </th>
+        </thead>
       )}
-      {renderedChildren}
+      <tbody>{renderedChildren}</tbody>
     </table>
   );
 }

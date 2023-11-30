@@ -6,13 +6,25 @@ export interface NotificationIconProps extends SVGProps<SVGSVGElement> {
   alert?: boolean;
   id?: string;
   href?: string;
+  ariaLabel?: string;
+  ariaExpanded?: boolean;
 }
 
-const NotificationIcon = ({ alert, id, href, onClick, ...props }: NotificationIconProps) => {
+const NotificationIcon = ({
+  alert,
+  id,
+  href,
+  ariaLabel,
+  ariaExpanded,
+  onClick,
+  ...props
+}: NotificationIconProps) => {
   return (
     <IconLink
       id={id}
       href={href}
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
       onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
       children={alert ? <NotificationsAlertIcon {...props} /> : <NotificationsIcon {...props} />}
     />
