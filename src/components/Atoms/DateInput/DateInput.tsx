@@ -8,6 +8,10 @@ import { format, setDate, setMonth, setYear } from 'date-fns';
 import { useRifm } from 'rifm';
 import Tooltip from '../Tooltip';
 
+export interface DatePickerCustomInputProps extends HTMLProps<HTMLButtonElement> {
+  tooltip?: string;
+}
+
 export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement> {
   id?: string;
   error?: boolean;
@@ -224,17 +228,30 @@ const DateInput = ({
     handleRefresh(refreshDate);
   }, [refreshDate]);
 
-  const DatePickerCustomInput = forwardRef<HTMLButtonElement, HTMLProps<HTMLButtonElement>>(
-    ({ onClick }, ref) => (
-      <button
-        className={datePickerClasses}
-        aria-label={datePickerLabel}
-        onClick={onClick}
-        ref={ref}
-      >
-        <DateRange className="idsk-date-input__date-range" />
-      </button>
-    )
+  const DatePickerCustomInput = forwardRef<HTMLButtonElement, DatePickerCustomInputProps>(
+    ({ onClick, tooltip }, ref) => {
+      const btn = (
+        <button
+          className={datePickerClasses}
+          aria-label={datePickerLabel}
+          onClick={onClick}
+          ref={ref}
+        >
+          <DateRange className="idsk-date-input__date-range" />
+        </button>
+      );
+      return (
+        <>
+          {!!tooltip ? (
+            <Tooltip tooltip={tooltip} isInstructive>
+              {btn}
+            </Tooltip>
+          ) : (
+            btn
+          )}
+        </>
+      );
+    }
   );
 
   return (
@@ -308,15 +325,7 @@ const DateInput = ({
           onCalendarClose={() => setOpen(false)}
           onChange={handleDatepickerChange}
           disabled={disabled}
-          customInput={
-            !!datePickerTooltip ? (
-              <Tooltip tooltip={datePickerTooltip} isInstructive>
-                <DatePickerCustomInput />
-              </Tooltip>
-            ) : (
-              <DatePickerCustomInput />
-            )
-          }
+          customInput={<DatePickerCustomInput tooltip={datePickerTooltip} />}
           previousMonthAriaLabel={datePickerProps?.previousMonthAriaLabel}
           nextMonthAriaLabel={datePickerProps?.nextMonthAriaLabel}
         />

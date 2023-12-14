@@ -3,6 +3,7 @@ import { MoreVertIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 import { Checkbox, DropDown, Tag, Tooltip } from '../../Atoms';
 import { InfoIcon } from '../../../svgIcons/Actions';
+import BaseButton, { BaseButtonProps } from '../../Atoms/Button/BaseButton';
 
 interface DataGridTagsProps extends React.AllHTMLAttributes<HTMLDivElement> {
   tags?: { label?: string; key?: number }[];
@@ -49,6 +50,10 @@ export const DataGridRowValue = ({
   );
 };
 
+export interface RowButtonProps extends BaseButtonProps {
+  skipedElements?: string[];
+}
+
 export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement>, DataGridProps {
   moreIcon?: ReactNode;
   moreOptions?: ReactNode;
@@ -61,6 +66,7 @@ export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement
   active?: boolean;
   checkbox?: boolean;
   activeDotVisibility?: boolean;
+  buttonProps?: RowButtonProps;
 }
 
 export function DataGridRow({
@@ -71,6 +77,7 @@ export function DataGridRow({
   customMoreButton,
   checked,
   onChange,
+  buttonProps,
   active,
   checkbox,
   checkboxTooltip,
@@ -81,10 +88,10 @@ export function DataGridRow({
 }: DataGridRowProps) {
   const dataGridClasses = classNames(
     'idsk-data-grid-row',
-    { 'idsk-data-grid-row--without-head': !props.headRow },
     { 'idsk-data-grid-row--active': active },
     { 'idsk-data-grid-row--active-no-checkbox': active && !checkbox },
     { 'idsk-data-grid-row--checked': checked },
+    { 'idsk-data-grid-row--clickable': !!buttonProps },
     className
   );
   const noCheckboxClasses = classNames(
@@ -100,8 +107,17 @@ export function DataGridRow({
       id={id ? id + '-checkbox' : undefined}
     />
   );
-  return (
-    <tr className={dataGridClasses} id={id} {...props}>
+
+  const handleRowClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const tagName = (event.target as HTMLElement)?.tagName ?? '';
+    const skipepdTags = buttonProps?.skipedElements || ['INPUT', 'path', 'svg'];
+    if (!!buttonProps?.onClick && !skipepdTags.includes(tagName)) {
+      buttonProps.onClick(event);
+    }
+  };
+
+  const dataGridRowBody = (
+    <>
       {checkbox && (
         <td>
           {!!checkboxTooltip ? (
@@ -147,6 +163,26 @@ export function DataGridRow({
           <div className="idsk-data-grid-row__dropdown-space" />
         )}
       </td>
+    </>
+  );
+
+  return (
+    <tr
+      className={!buttonProps ? dataGridClasses : 'idsk-data-grid-row__click-wrapper'}
+      id={id}
+      {...props}
+    >
+      {!!buttonProps ? (
+        <BaseButton
+          {...buttonProps}
+          className={classNames(dataGridClasses, buttonProps.className)}
+          onClick={handleRowClick}
+        >
+          {dataGridRowBody}
+        </BaseButton>
+      ) : (
+        dataGridRowBody
+      )}
     </tr>
   );
 }
@@ -193,9 +229,9 @@ function DataGrid({
     <table className={classNames('idsk-data-grid', className)} id={id} {...props}>
       {headRow && (
         <thead>
-          <th className="idsk-data-grid__head">
+          <tr className="idsk-data-grid__head">
             {checkboxEverything && (
-              <td>
+              <th>
                 {!!checkboxTooltip ? (
                   <Tooltip tooltip={checkboxTooltip} isInstructive>
                     <CheckAll />
@@ -203,13 +239,15 @@ function DataGrid({
                 ) : (
                   <CheckAll />
                 )}
-              </td>
+              </th>
             )}
             {headRow}
-          </th>
+          </tr>
         </thead>
       )}
-      <tbody>{renderedChildren}</tbody>
+      <tbody className={classNames({ 'idsk-data-grid__body--without-head': !headRow })}>
+        {renderedChildren}
+      </tbody>
     </table>
   );
 }

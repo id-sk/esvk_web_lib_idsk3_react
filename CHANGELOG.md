@@ -36,6 +36,7 @@
 - _[OZO-411]_: Added tooltips to components
 - _[OZO-454]_: Added "open in new" icon to signpost, removed hover border in focusable anchor card
 - _[OZO-392]_: Accessibility updates
+- _[OZO-541]_: Clickable datagrid row, border fixes in table and datagrid
 
 * **Property changes**
   - No changes.

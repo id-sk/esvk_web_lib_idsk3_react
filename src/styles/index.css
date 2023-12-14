@@ -438,8 +438,23 @@
     .idsk-data-grid-row {
         @apply flex justify-between idsk-text-body p-5 border-t  border-neutral-300 bg-white rounded-none last:rounded-b-lg gap-4;
     }
-    .idsk-data-grid-row--without-head {
-        @apply flex justify-between idsk-text-body p-5 border-t  border-neutral-300 bg-white last:rounded-b-lg gap-4  first:rounded-t-lg first:border-t-0;
+    .idsk-data-grid-row--clickable {
+        @apply w-full text-left !rounded-none hover:bg-neutral-100;
+    }
+    .idsk-data-grid-row--clickable.idsk-data-grid-row--active {
+        @apply hover:!bg-blue-200;
+    }
+    .idsk-data-grid-row__click-wrapper:first-child button {
+        @apply !rounded-t-none;
+    }
+    .idsk-data-grid-row__click-wrapper:last-child button {
+        @apply !rounded-b-lg;
+    }
+    .idsk-data-grid__body--without-head .idsk-data-grid-row__click-wrapper:first-child button {
+        @apply rounded-t-lg;
+    }
+    .idsk-data-grid__body--without-head .idsk-data-grid-row {
+        @apply border-t border-neutral-300 first:rounded-t-lg first:border-t-0;
     }
     .idsk-data-grid-row--active {
         @apply flex justify-between idsk-text-body p-5 border-t border-neutral-300 bg-blue-100;
@@ -1705,7 +1720,7 @@
         @apply flex tb2:grid tb2:grid-flow-col tb2:auto-cols-fr tb2:gap-2 px-5 font-bold mb-[0.375rem] idsk-text-body-1;
     }
     .idsk-table__head--bordered {
-        @apply bg-neutral-100 rounded-t shadow-[0_0_0_1px] shadow-neutral-300 mb-0 py-2;
+        @apply bg-neutral-100 rounded-t mb-0 py-2 border-x border-t border-neutral-300;
     }
     .idsk-table-slash::after {
         content: '/';
@@ -1720,13 +1735,16 @@
         @apply flex gap-0 items-center tb2:last:flex last:hidden idsk-table-slash idsk-table-unslash--last tb2:idsk-table-unslash;
     }
     .idsk-table__rows {
-        @apply rounded shadow-[0_0_0_1px] shadow-neutral-300;
+        @apply rounded;
     }
     .idsk-table__rows--bordered-head {
         @apply rounded-t-none;
     }
+    .idsk-table__rows--bordered-head .idsk-table__row {
+        @apply first:rounded-t-none;
+    }
     .idsk-table__row {
-        @apply block tb2:grid tb2:grid-flow-col tb2:auto-cols-fr gap-2 px-5 py-2 min-h-[3.125rem] items-center bg-neutral-90 first:rounded-t first:border-hidden last:rounded-b border-t border-neutral-300 relative;
+        @apply block tb2:grid tb2:grid-flow-col tb2:auto-cols-fr gap-2 px-5 py-2 min-h-[3.125rem] items-center bg-neutral-90 first:rounded-t last:rounded-b relative border-x border-b first:border-t border-neutral-300;
     }
     .idsk-table__row .idsk-table__value {
         @apply first:font-bold first:tb2:font-normal;
