@@ -438,37 +438,22 @@
     .idsk-data-grid-row {
         @apply flex justify-between idsk-text-body p-5 border-t  border-neutral-300 bg-white rounded-none last:rounded-b-lg gap-4;
     }
+    .idsk-data-grid-row__button {
+        @apply flex w-full p-5 gap-4 idsk-text-body text-left;
+    }
     .idsk-data-grid-row--clickable {
-        @apply w-full text-left !rounded-none hover:bg-neutral-100;
-    }
-    .idsk-data-grid-row--clickable.idsk-data-grid-row--active {
-        @apply hover:!bg-blue-200;
-    }
-    .idsk-data-grid-row__click-wrapper:first-child button {
-        @apply !rounded-t-none;
-    }
-    .idsk-data-grid-row__click-wrapper:last-child button {
-        @apply !rounded-b-lg;
-    }
-    .idsk-data-grid__body--without-head .idsk-data-grid-row__click-wrapper:first-child button {
-        @apply rounded-t-lg;
+        @apply hover:bg-neutral-100 p-0;
     }
     .idsk-data-grid__body--without-head .idsk-data-grid-row {
         @apply border-t border-neutral-300 first:rounded-t-lg first:border-t-0;
     }
     .idsk-data-grid-row--active {
-        @apply flex justify-between idsk-text-body p-5 border-t border-neutral-300 bg-blue-100;
-    }
-    .idsk-data-grid-row--active-no-checkbox {
-        @apply flex justify-between idsk-text-body p-5 border-t border-neutral-300 bg-blue-100;
+        @apply bg-blue-100;
     }
     .idsk-data-grid-row--checked {
-        @apply flex justify-between idsk-text-body p-5 border-t border-neutral-300 bg-neutral-200;
+        @apply bg-neutral-200;
     }
     .idsk-data-grid-row__dot-wrapper {
-        @apply flex mt-3.5 -mr-2 -ml-3.5;
-    }
-    .idsk-data-grid-row__dot-wrapper--no-checkbox {
         @apply flex mt-3.5 -mr-2 -ml-3.5;
     }
     .idsk-data-grid-row__dot {

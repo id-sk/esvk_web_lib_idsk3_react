@@ -89,16 +89,11 @@ export function DataGridRow({
   const dataGridClasses = classNames(
     'idsk-data-grid-row',
     { 'idsk-data-grid-row--active': active },
-    { 'idsk-data-grid-row--active-no-checkbox': active && !checkbox },
     { 'idsk-data-grid-row--checked': checked },
     { 'idsk-data-grid-row--clickable': !!buttonProps },
     className
   );
-  const noCheckboxClasses = classNames(
-    'idsk-data-grid-row__dot-wrapper',
-    { 'idsk-data-grid-row__dot-wrapper--no-checkbox': active && !checkbox },
-    className
-  );
+  const noCheckboxClasses = classNames('idsk-data-grid-row__dot-wrapper', className);
   const Check = () => (
     <Checkbox
       name="checkbox"
@@ -167,15 +162,11 @@ export function DataGridRow({
   );
 
   return (
-    <tr
-      className={!buttonProps ? dataGridClasses : 'idsk-data-grid-row__click-wrapper'}
-      id={id}
-      {...props}
-    >
+    <tr className={dataGridClasses} id={id} {...props}>
       {!!buttonProps ? (
         <BaseButton
           {...buttonProps}
-          className={classNames(dataGridClasses, buttonProps.className)}
+          className={classNames('idsk-data-grid-row__button', buttonProps.className)}
           onClick={handleRowClick}
         >
           {dataGridRowBody}
