@@ -27,7 +27,7 @@ export interface DropZoneRefProps {
 
 export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   inGroup?: boolean;
-  dropzoneTitle?: string;
+  dropzoneTitle?: ReactNode | string;
   filesTitle?: string;
   subtitle?: string;
   description?: string;
@@ -161,7 +161,11 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
 
     return (
       <div className={classNames('idsk-dropzone', className)}>
-        <h3>{props.dropzoneTitle}</h3>
+        {typeof props.dropzoneTitle === 'string' ? (
+          <h3>{props.dropzoneTitle}</h3>
+        ) : (
+          props.dropzoneTitle
+        )}
         <div className={dropzoneClasses} {...getRootProps()}>
           <CloudUploadIcon className="idsk-dropzone__upload-icon" />
           <p className="idsk-dropzone__subtitle">{props.subtitle}</p>
