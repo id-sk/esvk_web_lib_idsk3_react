@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import FocusLock from 'react-focus-lock';
 import classNames from 'classnames';
 
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import { ReactFocusLockProps } from 'react-focus-lock/interfaces';
+import useClickOutside from '../../../utils/useClickOutside';
 
 export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElement> {
   opened: boolean;
@@ -38,16 +39,20 @@ const ModalSideBar = ({
     className
   );
 
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useClickOutside(() => {
+    if (opened && !!toggleOpened) {
+      toggleOpened(false);
+    }
+  }, modalRef);
+
   return (
     <>
       {opened && (
         <FocusLock {...focusLockProps}>
-          <div
-            className={shadowClasses}
-            onClick={() => toggleOpened(false)}
-            data-testid="sidebar-shadow"
-          />
-          <div className={sidebarClasses} id={id} {...props}>
+          <div className={shadowClasses} data-testid="sidebar-shadow" />
+          <div ref={modalRef} className={sidebarClasses} id={id} {...props}>
             <div className="idsk-modal-sidebar__top-bar" />
             <div className="idsk-modal-sidebar__header">
               <h2 className="idsk-headline-3">{heading}</h2>

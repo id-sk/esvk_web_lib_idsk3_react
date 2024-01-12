@@ -51,6 +51,12 @@ export const Template: ComponentStory<typeof Navigation> = (args) => {
             onClick={(e) => e.preventDefault()}
           />
           <NavigationLinkOption label="eFaktúry" href="#" onClick={(e) => e.preventDefault()} />
+          <NavigationLinkOption
+            label="eFaktúry"
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            linkElement={<a href="#">CUET</a>}
+          />
         </NavigationLink>
       </Navigation>
     </div>

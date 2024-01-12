@@ -4,10 +4,14 @@ import { CloseIcon } from '../../../svgIcons/Navigation';
 import BaseButton from '../../Atoms/Button/BaseButton';
 import { v4 as uuidv4 } from 'uuid';
 
+import { InfoIcon, CheckCircleIcon } from '../../../svgIcons/Actions';
+import { WarningIcon } from '../../../svgIcons/Alert';
+
 export interface InformationBannerProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   ariaLabel?: string;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
+  useDefaultIcon?: boolean;
   type?: 'banner' | 'announcement';
   variant?: 'information' | 'alert' | 'warning' | 'success';
   children?: ReactNode;
@@ -16,6 +20,7 @@ export interface InformationBannerProps extends React.HTMLAttributes<HTMLDivElem
   closeButtonOnClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   closeButtonLabel?: string;
   errorMessageId?: string;
+  accent?: boolean;
 }
 const defaultInformationBannerProps: InformationBannerProps = {
   type: 'banner'
@@ -24,6 +29,7 @@ const defaultInformationBannerProps: InformationBannerProps = {
 const InformationBanner = ({
   id,
   icon,
+  useDefaultIcon = true,
   title,
   ariaLabel,
   variant = 'information',
@@ -34,9 +40,20 @@ const InformationBanner = ({
   closeButtonLabel,
   className,
   errorMessageId,
+  accent = true,
   ...props
 }: InformationBannerProps) => {
   const [visible, setVisibility] = useState(true);
+
+  if (!icon && useDefaultIcon) {
+    if (variant === 'success') {
+      icon = <CheckCircleIcon />;
+    } else if (variant === 'warning') {
+      icon = <WarningIcon />;
+    } else {
+      icon = <InfoIcon />;
+    }
+  }
 
   props = { ...defaultInformationBannerProps, ...props };
   const idForAria: string = errorMessageId || uuidv4();
@@ -62,7 +79,8 @@ const InformationBanner = ({
   );
   const infoClasses = classNames({
     'idsk-information-banner': props.type == 'banner',
-    'idsk-information-announcement': props.type == 'announcement'
+    'idsk-information-announcement': props.type == 'announcement',
+    'idsk-information-banner--accent': accent && props.type == 'banner'
   });
   const infoWrapperClasses = classNames({
     'idsk-information-banner__wrapper': props.type == 'banner',

@@ -1,52 +1,107 @@
 import React, { ReactNode, ReactElement, SVGProps } from 'react';
 import classNames from 'classnames';
+import CheckIcon from '../../../svgIcons/Navigation/Check';
+import CloseIcon from '../../../svgIcons/Navigation/Close';
+import BaseButton from '../Button/BaseButton';
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+type TagVariant = 'default' | 'basic' | 'warning' | 'success' | 'attention';
+
+type TagCustomColors = {
+  border: string;
+  background: string;
+  color: string;
+};
+
+interface BaseTagProps extends React.HTMLAttributes<HTMLDivElement> {
   label: ReactNode;
   leftIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   rightIcon?: ReactElement<SVGProps<SVGSVGElement>>;
-  variant?: 'default' | 'basic' | 'warning' | 'success' | 'attention';
   disabled?: boolean;
   size?: 'small' | 'medium';
-  interaction?: boolean;
+}
+
+interface StaticTagProps extends BaseTagProps {
+  type?: 'static';
+  variant?: TagVariant;
+  colors?: TagCustomColors;
+}
+
+interface SelectTagProps extends BaseTagProps {
+  type?: 'select';
+  variant?: 'default';
   selected?: boolean;
 }
 
-const Tag = ({
-  leftIcon,
-  label,
-  rightIcon,
-  className,
-  size = 'medium',
-  disabled = false,
-  interaction = false,
-  selected = false,
-  variant = 'default',
-  ...props
-}: TagProps) => {
+interface ActionTagProps extends BaseTagProps {
+  type?: 'action';
+  onClose: React.MouseEventHandler<HTMLButtonElement>;
+  variant?: TagVariant;
+}
+
+interface FilterTagProps extends BaseTagProps {
+  type?: 'filter';
+  variant?: 'default';
+  selected?: boolean;
+}
+
+export type TagProps = SelectTagProps | StaticTagProps | ActionTagProps | FilterTagProps;
+
+const Tag = (props: TagProps) => {
+  const {
+    label,
+    leftIcon,
+    rightIcon,
+    size = 'medium',
+    disabled = false,
+    type = 'static',
+    variant = 'default',
+    className
+  } = props;
+  const { colors } = props as StaticTagProps;
+  const { selected } = props as SelectTagProps;
+  const { onClose = () => {} } = props as ActionTagProps;
+
+  const getVariantClass = () => {
+    if (type === 'static' || type === 'action') {
+      return 'idsk-tag--' + variant;
+    }
+    return 'idsk-tag--default';
+  };
+
+  const getTagClasses = (): string => {
+    if (disabled) return 'idsk-tag--disabled';
+
+    return classNames(getVariantClass(), {
+      'idsk-tag--with-interactions': type === 'filter' || type === 'select',
+      'idsk-tag--selected': selected,
+      'idsk-tag--small': size == 'small'
+    });
+  };
+
   return (
     <div
-      className={classNames(
-        'idsk-tag',
-        {
-          'idsk-tag--disabled': disabled,
-          'idsk-tag--with-interactions': interaction && !disabled,
-          'idsk-tag--default': variant === 'default' && !disabled,
-          'idsk-tag--basic': variant === 'basic' && !disabled && !interaction,
-          'idsk-tag--warning': variant === 'warning' && !disabled && !interaction,
-          'idsk-tag--success': variant === 'success' && !disabled && !interaction,
-          'idsk-tag--attention': variant === 'attention' && !disabled && !interaction,
-          'idsk-tag--selected': !disabled && selected,
-          'idsk-tag--small': size == 'small'
-        },
-        className
-      )}
-      tabIndex={interaction ? 0 : -1}
+      className={classNames('idsk-tag', getTagClasses(), className)}
+      tabIndex={type !== 'static' ? 0 : -1}
+      {...(colors
+        ? {
+            style: {
+              color: colors.color,
+              backgroundColor: colors.background,
+              borderColor: colors.border
+            }
+          }
+        : {})}
       {...props}
     >
+      {type === 'filter' && selected && <CheckIcon />}
       {leftIcon}
       {label}
       {rightIcon}
+      {type === 'action' && (
+        <BaseButton onClick={onClose}>
+          <CloseIcon className="w-5 h-5" />
+        </BaseButton>
+      )}
     </div>
   );
 };

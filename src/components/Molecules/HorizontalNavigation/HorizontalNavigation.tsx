@@ -28,6 +28,7 @@ export const HorizontalNavigationItem = ({
       buttonElementProps={{ role: 'tab', 'aria-selected': active }}
       {...props}
       className={elementClasses}
+      withBoldPseudoElement
     />
   );
 };

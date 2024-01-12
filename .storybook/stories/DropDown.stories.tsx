@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DropDown } from '../../src/components/Atoms';
 import { ExpandMoreIcon } from '../../src/svgIcons/Navigation';
 import '/src/styles/idsk3_theme.css';
+import BaseButton from '../../src/components/Atoms/Button/BaseButton';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -43,6 +44,7 @@ WithDivider.args = {
   children: [
     <a href="/">Exportovať</a>,
     <a href="/">Archivovať</a>,
+    <BaseButton className="text-left">Stiahnuť</BaseButton>,
     <hr />,
     <a href="/">Sprievodca schránkou</a>,
     <a href="/">Zobraziť detail</a>,

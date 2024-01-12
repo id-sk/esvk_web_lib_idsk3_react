@@ -2,8 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InformationBanner } from '../../src/components/Molecules';
 import '/src/styles/idsk3_theme.css';
-import { InfoIcon, CheckCircleIcon } from '../../src/svgIcons/Actions';
-import { WarningIcon } from '../../src/svgIcons/Alert';
 import { TextButton } from '../../src/components';
 
 export default {
@@ -19,7 +17,6 @@ export const Information = Template.bind({});
 Information.args = {
   closeButtonLabel: 'Zatvoriť',
   ariaLabel: 'Oznam',
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'information',
   children: (
@@ -34,7 +31,6 @@ Information.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-  icon: <WarningIcon />,
   title: 'Oznam',
   variant: 'warning',
   children: (
@@ -49,7 +45,6 @@ Warning.args = {
 
 export const Alert = Template.bind({});
 Alert.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'alert',
   children: (
@@ -64,7 +59,6 @@ Alert.args = {
 
 export const Success = Template.bind({});
 Success.args = {
-  icon: <CheckCircleIcon />,
   title: 'Oznam',
   variant: 'success',
   children: (
@@ -79,7 +73,6 @@ Success.args = {
 
 export const InformationActionButton = Template.bind({});
 InformationActionButton.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'information',
   children: (
@@ -95,7 +88,6 @@ InformationActionButton.args = {
 
 export const WarningActionButton = Template.bind({});
 WarningActionButton.args = {
-  icon: <WarningIcon />,
   title: 'Oznam',
   variant: 'warning',
   children: (
@@ -111,7 +103,6 @@ WarningActionButton.args = {
 
 export const AlertActionButton = Template.bind({});
 AlertActionButton.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'alert',
   children: (
@@ -127,7 +118,6 @@ AlertActionButton.args = {
 
 export const SuccessActionButton = Template.bind({});
 SuccessActionButton.args = {
-  icon: <CheckCircleIcon />,
   title: 'Oznam',
   variant: 'success',
   children: (
@@ -143,7 +133,6 @@ SuccessActionButton.args = {
 
 export const Short = Template.bind({});
 Short.args = {
-  icon: <CheckCircleIcon />,
   title: 'Oznam',
   variant: 'success',
   children: (
@@ -156,14 +145,12 @@ Short.args = {
 
 export const WithoutTitle = Template.bind({});
 WithoutTitle.args = {
-  icon: <InfoIcon />,
   variant: 'alert',
   children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
 };
 
 export const WithoutCloseButton = Template.bind({});
 WithoutCloseButton.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   children: (
     <p>
@@ -178,6 +165,7 @@ WithoutCloseButton.args = {
 
 export const WithoutIcon = Template.bind({});
 WithoutIcon.args = {
+  useDefaultIcon: false,
   title: 'Oznam',
   children: (
     <p>
@@ -192,7 +180,6 @@ WithoutIcon.args = {
 
 export const InformationAnnouncementInformation = Template.bind({});
 InformationAnnouncementInformation.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'information',
   type: 'announcement',
@@ -207,7 +194,6 @@ InformationAnnouncementInformation.args = {
 };
 export const WarningInformationAnnouncement = Template.bind({});
 WarningInformationAnnouncement.args = {
-  icon: <WarningIcon />,
   title: 'Oznam',
   variant: 'warning',
   type: 'announcement',
@@ -222,7 +208,6 @@ WarningInformationAnnouncement.args = {
 };
 export const AlertInformationAnnouncement = Template.bind({});
 AlertInformationAnnouncement.args = {
-  icon: <InfoIcon />,
   title: 'Oznam',
   variant: 'alert',
   type: 'announcement',
@@ -237,7 +222,6 @@ AlertInformationAnnouncement.args = {
 };
 export const InformationAnnouncementWithoutTitle = Template.bind({});
 InformationAnnouncementWithoutTitle.args = {
-  icon: <InfoIcon />,
   variant: 'information',
   type: 'announcement',
   children: (

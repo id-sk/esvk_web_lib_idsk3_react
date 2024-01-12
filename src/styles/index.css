@@ -116,6 +116,22 @@
     .idsk-page-content {
         @apply px-4 dm1:px-8 max-w-[74rem] dm2:px-40 dm2:max-w-[90rem] mx-auto;
     }
+    
+    .idsk-pseudolabel__wrapper {
+        @apply relative;
+    }
+
+    .idsk-pseudolabel__wrapper[data-pseudolabel]::before {
+        @apply content-[attr(data-pseudolabel)] font-bold opacity-0;
+    }
+
+    .idsk-pseudolabel__wrapper[data-pseudolabel] * {
+        @apply absolute left-0 top-0 w-full;
+    }
+
+    .idsk-pseudolabel__wrapper--center[data-pseudolabel] * {
+       @apply flex justify-center items-center;
+    }
 }
 
 @layer components {
@@ -287,7 +303,7 @@
     }
 
     .idsk-button {
-        @apply whitespace-nowrap;
+        @apply whitespace-nowrap relative;
     }
     .idsk-button__icon {
         @apply text-[1.5rem] w-[1.5rem] h-[1.5rem] shrink-0;
@@ -301,6 +317,7 @@
     .idsk-button--w-full {
         @apply w-full;
     }
+
 
     .idsk-card-wrapper {
         @apply relative rounded-[0.625rem] bg-white overflow-hidden idsk-text-body-1 border border-neutral-300;
@@ -564,13 +581,23 @@
         @apply relative inline-block;
     }
     .idsk-dropdown__options {
-        @apply absolute top-full rounded-md bg-white shadow-medium idsk-text-body-1 text-black z-10;
+        @apply absolute rounded-md bg-white shadow-medium idsk-text-body-1 text-black z-10;
     }
     .idsk-dropdown__options--left {
         @apply right-0;
     }
+    .idsk-dropdown__options--up {
+        @apply bottom-full;
+    }
+    .idsk-dropdown__options--down {
+        @apply top-full;
+    }
     .idsk-dropdown__option {
-        @apply flex whitespace-nowrap first:mt-1 last:mb-1;
+        @apply flex whitespace-nowrap first:mt-1 last:mb-1 relative;
+    }
+    .idsk-dropdown__option[data-pseudolabel]::before {
+        content: attr(data-pseudolabel);
+        @apply font-bold w-full px-5 py-3 opacity-0;
     }
     .idsk-dropdown__option *:not(hr) {
         @apply w-full px-5 py-3 hover:bg-neutral-100 active:font-bold active:text-blue-500;
@@ -734,6 +761,9 @@
 
     .idsk-information-banner {
         @apply pl-4 pr-2 tb1:px-8 py-3 flex items-center relative overflow-hidden border rounded-[0.31rem];
+    }
+    .idsk-information-banner--accent {
+        @apply border-l-4;
     }
     .idsk-information-banner__wrapper {
         @apply flex items-center justify-between w-full flex-wrap gap-4;
@@ -1248,7 +1278,7 @@
         @apply flex items-center idsk-text-body border-[1px] border-neutral-300 py-2.5 px-4 rounded-[0.31rem] bg-white hover:bg-blue-100 hover:no-underline;
     }
     .idsk-horizontal-navigation-item--active {
-        @apply tb2:border-b-[5px] border-b-black pb-1.5 font-bold;
+        @apply font-bold relative overflow-hidden after:absolute after:h-[5px] after:w-full after:bg-black after:bottom-0;
     }
     .idsk-horizontal-navigation .idsk-button__icon {
         @apply m-0;
@@ -1746,7 +1776,7 @@
     }
 
     .idsk-tag {
-        @apply inline-flex gap-2.5 rounded-md px-3.5 py-1 idsk-text-body items-center border self-start;
+        @apply inline-flex gap-2.5 !rounded-md px-3.5 py-1 idsk-text-body items-center border self-start;
     }
     .idsk-tag--small {
         @apply text-base tracking-[.5px];
@@ -1777,7 +1807,7 @@
     }
 
     .idsk-tooltip::after {
-        content: attr(data-tooltip);
+        @apply content-[attr(data-tooltip)];
     }
     .idsk-tooltip {
         @apply relative w-fit;
@@ -1880,7 +1910,7 @@
         @apply idsk-dropdown__option cursor-pointer idsk-caption py-2 px-[1.625rem];
     }
     .idsk-pagination-drop__options {
-        @apply absolute top-full rounded-md bg-white shadow-small idsk-caption text-black z-10 mt-2 py-2.5;
+        @apply absolute rounded-md bg-white shadow-small idsk-caption text-black z-10 my-2 py-2.5;
     }
     .idsk-pagination-drop__button {
         @apply flex items-center justify-between bg-white border border-neutral-800 rounded py-2.5 pr-[0.313rem] pl-2.5 text-xs h-min;

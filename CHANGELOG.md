@@ -38,6 +38,7 @@
 - _[OZO-392]_: Accessibility updates
 - _[OZO-541]_: Clickable datagrid row, border fixes in table and datagrid
 - _[WEB2-6157]_: Extension of the DropZone title parameter
+- _[OZO-549]_: Pseudoelement active state for dropdown and horizontal navigation, left border for infobanner, Tag component remade, useClickOutside hook
 
 * **Property changes**
   - No changes.

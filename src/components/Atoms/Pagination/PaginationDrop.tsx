@@ -1,6 +1,9 @@
-import React, { useState, useRef, useEffect, ReactElement, SVGProps, ReactNode } from 'react';
+import React, { useState, useRef, ReactElement, SVGProps, ReactNode } from 'react';
 import classNames from 'classnames';
 import KeyBoardArrowDownIcon from '../../../svgIcons/Hardware/KeyboardArrowDown';
+import BaseButton from '../Button/BaseButton';
+import { useClickOutside } from '../../../utils';
+import useDropdownDirection from '../../../utils/useDropdownDirection';
 
 type DropDownItem = {
   label: ReactNode;
@@ -33,27 +36,17 @@ export const PaginationDrop = ({
   const [opened, setOpened] = useState<boolean>(false);
   const [dropTitle, setDropTitle] = useState(title);
   const containerRef = useRef<HTMLDivElement>(null);
+  const optionsRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent | null) {
-      if (
-        event?.target instanceof Node &&
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setOpened(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [containerRef]);
+  useClickOutside(() => setOpened(false), containerRef);
+  const direction = useDropdownDirection(opened, containerRef, optionsRef);
 
   const optionClasses = classNames(
     'idsk-pagination-drop__options',
     {
-      hidden: !opened
+      hidden: !opened,
+      'idsk-dropdown__options--up': direction === 'up',
+      'idsk-dropdown__options--down': direction === 'down'
     },
     optionClassName
   );
@@ -73,20 +66,21 @@ export const PaginationDrop = ({
         </label>
       )}
       <div ref={containerRef} className={wrapperClasses} id={id}>
-        <button
+        <BaseButton
           id={dropdownButtonId}
           className={buttonClasses}
           onClick={() => setOpened((p) => !p)}
         >
           <span className="idsk-pagination-drop__title">{dropTitle}</span>
           {renderedIcon}
-        </button>
-        <ul className={optionClasses} data-testid="idsk-pagination-drop__options">
+        </BaseButton>
+        <ul className={optionClasses} ref={optionsRef} data-testid="idsk-pagination-drop__options">
           {items.map((item, index) => (
             <li key={item.key}>
-              <button
+              <BaseButton
                 id={id ? id + '-option-' + item.key : `pagination-dropdown-option-${index + 1}}`}
                 className={'idsk-pagination-drop__option'}
+                ariaLabel={item.label?.toString()}
                 onClick={() => {
                   onClick(item);
                   setOpened(false);
@@ -94,7 +88,7 @@ export const PaginationDrop = ({
                 }}
               >
                 {item.label}
-              </button>
+              </BaseButton>
             </li>
           ))}
         </ul>

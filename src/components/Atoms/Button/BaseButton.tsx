@@ -15,6 +15,7 @@ export interface BaseButtonProps {
   fullWidth?: boolean;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   iconPosition?: 'left' | 'right';
+  withBoldPseudoElement?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   buttonElementProps?: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -51,7 +52,14 @@ const BaseButton = (props: BaseButtonProps) => {
       {...props.buttonElementProps}
     >
       {(props.iconPosition == 'left' && icon) || (props.iconPosition == undefined && icon)}
-      {props.label && <span className="idsk-button__label">{props.label}</span>}
+      {props.label && (
+        <span
+          className="idsk-button__label idsk-pseudolabel__wrapper .idsk-pseudolabel__wrapper--center"
+          data-pseudolabel={props.withBoldPseudoElement && !!props.label ? props.label : undefined}
+        >
+          <span>{props.label}</span>
+        </span>
+      )}
       {props.children && props.children}
       {props.iconPosition == 'right' && icon}
     </button>

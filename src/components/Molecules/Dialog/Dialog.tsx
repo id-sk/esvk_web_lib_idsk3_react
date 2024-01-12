@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import FocusLock from 'react-focus-lock';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import classNames from 'classnames';
 import { ReactFocusLockProps } from 'react-focus-lock/interfaces';
+import useClickOutside from '../../../utils/useClickOutside';
 
 export interface DialogProps extends ReactFocusLockProps {
   id?: string;
@@ -13,6 +14,7 @@ export interface DialogProps extends ReactFocusLockProps {
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
   closeButtonAriaLabel?: string;
+  disableClickOutside?: boolean;
 }
 
 const Dialog = ({
@@ -26,6 +28,7 @@ const Dialog = ({
   primaryButton,
   secondaryButton,
   closeButtonAriaLabel,
+  disableClickOutside = false,
   ...props
 }: DialogProps) => {
   const dialogClasses = classNames(
@@ -36,12 +39,20 @@ const Dialog = ({
     className
   );
 
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useClickOutside(() => {
+    if (!disableClickOutside && opened && !!toggleOpened) {
+      toggleOpened();
+    }
+  }, modalRef);
+
   return (
     <>
       {opened && (
         <FocusLock {...props} className={dialogClasses} lockProps={{ id: id }}>
           <div className="idsk-dialog-wrapper">
-            <div className="idsk-dialog">
+            <div ref={modalRef} className="idsk-dialog">
               {!!title && (
                 <div className="idsk-dialog__header">
                   <div className="idsk-dialog__header-title">

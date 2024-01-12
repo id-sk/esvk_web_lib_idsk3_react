@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { ReactElement, ReactNode } from 'react';
 
 export interface NavigationLinkOptionProps {
@@ -13,9 +14,11 @@ const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkO
     return (
       <>
         {!!linkElement ? (
-          linkElement
+          React.cloneElement(linkElement, {
+            className: classNames(linkElement.props.className, 'absolute')
+          })
         ) : (
-          <a href={href} onClick={onClick} ref={ref} title={title}>
+          <a href={href} onClick={onClick} ref={ref} title={title} className="absolute">
             {label}
           </a>
         )}
