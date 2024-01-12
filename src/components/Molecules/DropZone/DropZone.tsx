@@ -194,7 +194,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
           }
         </div>
 
-        <div>
+        <div className="grid gap-5">
           {!!props.filesTitle && !!files.length && <h4>{props.filesTitle}</h4>}
           <div className="idsk-dropzone__files">
             {!!files.length &&
