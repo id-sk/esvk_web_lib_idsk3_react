@@ -56,14 +56,26 @@ const DropDown = ({
   const wrapperClasses = classNames('idsk-dropdown__wrapper', className);
   const buttonClasses = classNames('idsk-dropdown', buttonClassName);
 
+  const getLabelForPseudoElement = (child: any): string | number | undefined => {
+    const chLabel = child?.props?.label;
+    const chChildren = child?.props?.children;
+
+    if (!!chLabel && (typeof chLabel === 'string' || typeof chLabel === 'number')) {
+      return chLabel;
+    }
+    if (!!chChildren && (typeof chChildren === 'string' || typeof chChildren === 'number')) {
+      return chChildren;
+    }
+    return undefined;
+  };
+
   const renderedChildren = Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      const label = child.props.label || child.props.children;
+      const label = getLabelForPseudoElement(child);
       const data =
         !withoutPseudoElement && child.type !== 'hr' && !!label
           ? { 'data-pseudolabel': label }
-          : {};
-      console.log(child.type);
+          : undefined;
       return (
         <li className="idsk-dropdown__option idsk-pseudolabel__wrapper" {...data}>
           {React.cloneElement(child, {
@@ -71,7 +83,7 @@ const DropDown = ({
               if (child?.props?.onClick) child.props.onClick(e);
               if (closeOnOptionClick) setOpened(false);
             },
-            className: classNames(child.props.className, 'absolute')
+            className: classNames(child.props.className, { absolute: !!data })
           } as any)}
         </li>
       );
