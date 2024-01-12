@@ -10,15 +10,18 @@ export default {
 } as ComponentMeta<typeof Dialog>;
 
 const Template: ComponentStory<typeof Dialog> = (args) => {
-  const [opened, setOpened] = React.useState(true);
+  const [opened, setOpened] = React.useState(false);
   return (
-    <Dialog
-      {...args}
-      opened={opened}
-      toggleOpened={() => {
-        setOpened(false);
-      }}
-    ></Dialog>
+    <>
+      <PrimaryButton label="Open dialog" onClick={() => setOpened(true)} />
+      <Dialog
+        {...args}
+        opened={opened}
+        toggleOpened={() => {
+          setOpened(false);
+        }}
+      ></Dialog>
+    </>
   );
 };
 export const Default = Template.bind({});

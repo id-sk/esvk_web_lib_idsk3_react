@@ -42,9 +42,7 @@ const ModalSideBar = ({
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useClickOutside(() => {
-    if (opened && !!toggleOpened) {
-      toggleOpened(false);
-    }
+    toggleOpened(false);
   }, modalRef);
 
   return (

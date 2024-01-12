@@ -7,12 +7,11 @@ const useClickOutside = (callback: () => void, ref: React.RefObject<HTMLElement>
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-
+    document.addEventListener('mouseup', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mouseup', handleClickOutside);
     };
-  });
+  }, []);
 };
 
 export default useClickOutside;

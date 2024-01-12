@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ModalSideBar } from '../../src/components/Atoms';
 import '/src/styles/idsk3_theme.css';
@@ -10,18 +10,24 @@ export default {
   component: ModalSideBar
 } as ComponentMeta<typeof ModalSideBar>;
 
-const Template: ComponentStory<typeof ModalSideBar> = (args) => <ModalSideBar {...args} />;
+const Template: ComponentStory<typeof ModalSideBar> = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <PrimaryButton label="Open sidebar" onClick={() => setOpen(true)} />
+      <ModalSideBar {...args} opened={open} toggleOpened={setOpen} />
+    </>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
-  opened: true,
   heading: 'Profil',
   closeButtonAriaLabel: 'Zavrieť'
 };
 
 export const WithFooterButtons = Template.bind({});
 WithFooterButtons.args = {
-  opened: true,
   heading: 'Profil',
   closeButtonAriaLabel: 'Zavrieť',
   footer: (
@@ -36,7 +42,6 @@ WithFooterButtons.args = {
 
 export const LongContent = Template.bind({});
 LongContent.args = {
-  opened: true,
   heading: 'Profil',
   closeButtonAriaLabel: 'Zavrieť',
   footer: (

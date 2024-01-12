@@ -23,6 +23,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
           className="idsk-navigation__dropdown"
           optionClassName="idsk-navigation__dropdown-options"
           buttonClassName="idsk-navigation__dropdown-button"
+          withoutPseudoElement
         >
           {children}
         </DropDown>

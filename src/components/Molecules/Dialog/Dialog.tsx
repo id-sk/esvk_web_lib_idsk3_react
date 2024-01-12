@@ -6,10 +6,10 @@ import { ReactFocusLockProps } from 'react-focus-lock/interfaces';
 import useClickOutside from '../../../utils/useClickOutside';
 
 export interface DialogProps extends ReactFocusLockProps {
+  opened: boolean;
   id?: string;
   title?: string;
   description?: string;
-  opened?: boolean;
   toggleOpened?: () => void;
   primaryButton?: ReactNode;
   secondaryButton?: ReactNode;
@@ -42,7 +42,7 @@ const Dialog = ({
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useClickOutside(() => {
-    if (!disableClickOutside && opened && !!toggleOpened) {
+    if (!disableClickOutside && !!toggleOpened) {
       toggleOpened();
     }
   }, modalRef);
