@@ -52,7 +52,7 @@ const Dialog = ({
       {opened && (
         <FocusLock {...props} className={dialogClasses} lockProps={{ id: id }}>
           <div className="idsk-dialog-wrapper">
-            <div ref={modalRef} className="idsk-dialog">
+            <div ref={modalRef} className="idsk-dialog" role="dialog" aria-modal="true">
               {!!title && (
                 <div className="idsk-dialog__header">
                   <div className="idsk-dialog__header-title">

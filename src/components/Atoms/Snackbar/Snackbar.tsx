@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import CloseIcon from '../../../svgIcons/Navigation/Close';
 export interface SnackbarProps {
   id?: string;
@@ -10,12 +10,13 @@ export interface SnackbarProps {
   closeButton?: boolean;
   longAction?: boolean;
   autoHideDuration?: number;
-  onClose?: () => void;
+  onClose?: (index?: number) => void;
   onActionCall?: () => void;
   className?: string;
   actionClassName?: string;
   variant?: 'default' | 'info' | 'warning' | 'success' | 'attention';
   fixed?: boolean;
+  index?: number;
 }
 
 export interface SnackbarStackProps {
@@ -40,8 +41,11 @@ const Snackbar: React.FC<SnackbarProps> = ({
   className,
   actionClassName,
   variant = 'default',
-  fixed = true
+  fixed = true,
+  index = 0
 }) => {
+  const timerRef = useRef<NodeJS.Timer | null>(null);
+
   const snackbarClasses = classNames(
     'idsk-snackbar',
     { 'idsk-snackbar--long-action': !!longAction },
@@ -54,20 +58,22 @@ const Snackbar: React.FC<SnackbarProps> = ({
   );
 
   const handleClose = useCallback(() => {
-    if (!!onClose) onClose();
+    if (!!onClose) onClose(index);
   }, [onClose]);
 
   useEffect(() => {
-    if (!!autoHideDuration) {
-      const timer = setInterval(() => {
+    if (!!autoHideDuration && open) {
+      timerRef.current = setInterval(() => {
         handleClose();
       }, autoHideDuration);
-
-      return () => {
-        clearInterval(timer);
-      };
     }
-  }, [open, autoHideDuration, handleClose]);
+
+    return () => {
+      if (!!timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [autoHideDuration, open]);
 
   if (!!open) {
     return (
@@ -111,35 +117,64 @@ export const SnackbarStack: React.FC<SnackbarStackProps> = ({
   snackbars,
   setSnackbars,
   className,
-  maxCount,
-  variant = 'column'
+  maxCount = 10
 }) => {
-  if (!!maxCount && variant === 'column') {
-    if (snackbars.length > maxCount) {
-      setSnackbars((p) => p.slice(1));
-    }
-  }
+  useEffect(() => {
+    if (!!snackbars.length) {
+      let shouldCleanup = true;
 
-  if (variant === 'stack') {
-    if (snackbars.length > 1) {
-      setSnackbars((p) => p.slice(1));
+      for (const sn of snackbars) {
+        if (sn.open) {
+          shouldCleanup = false;
+          break;
+        }
+      }
+
+      if (shouldCleanup) {
+        setSnackbars([]);
+      }
     }
-  }
+  }, [snackbars]);
+
+  const handleSnackbarRemoval = (snackbarIndex: number) => {
+    setSnackbars((p) =>
+      p.map((sn, i) => {
+        if (i === snackbarIndex) {
+          const newItem = sn;
+          newItem.open = false;
+          return newItem;
+        }
+        return sn;
+      })
+    );
+  };
+
+  const indexedSnackbars = useMemo(() => {
+    return snackbars.map((snackbar, index) => ({ ...snackbar, index }));
+  }, [snackbars]);
+
+  const lastIndex = indexedSnackbars.length;
+  const minIndex = Math.max(0, lastIndex - maxCount);
 
   return (
     <>
-      {!!snackbars.length && (
+      {!!indexedSnackbars.length && (
         <div className={classNames('idsk-snackbar__stack', className)}>
-          {snackbars.map((snackbar, index) => (
+          {indexedSnackbars.slice(minIndex, lastIndex).map((snackbar) => (
             <Snackbar
               {...snackbar}
+              key={snackbar.index}
+              index={snackbar.index}
               className={classNames('bottom-0', snackbar.className)}
               fixed={false}
-              onClose={() => {
+              onClose={(itemIndex) => {
                 if (!!snackbar.onClose) {
                   snackbar.onClose();
                 }
-                setSnackbars((p) => p.filter((_, i) => i !== index));
+
+                if (itemIndex !== undefined) {
+                  handleSnackbarRemoval(itemIndex);
+                }
               }}
             />
           ))}

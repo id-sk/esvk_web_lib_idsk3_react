@@ -1813,11 +1813,11 @@
         @apply relative w-fit;
     }
     .idsk-tooltip::after {
-        @apply hidden content-[attr(data-tooltip)];
-    }
-    .idsk-tooltip:hover::after {
-        @apply block absolute rounded-lg p-6 mt-2 bg-neutral-900 text-white shadow-medium idsk-text-body-1 z-10 overflow-hidden w-max
+        @apply hidden content-[attr(data-tooltip)] absolute rounded-lg p-6 mt-2 bg-neutral-900 text-white shadow-medium idsk-text-body-1 z-10 overflow-hidden w-max
         mb:max-w-[10rem] tb1:max-w-[14rem] tb2:max-w-[21rem] dm1:max-w-[32rem] dm2:max-w-[34rem];
+    }
+    .idsk-tooltip[data-tooltip-visible="true"]::after {
+        @apply block;
     }
     .idsk-tooltip--left::after {
         @apply right-0;
@@ -1907,10 +1907,10 @@
         @apply idsk-caption tracking-[0.025rem] items-center;
     }
     .idsk-pagination-drop__option {
-        @apply idsk-dropdown__option cursor-pointer idsk-caption py-2 px-[1.625rem];
+        @apply idsk-dropdown__option cursor-pointer idsk-caption py-2 px-5 hover:bg-neutral-100 flex justify-center;
     }
     .idsk-pagination-drop__options {
-        @apply absolute rounded-md bg-white shadow-small idsk-caption text-black z-10 my-2 py-2.5;
+        @apply absolute rounded-md bg-white shadow-small idsk-caption text-black z-10 my-2;
     }
     .idsk-pagination-drop__button {
         @apply flex items-center justify-between bg-white border border-neutral-800 rounded py-2.5 pr-[0.313rem] pl-2.5 text-xs h-min;

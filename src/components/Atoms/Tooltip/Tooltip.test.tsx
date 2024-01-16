@@ -6,7 +6,7 @@ import Tooltip from './Tooltip';
 
 describe('Tooltip', () => {
   test('renders children', () => {
-    render(<Tooltip>Test</Tooltip>);
+    render(<Tooltip tooltip="Tooltip content">Test</Tooltip>);
     expect(screen.getByText('Test')).toBeDefined();
   });
 });

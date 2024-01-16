@@ -50,7 +50,14 @@ const ModalSideBar = ({
       {opened && (
         <FocusLock {...focusLockProps}>
           <div className={shadowClasses} data-testid="sidebar-shadow" />
-          <div ref={modalRef} className={sidebarClasses} id={id} {...props}>
+          <div
+            ref={modalRef}
+            className={sidebarClasses}
+            id={id}
+            aria-modal="true"
+            role="dialog"
+            {...props}
+          >
             <div className="idsk-modal-sidebar__top-bar" />
             <div className="idsk-modal-sidebar__header">
               <h2 className="idsk-headline-3">{heading}</h2>

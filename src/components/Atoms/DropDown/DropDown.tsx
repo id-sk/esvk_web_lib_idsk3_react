@@ -1,13 +1,13 @@
-import React, { useState, useRef, Children, ReactElement, SVGProps, ReactNode } from 'react';
+import React, { useRef, Children, ReactElement, SVGProps, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
-import { useClickOutside } from '../../../utils';
+import { UseDropDownOptions, useDropDown } from '../../../utils';
 import BaseButton from '../Button/BaseButton';
-import useDropdownDirection from '../../../utils/useDropdownDirection';
 
 export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   id?: string;
+  customTrigger?: ReactElement;
   dropDownTitle?: ReactNode;
   arrowIcon?: ReactElement<SVGProps<SVGSVGElement>>;
   optionClassName?: string;
@@ -16,10 +16,12 @@ export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
   optionsSide?: 'left' | 'right';
   closeOnOptionClick?: boolean;
   withoutPseudoElement?: boolean;
+  hookOptions?: UseDropDownOptions;
 }
 
 const DropDown = ({
   id,
+  customTrigger,
   dropDownTitle,
   className = '',
   children,
@@ -30,31 +32,27 @@ const DropDown = ({
   optionsSide = 'right',
   closeOnOptionClick = false,
   withoutPseudoElement = false,
+  hookOptions,
   ...props
 }: DropDownProps) => {
-  const [opened, setOpened] = useState<boolean>(false);
-
-  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  const direction = useDropdownDirection(opened, containerRef, optionsRef);
+  const wrapperClasses = classNames('idsk-dropdown__wrapper', className);
+  const buttonClasses = classNames('idsk-dropdown', buttonClassName);
 
-  useClickOutside(() => {
-    setOpened(false);
-  }, containerRef);
+  const { isOpen, state, handleTriggerClick } = useDropDown(triggerRef, optionsRef, hookOptions);
 
   const optionClasses = classNames(
-    'idsk-dropdown__options',
+    'idsk-dropdown__options opacity-0',
     {
-      hidden: !opened,
+      hidden: state === 'closed',
       'idsk-dropdown__options--left': optionsSide === 'left',
-      'idsk-dropdown__options--up': direction === 'up',
-      'idsk-dropdown__options--down': direction === 'down'
+      'idsk-dropdown__options--up': state === 'up',
+      'idsk-dropdown__options--down': state === 'down'
     },
     optionClassName
   );
-  const wrapperClasses = classNames('idsk-dropdown__wrapper', className);
-  const buttonClasses = classNames('idsk-dropdown', buttonClassName);
 
   const getLabelForPseudoElement = (child: any): string | number | undefined => {
     const chLabel = child?.props?.label;
@@ -81,7 +79,7 @@ const DropDown = ({
           {React.cloneElement(child, {
             onClick: (e: React.MouseEvent) => {
               if (child?.props?.onClick) child.props.onClick(e);
-              if (closeOnOptionClick) setOpened(false);
+              if (closeOnOptionClick) handleTriggerClick();
             },
             className: classNames(child.props.className, { absolute: !!data })
           } as any)}
@@ -91,29 +89,39 @@ const DropDown = ({
   });
 
   const renderedIcon = React.cloneElement(arrowIcon, {
-    className: classNames('idsk-dropdown__icon', { 'rotate-180': opened })
+    className: classNames('idsk-dropdown__icon', { 'rotate-180': isOpen })
   });
 
   return (
-    <div ref={containerRef} {...props} className={wrapperClasses}>
-      <BaseButton
-        aria-label={buttonAriaLabel}
-        className={buttonClasses}
-        onClick={() => setOpened((p) => !p)}
-        id={id}
-        aria-expanded={opened}
-        aria-controls={id + '-dropdown'}
-        type="button"
-      >
-        <span>{dropDownTitle}</span>
-        {renderedIcon}
-      </BaseButton>
+    <div {...props} className={wrapperClasses}>
+      {!!customTrigger ? (
+        React.cloneElement(customTrigger, {
+          ref: triggerRef,
+          onClick: handleTriggerClick
+        })
+      ) : (
+        <BaseButton
+          ref={triggerRef}
+          aria-label={buttonAriaLabel}
+          className={buttonClasses}
+          onClick={handleTriggerClick}
+          id={id}
+          aria-expanded={isOpen}
+          aria-controls={id + '-dropdown'}
+          type="button"
+        >
+          <span>{dropDownTitle}</span>
+          {renderedIcon}
+        </BaseButton>
+      )}
       <ul
+        style={{
+          opacity: isOpen ? '100' : '0'
+        }}
         ref={optionsRef}
         id={id + '-dropdown'}
         className={optionClasses}
         data-testid="dropdown-options"
-        onClick={() => setOpened(false)}
       >
         {renderedChildren}
       </ul>

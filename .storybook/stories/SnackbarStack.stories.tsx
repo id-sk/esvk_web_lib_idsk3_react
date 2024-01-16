@@ -25,28 +25,17 @@ const Template: ComponentStory<typeof SnackbarStack> = (args) => {
               open: true,
               closeButton: true,
               variant: 'default',
-              autoHideDuration: 3000
+              autoHideDuration: 5000
             }
           ]);
         }}
       />
-      <SnackbarStack
-        snackbars={snackbars}
-        setSnackbars={setSnackbars}
-        maxCount={args.maxCount}
-        variant={args.variant}
-      />
+      <SnackbarStack snackbars={snackbars} setSnackbars={setSnackbars} maxCount={args.maxCount} />
     </>
   );
 };
 
-export const Column = Template.bind({});
-Column.args = {
-  maxCount: 5,
-  variant: 'column'
-};
-
 export const Stack = Template.bind({});
 Stack.args = {
-  variant: 'stack'
+  maxCount: 5
 };
