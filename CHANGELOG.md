@@ -39,6 +39,7 @@
 - _[OZO-541]_: Clickable datagrid row, border fixes in table and datagrid
 - _[WEB2-6157]_: Extension of the DropZone title parameter
 - _[OZO-549]_: Pseudoelement active state for dropdown and horizontal navigation, left border for infobanner, Tag component remade, useClickOutside hook
+- _[OZO-617]_: make Dropdown work with React.Fragment, HorizontalNavigation mobile breakpoint is dm1
 
 * **Property changes**
   - No changes.

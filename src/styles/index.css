@@ -1286,7 +1286,7 @@
     .idsk-horizontal-navigation .idsk-horizontal-navigation-item,
     .idsk-horizontal-navigation .idsk-dropdown__wrapper,
     .idsk-horizontal-navigation-group {
-        @apply gap-2 flex-1 tb2:flex-none justify-center;
+        @apply gap-2 flex-1 dm1:flex-none justify-center;
     }
     .idsk-horizontal-navigation-group {
         @apply gap-0;
@@ -1295,7 +1295,7 @@
     .idsk-horizontal-navigation .idsk-dropdown__wrapper,
     .idsk-horizontal-navigation-group--hide-on-mobile,
     .idsk-horizontal-navigation .idsk-dropdown__options {
-        @apply w-full tb2:w-auto flex-none;
+        @apply w-full dm1:w-auto flex-none;
     }
     .idsk-horizontal-navigation.horizontal-navigation--list-view > .idsk-horizontal-navigation-item {
         @apply flex-row-reverse tb2:flex-row justify-between tb2:justify-center;
@@ -1320,15 +1320,15 @@
     .idsk-horizontal-navigation--hide-label-on-mobile
     .idsk-button__label:not(.idsk-dropdown__option .idsk-button__label),
     .idsk-horizontal-navigation-group .idsk-dropdown__option .idsk-button__icon {
-        @apply hidden tb2:inline-block;
+        @apply hidden dm1:inline-block;
     }
     div.idsk-horizontal-navigation
     div.idsk-horizontal-navigation-group.idsk-horizontal-navigation-group--hide-on-mobile
     > *:not(.idsk-dropdown__wrapper) {
-        @apply hidden tb2:flex;
+        @apply hidden dm1:flex;
     }
     .idsk-horizontal-navigation-group .idsk-dropdown__wrapper {
-        @apply inline-block tb2:hidden;
+        @apply inline-block dm1:hidden;
     }
 
     .idsk-in-page-navigation {

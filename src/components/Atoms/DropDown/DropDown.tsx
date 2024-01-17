@@ -1,8 +1,8 @@
-import React, { useRef, Children, ReactElement, SVGProps, ReactNode } from 'react';
+import React, { useRef, ReactElement, SVGProps, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { ArrowDropDownIcon } from '../../../svgIcons/Navigation';
-import { UseDropDownOptions, useDropDown } from '../../../utils';
+import { UseDropDownOptions, cloneThroughFragments, useDropDown } from '../../../utils';
 import BaseButton from '../Button/BaseButton';
 
 export interface DropDownProps extends React.AllHTMLAttributes<HTMLDivElement> {
@@ -67,7 +67,7 @@ const DropDown = ({
     return undefined;
   };
 
-  const renderedChildren = Children.map(children, (child) => {
+  const renderedChildren = cloneThroughFragments(children, (child) => {
     if (React.isValidElement(child)) {
       const label = getLabelForPseudoElement(child);
       const data =
