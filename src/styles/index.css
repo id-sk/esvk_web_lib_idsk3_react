@@ -595,6 +595,9 @@
     .idsk-dropdown__option {
         @apply flex whitespace-nowrap first:mt-1 last:mb-1 relative;
     }
+    .idsk-dropdown__option *{
+        @apply  h-full;
+    }
     .idsk-dropdown__option[data-pseudolabel]::before {
         content: attr(data-pseudolabel);
         @apply font-bold w-full px-5 py-3 opacity-0;
@@ -1278,7 +1281,10 @@
         @apply flex items-center idsk-text-body border-[1px] border-neutral-300 py-2.5 px-4 rounded-[0.31rem] bg-white hover:bg-blue-100 hover:no-underline;
     }
     .idsk-horizontal-navigation-item--active {
-        @apply font-bold relative overflow-hidden after:absolute after:h-[5px] after:w-full after:bg-black after:bottom-0;
+        @apply font-bold relative;
+    }
+    :not(.idsk-dropdown__option) > .idsk-horizontal-navigation-item--active {
+        @apply after:absolute after:h-[5px] after:w-full after:bg-black after:bottom-0;
     }
     .idsk-horizontal-navigation .idsk-button__icon {
         @apply m-0;

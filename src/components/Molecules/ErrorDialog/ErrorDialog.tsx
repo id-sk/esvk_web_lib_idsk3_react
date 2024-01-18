@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import ErrorImage from '../../../svgImages/Logos/ErrorImg';
+import ErrorImage from '../../../svgImages/Illustrations/ErrorImg';
 import Dialog from '../Dialog';
 import { Loader } from '../../Atoms';
 
