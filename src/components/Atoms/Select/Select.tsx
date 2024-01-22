@@ -8,8 +8,8 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   error?: boolean;
   errorMsg?: string;
   label?: string;
-  caption?: string;
   subtitle?: string;
+  caption?: string;
   placeholder?: string;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -41,11 +41,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       errorMessageId,
       mandatory = false,
       defaultSelectValue = 'default',
+      value,
       ...props
     }: SelectProps,
     ref
   ) => {
-    const [placeholderIsActive, setPlaceholderIsActive] = useState(!!placeholder);
+    const [placeholderIsActive, setPlaceholderIsActive] = useState(!value && !!placeholder);
 
     const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
       if (!!placeholder) {
@@ -103,7 +104,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               onChange={handleOnChange}
               aria-invalid={error}
               aria-errormessage={idForAria}
-              defaultValue={defaultSelectValue}
+              value={value}
               {...props}
             >
               {!!placeholder && (

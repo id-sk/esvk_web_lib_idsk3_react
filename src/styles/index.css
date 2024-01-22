@@ -455,11 +455,8 @@
     .idsk-data-grid-row {
         @apply flex justify-between idsk-text-body p-5 border-t  border-neutral-300 bg-white rounded-none last:rounded-b-lg gap-4;
     }
-    .idsk-data-grid-row__button {
-        @apply flex w-full p-5 gap-4 idsk-text-body text-left;
-    }
     .idsk-data-grid-row--clickable {
-        @apply hover:bg-neutral-100 p-0;
+        @apply hover:bg-neutral-100 cursor-pointer;
     }
     .idsk-data-grid__body--without-head .idsk-data-grid-row {
         @apply border-t border-neutral-300 first:rounded-t-lg first:border-t-0;

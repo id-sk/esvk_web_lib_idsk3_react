@@ -46,20 +46,20 @@ interface FilterTagProps extends BaseTagProps {
 
 export type TagProps = SelectTagProps | StaticTagProps | ActionTagProps | FilterTagProps;
 
-const Tag = (props: TagProps) => {
-  const {
-    label,
-    leftIcon,
-    rightIcon,
-    size = 'medium',
-    disabled = false,
-    type = 'static',
-    variant = 'default',
-    className
-  } = props;
-  const { colors } = props as StaticTagProps;
-  const { selected } = props as SelectTagProps;
-  const { onClose = () => {} } = props as ActionTagProps;
+const Tag = ({
+  label,
+  leftIcon,
+  rightIcon,
+  size = 'medium',
+  disabled = false,
+  type = 'static',
+  variant = 'default',
+  className,
+  ...props
+}: TagProps) => {
+  const { colors, ...propsWithSelect } = props as StaticTagProps;
+  const { selected, ...propsWithOnClose } = propsWithSelect as SelectTagProps;
+  const { onClose, ...divProps } = propsWithOnClose as ActionTagProps;
 
   const getVariantClass = () => {
     if (type === 'static' || type === 'action') {
@@ -91,7 +91,7 @@ const Tag = (props: TagProps) => {
             }
           }
         : {})}
-      {...props}
+      {...divProps}
     >
       {type === 'filter' && selected && <CheckIcon />}
       {leftIcon}

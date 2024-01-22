@@ -50,8 +50,9 @@ export const DataGridRowValue = ({
   );
 };
 
-export interface RowButtonProps extends BaseButtonProps {
-  skipedElements?: string[];
+export interface ClickableRowProps {
+  unclickableTargets?: string[];
+  onClick: (event: React.MouseEvent<HTMLTableRowElement>) => void;
 }
 
 export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement>, DataGridProps {
@@ -66,7 +67,7 @@ export interface DataGridRowProps extends React.AllHTMLAttributes<HTMLDivElement
   active?: boolean;
   checkbox?: boolean;
   activeDotVisibility?: boolean;
-  buttonProps?: RowButtonProps;
+  buttonProps?: ClickableRowProps;
 }
 
 export function DataGridRow({
@@ -103,9 +104,9 @@ export function DataGridRow({
     />
   );
 
-  const handleRowClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleRowClick = (event: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => {
     const tagName = (event.target as HTMLElement)?.tagName ?? '';
-    const skipepdTags = buttonProps?.skipedElements || ['INPUT', 'path', 'svg'];
+    const skipepdTags = buttonProps?.unclickableTargets || ['INPUT', 'path', 'svg'];
     if (!!buttonProps?.onClick && !skipepdTags.includes(tagName)) {
       buttonProps.onClick(event);
     }
@@ -162,18 +163,18 @@ export function DataGridRow({
   );
 
   return (
-    <tr className={dataGridClasses} id={id} {...props}>
-      {!!buttonProps ? (
-        <BaseButton
-          {...buttonProps}
-          className={classNames('idsk-data-grid-row__button', buttonProps.className)}
-          onClick={handleRowClick}
-        >
-          {dataGridRowBody}
-        </BaseButton>
-      ) : (
-        dataGridRowBody
-      )}
+    <tr
+      className={dataGridClasses}
+      id={id}
+      {...(buttonProps
+        ? {
+            tabIndex: 0,
+            onClick: handleRowClick
+          }
+        : {})}
+      {...props}
+    >
+      {dataGridRowBody}
     </tr>
   );
 }

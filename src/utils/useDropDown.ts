@@ -39,7 +39,10 @@ const useDropDown = (
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const optionsRect = optionsRef.current.getBoundingClientRect();
 
-      if (triggerRect.bottom + optionsRect.height + treshold > window.innerHeight) {
+      if (
+        triggerRect.bottom + optionsRect.height + treshold > window.innerHeight &&
+        triggerRect.top - optionsRect.height - treshold > window.scrollY
+      ) {
         setState('up');
       } else {
         setState('down');
