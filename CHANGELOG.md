@@ -55,6 +55,7 @@
 ### 🔨 Dependency Upgrades
 
 - _[OZO-617]_: Updated @eslovensko/idsk-core to 3.1.6,
+- _[OZO-639]_: Updated @eslovensko/idsk-core to 3.1.7
 
 ### 📔 Documentation
 
