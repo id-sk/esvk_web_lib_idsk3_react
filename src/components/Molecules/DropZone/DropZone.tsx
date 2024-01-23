@@ -152,6 +152,10 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
       'idsk-dropzone__container--inactive': props.variant == 'inactive'
     });
     const infoClasses = classNames({
+      'idsk-dropzone__file-info': !props.progress,
+      'idsk-dropzone__file-info--flex': props.progress
+    });
+    const infoDateClasses = classNames({
       'idsk-dropzone__file-size-date': !props.progress,
       'idsk-dropzone__file-size-date--hidden': props.progress
     });
@@ -210,16 +214,9 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
                   }
                 >
                   <div className="idsk-dropzone__file-icon">{renderFileIcon(f)}</div>
-                  <div className="idsk-dropzone__file-info">
+                  <div className={infoClasses}>
                     <div className="idsk-dropzone__file-name">{f.name}</div>
                     <div className="idsk-dropzone__file-info-progress">
-                      <div className={infoClasses}>
-                        <div className="idsk-dropzone__file-date">
-                          {`${format(f.lastModified, 'd. M. yyyy')} - `}
-                        </div>
-                        {formatBytes(f.size)}
-                      </div>
-
                       <div className={progressClasses}>
                         <div className="idsk-dropzone__file-progress">
                           <Progress
@@ -231,6 +228,13 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
                         </div>
                         <p className="idsk-dropzone__file-percent">{props.percent}</p>
                       </div>
+                    </div>
+                    <div className={infoDateClasses}>
+                      <div className="idsk-dropzone__file-date">
+                        {format(f.lastModified, 'd. M. yyyy H:mm:ss')}
+                        <span className="px-1">-</span>
+                      </div>
+                      <span className="whitespace-nowrap">{formatBytes(f.size)}</span>
                     </div>
                   </div>
                 </DropZoneAcceptedFile>

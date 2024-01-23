@@ -13,7 +13,7 @@ export const Default = Template.bind({});
 Default.args = {
   dropzoneTitle: 'Nahraj súbor',
   subtitle: 'Zvoľte súbor a nahrajte ho',
-  description: 'alebo preneste zvolenú prílohu (max. veľkosť 50MB)',
+  description: 'alebo preneste zvolenú prílohu sem (max. veľkosť 50MB)',
   buttonText: 'Pridať prílohu',
   filesTitle: 'Nahrané súbory',
   errorMessage: 'Vyskytol sa problém pri nahrávaní',
@@ -25,7 +25,7 @@ export const WithProgressBar = Template.bind({});
 WithProgressBar.args = {
   dropzoneTitle: 'Nahraj súbor',
   subtitle: 'Zvoľte súbor a nahrajte ho',
-  description: 'alebo preneste zvolenú prílohu (max. veľkosť 50MB)',
+  description: 'alebo preneste zvolenú prílohu sem (max. veľkosť 50MB)',
   buttonText: 'Pridať prílohu',
   filesTitle: 'Nahrané súbory',
   errorMessage: 'Vyskytol sa problém pri nahrávaní',
@@ -38,7 +38,7 @@ export const Inactive = Template.bind({});
 Inactive.args = {
   dropzoneTitle: 'Nahraj súbor',
   subtitle: 'Zvoľte súbor a nahrajte ho',
-  description: 'alebo preneste zvolenú prílohu (max. veľkosť 50MB)',
+  description: 'alebo preneste zvolenú prílohu sem (max. veľkosť 50MB)',
   buttonText: 'Pridať prílohu',
   variant: 'inactive'
 };

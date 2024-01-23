@@ -646,16 +646,19 @@
         @apply grid gap-2;
     }
     .idsk-dropzone__file {
-        @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
+        @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 justify-between;
     }
     .idsk-dropzone__file--error {
         @apply idsk-dropzone__file border-alert-warning;
     }
     .idsk-dropzone__file-icon {
-        @apply mr-2.5 flex items-center;
+        @apply mr-2.5 flex place-items-start;
     }
     .idsk-dropzone__file-info {
-        @apply block tb2:flex items-center w-full;
+        @apply block w-full;
+    }
+    .idsk-dropzone__file-info--flex {
+        @apply idsk-dropzone__file-info tb2:flex;
     }
     .idsk-dropzone__file-name {
         @apply idsk-text-body mr-2.5;
@@ -667,10 +670,10 @@
         @apply idsk-text-body-1 text-neutral-600 mr-2.5 flex;
     }
     .idsk-dropzone__file-size-date--hidden {
-        @apply hidden w-full tb2:idsk-dropzone__file-size-date;
+        @apply hidden;
     }
     .idsk-dropzone__file-date {
-        @apply tb2:hidden flex;
+        @apply flex;
     }
     .idsk-dropzone__file-progress-container {
         @apply flex items-center gap-2.5 w-full justify-end;
@@ -688,7 +691,7 @@
         @apply flex bg-neutral-90 border rounded border-neutral-300 py-2.5 px-5 items-center justify-between;
     }
     .idsk-dropzone-accepted-file__close-button {
-        @apply flex gap-7 items-center text-neutral-600;
+        @apply gap-7 text-neutral-600;
     }
     .idsk-dropzone-accepted-file__close-icon {
         @apply w-6 h-6 tb2:ml-7 ml-2.5;
