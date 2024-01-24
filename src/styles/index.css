@@ -673,7 +673,7 @@
         @apply hidden;
     }
     .idsk-dropzone__file-date {
-        @apply flex;
+        @apply flex whitespace-nowrap;
     }
     .idsk-dropzone__file-progress-container {
         @apply flex items-center gap-2.5 w-full justify-end;
@@ -703,7 +703,7 @@
         @apply idsk-dropzone__error-icon mr-2.5;
     }
     .idsk-dropzone-rejected-file__container {
-        @apply block tb2:flex gap-5 items-center w-full justify-between;
+        @apply block tb2:flex gap-5 w-full justify-between;
     }
     .idsk-dropzone-rejected-file__name {
         @apply w-fit idsk-text-body mr-2.5;
@@ -712,7 +712,7 @@
         @apply text-alert-warning idsk-text-body-1;
     }
     .idsk-dropzone-rejected-file__close-button {
-        @apply flex gap-7 items-center;
+        @apply gap-7;
     }
     .idsk-dropzone-rejected-file__close-icon {
         @apply text-alert-warning w-6 h-6 ml-5;
