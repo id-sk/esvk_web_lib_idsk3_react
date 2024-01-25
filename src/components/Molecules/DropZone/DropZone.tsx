@@ -45,6 +45,8 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   progressFillingColor?: string;
   fileInputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   defaultValueFiles?: File[];
+  enableOneFile?: boolean;
+  hideFiles?: boolean;
   onChangeFiles?: (files: File[]) => void;
 }
 
@@ -96,7 +98,12 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
     });
     const onDrop = useCallback((acceptedFiles: File[], fileRejections: FileRejection[]) => {
       setFiles((f) => {
-        const newFiles = [...f, ...acceptedFiles];
+        const newFiles = props.enableOneFile
+          ? [...f, ...acceptedFiles].slice(
+              [...f, ...acceptedFiles].length - 1,
+              [...f, ...acceptedFiles].length
+            )
+          : [...f, ...acceptedFiles];
         onChangeFiles?.(newFiles);
         return newFiles;
       });
@@ -163,6 +170,10 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
       hidden: !props.progress
     });
 
+    const filesClasses = classNames('idsk-dropzone__files', {
+      hidden: !!props.hideFiles
+    });
+
     return (
       <div className={classNames('idsk-dropzone', className)}>
         {typeof props.dropzoneTitle === 'string' ? (
@@ -200,7 +211,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
 
         <div className="grid gap-5">
           {!!props.filesTitle && !!files.length && <h4>{props.filesTitle}</h4>}
-          <div className="idsk-dropzone__files">
+          <div className={filesClasses}>
             {!!files.length &&
               files.map((f, index) => (
                 <DropZoneAcceptedFile
