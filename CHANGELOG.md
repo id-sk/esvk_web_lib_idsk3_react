@@ -40,6 +40,7 @@
 - _[WEB2-6157]_: Extension of the DropZone title parameter and change the alignments
 - _[OZO-549]_: Pseudoelement active state for dropdown and horizontal navigation, left border for infobanner, Tag component remade, useClickOutside hook
 - _[OZO-617]_: make Dropdown work with React.Fragment, HorizontalNavigation mobile breakpoint is dm1, fix HorizontalNavigation dropdown active state
+- _[OZO-654]_: DateInput mandatory and ref update, Checkbox optionalText update
 
 * **Property changes**
   - No changes.

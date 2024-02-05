@@ -13,6 +13,7 @@ export interface DatePickerCustomInputProps extends HTMLProps<HTMLButtonElement>
 }
 
 export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement> {
+  ref?: React.ForwardedRef<HTMLInputElement>;
   id?: string;
   error?: boolean;
   errorMsg?: string;
@@ -41,11 +42,13 @@ export interface DateInputProps extends React.HTMLAttributes<HTMLFieldSetElement
   minDateToday?: boolean;
   maxDateToday?: boolean;
   inclusive?: boolean;
+  mandatory?: boolean;
   onValueUpdate?: (value: string) => void;
   onRevalidation?: (hasError: boolean) => void;
 }
 
 const DateInput = ({
+  ref,
   id,
   error,
   errorMsg,
@@ -74,6 +77,7 @@ const DateInput = ({
   minDateToday = false,
   maxDateToday = false,
   inclusive = false,
+  mandatory = false,
   onValueUpdate,
   onRevalidation,
   ...props
@@ -229,13 +233,13 @@ const DateInput = ({
   }, [refreshDate]);
 
   const DatePickerCustomInput = forwardRef<HTMLButtonElement, DatePickerCustomInputProps>(
-    ({ onClick, tooltip }, ref) => {
+    ({ onClick, tooltip }, pickerRef) => {
       const btn = (
         <button
           className={datePickerClasses}
           aria-label={datePickerLabel}
           onClick={onClick}
-          ref={ref}
+          ref={pickerRef}
         >
           <DateRange className="idsk-date-input__date-range" />
         </button>
@@ -259,12 +263,13 @@ const DateInput = ({
       <legend className="idsk-input__label">
         {label}
         {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+        {mandatory && <span className="idsk-input__label--mandatory"> *</span>}
       </legend>
       {!!subtitle && <p className="idsk-input__subtitle">{subtitle}</p>}
       <div className={dateInputWrapperClasses}>
         {!hideDay && (
           <Input
-            ref={dayRef}
+            ref={ref || dayRef}
             id={id ? id + '-day' : undefined}
             label={dayLabel}
             labelSrOnly={inputLabelsSrOnly}
@@ -282,7 +287,7 @@ const DateInput = ({
         )}
         {!hideMonth && (
           <Input
-            ref={monthRef}
+            ref={!!hideDay ? ref : monthRef}
             id={id ? id + '-month' : undefined}
             label={monthLabel}
             labelSrOnly={inputLabelsSrOnly}
@@ -300,7 +305,7 @@ const DateInput = ({
         )}
         {!hideYear && (
           <Input
-            ref={yearRef}
+            ref={!!hideDay && !!hideMonth ? ref : yearRef}
             id={id ? id + '-year' : undefined}
             label={yearLabel}
             labelSrOnly={inputLabelsSrOnly}

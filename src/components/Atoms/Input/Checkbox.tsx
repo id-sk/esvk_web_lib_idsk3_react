@@ -15,6 +15,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   checked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   hasUncheckIcon?: boolean;
+  optionalText?: string;
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -28,6 +29,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       onChange,
       hasUncheckIcon,
       error,
+      optionalText,
       ...props
     }: CheckboxProps,
     ref
@@ -96,7 +98,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           />
-          <div className={textSizeClasses}>{label}</div>
+          <div className={textSizeClasses}>
+            {label}
+            {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+          </div>
         </label>
       </div>
     );
