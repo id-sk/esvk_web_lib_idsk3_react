@@ -3,7 +3,7 @@ import { PrimaryButton, Progress } from '../../Atoms';
 import { CloudUploadIcon } from '../../../svgIcons/File';
 import { AddIcon } from '../../../svgIcons/Content';
 import React, { ReactNode, useCallback, useImperativeHandle, useState } from 'react';
-import { FileRejection, useDropzone } from 'react-dropzone';
+import { Accept, FileRejection, useDropzone } from 'react-dropzone';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import { ErrorIcon } from '../../../svgIcons/Alert';
 import { format } from 'date-fns';
@@ -47,7 +47,9 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   defaultValueFiles?: File[];
   enableOneFile?: boolean;
   hideFiles?: boolean;
+  acceptFiles?: Accept | undefined;
   onChangeFiles?: (files: File[]) => void;
+  onChangeRejectedFiles?: (files: FileRejection[]) => void;
 }
 
 export function DropZoneAcceptedFile({ ...props }) {
@@ -89,7 +91,7 @@ export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
 }
 
 const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
-  ({ icon, className, onChangeFiles, defaultValueFiles, ...props }, ref) => {
+  ({ icon, className, onChangeFiles, onChangeRejectedFiles, defaultValueFiles, ...props }, ref) => {
     const [files, setFiles] = useState<File[]>(defaultValueFiles ?? []);
     const [filesRejected, setFilesRejected] = useState<FileRejection[]>([]);
 
@@ -107,11 +109,16 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
         onChangeFiles?.(newFiles);
         return newFiles;
       });
-      setFilesRejected((f) => [...f, ...fileRejections]);
+      setFilesRejected((f) => {
+        const newRejectedFiles = [...f, ...fileRejections];
+        onChangeRejectedFiles?.(newRejectedFiles);
+        return newRejectedFiles;
+      });
     }, []);
     const { getRootProps, getInputProps, isDragAccept } = useDropzone({
       onDrop,
-      maxSize: props.maxSize
+      maxSize: props.maxSize,
+      accept: props.acceptFiles
     });
     const getExtension = (fileName: string): string => {
       if (!fileName) {

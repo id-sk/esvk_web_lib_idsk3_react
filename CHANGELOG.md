@@ -41,6 +41,7 @@
 - _[OZO-549]_: Pseudoelement active state for dropdown and horizontal navigation, left border for infobanner, Tag component remade, useClickOutside hook
 - _[OZO-617]_: make Dropdown work with React.Fragment, HorizontalNavigation mobile breakpoint is dm1, fix HorizontalNavigation dropdown active state
 - _[OZO-654]_: DateInput mandatory and ref update, Checkbox optionalText update
+- _[WEB2-6123]_: DropZone update
 
 * **Property changes**
   - No changes.
