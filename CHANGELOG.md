@@ -53,6 +53,7 @@
 ### 🐞 Bug Fixes
 
 - _[WEB2-4462]_: Fix class name for the active link in Storybook
+- _[OZO-740]_: Fix SkipLink
 
 ### 🔨 Dependency Upgrades
 

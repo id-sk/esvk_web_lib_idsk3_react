@@ -1924,11 +1924,11 @@
     .idsk-pagination-drop__icon {
         @apply w-4 h-4 text-black;
     }
-    .idsk-information-banner__skip-link {
-        @apply p-0 focus-within:py-2;
+    .idsk-skip-link__wrapper {
+        @apply p-4 bg-primary-light absolute focus-within:static w-full;
     }
     .idsk-skip-link {
-        @apply absolute focus:static overflow-hidden;
+        @apply absolute text-primary underline idsk-focusable font-bold focus:static underline w-full;
     }
     .idsk-snackbar {
         @apply bg-neutral-900 text-white py-[0.625rem] px-4 rounded-md shadow-medium flex items-center leading-6 w-fit tb1:min-w-[28rem] relative;
