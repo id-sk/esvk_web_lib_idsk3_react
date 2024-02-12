@@ -63,7 +63,13 @@ const Tag = ({
 
   const getVariantClass = () => {
     if (type === 'static' || type === 'action') {
-      return 'idsk-tag--' + variant;
+      return classNames({
+        'idsk-tag--success': variant === 'success',
+        'idsk-tag--warning': variant === 'warning',
+        'idsk-tag--attention': variant === 'attention',
+        'idsk-tag--basic': variant === 'basic',
+        'idsk-tag--default': variant === 'default'
+      });
     }
     return 'idsk-tag--default';
   };

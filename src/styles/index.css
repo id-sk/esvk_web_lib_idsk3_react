@@ -139,10 +139,13 @@
         @apply bg-white border border-neutral-300 rounded-xl;
     }
     .idsk-accordion__title {
-        @apply flex tb2:items-center justify-between;
+        @apply flex tb2:items-center justify-between underline;
+    }
+    .idsk-accordion__title button {
+        @apply text-left;
     }
     .idsk-accordion__subtitle {
-        @apply block idsk-text-body-1 text-lg pt-2.5;
+        @apply block idsk-text-body pt-2.5;
     }
     .idsk-accordion--small .idsk-accordion__subtitle {
         @apply pt-1.5;
@@ -550,13 +553,13 @@
         @apply hidden;
     }
     .idsk-dialog {
-        @apply flex flex-col h-auto tb2:rounded-lg bg-white shadow-medium;
+        @apply flex flex-col h-auto rounded-lg bg-white shadow-medium mx-5;
     }
     .idsk-dialog__header {
         @apply px-7 pt-7 pb-5 border-b border-neutral-300;
     }
     .idsk-dialog__content {
-        @apply flex flex-1 gap-2 flex-col px-7 py-5;
+        @apply flex flex-1 gap-2 flex-col px-7 py-5 justify-center items-center;
     }
     .idsk-dialog__header-title {
         @apply flex justify-between items-center gap-5;
@@ -769,10 +772,10 @@
         @apply border-l-4;
     }
     .idsk-information-banner__wrapper {
-        @apply flex items-center justify-between w-full flex-wrap gap-4;
+        @apply flex tb2:items-center justify-between w-full gap-4;
     }
     .idsk-information-banner__close-button {
-        @apply hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded;
+        @apply hover:ring-primary hover:ring-1 hover:ring-offset-0 rounded h-fit;
     }
     .idsk-information-banner__close-button-icon {
         @apply w-6 h-6;
@@ -786,7 +789,7 @@
         @apply pr-2 py-5 items-center relative overflow-hidden;
     }
     .idsk-information-announcement__wrapper {
-        @apply flex items-center idsk-page-content justify-between flex-wrap gap-4;
+        @apply flex tb2:items-center idsk-page-content justify-between gap-4;
     }
     .idsk-information-banner__icon {
         @apply text-center text-2xl flex-none;
@@ -807,7 +810,7 @@
         @apply flex-grow-[2];
     }
     .idsk-information-banner__wrapper--with-close-button .idsk-information-banner__title-wrapper {
-        @apply order-2 tb2:flex-1 tb2:order-none w-full tb2:w-auto;
+        @apply tb2:flex-1 tb2:order-none w-full tb2:w-auto;
     }
     .idsk-information-banner__title {
         @apply font-bold idsk-text-body-1;

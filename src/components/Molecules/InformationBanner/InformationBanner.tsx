@@ -108,17 +108,6 @@ const InformationBanner = ({
         {ariaLabel}
       </span>
       <div className={infoWrapperClasses}>
-        {props.type == 'banner' && (
-          <div
-            className={classNames('idsk-information-banner__color-strip ', {
-              'idsk-bg-primary': variant == 'information',
-              'idsk-bg-alert-attention': variant == 'alert',
-              'idsk-bg-alert-warning': variant == 'warning',
-              'idsk-bg-alert-positive': variant == 'success'
-            })}
-          />
-        )}
-
         {!!icon &&
           React.cloneElement(icon, {
             className: classNames('idsk-information-banner__icon', icon.props.className, {

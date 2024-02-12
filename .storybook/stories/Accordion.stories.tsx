@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Accordion, AccordionListGroup, Input } from '../../src/components/Atoms';
-import { CheckCircleOutlineIcon } from "../../src/svgIcons";
+import { CheckCircleOutlineIcon } from '../../src/svgIcons';
 import '/src/styles/idsk3_theme.css';
 
 export default {
@@ -27,7 +27,12 @@ const TemplateGroupSuccess: ComponentStory<typeof Accordion> = (args) => (
 
 const TemplateGroupOnClick: ComponentStory<typeof Accordion> = (args) => (
   <AccordionListGroup>
-    <Accordion index={1} {...args} listItemVariant="success" listItemIcon={<CheckCircleOutlineIcon />} />
+    <Accordion
+      index={1}
+      {...args}
+      listItemVariant="success"
+      listItemIcon={<CheckCircleOutlineIcon />}
+    />
     <Accordion {...args} />
     <Accordion index={2} {...args} />
   </AccordionListGroup>
@@ -35,8 +40,8 @@ const TemplateGroupOnClick: ComponentStory<typeof Accordion> = (args) => (
 
 const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
 
-const Heading = <h4 className="underline">Základné údaje</h4>;
-const Subtitle = 'V tejto časti môžete meniť svoje základné údaje.'
+const Heading = <h4>Základné údaje</h4>;
+const Subtitle = 'V tejto časti môžete meniť svoje základné údaje.';
 const Content = (
   <>
     <h4>Filtrovania</h4>

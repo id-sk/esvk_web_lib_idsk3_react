@@ -42,6 +42,7 @@
 - _[OZO-617]_: make Dropdown work with React.Fragment, HorizontalNavigation mobile breakpoint is dm1, fix HorizontalNavigation dropdown active state
 - _[OZO-654]_: DateInput mandatory and ref update, Checkbox optionalText update
 - _[WEB2-6123]_: DropZone update
+- _[OZO-802]_: Dialog and information banner styling changes
 
 * **Property changes**
   - No changes.
