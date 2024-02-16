@@ -55,6 +55,7 @@
 
 - _[WEB2-4462]_: Fix class name for the active link in Storybook
 - _[OZO-740]_: Fix SkipLink
+- _[WEB2-4499]_: Fix Accordion list button,
 
 ### 🔨 Dependency Upgrades
 

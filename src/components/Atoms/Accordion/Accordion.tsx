@@ -83,7 +83,11 @@ const Accordion = ({
                 variant={listItemVariant}
                 icon={listItemIcon}
                 {...listItemButtonProps}
-                className={classNames(roundedClassNames, listItemButtonProps?.className)}
+                className={classNames(
+                  roundedClassNames,
+                  'absolute',
+                  listItemButtonProps?.className
+                )}
               />
             ) : (
               <div
@@ -102,7 +106,7 @@ const Accordion = ({
                   {...listItemButtonProps}
                   className={classNames(
                     roundedClassNames,
-                    'pt-1.5',
+                    'pt-1.5 absolute',
                     listItemButtonProps?.className
                   )}
                 >
