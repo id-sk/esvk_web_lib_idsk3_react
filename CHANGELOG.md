@@ -43,6 +43,7 @@
 - _[OZO-654]_: DateInput mandatory and ref update, Checkbox optionalText update
 - _[WEB2-6123]_: DropZone update
 - _[OZO-802]_: Dialog and information banner styling changes
+- _[WEB2-6414]_: Full Breadcrumbs on mobile version
 
 * **Property changes**
   - No changes.
