@@ -44,6 +44,7 @@
 - _[WEB2-6123]_: DropZone update
 - _[OZO-802]_: Dialog and information banner styling changes
 - _[WEB2-6414]_: Full Breadcrumbs on mobile version
+- _[OZO-654]_: Tooltip fixes
 
 * **Property changes**
   - No changes.

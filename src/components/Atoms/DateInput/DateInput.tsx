@@ -9,6 +9,7 @@ import { useRifm } from 'rifm';
 import Tooltip from '../Tooltip';
 
 export interface DatePickerCustomInputProps extends HTMLProps<HTMLButtonElement> {
+  opened: boolean;
   tooltip?: string;
 }
 
@@ -242,7 +243,7 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
     }, [refreshDate]);
 
     const DatePickerCustomInput = forwardRef<HTMLButtonElement, DatePickerCustomInputProps>(
-      ({ onClick, tooltip }, pickerRef) => {
+      ({ onClick, tooltip, opened }, pickerRef) => {
         const btn = (
           <button
             className={datePickerClasses}
@@ -255,7 +256,7 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         );
         return (
           <>
-            {!!tooltip ? (
+            {!!tooltip && !opened ? (
               <Tooltip tooltip={tooltip} isInstructive>
                 {btn}
               </Tooltip>
@@ -339,7 +340,7 @@ const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
             onCalendarClose={() => setOpen(false)}
             onChange={handleDatepickerChange}
             disabled={disabled}
-            customInput={<DatePickerCustomInput tooltip={datePickerTooltip} />}
+            customInput={<DatePickerCustomInput tooltip={datePickerTooltip} opened={open} />}
             previousMonthAriaLabel={datePickerProps?.previousMonthAriaLabel}
             nextMonthAriaLabel={datePickerProps?.nextMonthAriaLabel}
           />

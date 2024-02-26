@@ -18,7 +18,7 @@ const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkO
             className: classNames(linkElement.props.className, 'absolute')
           })
         ) : (
-          <a href={href} onClick={onClick} ref={ref} title={title} className="absolute">
+          <a href={href} onClick={onClick} ref={ref} title={title}>
             {label}
           </a>
         )}
