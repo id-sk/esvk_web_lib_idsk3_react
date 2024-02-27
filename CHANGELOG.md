@@ -45,6 +45,7 @@
 - _[OZO-802]_: Dialog and information banner styling changes
 - _[WEB2-6414]_: Full Breadcrumbs on mobile version
 - _[OZO-654]_: Tooltip fixes
+- _[OZO-485]_: Mandatory state for checkbox
 
 * **Property changes**
   - No changes.

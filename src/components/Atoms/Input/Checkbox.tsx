@@ -16,6 +16,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   hasUncheckIcon?: boolean;
   optionalText?: string;
+  mandatory?: boolean;
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -30,6 +31,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       hasUncheckIcon,
       error,
       optionalText,
+      mandatory,
       ...props
     }: CheckboxProps,
     ref
@@ -101,6 +103,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           <div className={textSizeClasses}>
             {label}
             {optionalText && <span className="idsk-input__label--optional"> {optionalText}</span>}
+            {mandatory && <span className="idsk-input__label--mandatory">*</span>}
           </div>
         </label>
       </div>
