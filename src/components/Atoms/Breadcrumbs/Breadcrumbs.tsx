@@ -30,13 +30,13 @@ const Breadcrumbs = ({
         <div
           className={classNames('idsk-breadcrumbs__crumb', {
             'idsk-breadcrumbs__crumb--show-on-mobile': isOneBeforeLast && !disableMobileVersion,
-            flex: disableMobileVersion
+            'flex items-start': disableMobileVersion
           })}
         >
           <div>
             <ArrowForwardIosIcon
               className={classNames(
-                !disableMobileVersion ? 'idsk-breadcrumbs__forward-icon' : 'flex'
+                !disableMobileVersion ? 'idsk-breadcrumbs__forward-icon' : 'flex mt-[0.313rem]'
               )}
             />
           </div>

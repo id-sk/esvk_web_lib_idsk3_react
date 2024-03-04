@@ -292,7 +292,7 @@
     }
     .idsk-breadcrumbs__crumb a,
     .idsk-breadcrumbs__crumb button {
-        @apply idsk-link-s text-black visited:text-black;
+        @apply idsk-link-s text-black visited:text-black text-sm;
     }
     .idsk-breadcrumbs__crumb:last-child a,
     .idsk-breadcrumbs__crumb:last-child button {
