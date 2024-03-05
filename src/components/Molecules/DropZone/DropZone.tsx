@@ -50,6 +50,7 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   acceptFiles?: Accept | undefined;
   onChangeFiles?: (files: File[]) => void;
   onChangeRejectedFiles?: (files: FileRejection[]) => void;
+  onCancelRejection?: () => void;
 }
 
 export function DropZoneAcceptedFile({ ...props }) {
@@ -80,6 +81,7 @@ export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
       <div className="idsk-dropzone-rejected-file__close-button">
         <button
           onClick={() => {
+            props.onCancelRejection?.();
             setVisibility('hidden');
           }}
         >
@@ -260,7 +262,11 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
 
             {!!filesRejected.length &&
               filesRejected.map((f) => (
-                <DropZoneRejectedFile key={f.file.name} errorMessage={props.errorMessage}>
+                <DropZoneRejectedFile
+                  key={f.file.name}
+                  errorMessage={props.errorMessage}
+                  onCancelRejection={props.onCancelRejection}
+                >
                   {f.file.name}
                 </DropZoneRejectedFile>
               ))}

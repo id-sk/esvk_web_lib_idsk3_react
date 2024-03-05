@@ -282,7 +282,7 @@
 
     .idsk-breadcrumbs,
     .idsk-breadcrumbs__crumb {
-        @apply flex items-center gap-2;
+        @apply flex items-center gap-2 text-sm;
     }
     .idsk-breadcrumbs__crumb {
         @apply hidden tb2:flex;
