@@ -66,7 +66,7 @@ export function DropZoneAcceptedFile({ ...props }) {
   );
 }
 
-export function DropZoneRejectedFile({ ...props }: DropZoneProps) {
+export function DropZoneRejectedFile({ ...props }) {
   const [visibility, setVisibility] = useState('idsk-dropzone-rejected-file');
   return (
     <div className={visibility} key={props.key}>
@@ -224,7 +224,7 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
             {!!files.length &&
               files.map((f, index) => (
                 <DropZoneAcceptedFile
-                  key={f.name}
+                  key={index}
                   onCancel={() =>
                     setFiles((p) => {
                       const newFiles = [...p.slice(0, index), ...p.slice(index + 1, p.length)];
@@ -261,11 +261,18 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
               ))}
 
             {!!filesRejected.length &&
-              filesRejected.map((f) => (
+              filesRejected.map((f, index) => (
                 <DropZoneRejectedFile
-                  key={f.file.name}
+                  key={index}
                   errorMessage={props.errorMessage}
-                  onCancelRejection={props.onCancelRejection}
+                  onCancelRejection={() => {
+                    props.onCancelRejection?.();
+                    setFilesRejected((p) => {
+                      const newFiles = [...p.slice(0, index), ...p.slice(index + 1, p.length)];
+                      onChangeRejectedFiles?.(newFiles);
+                      return newFiles;
+                    });
+                  }}
                 >
                   {f.file.name}
                 </DropZoneRejectedFile>
