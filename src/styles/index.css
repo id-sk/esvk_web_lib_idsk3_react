@@ -282,7 +282,7 @@
 
     .idsk-breadcrumbs,
     .idsk-breadcrumbs__crumb {
-        @apply flex items-center gap-2 text-sm;
+        @apply flex items-center gap-2;
     }
     .idsk-breadcrumbs__crumb {
         @apply hidden tb2:flex;
@@ -292,7 +292,7 @@
     }
     .idsk-breadcrumbs__crumb a,
     .idsk-breadcrumbs__crumb button {
-        @apply idsk-link-s text-black visited:text-black text-sm;
+        @apply idsk-link-s text-black visited:text-black;
     }
     .idsk-breadcrumbs__crumb:last-child a,
     .idsk-breadcrumbs__crumb:last-child button {

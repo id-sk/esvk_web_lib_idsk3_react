@@ -29,14 +29,17 @@ const Breadcrumbs = ({
       return (
         <div
           className={classNames('idsk-breadcrumbs__crumb', {
-            'idsk-breadcrumbs__crumb--show-on-mobile': isOneBeforeLast && !disableMobileVersion,
+            'idsk-breadcrumbs__crumb--show-on-mobile tb2:text-base text-sm':
+              isOneBeforeLast && !disableMobileVersion,
             'flex items-start': disableMobileVersion
           })}
         >
           <div>
             <ArrowForwardIosIcon
               className={classNames(
-                !disableMobileVersion ? 'idsk-breadcrumbs__forward-icon' : 'flex mt-[0.313rem]'
+                !disableMobileVersion
+                  ? 'idsk-breadcrumbs__forward-icon'
+                  : 'flex tb2:mt-[0.55rem] mt-[0.36rem] tb2:text-base text-sm'
               )}
             />
           </div>
