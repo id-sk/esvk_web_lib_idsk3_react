@@ -268,9 +268,9 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
                   onCancelRejection={() => {
                     props.onCancelRejection?.();
                     setFilesRejected((p) => {
-                      const newFiles = [...p.slice(0, index), ...p.slice(index + 1, p.length)];
-                      onChangeRejectedFiles?.(newFiles);
-                      return newFiles;
+                      const newRejectedFiles = [...p.slice(0, index), ...p.slice(index, p.length)];
+                      onChangeRejectedFiles?.(newRejectedFiles);
+                      return newRejectedFiles;
                     });
                   }}
                 >
