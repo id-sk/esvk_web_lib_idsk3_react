@@ -44,14 +44,13 @@ const Tooltip = ({
 
   const handleLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const element = ref.current;
+    if (isVisible) {
+      setIsVisible(false);
+    }
     if (!element) return;
 
     if (!isWithin(e.clientX, e.clientY, element.getBoundingClientRect())) {
       waitingToEnterRef.current = true;
-
-      if (isVisible) {
-        setIsVisible(false);
-      }
     }
   };
 
