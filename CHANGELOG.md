@@ -60,6 +60,7 @@
 - _[OZO-740]_: Fix SkipLink
 - _[WEB2-4499]_: Fix Accordion list button
 - _[OZO-485]_: Fixed action tag onClose click event triggering even if disabled
+- _[OZO-977]_: Fixed instructive tooltip
 
 ### 🔨 Dependency Upgrades
 

@@ -1835,10 +1835,7 @@
         @apply bottom-full mb-2;
     }
     .idsk-tooltip--instructive::after {
-        @apply -translate-x-1/2 left-1/2;
-    }
-    .idsk-tooltip--instructive:hover::after {
-        @apply idsk-caption py-2 px-3 rounded;
+        @apply -translate-x-1/2 left-1/2 idsk-caption py-2 px-3 rounded;
     }
 
     .idsk-vertical-event-card {
