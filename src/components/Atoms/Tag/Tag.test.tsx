@@ -54,4 +54,11 @@ describe('Tag', () => {
     fireEvent.click(screen.getByRole('button'));
     expect(mockOnClick).toBeCalled();
   });
+
+  test('onClose will not trigger when disabled', () => {
+    const mockOnClick = jest.fn();
+    render(<Tag label="Test" type="action" onClose={mockOnClick} disabled />);
+    fireEvent.click(screen.getByRole('button'));
+    expect(mockOnClick).not.toBeCalled();
+  });
 });

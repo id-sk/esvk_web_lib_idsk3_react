@@ -14,6 +14,7 @@ export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElemen
   id?: string;
   closeButtonAriaLabel?: string;
   focusLockProps?: ReactFocusLockProps;
+  disableClickOutside?: boolean;
 }
 
 const ModalSideBar = ({
@@ -26,6 +27,7 @@ const ModalSideBar = ({
   id,
   closeButtonAriaLabel,
   focusLockProps,
+  disableClickOutside = false,
   ...props
 }: ModalSideBarProps) => {
   const shadowClasses = classNames('idsk-modal-sidebar__shadow', {
@@ -42,7 +44,9 @@ const ModalSideBar = ({
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useClickOutside(() => {
-    toggleOpened(false);
+    if (!disableClickOutside) {
+      toggleOpened(false);
+    }
   }, modalRef);
 
   return (

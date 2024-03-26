@@ -104,7 +104,13 @@ const Tag = ({
       {label}
       {rightIcon}
       {type === 'action' && (
-        <BaseButton onClick={onClose}>
+        <BaseButton
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            if (!disabled && !!onClose) {
+              onClose(e);
+            }
+          }}
+        >
           <CloseIcon className="w-5 h-5" />
         </BaseButton>
       )}

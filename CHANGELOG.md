@@ -58,7 +58,8 @@
 
 - _[WEB2-4462]_: Fix class name for the active link in Storybook
 - _[OZO-740]_: Fix SkipLink
-- _[WEB2-4499]_: Fix Accordion list button,
+- _[WEB2-4499]_: Fix Accordion list button
+- _[OZO-485]_: Fixed action tag onClose click event triggering even if disabled
 
 ### 🔨 Dependency Upgrades
 
