@@ -24,3 +24,18 @@ Default.args = {
     </p>
   )
 };
+
+export const Completed = Template.bind({});
+Completed.args = {
+  color: '#126DFF',
+  title: 'Daň z prijmov fyzických a právnických osôb za rok 2021',
+  date: new Date().getTime(),
+  isComplete: true,
+  completeLabel: 'Vyriešené',
+  children: (
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incid ut labore et
+      dolore magna aliqua.
+    </p>
+  )
+};

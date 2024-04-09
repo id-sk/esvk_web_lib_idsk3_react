@@ -326,7 +326,7 @@
         @apply relative rounded-[0.625rem] bg-white overflow-hidden idsk-text-body-1 border border-neutral-300;
     }
     .idsk-card-wrapper--with-color {
-        @apply px-[0.3125rem];
+        @apply pl-[0.3125rem];
     }
     .idsk-card-wrapper__color-strip {
         @apply absolute inset-y-0 left-0 w-[0.3125rem] h-full;
@@ -752,6 +752,9 @@
     .idsk-event-card {
         @apply px-4 py-5 grid grid-cols-[auto_1fr] gap-x-4;
     }
+    .idsk-event-card--complete {
+        @apply text-neutral-600 bg-neutral-100;
+    }
     .idsk-event-card__date {
         @apply text-center relative -top-1.5;
     }
@@ -762,7 +765,10 @@
         @apply idsk-caption text-neutral-800;
     }
     .idsk-event-card__title {
-        @apply font-bold;
+        @apply font-bold relative flex tb1:block;
+    }
+    .idsk-event-card__complete-tag {
+        @apply font-normal tb1:absolute bg-white text-black ml-4 tb1:top-1/3 tb1:-translate-y-1/2;
     }
 
     .idsk-information-banner {

@@ -46,6 +46,7 @@
 - _[WEB2-6414]_: Full Breadcrumbs on mobile version
 - _[OZO-654]_: Tooltip fixes
 - _[OZO-485]_: Mandatory state for checkbox
+- _[OZO-1027]_: EventCard isComplete state
 
 * **Property changes**
   - No changes.

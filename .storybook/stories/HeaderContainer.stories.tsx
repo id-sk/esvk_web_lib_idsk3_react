@@ -152,10 +152,7 @@ const Template: ComponentStory<typeof HeaderContainer> = (args) => {
         <p className="py-2.5">
           Toto je oficiálna webová stránka orgánu verejnej moci Slovenskej republiky. Oficiálne
           stránky využívajú najmä doménu gov.sk.{' '}
-          <a
-            href="https://www.slovensko.sk/sk/agendy/agenda/_organy-verejnej-moci"
-            target="_blank"
-          >
+          <a href="https://www.slovensko.sk/sk/agendy/agenda/_organy-verejnej-moci" target="_blank">
             Odkazy na jednotlivé webové sídla orgánov verejnej moci nájdete na tomto odkaze.
           </a>
         </p>
