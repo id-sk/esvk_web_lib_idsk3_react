@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { CloseIcon } from '../../../svgIcons/Navigation';
 import { ReactFocusLockProps } from 'react-focus-lock/interfaces';
 import useClickOutside from '../../../utils/useClickOutside';
+import Tooltip from '../Tooltip/Tooltip';
 
 export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElement> {
   opened: boolean;
@@ -15,6 +16,7 @@ export interface ModalSideBarProps extends React.AllHTMLAttributes<HTMLDivElemen
   closeButtonAriaLabel?: string;
   focusLockProps?: ReactFocusLockProps;
   disableClickOutside?: boolean;
+  closeButtonTooltip?: string;
 }
 
 const ModalSideBar = ({
@@ -28,6 +30,7 @@ const ModalSideBar = ({
   closeButtonAriaLabel,
   focusLockProps,
   disableClickOutside = false,
+  closeButtonTooltip,
   ...props
 }: ModalSideBarProps) => {
   const shadowClasses = classNames('idsk-modal-sidebar__shadow', {
@@ -71,7 +74,13 @@ const ModalSideBar = ({
                 id={id ? id + '-close-button' : undefined}
                 aria-label={closeButtonAriaLabel}
               >
-                <CloseIcon className="idsk-modal-sidebar__close-icon" />
+                {closeButtonTooltip ? (
+                  <Tooltip tooltip={closeButtonTooltip} alignLeft isInstructive>
+                    <CloseIcon className="idsk-modal-sidebar__close-icon" />
+                  </Tooltip>
+                ) : (
+                  <CloseIcon className="idsk-modal-sidebar__close-icon" />
+                )}
               </button>
             </div>
             <div className="idsk-modal-sidebar__body">{children}</div>
