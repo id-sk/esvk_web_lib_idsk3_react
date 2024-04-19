@@ -34,7 +34,7 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   buttonText?: string;
   variant?: 'active' | 'inactive';
   icon?: ReactNode;
-  errorMessage?: ReactNode;
+  errorCode?: ReactNode;
   percent?: string;
   progressWidth?: string;
   progress?: boolean;
@@ -48,6 +48,9 @@ export interface DropZoneProps extends React.AllHTMLAttributes<HTMLDivElement> {
   enableOneFile?: boolean;
   hideFiles?: boolean;
   acceptFiles?: Accept | undefined;
+  largeFileErrorMsg?: string;
+  invalidTypeMsg?: string;
+  errorMessage?: string;
   onChangeFiles?: (files: File[]) => void;
   onChangeRejectedFiles?: (files: FileRejection[]) => void;
   onCancelRejection?: () => void;
@@ -68,13 +71,24 @@ export function DropZoneAcceptedFile({ ...props }) {
 
 export function DropZoneRejectedFile({ ...props }) {
   const [visibility, setVisibility] = useState('idsk-dropzone-rejected-file');
+
+  const getErrMsg = (errorCode: string) => {
+    if (errorCode === 'file-too-large') {
+      return props.largeFileErrorMsg;
+    } else if (errorCode === 'file-invalid-type') {
+      return props.invalidTypeMsg;
+    } else {
+      return props.errorMsg;
+    }
+  };
+
   return (
     <div className={visibility} key={props.key}>
       <div className="idsk-dropzone__file-container">
         <ErrorIcon className="idsk-dropzone-rejected-file__icon" />
         <div className="idsk-dropzone-rejected-file__container">
           <div className="idsk-dropzone-rejected-file__name">{props.children}</div>
-          <p className="idsk-dropzone-rejected-file__error-message">{props.errorMessage}</p>
+          <p className="idsk-dropzone-rejected-file__error-message">{getErrMsg(props.errorCode)}</p>
         </div>
       </div>
 
@@ -263,8 +277,11 @@ const DropZone = React.forwardRef<DropZoneRefProps, DropZoneProps>(
             {!!filesRejected.length &&
               filesRejected.map((f, index) => (
                 <DropZoneRejectedFile
-                  key={index}
                   errorMessage={props.errorMessage}
+                  largeFileErrorMsg={props.largeFileErrorMsg}
+                  invalidTypeMsg={props.invalidTypeMsg}
+                  key={index}
+                  errorCode={f.errors[0].code}
                   onCancelRejection={() => {
                     props.onCancelRejection?.();
                     setFilesRejected((p) => {
