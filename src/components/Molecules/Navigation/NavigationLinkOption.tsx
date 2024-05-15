@@ -7,10 +7,11 @@ export interface NavigationLinkOptionProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   linkElement?: ReactElement;
   title?: string;
+  selected?: boolean;
 }
 
 const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkOptionProps>(
-  ({ label, href, onClick, linkElement, title }, ref) => {
+  ({ label, href, onClick, linkElement, title, selected }, ref) => {
     return (
       <>
         {!!linkElement ? (
@@ -18,7 +19,15 @@ const NavigationLinkOption = React.forwardRef<HTMLAnchorElement, NavigationLinkO
             className: classNames(linkElement.props.className, 'absolute')
           })
         ) : (
-          <a href={href} onClick={onClick} ref={ref} title={title}>
+          <a
+            href={href}
+            onClick={onClick}
+            ref={ref}
+            title={title}
+            className={classNames({
+              'idsk-navigation__link--dropdown-link': selected
+            })}
+          >
             {label}
           </a>
         )}

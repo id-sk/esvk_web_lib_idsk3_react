@@ -20,9 +20,13 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
           id={id}
           dropDownTitle={label}
           arrowIcon={<ExpandMoreIcon className="idsk-navigation__arrow-icon" />}
-          className="idsk-navigation__dropdown"
+          className={classNames('idsk-navigation__dropdown', {
+            'idsk-navigation__link--dropdown': selected
+          })}
           optionClassName="idsk-navigation__dropdown-options"
-          buttonClassName="idsk-navigation__dropdown-button"
+          buttonClassName={classNames('idsk-navigation__dropdown-button', {
+            'idsk-navigation__link--dropdown-link': selected
+          })}
         >
           {children}
         </DropDown>
